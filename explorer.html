@@ -92,7 +92,7 @@ canvas.couche{width:100%;height:100%;display:block;z-index:1}
 
 .suite{max-width:740px;margin:0 auto;padding:5rem 1.5rem 7rem;color:var(--gris);text-align:center}
 .suite h2{font-family:var(--titre);color:var(--blanc);font-size:1.8rem;margin:0 0 1rem}
-@media (max-width:860px){.menu{display:none}.voile{background:linear-gradient(180deg,rgba(5,10,32,.45),rgba(5,10,32,.9))}
+@media (max-width:860px){.voile{background:linear-gradient(180deg,rgba(5,10,32,.45),rgba(5,10,32,.9))}
   .heros__texte{padding-bottom:16rem}}
 
 /* ---------- bulles de fond, sur toute la page ---------- */
@@ -454,6 +454,27 @@ h2.titre2{font-family:var(--titre);font-size:clamp(1.8rem,3.4vw,2.8rem);margin:0
   stroke-linecap:round;stroke-linejoin:round;
   filter:drop-shadow(0 0 8px rgba(103,232,249,.75))}
 
+
+/* ---------- menu mobile ---------- */
+.burger{display:none;flex-direction:column;gap:5px;padding:.6rem;border:1px solid var(--bord);
+  border-radius:10px;background:rgba(6,10,32,.6);cursor:pointer}
+.burger span{width:20px;height:1.6px;background:#fff;border-radius:2px;transition:.3s}
+.entete.menu-ouvert .burger span:nth-child(1){transform:translateY(6.6px) rotate(45deg)}
+.entete.menu-ouvert .burger span:nth-child(2){opacity:0}
+.entete.menu-ouvert .burger span:nth-child(3){transform:translateY(-6.6px) rotate(-45deg)}
+@media (max-width:860px){
+  .burger{display:inline-flex}
+  .entete{gap:.6rem}
+  .entete.menu-ouvert{background:#03040f;border-bottom-color:var(--bord)}
+  .menu{display:flex;position:fixed;top:0;left:0;width:100vw;height:100dvh;z-index:1;
+    flex-direction:column;align-items:stretch;gap:.1rem;margin:0;
+    padding:5.6rem 1.6rem 3rem;background:#03040f;overflow-y:auto;
+    transform:translateX(100%);transition:transform .38s cubic-bezier(.2,.8,.25,1)}
+  .menu.ouvert{transform:none}
+  .menu a{font-size:1.06rem;padding:.85rem .2rem;border-bottom:1px solid rgba(140,150,235,.12)}
+  .marque,.outils{position:relative;z-index:2}
+}
+
 @media (prefers-reduced-motion:reduce){*{animation:none!important}}
 </style>
 </head>
@@ -479,6 +500,7 @@ h2.titre2{font-family:var(--titre);font-size:clamp(1.8rem,3.4vw,2.8rem);margin:0
       </button>
       <ul class="langues__liste" id="langue-liste"></ul>
     </div>
+    <button class="burger" id="burger" aria-label="Menu" aria-expanded="false"><span></span><span></span><span></span></button>
     <button class="rond" aria-label="Rechercher">
       <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg>
     </button>
@@ -870,5 +892,29 @@ const CONTINENTS=[[[143.2,-12.0],[143.5,-13.1],[143.8,-14.3],[144.9,-14.7],[145.
 
 
 </script>
+
+<script>
+(function(){
+  const b=document.getElementById("burger");
+  if(!b) return;
+  const menu=document.querySelector(".menu");
+  const entete=document.querySelector(".entete");
+  function bascule(ouvrir){
+    menu.classList.toggle("ouvert",ouvrir);
+    entete.classList.toggle("menu-ouvert",ouvrir);
+    b.setAttribute("aria-expanded",String(ouvrir));
+    document.body.style.overflow=ouvrir?"hidden":"";
+  }
+  b.addEventListener("click",function(e){
+    e.stopPropagation();
+    bascule(!menu.classList.contains("ouvert"));
+  });
+  menu.querySelectorAll("a").forEach(function(a){
+    a.addEventListener("click",function(){ bascule(false); });
+  });
+  document.addEventListener("keydown",function(e){ if(e.key==="Escape") bascule(false); });
+})();
+</script>
+
 </body>
 </html>
