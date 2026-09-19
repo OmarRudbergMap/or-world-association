@@ -1,0 +1,51 @@
+# O.R. WORLD ASSOCIATION — SITE, PREMIÈRE MISE EN LIGNE
+
+Ce dossier contient le site complet, prêt à être publié sur GitHub Pages.
+
+## Les fichiers
+
+index.html ............ la page d'accueil
+explorer.html ......... les sept univers
+concerts.html ......... les 61 concerts, setlists comprises
+membres.html .......... devenir membre
+adhesion.html ......... la fiche d'adhésion en six étapes
+espace.html ........... mon univers O.R.
+boutique.html ......... la boutique et le panier
+livre.html ............ le livre collaboratif
+communaute.html ....... projets, votes, concours, événements, galerie
+journal.html .......... les articles
+radio-day.html ........ Omar Global Radio Day
+
+Chaque page affiche son numéro de version en bas à droite.
+Après un Push, c'est ce numéro qui vous dit si la mise en ligne a fonctionné.
+
+## Mettre en ligne, étape par étape
+
+1. Copiez TOUT le contenu de ce dossier dans le dossier du dépôt GitHub
+   (celui que GitHub Desktop a créé lors du Clone).
+2. Ouvrez GitHub Desktop : les fichiers apparaissent à gauche.
+3. En bas à gauche, écrivez un résumé, par exemple « Première version du site ».
+4. Cliquez sur **Commit to main**, puis sur **Push origin** en haut.
+5. Sur github.com, dans le dépôt : **Settings → Pages**.
+   Source : **Deploy from a branch** · Branch : **main** · Dossier : **/ (root)** · Save.
+6. Attendez deux à trois minutes, puis ouvrez l'adresse indiquée par GitHub.
+
+## Ensuite, à chaque modification
+
+Pull (avant de commencer) → modifications → Commit → Push → vérifier le numéro de version.
+
+## Ce qui ne fonctionne pas encore
+
+Ces éléments sont visuels pour l'instant ; ils s'animeront quand Supabase,
+Stripe et PayPal seront branchés :
+
+- création de compte, connexion, espace membre
+- paiement de l'adhésion et commandes de la boutique
+- envoi des histoires, des projets, des photos et des articles
+- compteurs (ils affichent zéro)
+- e-mails automatiques et factures
+
+## Rappel important
+
+Aucune clé secrète ne doit jamais être placée dans ce dossier : il est public.
+Les clés vivent dans Supabase et dans votre gestionnaire de mots de passe.
