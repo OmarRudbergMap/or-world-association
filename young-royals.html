@@ -3,8 +3,8 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>La communauté · O.R. World Association</title>
-<!-- version : COMMUNAUTE-002 -->
+<title>Young Royals · O.R. World Association</title>
+<!-- version : ROYALS-002 -->
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:opsz,wght@6..96,400;6..96,500&family=Caveat:wght@500;600&family=Jost:wght@200;300;400&display=swap" rel="stylesheet">
@@ -413,53 +413,6 @@ h2.titre2{font-family:var(--titre);font-size:clamp(1.8rem,3.4vw,2.8rem);margin:0
 .pseudo:focus-within{border-color:var(--violet-clair);box-shadow:0 0 20px rgba(167,139,250,.35)}
 
 
-.projets{display:grid;grid-template-columns:repeat(2,1fr);gap:1.1rem;margin-top:1.4rem}
-.projet{padding:1.5rem;border:1px solid var(--bord);border-radius:16px;
-  background:linear-gradient(160deg,rgba(16,20,56,.75),rgba(4,7,24,.9))}
-.projet .cat{font-size:.64rem;letter-spacing:.18em;color:var(--rose)}
-.projet b{display:block;font-family:var(--titre);font-size:1.25rem;font-weight:500;margin:.4rem 0 .5rem}
-.projet p{color:var(--gris);font-size:.9rem;margin:0 0 1.2rem}
-.projet__bas{display:flex;justify-content:space-between;align-items:center;gap:.8rem}
-.votes{color:var(--cyan);font-size:.85rem}
-.votes b{display:inline;font-family:var(--texte);font-size:1.1rem;color:var(--cyan)}
-.voter.vote{border-color:var(--cyan);color:#fff;background:linear-gradient(120deg,rgba(91,141,255,.45),rgba(103,232,249,.3))}
-
-.concours-grille{display:grid;grid-template-columns:repeat(3,1fr);gap:1.1rem;margin-top:1.4rem}
-.concours{padding:1.5rem;border:1px solid var(--bord);border-radius:16px;background:rgba(8,12,34,.6);
-  display:flex;flex-direction:column;gap:.5rem}
-.concours b{font-family:var(--titre);font-size:1.2rem;font-weight:500}
-.concours p{color:var(--gris);font-size:.9rem;margin:0}
-.concours small{color:#8d86ab;font-size:.78rem;margin-bottom:.6rem}
-.concours .btn{align-self:flex-start;margin-top:auto}
-.etat-ouvert,.etat-attente,.etat-fini{align-self:flex-start;padding:.24rem .8rem;border-radius:999px;
-  font-size:.62rem;letter-spacing:.14em}
-.etat-ouvert{background:rgba(103,232,249,.2);color:var(--cyan)}
-.etat-attente{background:rgba(232,121,249,.18);color:var(--rose)}
-.etat-fini{background:rgba(255,255,255,.1);color:var(--gris)}
-
-.evenements{display:grid;gap:.9rem;margin-top:1.4rem}
-.evenement{display:grid;grid-template-columns:auto 1fr auto;gap:1.4rem;align-items:center;
-  padding:1.1rem 1.4rem;border:1px solid var(--bord);border-radius:14px;background:rgba(8,12,34,.55)}
-.date{text-align:center;min-width:64px}
-.date b{display:block;font-family:var(--titre);font-size:1.6rem;color:var(--cyan);
-  text-shadow:0 0 18px rgba(103,232,249,.5)}
-.date span{font-size:.62rem;letter-spacing:.18em;color:var(--gris)}
-.evenement b{font-weight:400}
-.evenement p{color:var(--gris);font-size:.88rem;margin:.2rem 0 0}
-.etiq-ev{font-size:.66rem;letter-spacing:.12em;color:var(--gris);white-space:nowrap}
-
-.galerie{display:grid;grid-template-columns:repeat(6,1fr);gap:.9rem;margin:1.4rem 0}
-.case-photo{aspect-ratio:1;border:1px solid var(--bord);border-radius:14px;display:grid;place-items:center;
-  background:linear-gradient(150deg,rgba(124,58,237,.35),rgba(4,7,24,.9));color:var(--gris);
-  font-size:.66rem;letter-spacing:.14em}
-.proposer{margin-top:2rem;padding:1.6rem;border:1px solid var(--bord);border-radius:18px;background:rgba(6,10,32,.6)}
-.proposer h3{font-family:var(--titre);font-size:1.3rem;margin:0 0 .3rem}
-.champ textarea,.champ select{width:100%;padding:.85rem 1rem;border:1px solid var(--bord);border-radius:10px;
-  background:rgba(2,4,16,.75);color:#fff;font-family:var(--texte);font-size:.95rem;resize:vertical}
-@media (max-width:1000px){.projets,.concours-grille{grid-template-columns:1fr}.galerie{grid-template-columns:repeat(3,1fr)}}
-@media (max-width:620px){.galerie{grid-template-columns:1fr 1fr}.evenement{grid-template-columns:auto 1fr}}
-
-
 /* ---------- menu mobile ---------- */
 .burger{display:none;flex-direction:column;gap:5px;padding:.6rem;border:1px solid var(--bord);
   border-radius:10px;background:rgba(6,10,32,.6);cursor:pointer}
@@ -480,6 +433,59 @@ h2.titre2{font-family:var(--titre);font-size:clamp(1.8rem,3.4vw,2.8rem);margin:0
   .marque,.outils{position:relative;z-index:2}
 }
 
+
+.filtres{display:flex;gap:.4rem;flex-wrap:wrap;margin:1.2rem 0 1.6rem}
+.filtre{padding:.45rem 1.2rem;border:1px solid var(--bord);border-radius:999px;background:rgba(8,12,34,.55);
+  color:var(--gris);font-family:var(--texte);font-size:.85rem;cursor:pointer}
+.filtre.actif{border-color:var(--violet-clair);color:#fff;box-shadow:0 0 18px rgba(167,139,250,.3)}
+.titre-ep{font-family:var(--titre);font-size:1.5rem;font-weight:500;margin:2rem 0 1rem;
+  color:var(--cyan);text-shadow:0 0 18px rgba(103,232,249,.5)}
+.episode:first-child .titre-ep{margin-top:.5rem}
+.scene{border:1px solid var(--bord);border-radius:14px;background:rgba(8,12,34,.55);
+  margin-bottom:.7rem;overflow:hidden}
+.scene summary{display:flex;align-items:baseline;gap:.9rem;padding:1rem 1.2rem;cursor:pointer;
+  list-style:none;font-size:1rem;color:#e6ecff}
+.scene summary::-webkit-details-marker{display:none}
+.scene summary::after{content:"＋";margin-left:auto;color:var(--cyan);flex:none}
+.scene[open] summary::after{content:"−"}
+.scene[open]{border-color:var(--violet-clair);box-shadow:0 0 26px rgba(120,150,255,.16)}
+.num-scene{font-family:var(--titre);font-size:.85rem;color:var(--rose);flex:none;letter-spacing:.08em}
+.texte-scene{padding:0 1.4rem 1.4rem;color:var(--gris);line-height:1.85;font-size:.95rem;
+  max-width:78ch}
+.texte-scene p{margin:0 0 1rem}
+.aucune{padding:1.6rem;border:1.5px dashed var(--bord);border-radius:14px;color:var(--gris);
+  font-size:.92rem;text-align:center;margin-top:1.4rem}
+.proposer,.infolettre{padding:1.6rem;border:1px solid var(--bord);border-radius:18px;background:rgba(6,10,32,.6)}
+.proposer h3,.infolettre h3{font-family:var(--titre);font-size:1.3rem;margin:0 0 .3rem}
+.champ textarea{width:100%;padding:.85rem 1rem;border:1px solid var(--bord);border-radius:10px;
+  background:rgba(2,4,16,.75);color:#fff;font-family:var(--texte);font-size:.95rem;resize:vertical}
+
+
+.fiche{display:grid;grid-template-columns:repeat(3,1fr);gap:1.1rem;margin:1.6rem 0}
+.bloc-fiche{padding:1.4rem;border:1px solid var(--bord);border-radius:16px;background:rgba(8,12,34,.55)}
+.bloc-fiche h3{font-size:.66rem;letter-spacing:.2em;color:var(--cyan);margin:0 0 1rem;
+  text-shadow:0 0 12px rgba(103,232,249,.5)}
+.bloc-fiche ul{list-style:none;margin:0;padding:0;display:grid;gap:.8rem}
+.bloc-fiche b{display:block;font-weight:400;color:#fff;font-size:.95rem}
+.bloc-fiche span{color:var(--gris);font-size:.86rem}
+.resume{padding:1.8rem;border:1px solid var(--bord);border-left:2px solid var(--rose);border-radius:0 18px 18px 0;
+  background:rgba(232,121,249,.05)}
+.resume h3{font-family:var(--titre);font-size:1.3rem;margin:0 0 .9rem}
+.resume p{color:var(--gris);line-height:1.85;margin:0 0 1rem}
+.citations{display:grid;gap:.9rem;margin:1.2rem 0}
+.citations blockquote{margin:0;padding:1.2rem 1.4rem;border:1px solid var(--bord);border-radius:14px;
+  background:rgba(8,12,34,.55);color:#dfe7ff;line-height:1.7;font-size:.95rem}
+.citations cite{display:block;margin-top:.7rem;font-style:normal;font-size:.78rem;color:#8d86ab}
+.emplacements{display:grid;grid-template-columns:repeat(4,1fr);gap:.9rem;margin:1rem 0 1.6rem}
+.emplacement{padding:1.3rem 1rem;border:1.5px dashed var(--bord);border-radius:14px;text-align:center;
+  background:rgba(6,10,30,.5)}
+.emplacement b{display:block;font-weight:400;color:#e6ecff;font-size:.92rem}
+.emplacement span{font-size:.72rem;color:#8d86ab}
+.vide-bloc{padding:1.4rem;border:1.5px dashed var(--bord);border-radius:14px;color:var(--gris);
+  font-size:.92rem;margin:1rem 0}
+.vide-bloc p{margin:0}
+@media (max-width:1000px){.fiche{grid-template-columns:1fr}.emplacements{grid-template-columns:1fr 1fr}}
+
 @media (prefers-reduced-motion:reduce){*{animation:none!important}}
 </style>
 </head>
@@ -491,7 +497,7 @@ h2.titre2{font-family:var(--titre);font-size:clamp(1.8rem,3.4vw,2.8rem);margin:0
     <li><a href="index.html" data-i18n="nav.accueil"></a></li>
     <li><a href="explorer.html" class="" data-i18n="nav.explorer"></a></li>
     <li><a href="young-royals.html" class="" data-i18n="nav.royals"></a></li>
-    <li><a href="communaute.html" class="actif" data-i18n="nav.communaute"></a></li>
+    <li><a href="communaute.html" class="" data-i18n="nav.communaute"></a></li>
     <li><a href="membres.html" data-i18n="nav.membres"></a></li>
     <li><a href="boutique.html" class="" data-i18n="nav.boutique"></a></li>
     <li><a href="livre.html" class="" data-i18n="nav.livre"></a></li>
@@ -519,166 +525,349 @@ h2.titre2{font-family:var(--titre);font-size:clamp(1.8rem,3.4vw,2.8rem);margin:0
 
 <section class="section" style="padding-top:clamp(8rem,15vh,11rem);padding-bottom:1rem">
   <div class="contenu" style="max-width:940px;text-align:center">
-    <p class="chapeau">LA COMMUNAUTÉ</p>
-    <h1 class="titre2" style="font-size:clamp(2.2rem,5vw,3.4rem)">Ce monde est celui des fans</h1>
-    <p class="intro2" style="margin-inline:auto">Les projets naissent ici, les membres les choisissent, et l'association les réalise. Concours, ateliers, événements : chacun participe selon ses envies et ses talents.</p>
+    <p class="chapeau">YOUNG ROYALS</p>
+    <h1 class="titre2" style="font-size:clamp(2.2rem,5vw,3.4rem)">Ce qu'ils ne disent pas</h1>
+    <p class="intro2" style="margin-inline:auto">Beaucoup d'entre nous ont découvert Omar grâce à Young Royals, dans le rôle bouleversant de Simon Eriksson. Cette série n'est pas qu'une série : c'est une ode à la liberté d'aimer, un miroir des émotions les plus humaines, une histoire où la tendresse l'emporte sur la peur et le silence.</p>
+    <p class="mention" style="margin-inline:auto;max-width:60ch">Young Royals est une série originale Netflix. Tous les droits liés à la série, à ses personnages et à son univers appartiennent à Netflix et aux ayants droit. La O.R. World Association est une association de fans indépendante et sans but lucratif, sans lien officiel avec Netflix.</p>
   </div>
 </section>
 
 <section class="section" style="padding-top:1rem">
   <div class="contenu">
     <div class="compteurs">
-      <div class="compteur"><b>0</b><span>PROJETS PROPOSÉS</span></div>
-      <div class="compteur"><b>0</b><span>VOTES EXPRIMÉS</span></div>
-      <div class="compteur"><b>0</b><span>CONCOURS</span></div>
-      <div class="compteur"><b>0</b><span>ATELIERS</span></div>
-      <div class="compteur"><b>0</b><span>ÉVÉNEMENTS</span></div>
-      <div class="compteur"><b>0</b><span>PAYS MOBILISÉS</span></div>
+      <div class="compteur"><b>3</b><span>SAISONS</span></div>
+      <div class="compteur"><b>18</b><span>ÉPISODES</span></div>
+      <div class="compteur"><b>32</b><span>SCÈNES ANALYSÉES</span></div>
+      <div class="compteur"><b>12</b><span>PAYS AU TOP 10</span></div>
+      <div class="compteur"><b>9,8 M</b><span>HEURES VUES</span></div>
+      <div class="compteur"><b>2</b><span>CHANSONS EN CONCERT</span></div>
     </div>
   </div>
 </section>
 
+
 <section class="section" style="padding-top:1rem">
   <div class="contenu">
-    <h2 class="titre2" style="font-size:1.8rem">Les projets soumis au vote</h2>
-    <p class="intro2">Chaque membre dispose d'une voix par projet. Le projet le plus soutenu est réalisé en priorité, dans la limite de ce que l'association peut faire.</p>
-    <div class="projets">
-      <article class="projet">
-        <span class="cat">Projet concert</span>
-        <b>Bannière géante au prochain concert</b>
-        <p>Une banderole portée par les fans du premier rang, cousue lors d'un atelier.</p>
-        <div class="projet__bas">
-          <span class="votes"><b data-votes>0</b> votes</span>
-          <button class="btn btn--fin voter">Voter</button>
-        </div>
-      </article>
-      <article class="projet">
-        <span class="cat">Cadeau</span>
-        <b>Album photo offert à Omar</b>
-        <p>Un album relié rassemblant les photos et les messages des fans du monde entier.</p>
-        <div class="projet__bas">
-          <span class="votes"><b data-votes>0</b> votes</span>
-          <button class="btn btn--fin voter">Voter</button>
-        </div>
-      </article>
-      <article class="projet">
-        <span class="cat">Projet concert</span>
-        <b>Bracelets lumineux coordonnés</b>
-        <p>Des bracelets distribués avant le concert, allumés tous ensemble sur une chanson.</p>
-        <div class="projet__bas">
-          <span class="votes"><b data-votes>0</b> votes</span>
-          <button class="btn btn--fin voter">Voter</button>
-        </div>
-      </article>
-      <article class="projet">
-        <span class="cat">Artistique</span>
-        <b>Fresque collective</b>
-        <p>Une œuvre composée de centaines de dessins envoyés par la communauté.</p>
-        <div class="projet__bas">
-          <span class="votes"><b data-votes>0</b> votes</span>
-          <button class="btn btn--fin voter">Voter</button>
-        </div>
-      </article>
-    </div>
+    <h2 class="titre2" style="font-size:1.8rem">La série</h2>
+    <p class="intro2">Omar Rudberg s'est fait connaître du grand public grâce à son rôle dans Young Royals, diffusée sur Netflix. Ce projet lui a permis de toucher un large public international et de montrer son talent d'acteur comme de chanteur. Young Royals est une série Netflix de 18 épisodes répartis en 3 saisons, diffusée du 1er juillet 2021 au 18 mars 2024.</p>
 
-    <div class="proposer">
-      <h3>Proposer un projet</h3>
-      <p class="mention">Une idée de projet pour un concert, un cadeau, une action artistique ? Décrivez-la : elle sera relue, puis soumise au vote.</p>
-      <div class="grille2">
-        <label class="champ"><span>Titre du projet</span><input type="text"></label>
-        <label class="champ"><span>Catégorie</span>
-          <select><option>Projet concert</option><option>Cadeau pour Omar</option><option>Artistique</option><option>Solidaire</option><option>Autre</option></select>
-        </label>
+    <div class="fiche">
+      <div class="bloc-fiche">
+        <h3>Dates de sortie</h3>
+        <ul>
+          <li><b>Saison 1</b><span>1er juillet 2021</span></li>
+          <li><b>Saison 2</b><span>1er novembre 2022</span></li>
+          <li><b>Saison 3</b><span>11 mars 2024 (épisodes 1 à 5) · finale le 18 mars 2024</span></li>
+        </ul>
       </div>
-      <label class="champ"><span>Description</span><textarea rows="4" placeholder="En quelques lignes…"></textarea></label>
-      <button class="btn btn--fin">Envoyer ma proposition</button>
+      <div class="bloc-fiche">
+        <h3>Les créateurs</h3>
+        <ul>
+          <li><b>Créée par</b><span>Lisa Ambjörn, Lars Beckung et Camilla Holter</span></li>
+          <li><b>Acteurs principaux</b><span>Edvin Ryding (prince Wilhelm), Omar Rudberg (Simon Eriksson), Malte Gårdinger</span></li>
+          <li><b>Production</b><span>Nexiko AB pour Netflix</span></li>
+        </ul>
+      </div>
+      <div class="bloc-fiche">
+        <h3>Les lieux de tournage</h3>
+        <ul>
+          <li><b>Hillerska</b><span>Kaggeholms Gård, commune d'Ekerö, près de Stockholm</span></li>
+          <li><b>Le palais royal</b><span>château de Stora Sundby, commune d'Eskilstuna, Södermanland</span></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="resume">
+      <h3>Le résumé</h3>
+      <p>Young Royals est une fresque fragile et bouleversante, une histoire d'amour interdite et pourtant inévitable, qui fait battre le cœur avec une rare intensité.</p>
+      <p>En son centre : le prince Wilhelm de Suède, arraché à son adolescence insouciante et jeté dans les exigences étouffantes de la royauté. À Hillerska, pensionnat d'élite, il rencontre Simon, un garçon d'origine modeste, porteur d'une vérité brute et d'une tendresse indomptée. Dès leur premier regard, quelque chose d'invisible se met en marche, une force qui dépasse la raison et les lois du monde.</p>
+      <p>Prisonnier des attentes de la Couronne, Wilhelm découvre avec Simon le vertige d'aimer librement, comme si chaque souffle était une rébellion et chaque baiser une victoire sur le destin. Mais cet amour est menacé par les chaînes de la monarchie, les regards indiscrets et la violence de ceux qui ne tolèrent pas la différence. Une vidéo volée, des secrets arrachés, des silences imposés deviennent autant de lames qui entaillent leur innocence.</p>
+      <p>Et pourtant, même dans la douleur, l'amour de Wilhelm et de Simon devient un phare, une promesse de lumière dans l'obscurité.</p>
+      <p>Young Royals n'est pas qu'une romance : c'est une élégie de la jeunesse, une ode à la vulnérabilité, un chant pour tous ceux qui ont aimé contre le monde. C'est une série qui vous brise le cœur pour mieux le réparer, qui fait pleurer et rêver, et qui laisse l'empreinte d'un amour si pur qu'il en devient éternel.</p>
     </div>
   </div>
 </section>
 
 <section class="section" style="padding-top:1rem">
-  <div class="contenu">
-    <h2 class="titre2" style="font-size:1.8rem">Jeux concours</h2>
-    <p class="intro2">Réservés aux membres, sans frais de participation. Les gagnants sont désignés par un jury, ou par tirage au sort public sur un site officiel et vérifiable.</p>
-    <div class="concours-grille">
-      <article class="concours">
-        <span class="etat-ouvert">En cours</span>
-        <b>Concours de dessin</b>
-        <p>Dessinez l'univers d'Omar. Un jury choisit les trois plus belles œuvres.</p>
-        <small>Ouvert · jusqu'au 31 octobre</small>
-        <button class="btn">Participer</button>
-      </article>
-      <article class="concours">
-        <span class="etat-attente">À venir</span>
-        <b>Concours d'écriture</b>
-        <p>Un texte de dix lignes sur ce que sa musique vous apporte.</p>
-        <small>Ouverture en novembre</small>
-        <button class="btn btn--fin" disabled>Bientôt</button>
-      </article>
-      <article class="concours">
-        <span class="etat-fini">Terminé</span>
-        <b>Design du mois</b>
-        <p>Le dessin gagnant devient un produit de la boutique.</p>
-        <small>Terminé · gagnante annoncée sur Instagram</small>
-        <button class="btn btn--fin">Voir le résultat</button>
-      </article>
-    </div>
+  <div class="contenu" style="max-width:880px">
+    <h2 class="titre2" style="font-size:1.8rem">Pourquoi cette série compte</h2>
+    <p class="intro2">Dès la première saison, elle est devenue un phénomène mondial : classée dans le top 10 de Netflix dans plus de douze pays, plus de 9,8 millions d'heures vues. Un succès né de l'alchimie exceptionnelle entre les deux acteurs, mais aussi d'une réalisation délicate, d'une musique poignante et d'une justesse d'émotion qui touche en plein cœur.</p>
+    <p class="intro2">Pour beaucoup d'entre nous, cette série a laissé une marque indélébile. Elle émeut, elle inspire, elle apaise. Et pour Omar, c'était son premier grand rôle d'acteur, un rôle qu'il a habité avec une vérité bouleversante.</p>
+    <p class="intro2">Nous voulons travailler autour des émotions et des non-dits : analyser les sentiments profonds de Simon et de Wilhelm, explorer ce qu'ils ne disent pas mais que leurs yeux expriment. Ce travail est collaboratif : vous, les membres, êtes invités à partager vos ressentis, vos interprétations, vos mots. Parce que Young Royals appartient à toutes celles et ceux qu'elle a touchés.</p>
   </div>
 </section>
 
 <section class="section" style="padding-top:1rem">
   <div class="contenu">
-    <h2 class="titre2" style="font-size:1.8rem">Ateliers créatifs</h2>
-    <p class="intro2">On crée ensemble, à distance ou sur place : design, bracelets, affiches, éléments de projets de concert. Chacun apporte ce qu'il sait faire, et on apprend le reste.</p>
-    <div class="trio">
-      <article class="vignette"><h3>DESIGN</h3><p>Visuels des produits, affiches, cartes. Une idée validée devient un objet de la boutique.</p></article>
-      <article class="vignette"><h3>FAIT MAIN</h3><p>Bracelets, porte-clés, décorations pour les concerts, cousus et assemblés ensemble.</p></article>
-      <article class="vignette"><h3>ÉCRITURE</h3><p>Textes du livre collaboratif, messages collectifs, slogans pour les projets.</p></article>
+    <h2 class="titre2" style="font-size:1.8rem">Scène par scène</h2>
+    <p class="intro2">Chaque scène est racontée et analysée. Cliquez sur une scène pour la lire.</p>
+
+    <div class="filtres">
+      <button class="filtre actif" data-saison="1">Saison 1</button>
+      <button class="filtre" data-saison="2">Saison 2</button>
+      <button class="filtre" data-saison="3">Saison 3</button>
+    </div>
+
+    <div class="saison" data-saison="1">
+    <div class="episode" data-ep="1">
+      <h3 class="titre-ep">Épisode 1</h3>
+      <details class="scene">
+        <summary><span class="num-scene">Scène 01</span>La chute du prince, le début d&#x27;un destin brisé</summary>
+        <div class="texte-scene"><p>La nuit aurait dû être légère, presque douce, une parenthèse où Wilhelm pourrait enfin respirer loin des attentes et des regards. Au milieu des rires, des lumières et de cette foule qui se croit libre, il tente lui aussi de s&#x27;abandonner à l&#x27;instant. Mais même entouré de monde, il se sent terriblement seul, comme si quelque chose en lui ne trouvait jamais vraiment sa place.</p><p>Et puis, d&#x27;un coup, tout se fissure. Un échange tendu, un geste trop brusque, un instant où ses nerfs lâchent, et son monde chavire. Le coup part, le flash le capture, et en une fraction de seconde, il comprend que son erreur va lui coûter bien plus qu&#x27;un simple moment d&#x27;égarement. La photo circule déjà, implacable.</p><p>Alors il fuit jusqu&#x27;aux toilettes où il tente désespérément de reprendre son souffle. Seul face au miroir, les mains tremblantes, il lutte contre cette angoisse qui le dévore depuis des années : la peur de décevoir, de briser l&#x27;image impeccable qu&#x27;on exige de lui, d&#x27;être encore une fois le problème qu&#x27;il faut corriger. Dans cet espace étroit, il n&#x27;est plus un prince : juste un garçon dépassé, épuisé.</p><p>Un coup à la porte le ramène à la réalité. La secrétaire de la garde royale n&#x27;a pas besoin de parler fort pour lui rappeler que sa vie ne lui appartient pas. Elle lui annonce la marche à suivre, le discours qu&#x27;il devra réciter, les mots choisis pour réparer les apparences : pas son cœur, pas sa peine, seulement l&#x27;image de la monarchie.</p><p>Et lorsqu&#x27;on lui annonce qu&#x27;il sera envoyé à Hillerska, le pensionnat que sa famille érige en modèle depuis des générations, un autre vertige le saisit. Ce n&#x27;est pas seulement une punition : c&#x27;est un exil. Il tente de protester, de se tourner vers sa mère, espérant qu&#x27;elle comprendra la détresse qui l&#x27;étouffe. Mais elle ne voit que le prince, jamais le fils.</p><p>« Je veux juste une vie normale… » murmure-t-il une dernière fois. Ses mots se brisent contre l&#x27;indifférence polie de la reine, qui lui répète qu&#x27;être prince est un privilège, pas une punition. Pour Wilhelm, c&#x27;est une cage dorée qui se referme un peu plus.</p><p>Alors on le maquille, on couvre les traces de la nuit, on ajuste son costume. Chaque geste efface un peu plus celui qu&#x27;il est. Devant les caméras, il récite des excuses qu&#x27;il n&#x27;a pas écrites, la gorge serrée. Sa famille le regarde avec froideur, comme un symbole à remettre en place, pas un adolescent en train de s&#x27;effondrer.</p><p>Ce soir-là, Wilhelm comprend que dans son univers, être soi-même est un luxe inaccessible. Mais sans le savoir encore, c&#x27;est précisément au moment où tout s&#x27;écroule que quelque chose de nouveau commence.</p></div>
+      </details>
+      <details class="scene">
+        <summary><span class="num-scene">Scène 02</span>L&#x27;arrivée à Hillerska : premiers pas, premiers doutes, première étincelle</summary>
+        <div class="texte-scene"><p>À Hillerska, tout semble se dérouler comme dans un monde à part, réglé à la seconde. Les rames qui fendent l&#x27;eau à l&#x27;aube, les sabots dans les écuries, les uniformes impeccables, les regards fixes. Ce matin-là, cette mécanique parfaitement huilée s&#x27;agite d&#x27;une ferveur inhabituelle : les princes arrivent.</p><p>Erik, l&#x27;aîné, ouvre la marche avec son assurance naturelle. À côté de lui, Wilhelm s&#x27;enfonce dans son siège et regarde défiler le paysage sans vraiment le voir. Il sent déjà ce poids familier : celui de la lignée, de l&#x27;héritage, d&#x27;un rôle qu&#x27;on ne lui a jamais demandé s&#x27;il voulait tenir.</p><p>La directrice les accueille avec une précision presque militaire. À ses côtés, August, leur cousin, arbore ce sourire satisfait que Wilhelm connaît trop bien. Quand Alexander, un élève intimidé, s&#x27;avance pour porter ses bagages — un ordre d&#x27;August, évidemment — Wilhelm se raidit. Il déteste cette servilité déguisée en protocole. Erik lui dit doucement de laisser faire, « c&#x27;est comme ça ici ». Alors Wilhelm se tait. Encore une fois.</p><p>À peine a-t-il le temps de respirer que les photographes s&#x27;emparent de lui. Ils le tournent, le cadrent, l&#x27;ajustent. Il faut prouver au pays qu&#x27;il est sage, coopératif, digne. Erik et August jouent leur rôle avec aisance ; Wilhelm, lui, se sent comme un accessoire posé devant l&#x27;objectif. Il sourit mécaniquement, mais son regard trahit cette fatigue de ne jamais être vraiment lui-même.</p><p>Puis vient l&#x27;accueil officiel dans l&#x27;église. Dès qu&#x27;il franchit le seuil, les regards tombent sur lui, lourds comme des pierres. Il avance, le souffle court. La chorale entre. Parmi les uniformes impeccables, un visage familier : Felice, une amie d&#x27;enfance, lui fait un signe discret.</p><p>Mais c&#x27;est une autre présence qui va tout changer. Une voix s&#x27;élève, d&#x27;abord hésitante, fragile : celle de Simon. Quand un élève le rabaisse, Simon se redresse et sa voix s&#x27;affermit. C&#x27;est à ce moment que Wilhelm tourne la tête. Il ne sait pas pourquoi.</p><p>Le chant emplit l&#x27;église, rempli d&#x27;une émotion simple, presque brute. « Je ne te demande rien, pas même ta gratitude… » Et soudain quelque chose change. L&#x27;espace devient moins oppressant. Le monde cesse de le juger une seconde. Il ne reste que cette voix, précise, vibrante, terriblement sincère.</p><p>Wilhelm sent ses épaules se relâcher. Un souffle lui échappe. Et un sourire, discret mais réel, se forme enfin sur son visage. Sans le savoir, ce chant, cette voix, ce garçon viennent de changer le cours de son destin.</p></div>
+      </details>
+      <details class="scene">
+        <summary><span class="num-scene">Scène 03</span>Premiers pas dans une prison dorée</summary>
+        <div class="texte-scene"><p>À la sortie de l&#x27;église, Wilhelm est happé par la frénésie des caméras. Les flashs éclatent comme de petites détonations, chaque lumière lui rappelant qu&#x27;il n&#x27;a aucun espace pour respirer. Il sourit parce qu&#x27;on le lui demande, pas parce qu&#x27;il en a envie.</p><p>Erik le voit. Il reconnaît cette tension dans ses épaules, cette façon de retenir son souffle. Alors, dans un élan presque fraternel, presque rebelle, il lui souffle à l&#x27;oreille : « Viens. On se tire d&#x27;ici. » Ils partent en courant comme deux enfants inventant une aventure dans les couloirs interdits d&#x27;un château. Pendant quelques secondes, le monde disparaît.</p><p>Mais la réalité attend toujours. Pendant ce temps, August prépare déjà ses manœuvres : organiser une fête « inoubliable » pour le prince, qui exigera d&#x27;introduire illégalement de l&#x27;alcool dans l&#x27;école. Et pour cela, il lui faut quelqu&#x27;un venu du dehors. Un pion à utiliser.</p><p>Wilhelm découvre enfin sa chambre. Un espace simple, petit, presque minimaliste, mais qui est le sien. « Je ne tiendrai pas trois ans ici… », murmure-t-il. Erik tente de lui transmettre le code non écrit de l&#x27;école, un livret rédigé par les élèves de dernière année : le vrai pouvoir, les vraies règles. Et derrière chacune d&#x27;elles, August.</p><p>Wilhelm sent la colère monter. L&#x27;idée d&#x27;obéir à un cousin qu&#x27;il méprise le brûle. Erik lui rappelle une dernière fois le poids de leur nom : « Tu dois représenter la famille. Même quand c&#x27;est dur. Peu importe ce que tu ressens. »</p><p>Un coup à la porte les interrompt. Le protocole rappelle déjà Erik. Wilhelm serre son frère très fort, comme pour le retenir. La porte se referme. Et le silence tombe, lourd, comme un adieu. Pour la première fois depuis son arrivée, il se demande s&#x27;il aura la force de tenir.</p></div>
+      </details>
+      <details class="scene">
+        <summary><span class="num-scene">Scène 04</span>Une rencontre tendue : le loup face au garçon libre</summary>
+        <div class="texte-scene"><p>La journée s&#x27;achève et Simon traverse la cour de Hillerska avec son calme habituel. Il rentre chez lui, dans ce monde simple et réel qu&#x27;il partage avec sa famille. Être externe, c&#x27;est vivre entre deux réalités : celle, rigide, de Hillerska, et celle, chaleureuse, de la maison.</p><p>August surgit derrière lui comme une bourrasque. Il lui barre le passage, offre un sourire trop poli pour être sincère, tend la main et se présente, comme s&#x27;ils n&#x27;avaient jamais partagé un seul couloir. Simon le regarde, les sourcils légèrement froncés, et fait tomber la façade d&#x27;une phrase : « On est dans la même école depuis un mois. »</p><p>August change d&#x27;approche. Son sourire s&#x27;affine, devient plus dangereux. Il propose un marché emballé dans une fausse camaraderie : faire entrer de l&#x27;alcool en fraude dans le pensionnat. Comme si c&#x27;était normal. Comme si être externe faisait automatiquement de Simon un passeur.</p><p>Mais Simon ne baisse pas les yeux. « Parce que tous les externes sont des trafiquants ? » Sa voix ne tremble pas, elle ne monte pas non plus. Elle existe, simplement, forte et juste. Dans le silence qui suit, August se retrouve face à quelque chose qu&#x27;il ne contrôle pas : la sincérité.</p><p>Pour masquer sa gêne, il ajoute une promesse maladroite : si Simon accepte, il pourra venir à la fête. Comme si cette invitation avait la moindre valeur pour quelqu&#x27;un qui n&#x27;a pas besoin de plaire.</p><p>Simon le regarde une dernière fois et s&#x27;en va. Sans colère, sans provocation. Juste ce refus silencieux qui coupe plus qu&#x27;un cri. Et August comprend : ce garçon ne s&#x27;achète pas avec des privilèges. Ce garçon ne joue pas selon les règles des puissants.</p></div>
+      </details>
+      <details class="scene">
+        <summary><span class="num-scene">Scène 05</span>Le cheval, le courage et la fragilité des humains</summary>
+        <div class="texte-scene"><p>Dans les écuries, l&#x27;odeur du foin et du cuir enveloppe tout, mais Felice, perchée sur son cheval, n&#x27;arrive pas à s&#x27;y abandonner. Ses mains tremblent sur les rênes et, malgré ses efforts pour cacher sa peur, l&#x27;animal la sent immédiatement. Il piaffe, s&#x27;agite, refuse d&#x27;avancer.</p><p>L&#x27;instructrice finit par appeler à l&#x27;aide. Une silhouette s&#x27;avance : Sara, la sœur de Simon, presque invisible parmi les autres élèves et pourtant étrangement sûre d&#x27;elle dès qu&#x27;elle entre dans l&#x27;espace des chevaux. En quelques secondes, la scène bascule. Le cheval, tendu avec Felice, baisse la tête quand Sara pose une main calme sur sa robe. Elle murmure quelques mots et l&#x27;animal se détend, comme s&#x27;il avait enfin trouvé la seule personne capable de l&#x27;écouter.</p><p>Felice regarde, figée entre surprise et honte. La chaleur lui monte aux joues, et avant de pouvoir se contenir, elle reprend le contrôle, ou du moins son illusion : « C&#x27;est mon cheval. Je peux m&#x27;occuper de son pansage… et de ses soins. » Le ton claque plus fort qu&#x27;elle ne le voulait.</p><p>Simon arrive juste à temps pour saisir l&#x27;échange. Son visage se durcit ; protéger sa sœur est un réflexe viscéral. « Hé, fais attention. Elle n&#x27;a pas à te parler comme ça. »</p><p>Mais Sara ne semble ni blessée ni en colère. Elle hausse les épaules. La remarque de Felice glisse sur elle, absorbée par quelque chose de plus important : le cheval. Avec les animaux, elle n&#x27;a pas besoin de décoder les intentions. Les chevaux ne mentent pas, ne jugent pas. Avec eux, elle respire enfin.</p><p>Simon s&#x27;approche, adoucit sa voix, pose une main sur son épaule : « S&#x27;il se passe quelque chose, tu viens me voir, d&#x27;accord ? Je m&#x27;en occupe. » Sara hoche la tête, un léger sourire éclaire son visage. Entre eux subsiste ce lien incassable, cette île de vérité où ils se retrouvent sans masque.</p></div>
+      </details>
+      <details class="scene">
+        <summary><span class="num-scene">Scène 06</span>Le retour à la vie ordinaire</summary>
+        <div class="texte-scene"><p>Le bus arrive dans un long grincement métallique, fidèle et un peu usé, prêt comme chaque jour à ramener Simon et Sara vers leur vraie vie. Ils s&#x27;assoient côte à côte et retrouvent aussitôt une légèreté qui leur manquait depuis Hillerska. Ici, personne ne les observe, personne ne mesure leur valeur à un nom ou à un uniforme.</p><p>Sara sort son téléphone et ouvre l&#x27;appareil photo. En quelques secondes, ils enchaînent les selfies, les grimaces, les rires étouffés. C&#x27;est leur rituel, la preuve silencieuse qu&#x27;ils restent proches.</p><p>À l&#x27;arrêt suivant montent deux silhouettes familières : Ayub et Rosh, les meilleurs amis de Simon. L&#x27;ambiance change instantanément. Ayub remarque vite l&#x27;uniforme impeccable de Simon. « C&#x27;est obligatoire ? » Simon rit, un peu gêné, et explique que oui, juste pour aujourd&#x27;hui, parce qu&#x27;un nouvel élève est arrivé… le prince Wilhelm.</p><p>À ces mots, Rosh relève la tête, déjà en alerte, le téléphone comme par magie dans la main. « Le prince ? Attends, t&#x27;as vu la vidéo ? Celle où il se bat en boîte ? Elle est partout. »</p><p>Ils se penchent tous les quatre autour de l&#x27;écran. Dans la vidéo, Wilhelm est méconnaissable : colère brute, gestes incontrôlés, une explosion capturée en quelques secondes. Sara regarde, perplexe. Simon, lui, regarde plus longtemps qu&#x27;il ne l&#x27;admettrait. Il observe, analyse, retient son souffle sans savoir pourquoi.</p><p>Sans le savoir, il vient de voir, dans ce flou pixelisé, la personne qui va changer le cours de sa vie.</p></div>
+      </details>
+      <details class="scene">
+        <summary><span class="num-scene">Scène 07</span>Les rêves silencieux de Felice</summary>
+        <div class="texte-scene"><p>La chambre baigne dans une lumière douce, celle du soir, qui adoucit les contours mais aiguise les pensées. Assise sur son lit, Felice tient son téléphone comme un secret précieux. Sur l&#x27;écran brille le visage de Wilhelm. Pas seulement le prince de Suède : celui qu&#x27;elle idéalise depuis l&#x27;enfance.</p><p>Soudain, la porte de la salle de bain s&#x27;ouvre. Maddie apparaît, une serviette autour des cheveux, intriguée et amusée. « Felice… tu regardes encore… ? » La remarque n&#x27;est pas méchante, mais elle touche juste. Felice sursaute, verrouille son écran trop vite. « Je ne suis pas obsédée », murmure-t-elle, sans convaincre personne.</p><p>Maddie s&#x27;assoit, jambes croisées : « Tu sais qu&#x27;August ferait n&#x27;importe quoi pour toi. Il te suit partout, littéralement. Et toi, tu restes fixée sur Wilhelm… Je veux dire, c&#x27;est un prince. Sang royal. J&#x27;imagine que ça doit faire quelque chose. Mais honnêtement, je ne comprends pas vraiment. »</p><p>Felice baisse les yeux. Comment expliquer ce mélange de nostalgie et de désir, ce besoin d&#x27;être vue par celui qu&#x27;elle a toujours placé sur un piédestal ? Maddie voit un prince. Felice voit un rêve, presque intime.</p><p>Quand Maddie quitte la chambre, le calme revient. Felice rouvre son téléphone, mais ce n&#x27;est plus Wilhelm qu&#x27;elle regarde. Elle choisit une photo d&#x27;elle aux écuries, lumière parfaite, sourire maîtrisé, et la publie avec une légende enthousiaste : « Une journée incroyable. »</p><p>Le mensonge est beau, presque élégant. Une façon de recréer ce qu&#x27;elle voudrait ressentir plutôt que ce qu&#x27;elle vit. Sur les réseaux, elle paraît rayonnante. En réalité, c&#x27;est une fille qui rêve d&#x27;être aimée par quelqu&#x27;un qui ne la voit pas encore.</p></div>
+      </details>
+      <details class="scene">
+        <summary><span class="num-scene">Scène 08</span>Un dîner au goût de vérité</summary>
+        <div class="texte-scene"><p>Le soir s&#x27;installe autour de la petite maison de Simon et Sara. Dans la cuisine, l&#x27;odeur du repas se mêle aux rires étouffés et au tintement des couverts : malgré la modestie du décor, il y a ici quelque chose que le pensionnat n&#x27;a pas, un vrai foyer. Autour de la table, Linda veille sur ses enfants, et Ayub, presque de la famille, prend naturellement sa place.</p><p>Quand Linda demande comment s&#x27;est passée leur journée, Sara se redresse aussitôt. Elle décrit sérieusement comment il faut se tenir à table, placer les couverts, adopter la posture parfaite, répétant les règles apprises à Hillerska avec une précision surprenante.</p><p>Puis, plus calmement, elle parle de sa journée : toujours pas d&#x27;amis, mais les chevaux… les chevaux ne mentent pas. Elle mentionne, presque en passant, qu&#x27;il lui faudra un nouveau pantalon d&#x27;équitation, l&#x27;ancien s&#x27;est déchiré. Une demande simple qui ouvre une discussion bien plus large : l&#x27;argent, les priorités, l&#x27;écart vertigineux entre leur quotidien et celui des familles fortunées de Hillerska.</p><p>Simon, avec un sourire un peu trop taquin, lâche qu&#x27;elle devient snob. Le mot claque. Sara se fige, son visage se ferme, et elle quitte brusquement la table, blessée plus profondément qu&#x27;elle ne saurait l&#x27;expliquer.</p><p>Un silence inhabituel tombe. Pour détendre l&#x27;atmosphère, Simon annonce qu&#x27;il est invité, lui aussi, à une fête à Hillerska. Les yeux de Linda s&#x27;illuminent : pour elle, cette invitation est la preuve que ses enfants trouvent leur place là-bas. Elle s&#x27;en réjouit avec une fierté simple et sincère, celle des familles à qui rien n&#x27;a jamais été facile.</p></div>
+      </details>
+      <details class="scene">
+        <summary><span class="num-scene">Scène 09</span>Un dîner sous pression</summary>
+        <div class="texte-scene"><p>La nuit enveloppe Hillerska. Quand Wilhelm franchit les portes du grand réfectoire, il sent aussitôt le poids de la tradition : les murs austères, la longue table parfaitement dressée, les élèves rangés dans un ordre qui ne semble jamais devoir être bousculé. Ici, même un simple repas tient de la cérémonie.</p><p>Son regard s&#x27;attarde sur August, assis en bout de table comme s&#x27;il y avait toujours régné. Sa posture, son sourire trop poli, sa façon de balayer la salle d&#x27;un œil satisfait : tout en lui respire une autorité tacite.</p><p>Deux garçons de sa classe, en face de lui, saisissent l&#x27;occasion de lui parler. Leur ton est poli mais étrangement figé, presque récité. Ils décrivent les habitudes du pensionnat : les repas strictement codifiés, les devoirs interminables, les séances de sport obligatoires, et ces soirées où chacun se comporte comme on attend qu&#x27;il se comporte.</p><p>En les écoutant, Wilhelm remarque une chose qui le trouble : leurs mots ne semblent jamais être les leurs. Ils répètent les opinions d&#x27;August, ses règles, ses croyances, comme si penser autrement était interdit.</p><p>Alors, presque malgré lui, il laisse échapper ce qui lui brûle les lèvres : « Vous savez… vous avez le droit d&#x27;avoir vos propres opinions. »</p><p>Les conversations s&#x27;arrêtent. Quelques têtes se tournent. August relève lentement les yeux, un sourire pincé figé sur le visage. Wilhelm ne détourne pas le regard. Ce soir, face à ce dîner où tout semble déjà décidé pour lui, il choisit de tracer sa propre ligne. Quitte à se faire immédiatement un ennemi de celui qui croit régner sur Hillerska.</p></div>
+      </details>
+      <details class="scene">
+        <summary><span class="num-scene">Scène 10</span>Le cœur trop grand de Simon</summary>
+        <div class="texte-scene"><p>Simon, assis devant son écran, casque sur les oreilles, tente de masquer son agitation derrière la lueur froide d&#x27;un jeu vidéo. Mais son esprit est ailleurs. Il cherche un moyen d&#x27;aller à la fête d&#x27;initiation du prince, cette fête où presque tout le monde sera, où sa sœur Sara pourrait enfin se sentir comme les autres.</p><p>Alors, entre deux parties, il demande à Ayub si c&#x27;était bien son père, Micke, qui avait fourni l&#x27;alcool à sa dernière fête. Sa voix tremble légèrement, comme s&#x27;il savait déjà qu&#x27;il franchit une ligne dangereuse. Simon n&#x27;est qu&#x27;un garçon, mais il porte le poids d&#x27;un adulte : il veille sur sa mère, protège Sara, tente de combler les absences qui ont creusé leur vie.</p><p>Ayub soupire, inquiet. Il lui rappelle que Micke n&#x27;est pas un homme à fréquenter, qu&#x27;il détruit tout ce qu&#x27;il touche, même sa propre famille. Il lui dit de faire attention, de ne pas replonger dans ce cercle qui le blesse à chaque fois. Parce que Simon, après avoir vu son père, revient toujours plus sombre, plus silencieux.</p><p>Mais Simon, avec son cœur trop grand, pense d&#x27;abord aux autres. Il veut que Sara rie, danse, se sente enfin acceptée. Dans la lumière bleutée de l&#x27;écran, son visage se crispe, fragile et déterminé à la fois.</p></div>
+      </details>
+      <details class="scene">
+        <summary><span class="num-scene">Scène 11</span>Prisonnier de son propre destin</summary>
+        <div class="texte-scene"><p>Dans la pénombre de sa chambre, Wilhelm s&#x27;allonge seul pour sa première nuit à Hillerska, le cœur serré par une solitude qu&#x27;il n&#x27;ose pas s&#x27;avouer. Entre ses doigts tremble une photo prise à son arrivée, où il apparaît aux côtés d&#x27;Erik et d&#x27;August. En zoomant sur son propre visage, il y lit une tristesse qu&#x27;il ne parvient plus à cacher.</p><p>Dans un élan de détresse, il écrit à sa mère, la suppliant presque de le laisser rentrer, espérant une chaleur qu&#x27;il ne reçoit pas. La réponse tombe, froide, immédiate, comme un verdict : ça ira mieux bientôt.</p><p>Wilhelm sent ses yeux brûler. Il regarde alors la boule à neige offerte par Erik, cette petite grenouille couronnée prisonnière de sa sphère de verre. Et il comprend soudain que c&#x27;est lui : un prince enfermé dans un monde qu&#x27;il n&#x27;a pas choisi, secoué par les tempêtes sans jamais pouvoir s&#x27;en échapper.</p></div>
+      </details>
+      <details class="scene">
+        <summary><span class="num-scene">Scène 12</span>Le veilleur invisible</summary>
+        <div class="texte-scene"><p>À l&#x27;aube, quand le pensionnat dort encore, Alexander parcourt déjà les couloirs silencieux, frappant aux portes pour réveiller les autres. Son pas est discret, presque effacé, comme s&#x27;il n&#x27;existait qu&#x27;à travers cette mission imposée.</p><p>On se demande à quelle heure il ouvre lui-même les yeux, pour être toujours le premier levé, toujours prêt. Peut-être ne dort-il jamais vraiment, habitué à porter seul un rôle que personne ne remarque. Dans cette routine rigide, il veille à ce que tous les élèves soient prêts, et personne ne le remercie.</p></div>
+      </details>
+      <details class="scene">
+        <summary><span class="num-scene">Scène 13</span>La vérité qu&#x27;il ne fallait peut-être pas dire</summary>
+        <div class="texte-scene"><p>La salle de cours d&#x27;éducation civique baigne dans une lumière pâle. Les élèves de première année, impeccablement assis, discutent de sujets sérieux avec une aisance presque insolente : aides sociales, évasion fiscale, justice économique. Leurs voix se ressemblent, leurs opinions s&#x27;alignent, comme s&#x27;ils venaient tous du même moule doré.</p><p>Simon, lui, écoute en silence. Il n&#x27;est pas comme eux. Il n&#x27;a pas grandi dans des maisons où l&#x27;impôt est un sujet de plainte pendant un dîner servi par quelqu&#x27;un d&#x27;autre. Il vient d&#x27;un foyer modeste, où chaque couronne compte, où les aides sociales ne sont pas un concept mais une nécessité.</p><p>Alors quand la question tombe, il ne peut plus se taire. Sa voix s&#x27;élève, claire, vibrante. Il demande pourquoi l&#x27;aide aux pauvres s&#x27;appelle « allocation » et l&#x27;aide aux riches « subvention ». Pourquoi changer le mot quand l&#x27;acte est le même.</p><p>Un silence tombe. Certains ricanent, d&#x27;autres lèvent les yeux au ciel. L&#x27;un d&#x27;eux explique que leurs pères paient trop d&#x27;impôts, que l&#x27;État les étouffe, que la délocalisation est parfois la seule solution.</p><p>Simon sent la colère monter, mais c&#x27;est une colère triste, lucide. Il répond que lorsque les pauvres trichent, on appelle ça du vol, et que lorsque les riches le font, on trouve des excuses, des justifications, des mots élégants pour masquer la honte.</p><p>Puis, dans un geste presque instinctif, il tourne la tête vers Wilhelm. Le prince. Le symbole vivant des privilèges qu&#x27;il dénonce. Et il ajoute, d&#x27;un ton calme, que tout le monde sait qui sont les plus grands bénéficiaires du pays.</p><p>La salle retient son souffle. Wilhelm baisse les yeux, incapable de répondre. Il sait que Simon parle de lui, de sa famille, de ce système qui l&#x27;a élevé mais qui l&#x27;enferme aussi. Et dans cette salle, pour la première fois, quelque chose se fissure. Une façade. Une certitude. Un destin.</p></div>
+      </details>
+      <details class="scene">
+        <summary><span class="num-scene">Scène 14</span>Le jour où tout a commencé, sans qu&#x27;ils le sachent</summary>
+        <div class="texte-scene"><p>C&#x27;est l&#x27;heure du déjeuner et, comme chaque jour, la salle impose son ordre silencieux fait de rangs, de traditions et de hiérarchies invisibles. Wilhelm avance avec son plateau entre les chaises où chacun est assis à la place que son nom, son statut et son héritage lui ont toujours assignée.</p><p>En levant les yeux, il remarque une présence nouvelle : Simon est là.</p><p>Wilhelm s&#x27;assoit en face de lui, comme attiré par une force qu&#x27;il ne comprend pas encore, et lui dit qu&#x27;il ne savait pas qu&#x27;il était à Skogsbacken. Simon répond calmement qu&#x27;il n&#x27;y est pas, mais que les externes doivent bien manger quelque part — une réponse simple qui souligne déjà la frontière sociale entre eux.</p><p>Ils se présentent, échangent leurs prénoms comme deux adolescents ordinaires, mais dans leurs yeux il y a déjà quelque chose d&#x27;inhabituel : une curiosité sincère chez Wilhelm, une confiance tranquille chez Simon.</p><p>Wilhelm lui dit qu&#x27;il a aimé ce qu&#x27;il a dit en cours, que c&#x27;était bien tourné. Simon, sans détourner le regard, lui demande alors pourquoi il n&#x27;a rien dit sur le moment. La question, posée sans agressivité, touche un point sensible : Wilhelm répond qu&#x27;il n&#x27;est pas censé parler de politique.</p><p>Pendant ce temps, August observe la scène avec une attention froide et calculatrice. Voyant Wilhelm discuter avec Simon, il l&#x27;interpelle et l&#x27;invite à venir manger avec eux « exceptionnellement », rappelant subtilement que chacun a sa place.</p><p>Wilhelm se lève sans protester, mais avant de partir il dit à Simon qu&#x27;ils se verront plus tard. Dans cette phrase lancée à la hâte, il y a déjà une promesse silencieuse. En manquant de faire tomber son plateau, il révèle malgré lui son trouble, et Simon rit de le voir ainsi.</p><p>Assis à côté d&#x27;August, Wilhelm l&#x27;écoute dire qu&#x27;il voulait « le sortir de là », comme si parler à Simon était une gêne dont il fallait le sauver, alors que tout dans son regard disait qu&#x27;il aurait préféré rester.</p><p>À l&#x27;autre bout de la table, Simon lance un regard sombre à August, et August le lui rend avec la même intensité. Au centre de tout cela, un lien fragile et invisible commence à se former entre deux garçons que tout devrait séparer.</p></div>
+      </details>
+      <details class="scene">
+        <summary><span class="num-scene">Scène 15</span>Le silence n&#x27;est pas une faiblesse</summary>
+        <div class="texte-scene"><p>Simon attend August dehors, dans cet entre-deux fragile où l&#x27;on décide d&#x27;avaler sa fierté pour quelque chose de plus grand que soi. Quand August arrive, accompagné de Vincent et Nils, il est visiblement surpris de voir Simon venir à lui, comme si l&#x27;initiative ne pouvait pas venir de ce côté du monde.</p><p>Il demande à ses deux amis d&#x27;avancer et dit qu&#x27;il les rejoindra : il accorde quelques minutes comme on accorde une faveur.</p><p>Simon explique calmement qu&#x27;il pourrait apporter les bouteilles pour la fête, mais qu&#x27;il aimerait que sa sœur puisse venir aussi. Derrière cette condition, il n&#x27;y a ni caprice ni stratégie, seulement le désir sincère d&#x27;un grand frère qui veut donner à Sara l&#x27;occasion de s&#x27;intégrer.</p><p>August répond qu&#x27;il n&#x27;y voit pas d&#x27;objection, avec une légèreté presque désinvolte, puis se permet de plaisanter sur l&#x27;alcool, insinuant qu&#x27;il espère que Simon ne perdra pas ses cheveux avec de l&#x27;alcool à friction. Une remarque qui se veut moqueuse mais qui révèle surtout une condescendance profondément ancrée.</p><p>Simon reste immobile. On lit dans son regard l&#x27;incrédulité face à tant d&#x27;insolence, surtout quand on sait que c&#x27;est August lui-même qui l&#x27;a approché, que c&#x27;est lui qui a besoin de ces bouteilles.</p><p>Il aurait pu répondre, le remettre à sa place. Il choisit de se taire, parce que son objectif dépasse sa propre fierté et que le bien-être de sa sœur compte davantage.</p><p>Quand August s&#x27;approche et se permet d&#x27;ébouriffer les cheveux de Simon, le geste paraît anodin, presque amical, mais il porte en lui une forme subtile de domination. Simon l&#x27;encaisse encore sans réagir. Mais son silence n&#x27;est pas une faiblesse : il est plein de tension, de retenue et d&#x27;une dignité farouche.</p></div>
+      </details>
+      <details class="scene">
+        <summary><span class="num-scene">Scène 16</span>Ce lien qu&#x27;on ne choisit pas</summary>
+        <div class="texte-scene"><p>Simon se rend chez son père, qu&#x27;il n&#x27;a pas vu depuis longtemps, poussé non par l&#x27;envie mais par la nécessité. Il sait qu&#x27;il s&#x27;apprête à franchir le seuil d&#x27;un lieu où l&#x27;affection a été abîmée par les années, la santé et les addictions.</p><p>Son père est surpris de le voir apparaître à la porte. Malgré le désordre visible derrière lui, les bouteilles vides, les mégots écrasés, la fatigue gravée sur son visage, il le fait entrer avec une gêne qui trahit à la fois la honte et la joie.</p><p>En refermant la porte, il range précipitamment quelques bouteilles, comme s&#x27;il essayait en quelques secondes d&#x27;effacer les traces d&#x27;un quotidien qu&#x27;il ne maîtrise plus. Simon enlève ses chaussures en silence et laisse son regard errer dans l&#x27;appartement.</p><p>Son père demande comment va sa mère, comment va Sara, si le pensionnat se passe bien, et lui propose un café en ajoutant qu&#x27;il est heureux de le voir.</p><p>Ils s&#x27;assoient dans le salon et Simon finit par dire qu&#x27;il a un service à demander : il sait qu&#x27;il vend de l&#x27;alcool, que tout le monde le sait, et il en aurait besoin pour une fête, tout en précisant qu&#x27;il ne boit pas lui-même.</p><p>Le père le regarde, un peu décontenancé, puis un sourire embarrassé traverse son visage : il lui dit qu&#x27;il sait ce que c&#x27;est, de vouloir impressionner une fille.</p><p>Mais Simon le coupe immédiatement, avec une simplicité désarmante : « Je suis gay, papa. »</p><p>Il n&#x27;y a ni colère ni provocation dans sa voix, seulement la vérité posée là, nue. Le père s&#x27;excuse aussitôt et corrige sa phrase en parlant d&#x27;impressionner un garçon mignon. Un léger sourire traverse le visage de Simon, timide, presque gêné, et de se rendre compte lui-même que ce garçon mignon lui fait quelque chose.</p><p>Son père accepte de l&#x27;aider et se lève pour le prendre dans ses bras, un geste affectueux mais maladroit, chargé d&#x27;années d&#x27;absence. Simon se laisse faire en murmurant qu&#x27;il ne veut pas qu&#x27;on sache qu&#x27;il est venu le voir.</p><p>Cette demande blesse un peu le père, on le voit dans son regard qui s&#x27;assombrit une fraction de seconde. Mais il comprend. Dans cette étreinte, Simon n&#x27;est pas complètement à l&#x27;aise, son corps reste un peu raide, et pourtant il reste là. Parce que malgré tout, malgré les failles et les silences, ce lien existe encore.</p></div>
+      </details>
+      <details class="scene">
+        <summary><span class="num-scene">Scène 17</span>Le bizutage humiliant</summary>
+        <div class="texte-scene"><p>C&#x27;est le soir d&#x27;initiation du prince Wilhelm à Hillerska. Derrière les murs impeccables de cette prestigieuse école, des traditions anciennes se transmettent comme des rituels sacrés, même lorsqu&#x27;elles frôlent la cruauté.</p><p>La nuit tombe et, soudain, un groupe d&#x27;élèves encagoulés fait irruption, déguisés de manière inquiétante. Ils viennent chercher le prince comme on vient chercher une proie, sans douceur, sans respect pour son titre ni pour sa peur.</p><p>Ils lui attachent les mains, le bâillonnent pour étouffer ses cris, le traînent dehors tandis qu&#x27;il se débat, que ses chaussures glissent, que la boue s&#x27;accroche à lui comme pour effacer toute trace de royauté.</p><p>Dans la cour, sous les regards invisibles mais bien présents de ceux qui savent et laissent faire, ils l&#x27;attachent à une statue comme on exposerait un trophée, l&#x27;aspergent d&#x27;eau, lui jettent de la farine au visage, transformant son humiliation en spectacle.</p><p>Puis ils l&#x27;obligent à marcher à quatre pattes, tenu par une ficelle comme un animal. Vient ensuite le moment le plus répugnant : chacun crache dans un verre, l&#x27;un après l&#x27;autre, lentement, presque solennellement. Wilhelm comprend qu&#x27;il est censé boire ce mélange pour prouver son appartenance.</p><p>Le dégoût se lit sur son visage, son estomac se noue, et pourtant il obéit, parce qu&#x27;on lui a appris à encaisser, à ne pas faillir. Il boit, et son corps ne le supporte pas : il vomit, vidé, humilié jusqu&#x27;au cœur. Personne n&#x27;arrête rien, parce qu&#x27;à Hillerska, la tradition passe avant la compassion.</p><p>Après cette épreuve, August, Vincent et Nils l&#x27;accueillent dans la salle où la fête aura lieu, comme si rien d&#x27;anormal ne venait de se produire. Ils lui font répéter le serment : « Je jure de ne jamais trahir le code d&#x27;honneur de Skogsbacken, les liens de ce serment nous unissent pour l&#x27;éternité. »</p><p>August lui tend son uniforme, le félicite d&#x27;avoir surmonté l&#x27;épreuve et lui souhaite la bienvenue « au Palais ». Il admet même qu&#x27;ils sont peut-être allés un peu trop loin, et Wilhelm, encore secoué, répond simplement que oui, mais qu&#x27;il pensait vouloir être traité comme les autres.</p><p>Sous l&#x27;uniforme désormais propre, sous les lumières et la musique à venir, demeure la trace invisible d&#x27;une nuit où, pour appartenir, il a dû s&#x27;agenouiller.</p></div>
+      </details>
+      <details class="scene">
+        <summary><span class="num-scene">Scène 18</span>La leçon d&#x27;August</summary>
+        <div class="texte-scene"><p>August se met à parler avec cette assurance froide qu&#x27;il adopte quand il croit détenir la vérité. Il explique à Wilhelm que son erreur a été de s&#x27;entourer des mauvaises personnes, que sa place n&#x27;est pas avec n&#x27;importe qui mais avec ceux de son cercle, de son rang, comme si l&#x27;amitié, l&#x27;attirance ou la curiosité devaient elles aussi obéir à une hiérarchie sociale.</p><p>Il dit comprendre que Wilhelm ait voulu être « normal », aller dans un lycée ordinaire, rencontrer des filles normales, faire les choses comme tout le monde, mais il ajoute aussitôt : « Tu as vu le résultat. » Comme si vivre était déjà une imprudence.</p><p>Toujours prêt à donner des leçons, August va plus loin et affirme que si un jour il tuait quelqu&#x27;un, personne ne le dénoncerait, parce que leur monde protège les siens à tout prix. Wilhelm rit d&#x27;abord, croyant à une exagération cynique.</p><p>Mais August ne sourit pas. Il le regarde droit dans les yeux et lui dit que c&#x27;est vrai, que le système est ainsi fait. Dans cet instant suspendu, Wilhelm comprend que derrière les traditions et les serments se cache une mécanique implacable, un réseau de privilèges où la vérité compte moins que le nom que l&#x27;on porte.</p><p>Son rire s&#x27;éteint, remplacé par un choc silencieux : ce monde qui prétend le protéger est aussi celui qui l&#x27;enferme, celui qui décide avec qui il peut être vu, à qui il peut parler, et peut-être même qui il peut aimer.</p></div>
+      </details>
+      <details class="scene">
+        <summary><span class="num-scene">Scène 19</span>Entre la musique et les battements de cœur</summary>
+        <div class="texte-scene"><p>Quand Simon et Sara arrivent à la fête, Wilhelm les voit immédiatement, comme si la salle entière s&#x27;effaçait autour d&#x27;eux. Son regard se pose sur Simon avec une intensité étrange, et Simon, sensible à cette présence, lève les yeux et soutient le sien sans hésiter.</p><p>Sara attrape un verre d&#x27;alcool qui passe près d&#x27;elle et Simon la surveille, silencieux mais vigilant. Vincent demande qui a invité Simon et Sara, et August répond que c&#x27;est lui, avec ce demi-sourire stratégique : « Reste près de tes amis, mais encore plus près de tes ennemis. »</p><p>Wilhelm, lui, ne peut s&#x27;empêcher de dévorer Simon des yeux, sentant vaguement qu&#x27;il est temps de s&#x27;éloigner d&#x27;August et de son groupe. Il boit, il danse, il tente de se fondre dans l&#x27;énergie collective, mais ce qui l&#x27;attire vraiment, c&#x27;est la présence de Simon.</p><p>Quand Sara, étourdie par l&#x27;alcool, sort prendre l&#x27;air et trouve Felice en train de vomir, la scène devient plus fragile, plus humaine. Felice lui dit qu&#x27;elle est jolie mais bizarre, ce à quoi Sara répond avec une sincérité désarmante qu&#x27;elle est Asperger et qu&#x27;elle a un trouble de la tension. Sara lui dit ensuite qu&#x27;elle serait jolie avec les cheveux détachés plutôt que lissés — une remarque simple mais qui touche, parce qu&#x27;elle ne juge pas, elle voit.</p><p>Pendant ce temps, Wilhelm va chercher de l&#x27;eau et se retrouve près de Simon. Il le salue, demande si ça va, cherche une ouverture. Simon répond, puis dit qu&#x27;il devrait aller voir sa sœur, fidèle à ce rôle protecteur qu&#x27;il n&#x27;abandonne jamais.</p><p>Mais cette fois, Wilhelm ne veut pas laisser filer le moment : après une brève hésitation, il le suit vers la sortie, le rattrape et lui attrape le bras, un geste à la fois audacieux et presque tremblant, avant de lui demander s&#x27;il accepterait de sortir un instant avec lui.</p><p>Simon remarque alors que Sara est avec Felice, qu&#x27;elle n&#x27;est plus seule, et comprend qu&#x27;il peut, pour une fois, s&#x27;accorder un moment pour lui.</p></div>
+      </details>
+      <details class="scene">
+        <summary><span class="num-scene">Scène 20</span>Le souffle suspendu qui va tout changer</summary>
+        <div class="texte-scene"><p>Loin de la foule, loin des éclats de rire trop forts et de la musique qui cogne contre les murs, Simon et Wilhelm se retrouvent seuls dans un petit coin presque invisible, comme si la fête avait cessé d&#x27;exister pour leur offrir un espace à part.</p><p>Wilhelm a bu, assez pour que ses gestes soient un peu plus lents, ses mots un peu moins contrôlés, et pour que les barrières qu&#x27;il dresse habituellement autour de lui commencent à se fissurer. Dans cette pénombre protectrice, il se met à chanter tout doucement, presque timidement, les premières lignes de la chanson que Simon a interprétée avec la chorale le jour de son arrivée : « It takes a fool to remain sane… »</p><p>Sa voix n&#x27;est pas assurée, elle vacille légèrement, mais il y a quelque chose de sincère dans cette tentative, presque enfantine, et cela fait sourire Simon immédiatement.</p><p>Wilhelm s&#x27;arrête, avoue qu&#x27;il ne connaît pas la suite, et Simon, sans hésiter, la lui souffle, doucement, comme un secret partagé. Leurs deux voix se mêlent à voix basse, hésitantes mais complices, et ils rient ensemble quand ils se trompent.</p><p>Ce rire n&#x27;a rien de moqueur : il est léger, libérateur. Comme si, pour la première fois de la soirée, Wilhelm n&#x27;était plus un prince et Simon n&#x27;était plus « l&#x27;autre », mais simplement deux garçons partageant un moment fragile.</p><p>Simon finit par demander, presque avec retenue, s&#x27;il a aimé quand il chantait ce jour-là. Wilhelm ne répond pas tout de suite ; il devient sérieux et lui dit qu&#x27;il a adoré, que c&#x27;était magnifique d&#x27;entendre toutes ces voix rassemblées. Il explique que lorsqu&#x27;il a entendu la voix de Simon s&#x27;élever, claire et habitée, il n&#x27;entendait plus que lui, comme si le reste s&#x27;était effacé, et qu&#x27;il a senti qu&#x27;il chantait avec son cœur.</p><p>Ces mots ne sont pas jetés à la légère ; ils sont maladroits peut-être, mais profondément honnêtes. Simon les reçoit avec gravité. Il ne regarde plus seulement le prince : il regarde Wilhelm.</p><p>Puis, au loin, la voix d&#x27;August retentit, appelant Wilhelm avec insistance, comme un rappel brutal du monde auquel il appartient. Wilhelm se crispe immédiatement et murmure qu&#x27;il ne veut pas qu&#x27;on les voie, pas maintenant, pas avec lui.</p><p>Il demande à Simon de s&#x27;accroupir, avec une réelle urgence dans les yeux, et Simon trouve cela drôle, presque absurde, ce prince qui se cache comme un adolescent pris en faute. Wilhelm, dans un geste à la fois maladroit et instinctif, pose la main sur la tête de Simon pour l&#x27;aider à se baisser, puis sur son bras, essayant de le dissimuler derrière le muret.</p><p>Au loin, August dit que Wilhelm doit sûrement être avec une fille quelque part, et ces mots leur parviennent, chargés d&#x27;une ironie involontaire : non, il n&#x27;est pas avec une fille, il est avec lui. Simon sourit, discret mais lumineux, presque victorieux, et Wilhelm le voit, le comprend.</p><p>Les voix continuent d&#x27;appeler et, par jeu, Simon se met lui aussi à crier « Wille ! » d&#x27;un ton moqueur. Mais Wilhelm, lui, ne rit pas : il ne veut vraiment pas être découvert, il ne veut pas que ce moment se brise. Alors, dans un réflexe presque désespéré, il pose sa main sur la bouche de Simon pour le faire taire.</p><p>Le geste est spontané, rapide, mais quand il réalise ce qu&#x27;il fait, quand il sent sous sa paume la chaleur de la peau, le souffle pressé contre elle, il retire sa main brusquement.</p><p>Et pourtant, il est déjà trop tard. Ils sont à quelques centimètres l&#x27;un de l&#x27;autre, leurs visages si proches que leurs souffles se mêlent. Ils ne rient plus. Leurs regards s&#x27;accrochent, intenses, profonds, et il n&#x27;y a plus de musique, plus de voix au loin, plus de fête : seulement ce face-à-face suspendu où tout semble possible et dangereux à la fois.</p><p>Le souffle de Simon s&#x27;accélère légèrement, celui de Wilhelm aussi, et chacun en prend conscience, comme si leurs corps parlaient une langue que leurs mots n&#x27;osent pas encore formuler.</p><p>Cela ne dure que quelques secondes, mais ces secondes s&#x27;étirent comme une éternité silencieuse, un instant hors du temps où chacun comprend, sans qu&#x27;un seul mot soit prononcé, que quelque chose a basculé.</p><p>Ils ne sont plus simplement deux élèves cachés à une fête. Ils sont deux âmes qui viennent de se frôler au point de ne plus pouvoir prétendre ne rien ressentir.</p></div>
+      </details>
+    </div>
+
+    <div class="episode" data-ep="2">
+      <h3 class="titre-ep">Épisode 2</h3>
+      <details class="scene">
+        <summary><span class="num-scene">Scène 01</span>Une tradition qui étouffe les secrets</summary>
+        <div class="texte-scene"><p>Le lendemain de la fête d&#x27;initiation, Hillerska s&#x27;est réveillée. La nuit est passée, mais ce qu&#x27;elle a laissé derrière elle flotte encore dans l&#x27;air du matin. Comme chaque jour, les élèves se retrouvent pour le petit-déjeuner : les filles dans une salle, les garçons dans une autre, fidèles aux règles de l&#x27;école.</p><p>Et pourtant, dans ces deux salles séparées, la même tradition étrange et intrusive se déroule. Une tradition qui ne laisse aucune place à l&#x27;intimité.</p><p>Du côté des garçons, les élèves se mettent à marteler la longue table de leurs poings, en rythme. Quand quelqu&#x27;un a passé la nuit avec quelqu&#x27;un, il doit monter sur sa chaise et raconter ce qui s&#x27;est passé. Comme si les moments les plus privés devaient devenir un numéro devant toute la table.</p><p>Nils finit par se lever et parle de ce qui s&#x27;est passé avec Madison. Dans la salle des filles, Madison fait exactement la même chose. Les rires se répondent presque d&#x27;une pièce à l&#x27;autre.</p><p>Puis August prend la parole. Il demande s&#x27;il y a quelqu&#x27;un d&#x27;autre qui voudrait partager quelque chose. Personne ne répond. Le silence tombe quelques secondes… mais August n&#x27;est pas prêt à lâcher. Son regard se tourne vers Wilhelm. Insistant. Presque provocateur.</p><p>Wilhelm reste silencieux. Il ne se sent pas concerné et ne voit aucune raison de participer à ce jeu humiliant. Mais August insiste, lourdement, simplement du regard. Pendant ce temps, Simon sent une légère nervosité monter en lui.</p><p>Comme personne ne parle, August finit par interroger Wilhelm directement : le prince a disparu la veille pendant la fête, il devait donc être avec une fille. Peut-être même avec Felice — une idée qui n&#x27;est pas innocente, puisque August aimerait beaucoup que Felice devienne sa petite amie.</p><p>Wilhelm secoue doucement la tête et répond simplement que non. Autour de la table, les poings continuent de frapper le bois, de plus en plus fort, comme si tout le monde attendait une révélation.</p><p>La tension monte jusqu&#x27;à ce que le chef entre dans la salle pour apporter de nouveaux plats et demande aussitôt le silence. Le bruit s&#x27;arrête enfin.</p><p>Wilhelm était sous pression, mais il a tenu. Pendant tout ce moment, il n&#x27;a même pas osé regarder Simon, de peur qu&#x27;on ne remarque quelque chose dans ses yeux. Quand August quitte enfin la table, Wilhelm laisse échapper un souffle de soulagement. Et seulement alors, discrètement, presque furtivement, il ose enfin regarder Simon… simplement pour s&#x27;assurer qu&#x27;il va bien.</p></div>
+      </details>
+      <details class="scene">
+        <summary><span class="num-scene">Scène 02</span>L&#x27;invitation à la soirée film d&#x27;horreur</summary>
+        <div class="texte-scene"><p>Pendant la pause entre deux cours, Hillerska respire un peu. Les élèves sortent prendre l&#x27;air. L&#x27;automne s&#x27;installe doucement, mais le soleil est encore assez généreux pour réchauffer les visages.</p><p>Felice observe Wilhelm en silence. Il est assis sur les marches, légèrement à l&#x27;écart, le visage offert à la lumière. Il semble presque apaisé. Felice ne peut s&#x27;empêcher de le regarder avec une certaine tendresse. Elle l&#x27;aime bien… peut-être même plus que ça.</p><p>Mais la pause touche déjà à sa fin. Le cours de mathématiques va commencer. Wilhelm se lève, et lorsqu&#x27;il passe près d&#x27;elle, Felice l&#x27;interpelle naturellement. Ils marchent ensemble vers la salle, rejoints par Stella et Frederica.</p><p>La conversation commence simplement. Felice demande à Wilhelm s&#x27;il a aimé la fête de bienvenue. Sa réponse est immédiate : oui. Puis il lui retourne la question, comme pour rétablir un équilibre. Felice lui parle ensuite de la soirée film d&#x27;horreur organisée vendredi et lui demande s&#x27;il compte y aller. Wilhelm semble intéressé.</p><p>Mais ce moment tranquille ne dure jamais longtemps à Hillerska. August apparaît. Il s&#x27;approche du groupe avec assurance et exprime sans détour ses intentions envers Felice.</p><p>Wilhelm, lui, ne semble pas vouloir rester dans cette conversation. Il accélère légèrement le pas et se dirige vers la salle de cours.</p><p>August demande alors à Felice quand il pourra l&#x27;inviter à dîner. Felice, pour se moquer de lui, évoque une pizzeria du coin. Mais August corrige aussitôt cette idée : pour lui, ce dîner ne peut pas être ordinaire. Il préférerait l&#x27;emmener en France, dans un restaurant trois étoiles, quelque part à la montagne. Il en parle comme si c&#x27;était déjà arrangé.</p><p>Elle ne sait pas vraiment quoi répondre. Il lui dit d&#x27;y réfléchir. Stella, elle, ne cache pas son agacement : elle trouve August particulièrement envahissant. Frederica, au contraire, trouve la démarche presque romantique. Mais Stella n&#x27;est pas dupe : pour elle, August agit comme quelqu&#x27;un qui croit qu&#x27;il suffit de vouloir pour obtenir. Agacée, elle finit par s&#x27;éloigner du groupe.</p><p>Frederica pense que quand on est amoureux, on peut changer. Même quelqu&#x27;un comme August. Et quant à Stella, conclut-elle, c&#x27;est peut-être juste de la jalousie.</p></div>
+      </details>
+      <details class="scene">
+        <summary><span class="num-scene">Scène 03</span>Les cours particuliers</summary>
+        <div class="texte-scene"><p>Wilhelm arrive à son cours de mathématiques et s&#x27;installe tandis que les autres élèves entrent peu à peu. L&#x27;ambiance est encore calme.</p><p>Sara est déjà assise. Quand elle voit Felice arriver, elle la salue simplement, presque naturellement. La veille, elles avaient beaucoup discuté. Mais cette fois, Felice fait comme si elle ne l&#x27;avait ni entendue ni vue. Ce geste, aussi subtil soit-il, suffit à blesser Sara.</p><p>C&#x27;est à ce moment que Simon entre dans la salle. Il s&#x27;assoit à côté de sa sœur. Wilhelm le remarque immédiatement. Son regard s&#x27;éclaire légèrement. Il essaie d&#x27;engager la conversation, mais le professeur entre : monsieur Englund. Instantanément, toute la classe se lève pour le saluer.</p><p>Le cours commence, et c&#x27;est rapidement l&#x27;heure de rendre les devoirs. Quand Simon reçoit sa copie, il est surpris : la note n&#x27;est pas aussi bonne que d&#x27;habitude. Lui qui a l&#x27;habitude de réussir ne comprend pas ce qui a manqué.</p><p>Wilhelm, lui, n&#x27;a pas rendu le devoir : arrivé récemment, il n&#x27;était pas là. Le professeur lui demande simplement de le faire au plus vite.</p><p>À côté de Simon, Sara regarde sa propre copie. Elle a une meilleure note que lui et fait remarquer qu&#x27;à Hillerska, les professeurs sont plus exigeants. Le professeur confirme en partie : le raisonnement de Simon est juste, ses calculs sont bons, mais les réponses finales sont fausses. Selon lui, Simon doit apprendre à mieux gérer son stress.</p><p>Autour de lui, plusieurs élèves ont de très bonnes notes. Simon commence à se sentir mal à l&#x27;aise. Wilhelm remarque sa gêne et se penche pour lui glisser que certains élèves prennent des cours particuliers avec le professeur, ce qui expliquerait leurs meilleurs résultats.</p><p>Simon réfléchit. C&#x27;est peut-être la solution pour mieux réussir dans cette école où les attentes semblent si hautes. À la fin du cours, il s&#x27;approche du professeur. Celui-ci explique que ces cours particuliers ne sont pas donnés, mais qu&#x27;ils peuvent effectivement l&#x27;aider. Puis il lui pose une question simple : ses parents sont-ils d&#x27;accord ?</p><p>Simon hésite un instant. Et finalement, il ment. Il répond que oui.</p></div>
+      </details>
+      <details class="scene">
+        <summary><span class="num-scene">Scène 04</span>L&#x27;amitié aux écuries</summary>
+        <div class="texte-scene"><p>Aux écuries de Hillerska, l&#x27;atmosphère est différente du reste de l&#x27;école. Ici, le bruit des sabots sur la paille, l&#x27;odeur du foin et le souffle des chevaux créent un espace presque apaisant.</p><p>Felice est avec Rousseau, son cheval. Mais la scène n&#x27;est pas harmonieuse : elle essaie de le faire avancer, lui donne des instructions, insiste… et l&#x27;animal refuse d&#x27;obéir. La frustration commence à se lire sur son visage.</p><p>Sara n&#x27;est pas loin. Observant la situation, elle finit par s&#x27;approcher et lui demande doucement si elle veut de l&#x27;aide. Felice accepte ; à ce moment-là, elle n&#x27;a pas vraiment le choix.</p><p>Sara approche du cheval calmement. On comprend immédiatement qu&#x27;elle est à l&#x27;aise avec les animaux. Sans brusquer Rousseau, elle parvient à le guider et à le ramener dans son box avec une facilité déconcertante.</p><p>Felice regarde la scène avec surprise. Encore un peu agacée, elle finit par dire que ce cheval coûte extrêmement cher et que son père serait sûrement très déçu de la voir en difficulté avec lui.</p><p>Sara écoute, puis répond avec une simplicité désarmante : même si Felice essaie de cacher qu&#x27;elle a peur du cheval, Rousseau le sent. Les chevaux perçoivent ce genre de choses immédiatement. Selon elle, mieux vaut accepter ce sentiment et repartir sur de nouvelles bases, pour que Felice retrouve le plaisir de monter… et Rousseau celui d&#x27;être monté.</p><p>Felice est surprise. Elle demande à Sara comment elle peut en savoir autant sur les chevaux. Sara répond simplement qu&#x27;elle se sent souvent plus à l&#x27;aise avec eux qu&#x27;avec les humains : leur façon de communiquer est plus directe, plus sincère. Elle ajoute que c&#x27;est peut-être lié au fait qu&#x27;elle est Asperger.</p><p>Felice écoute attentivement et fait remarquer qu&#x27;elle en parle presque comme d&#x27;un superpouvoir. Elle trouve surprenant que Sara semble si détachée du regard des autres. Mais Sara répond doucement que si, elle aimerait avoir des amis.</p><p>Cette réponse touche Felice. Elle la regarde avec plus de douceur, presque avec compassion.</p><p>Puis Felice lui demande un petit service : prendre une photo d&#x27;elle avec Rousseau. Sara accepte et, tout en observant Felice avec le cheval, remarque immédiatement la tension dans son attitude. Elle lui donne quelques conseils simples, lui rappelant qu&#x27;elle doit guider le cheval et lui transmettre sa confiance.</p><p>Puis, après avoir regardé les clichés, Sara lui dit simplement qu&#x27;elle est très belle sur les photos. Felice tourne la tête, un peu surprise, et la remercie. Dans ce moment simple et sincère, elle réalise que Sara est profondément gentille avec elle. Et dans ce lieu calme, parmi les chevaux, un lien discret commence à se former entre elles.</p></div>
+      </details>
+      <details class="scene">
+        <summary><span class="num-scene">Scène 05</span>Un équilibre fragile sur l&#x27;eau</summary>
+        <div class="texte-scene"><p>Sur le lac calme de Hillerska, Simon découvre l&#x27;aviron, encore maladroit mais déterminé à trouver son équilibre. Depuis la rive, Wilhelm l&#x27;observe avec une attention douce et sincère. En Simon, il perçoit quelque chose de rare : une authenticité qui ne se trouve pas facilement entre les murs rigides de l&#x27;école. Avec bienveillance, il l&#x27;encourage et lui donne quelques conseils, comme s&#x27;il voulait l&#x27;aider à rester à flot, sur l&#x27;eau comme dans ce monde qui n&#x27;est pas vraiment le sien.</p><p>Mais ce moment fragile est vite troublé par l&#x27;arrivée d&#x27;August, dont le regard critique ne tarde pas à se glisser entre eux. Wilhelm coupe court à la conversation, presque instinctivement, comme pour protéger Simon de ses remarques. Avant de partir, August laisse une phrase froide, réduisant Simon à son milieu social et à sa petite taille.</p><p>Tandis que Wilhelm s&#x27;éloigne malgré lui, Simon reste seul sur le lac, face à l&#x27;eau silencieuse. Et dans ce moment suspendu, quelque chose a déjà commencé à bouger entre eux, discret, fragile, mais impossible à ignorer.</p></div>
+      </details>
+      <details class="scene">
+        <summary><span class="num-scene">Scène 06</span>Entre deux mondes</summary>
+        <div class="texte-scene"><p>Quand Simon rentre chez lui, l&#x27;atmosphère change immédiatement. Loin des couloirs feutrés de Hillerska et du silence du lac, l&#x27;appartement est plein de rires, de manettes et de boîtes de pizza ouvertes. Ayub et Rosh sont déjà là, installés comme si ce lieu leur appartenait autant qu&#x27;à Simon. C&#x27;est simple, bruyant, familier : un monde qui respire la normalité.</p><p>Ils lui demandent où il était. Simon répond simplement : à l&#x27;entraînement d&#x27;aviron. La réaction est immédiate. Les deux amis éclatent de rire et se moquent gentiment. Pour eux, l&#x27;aviron n&#x27;est pas vraiment un sport : c&#x27;est un truc de riches, un sport snob, loin de leur réalité.</p><p>Simon tente d&#x27;expliquer. Il dit que c&#x27;est pour améliorer ses notes, faire monter sa moyenne. Mais derrière ces mots, il y a quelque chose de plus profond. Presque malgré lui, il ajoute que c&#x27;est peut-être le seul moyen de quitter un jour Bjärstad, de ne pas y rester coincé toute sa vie. Ses amis le regardent alors différemment. Un silence s&#x27;installe, discret mais lourd. Comme si, soudain, ils réalisaient que Simon regarde déjà plus loin qu&#x27;eux.</p><p>Ayub lui propose une pizza pour détendre l&#x27;atmosphère. Simon accepte, mais Rosh la lui arrache aussitôt des mains pour le taquiner, ce qui provoque quelques rires. L&#x27;ambiance redevient légère, presque comme avant.</p><p>Puis Rosh lui demande s&#x27;il viendra la voir jouer au match de football le lendemain. Ayub dit qu&#x27;il sera là, sans hésiter. Simon, lui, répond qu&#x27;il va essayer. Une réponse qui semble anodine, mais qui révèle déjà quelque chose : Simon marche entre deux mondes… et il ne sait pas encore lequel finira par le retenir.</p></div>
+      </details>
+      <details class="scene">
+        <summary><span class="num-scene">Scène 07</span>À l&#x27;aube des secrets</summary>
+        <div class="texte-scene"><p>Le jour ne s&#x27;est pas encore vraiment levé sur Hillerska. Dans l&#x27;air froid du matin, August s&#x27;entraîne déjà avec une intensité presque excessive, comme s&#x27;il essayait d&#x27;échapper à quelque chose qui le poursuit. Non loin de là, Sara s&#x27;occupe doucement de Rousseau, tandis que dans le calme de sa chambre, Wilhelm est encore allongé.</p><p>Son regard dérive sur l&#x27;écran de son téléphone. Il fait défiler les photos Instagram de Simon, ces fragments de vie simples et lumineux qui contrastent tant avec le monde rigide du pensionnat. Presque timidement, il s&#x27;abonne à son compte, comme un geste discret, presque secret.</p><p>Le calme ne dure jamais longtemps. August fait irruption dans la chambre de Wilhelm, sans frapper, comme si les limites n&#x27;existaient pas pour lui. Fidèle à lui-même, il se mêle de tout, lance des remarques déplacées et intrusives. Il attrape même le téléphone de Wilhelm.</p><p>La situation devient encore plus gênante quand le téléphone sonne. Sur l&#x27;écran apparaît Erik, le frère aîné de Wilhelm. Mais c&#x27;est August qui répond, se permettant de plaisanter à ses dépens, décrivant Wilhelm comme paresseux et démotivé. Avant de partir, il lance une dernière provocation.</p><p>Quand le calme revient enfin, Wilhelm peut parler à son frère. Il lui confie sa frustration à propos d&#x27;August. Erik lui explique alors que le pensionnat est devenu toute la vie d&#x27;August depuis le suicide de son père, trois ans plus tôt. Une information que Wilhelm ignorait. Encore une fois, personne ne lui avait rien dit.</p><p>Troublé, Wilhelm regarde par la fenêtre. Au loin, des élèves arrivent pour l&#x27;entraînement. Parmi eux, il reconnaît immédiatement Simon. Sans réfléchir davantage, il s&#x27;habille en vitesse et quitte la conversation avec son frère. Comme si, au milieu de toutes ces tensions, quelque chose l&#x27;appelait déjà ailleurs.</p></div>
+      </details>
+      <details class="scene">
+        <summary><span class="num-scene">Scène 08</span>Regards suspendus</summary>
+        <div class="texte-scene"><p>Wille rejoint les autres et l&#x27;entraînement commence, intense, exigeant. Au milieu de l&#x27;effort, les regards entre Simon et Wille se cherchent, se trouvent, s&#x27;attardent. Quelques sourires discrets s&#x27;échangent, sincères, presque fragiles. Ils ne sont jamais loin l&#x27;un de l&#x27;autre, comme naturellement attirés, malgré tout.</p><p>Quand l&#x27;entraînement se termine, Simon s&#x27;éloigne pour aller voir August. Le ton change. Il lui rappelle calmement qu&#x27;il lui doit de l&#x27;argent. August répond en lui demandant d&#x27;envoyer un message avec le montant exact pour le rembourser.</p><p>Wille observe la scène. Il voit, mais ne comprend pas. Et cette fois, leurs regards ne se croisent pas.</p></div>
+      </details>
+      <details class="scene">
+        <summary><span class="num-scene">Scène 09</span>Le manque</summary>
+        <div class="texte-scene"><p>August rentre de l&#x27;entraînement dans sa chambre, visiblement tendu et déjà envahi par une forme d&#x27;angoisse qu&#x27;il tente de contenir, avant de se diriger vers l&#x27;endroit où il garde ses cachets.</p><p>En les prenant dans sa main, il réalise qu&#x27;il ne lui en reste que deux, et cette simple constatation fait aussitôt basculer son état. L&#x27;inquiétude monte vite et il comprend qu&#x27;il ne pourra pas tenir longtemps ainsi.</p><p>Sans vraiment réfléchir, poussé par une urgence intérieure, il quitte sa chambre et se met à chercher Vincent dans les différentes pièces, parcourant les couloirs avec une agitation de plus en plus visible.</p><p>Quand il le trouve enfin, il va droit au but et lui demande d&#x27;une voix tendue s&#x27;il peut lui en procurer davantage, incapable de cacher son besoin.</p><p>Vincent, surpris par la vitesse à laquelle August a épuisé ses cachets, réagit immédiatement en lui disant qu&#x27;il doit faire attention, que la situation devient dangereuse. Il lui explique qu&#x27;il devrait consulter, se faire diagnostiquer pour obtenir une ordonnance, parce que lui-même ne peut plus fournir. Il avoue avoir déjà changé trois fois de psychiatre.</p><p>Face à cela, August finit par reconnaître qu&#x27;il a tenté de trouver une autre solution : il a commandé des cachets en ligne pour compenser le manque. Mais même cette tentative a échoué, la commande étant bloquée à la douane.</p><p>Dans cet échange, un silence lourd s&#x27;installe, révélant toute la gravité de la situation et l&#x27;impasse dans laquelle August s&#x27;enfonce.</p></div>
+      </details>
+      <details class="scene">
+        <summary><span class="num-scene">Scène 10</span>Le refus</summary>
+        <div class="texte-scene"><p>August se rend chez le psychologue de l&#x27;école avec une intention claire en tête, sa tension déjà visible, comme s&#x27;il avait besoin que ce rendez-vous se déroule exactement comme il l&#x27;avait prévu.</p><p>Devant Boris, il affirme rapidement qu&#x27;il a un TDAH, présentant cela comme un diagnostic évident, presque comme s&#x27;il suffisait de le dire pour obtenir ce qu&#x27;il est venu chercher.</p><p>Boris, calme et attentif, ne se précipite pas et lui demande plutôt pourquoi il pense cela. August décrit alors son incapacité à rester en place, son esprit qui part sans cesse dans tous les sens, une agitation qu&#x27;il ne contrôle plus.</p><p>Mais au fil de la conversation, Boris propose une autre lecture : ces symptômes peuvent simplement être le résultat de la pression qu&#x27;il subit en ce moment. Entre son rôle de responsable de dortoir, les responsabilités qui vont avec et sa dernière année, il est compréhensible que le stress soit écrasant.</p><p>Cette réponse n&#x27;est pas du tout celle qu&#x27;August attendait, et l&#x27;impatience se transforme vite en frustration. Il sent le contrôle lui échapper une fois de plus.</p><p>Boris ajoute qu&#x27;un diagnostic demande du temps, plusieurs semaines d&#x27;évaluation et un suivi régulier. Ces mots deviennent immédiatement un obstacle pour August, qui ne veut ni attendre ni traverser un processus qu&#x27;il ne maîtrise pas.</p><p>La tension monte brusquement, et August finit par s&#x27;emporter, incapable d&#x27;accepter ce refus implicite. Il quitte la pièce les mains vides, avec un profond sentiment d&#x27;échec. Pour quelqu&#x27;un qui a toujours cru que son statut pouvait ouvrir toutes les portes, ce moment le confronte à une réalité qu&#x27;il ne peut pas plier à sa volonté.</p></div>
+      </details>
+      <details class="scene">
+        <summary><span class="num-scene">Scène 11</span>Sous pression</summary>
+        <div class="texte-scene"><p>La journée s&#x27;achève et les élèves sont réunis en salle d&#x27;étude, chacun concentré sur ses révisions. Simon est assis à côté de Wille, partageant une proximité calme et naturelle, comme une bulle fragile au milieu de la tension ambiante.</p><p>Mais ce moment est vite perturbé quand August s&#x27;approche et s&#x27;immisce dans leur espace sans y être invité. Il se met à parler du sport scolaire, affirmant que cela rassemble les gens, les classes sociales, les cultures, comme s&#x27;il énonçait une vérité indiscutable.</p><p>Simon écoute un moment, mais son visage se ferme lentement et, sans répondre, il se lève brusquement, incapable d&#x27;en entendre davantage. Il dit qu&#x27;il va continuer son travail à la bibliothèque.</p><p>Wille le regarde partir, surpris, et lui dit qu&#x27;ils se verront plus tard à l&#x27;entraînement d&#x27;aviron, comme si c&#x27;était évident. Mais Simon répond qu&#x27;il ne sera pas là ce soir, sans donner d&#x27;explication, laissant Wille désorienté.</p><p>Avant que Wille puisse réagir, August intervient de nouveau : si Simon ne vient pas, il ne peut pas faire partie de l&#x27;équipe, sous-entendant que les coéquipiers ne s&#x27;abandonnent pas ainsi. Simon, malgré la pression, reste ferme et répète qu&#x27;il ne peut vraiment pas être là.</p><p>L&#x27;atmosphère s&#x27;alourdit. Sara se lève à son tour pour rejoindre son frère, expliquant qu&#x27;il y a trop de bruit pour travailler correctement, et ils partent tous les deux à la bibliothèque.</p><p>À ce moment-là, Felice prend la parole et invite Sara à une soirée film d&#x27;horreur, disant que ce serait sympa qu&#x27;elle soit là et que Simon peut venir aussi. Simon et Sara échangent un regard, silencieux mais complice, et acceptent d&#x27;un simple geste. Wille observe cela et laisse apparaître un petit sourire, subtil mais sincère.</p><p>Mais le moment est vite brisé quand August se moque de Felice, disant que c&#x27;est gentil de sa part de faire la charité. Felice répond immédiatement, défendant Sara et affirmant qu&#x27;elle est quelqu&#x27;un de très bien, peut-être la plus honnête de l&#x27;école.</p><p>Curieux, August demande ce qu&#x27;elle a. Quand Felice explique que Sara est Asperger et qu&#x27;elle a un TDAH, quelque chose change dans le regard d&#x27;August. Son attention s&#x27;aiguise, devient presque calculatrice.</p></div>
+      </details>
+      <details class="scene">
+        <summary><span class="num-scene">Scène 12</span>Enfreindre les règles</summary>
+        <div class="texte-scene"><p>Wille est seul dans sa chambre, essayant de se concentrer sur ses devoirs, mais ses pensées reviennent sans cesse vers Simon. Une question tourne en boucle : pourquoi Simon ne peut-il pas venir à l&#x27;entraînement ce soir, et pourquoi cela l&#x27;affecte-t-il autant ?</p><p>Assis sur son lit, téléphone en main, il hésite longtemps avant de se décider à lui écrire. C&#x27;est la première fois qu&#x27;il envoie un message à Simon, et cela suffit à l&#x27;emplir d&#x27;un mélange d&#x27;anxiété et d&#x27;attente.</p><p>Il demande simplement pourquoi il ne vient pas, mais derrière cette question se cache un besoin plus profond de comprendre et de rester lié. Simon répond rapidement : il a promis d&#x27;assister au match de football d&#x27;une amie. Puis il l&#x27;invite à venir, ajoutant un petit défi : il peut venir s&#x27;il ose.</p><p>Wille hésite, pensant aussitôt aux règles, à August, aux conséquences d&#x27;une sortie sans autorisation. Simon le taquine, suggérant qu&#x27;il a peut-être simplement peur, ce qui fait sourire Wille et le pousse à choisir.</p><p>À ce moment, August entre sans frapper et lui rappelle l&#x27;entraînement, le ramenant à la réalité. Wille improvise une excuse : il ne se sent pas bien et préfère se reposer. August le prévient que manquer l&#x27;entraînement pourrait lui coûter sa place dans l&#x27;équipe principale, mais Wille répond, à la surprise générale, qu&#x27;il s&#x27;en moque.</p><p>Une fois August parti, Wille se sent soulagé, comme s&#x27;il venait de franchir une ligne invisible. Il répond enfin à Simon et accepte de venir, à la fois nerveux et impatient.</p><p>Cette décision change tout. Wille quitte le pensionnat sans autorisation, enfreignant les règles pour la première fois, guidé seulement par ce qu&#x27;il ressent. Il prend le bus, une expérience entièrement nouvelle pour lui : il ne sait même pas comment acheter un ticket.</p><p>À l&#x27;arrêt de Bjärstad, Simon l&#x27;attend, et leurs retrouvailles sont simples mais importantes, marquées par un bonheur tranquille d&#x27;être seuls ensemble. Ils marchent dans les rues, discutent, et Wille devient curieux de la vie de Simon. Simon explique que tout y semble répétitif, les mêmes gens, les mêmes habitudes, tandis que Wille admet que, d&#x27;une certaine manière, sa vie lui ressemble.</p><p>En chemin, Wille est reconnu par des filles qui le saluent, rappel bref de son statut. Au terrain de football, ils retrouvent Ayub, qui accueille Wille naturellement. Ayub leur propose à manger, et Wille va chercher des hot-dogs pour eux deux, montrant une attention simple mais sincère. Quand il demande à Simon comment il veut le sien, Simon s&#x27;emmêle dans ses mots, troublé. Ayub le remarque et le taquine, lui demandant s&#x27;il aime bien Wille, ce qui le déstabilise profondément. Simon nie, mais la pensée reste.</p><p>Pendant le match, Simon observe Wille de plus près, remarquant son sourire, son énergie, la facilité avec laquelle il s&#x27;intègre. Il commence à comprendre quelque chose qu&#x27;il ne peut plus ignorer : il l&#x27;aime bien.</p><p>Après le match, ils rentrent tous en mobylette, partageant un moment de liberté pure. Le vent, les rires, l&#x27;absence de règles contrastent avec leurs vies habituelles. Leurs mains se frôlent, puis se tiennent, timides mais réelles. Simon sent son attirance grandir, surtout en voyant Wille si libre et si heureux, si différent de celui qu&#x27;il est à l&#x27;école. C&#x27;est une nouvelle version de Wille qu&#x27;il découvre, et cela change tout.</p></div>
+      </details>
+    </div>
+
+      <p class="aucune">Les épisodes suivants de la saison 1 seront ajoutés au fil du temps.</p>
+    </div>
+
+    <div class="saison" data-saison="2" hidden>
+      <p class="aucune">Les analyses de la saison 2 arrivent. Elles seront écrites avec la communauté : chaque membre pourra proposer sa lecture d'une scène.</p>
+    </div>
+
+    <div class="saison" data-saison="3" hidden>
+      <p class="aucune">Les analyses de la saison 3 arrivent également. L'épisode 6 aura droit à un traitement particulier, tant il a marqué celles et ceux qui l'ont vu.</p>
     </div>
   </div>
 </section>
 
-<section class="section" style="padding-top:1rem">
-  <div class="contenu">
-    <h2 class="titre2" style="font-size:1.8rem">Les événements</h2>
-    <p class="intro2">Tous les rendez-vous, en cours, à venir et passés, sont rassemblés sur leur page. <a href="evenements.html" style="color:var(--cyan)">Voir tous les événements →</a></p>
-    <div class="evenements">
-      <article class="evenement">
-        <div class="date"><b>12</b><span>NOV</span></div>
-        <div><b>Anniversaire d'Omar</b><p>Album de messages et de dessins offert à Omar, en ligne.</p></div>
-        <span class="etiq-ev">En préparation</span>
-      </article>
-      <article class="evenement">
-        <div class="date"><b>—</b><span>2027</span></div>
-        <div><b>Omar Global Radio Day</b><p>Journée mondiale de demandes en radio, date annoncée à la sortie de l'album.</p></div>
-        <span class="etiq-ev">À venir</span>
-      </article>
-      <article class="evenement">
-        <div class="date"><b>—</b><span>2027</span></div>
-        <div><b>Atelier bracelets</b><p>Atelier créatif en visio, kit envoyé aux participants.</p></div>
-        <span class="etiq-ev">À venir</span>
-      </article>
-    </div>
-  </div>
-</section>
 
-<section class="section" style="padding-top:1rem">
+<section class="section" style="padding-top:1rem" id="interviews">
   <div class="contenu">
-    <h2 class="titre2" style="font-size:1.8rem">La galerie de la communauté</h2>
-    <p class="intro2">Les photos et créations envoyées par les fans, validées avant publication. Chacun reste propriétaire de ce qu'il partage, et peut demander le retrait à tout moment.</p>
-    <div class="galerie">
-      <div class="case-photo"><span>photo de fan</span></div>
-      <div class="case-photo"><span>création</span></div>
-      <div class="case-photo"><span>concert</span></div>
-      <div class="case-photo"><span>atelier</span></div>
-      <div class="case-photo"><span>fan art</span></div>
-      <div class="case-photo"><span>projet</span></div>
+    <h2 class="titre2" style="font-size:1.8rem">Interviews</h2>
+    <p class="intro2">Les interviews d'Omar Rudberg et d'Edvin Ryding pendant les promotions des trois saisons, ainsi que les paroles marquantes que nous avons retenues.</p>
+
+    <h3 class="titre-ep">Saison 1</h3>
+    <div class="citations">
+      <blockquote>Présentation d'Edvin Ryding (Wilhelm) et d'Omar Rudberg (Simon). Pourquoi Young Royals est-elle une série si particulière ? Qu'avez-vous appris pendant le tournage ? À quel personnage vous identifiez-vous le plus ? En quoi ressemblez-vous à Wilhelm ? Notre regard sur la sexualité a-t-il évolué ? Pourquoi Simon est-il si à l'aise avec la sienne ? Que pensiez-vous des scènes de baiser ?</blockquote>
+      <blockquote>« Omar Rudberg en toute intimité. » — « Non, tu n'as pas le droit de toucher mon visage aujourd'hui. » — « Petit, je portais des bijoux autour de la taille. Où est-ce que tout ça est parti ? »</blockquote>
+      <blockquote>« Enfant, j'avais beaucoup d'imagination, j'étais un super-héros. Adulte, quand je n'allais pas bien, ma mère me disait d'essuyer mes larmes et de montrer mon visage au monde. Cet été, vous me verrez. »<cite>Sommar i P1 · l'artiste y raconte son combat pour réaliser ses rêves, le soutien de sa mère, sa volonté de rompre les schémas familiaux qui font mal</cite></blockquote>
     </div>
     <div class="barre-boutons">
-      <button class="btn">Envoyer une photo</button>
-      <button class="btn btn--fin">Voir toute la galerie</button>
+      <a class="btn btn--fin" href="https://poddtoppen.se/podcast/284610981/sommar-vinter-i-p1/omar-rudberg" target="_blank" rel="noopener">Écouter Sommar i P1</a>
     </div>
-    <p class="mention">Pour les mineurs, l'autorisation d'un parent est nécessaire avant tout envoi. Les vidéos ne sont pas hébergées : partagez simplement le lien Instagram, TikTok ou YouTube.</p>
+    <p class="mention">Producteurs : Mark Levengood, Henrik Johnsson. Traduit et publié en ligne par la chaîne YouTube Omar Rudberg Daily Info.</p>
+
+    <h3 class="titre-ep">Saison 2</h3>
+    <div class="citations">
+      <blockquote>« Prenons un chewing-gum, on ne va pas vomir en s'embrassant. »</blockquote>
+      <blockquote>« J'ai essayé huit fois de cracher différemment. »</blockquote>
+      <blockquote>« Sois la personne dont tu avais besoin quand tu étais plus jeune. »</blockquote>
+    </div>
+
+    <h3 class="titre-ep">Saison 3</h3>
+    <div class="vide-bloc">
+      <p>Les interviews de la saison 3 seront ajoutées ici, avec leurs vidéos intégrées.</p>
+    </div>
+
+    <div class="integration" data-type="interviews">
+      <p class="titre-bloc">Vidéos d'interviews</p>
+      <p class="mention">Les vidéos officielles seront intégrées ici depuis leurs comptes d'origine, et ne se chargeront qu'après votre clic.</p>
+      <div class="emplacements">
+        <div class="emplacement"><b>Saison 1</b><span>emplacement d'intégration</span></div>
+        <div class="emplacement"><b>Saison 2</b><span>emplacement d'intégration</span></div>
+        <div class="emplacement"><b>Saison 3</b><span>emplacement d'intégration</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<section class="section" style="padding-top:1rem" id="presse">
+  <div class="contenu">
+    <h2 class="titre2" style="font-size:1.8rem">Presse</h2>
+    <p class="intro2">Depuis le premier jour de diffusion, et bien après, Young Royals a été largement commentée dans les magazines, pour le plus grand plaisir de tous. Voici les articles que nous avons rassemblés : les réunir tous aurait été impossible, tant ce phénomène culturel a fait couler d'encre.</p>
+
+    <h3 class="titre-ep">Saison 1 · 4 articles</h3>
+    <div class="emplacements">
+      <div class="emplacement"><b>Article 1</b><span>emplacement d'intégration</span></div>
+      <div class="emplacement"><b>Article 2</b><span>emplacement d'intégration</span></div>
+      <div class="emplacement"><b>Article 3</b><span>emplacement d'intégration</span></div>
+      <div class="emplacement"><b>Article 4</b><span>emplacement d'intégration</span></div>
+    </div>
+
+    <h3 class="titre-ep">Saison 2 · 6 articles</h3>
+    <div class="emplacements">
+      <div class="emplacement"><b>Article 1</b><span>emplacement d'intégration</span></div>
+      <div class="emplacement"><b>Article 2</b><span>emplacement d'intégration</span></div>
+      <div class="emplacement"><b>Article 3</b><span>emplacement d'intégration</span></div>
+      <div class="emplacement"><b>Article 4</b><span>emplacement d'intégration</span></div>
+      <div class="emplacement"><b>Article 5</b><span>emplacement d'intégration</span></div>
+      <div class="emplacement"><b>Article 6</b><span>emplacement d'intégration</span></div>
+    </div>
+
+    <h3 class="titre-ep">Saison 3 · 7 articles</h3>
+    <div class="emplacements">
+      <div class="emplacement"><b>Article 1</b><span>emplacement d'intégration</span></div>
+      <div class="emplacement"><b>Article 2</b><span>emplacement d'intégration</span></div>
+      <div class="emplacement"><b>Article 3</b><span>emplacement d'intégration</span></div>
+      <div class="emplacement"><b>Article 4</b><span>emplacement d'intégration</span></div>
+      <div class="emplacement"><b>Article 5</b><span>emplacement d'intégration</span></div>
+      <div class="emplacement"><b>Article 6</b><span>emplacement d'intégration</span></div>
+      <div class="emplacement"><b>Article 7</b><span>emplacement d'intégration</span></div>
+    </div>
+
+    <h3 class="titre-ep">Après Young Royals · 3 articles</h3>
+    <div class="emplacements">
+      <div class="emplacement"><b>Article 1</b><span>emplacement d'intégration</span></div>
+      <div class="emplacement"><b>Article 2</b><span>emplacement d'intégration</span></div>
+      <div class="emplacement"><b>Article 3</b><span>emplacement d'intégration</span></div>
+    </div>
+
+    <p class="mention">Contenus intégrés depuis des publications extérieures. Tous les droits sur les articles, les images et les vidéos appartiennent à leurs auteurs et aux médias d'origine.</p>
+  </div>
+</section>
+
+<section class="section" style="padding-top:1rem">
+  <div class="contenu deux" style="align-items:start">
+    <div class="proposer">
+      <h3>Proposer votre lecture d'une scène</h3>
+      <p class="mention">Une scène vous a marquée ? Racontez ce que vous y avez vu, ressenti, compris. Les meilleures analyses seront ajoutées à la page, signées de votre prénom et de votre pays.</p>
+      <div class="grille2">
+        <label class="champ"><span>Saison et épisode</span><input type="text" placeholder="Saison 1, épisode 5"></label>
+        <label class="champ"><span>Prénom et pays</span><input type="text" placeholder="Méline, France"></label>
+      </div>
+      <label class="champ"><span>Votre analyse</span><textarea rows="5" placeholder="Ce que cette scène raconte…"></textarea></label>
+      <button class="btn btn--fin">Envoyer</button>
+    </div>
+
+    <div class="infolettre">
+      <h3>Aller plus loin</h3>
+      <p class="mention">Les interviews et la revue de presse consacrées à la série seront reprises ici, avec les liens vers les sources officielles.</p>
+      <div class="barre-boutons">
+        <a class="btn btn--fin" href="#interviews">Interviews</a>
+        <a class="btn btn--fin" href="#presse">Presse</a>
+        <a class="btn btn--fin" href="https://www.netflix.com/title/81210762" target="_blank" rel="noopener">Voir sur Netflix</a>
+      </div>
+      <p class="mention" style="margin-top:1rem">En concert, Omar continue de faire vivre l'émotion de la série en interprétant « Simon's Song » et « It Takes a Fool to Remain Sane ».</p>
+    </div>
   </div>
 </section>
 
@@ -709,7 +898,7 @@ h2.titre2{font-family:var(--titre);font-size:clamp(1.8rem,3.4vw,2.8rem);margin:0
           <li><a href="omar.html" data-i18n="f.omar"></a></li>
           <li><a href="shoots.html" data-i18n="f.shoots"></a></li>
           <li><a href="omr-beauty.html" data-i18n="f.beaute"></a></li>
-          <li><a href="young-royals.html" data-i18n="nav.royals"></a></li>
+          <li><a href="young-royals.html" class="actif" data-i18n="nav.royals"></a></li>
           <li><a href="evenements.html" data-i18n="f.evenements"></a></li>
           <li><a href="livre.html" data-i18n="nav.livre"></a></li>
           <li><a href="journal.html" data-i18n="f.blog"></a></li>
@@ -742,7 +931,7 @@ h2.titre2{font-family:var(--titre);font-size:clamp(1.8rem,3.4vw,2.8rem);margin:0
     <div class="pied__bas">
       <span>© 2026 O.R. World Association</span>
       <span data-i18n="f.heberge"></span>
-      <span class="version">version : COMMUNAUTE-002</span>
+      <span class="version">version : ROYALS-002</span>
     </div>
   </div>
 </footer>
@@ -955,23 +1144,6 @@ const CONTINENTS=[[[143.2,-12.0],[143.5,-13.1],[143.8,-14.3],[144.9,-14.7],[145.
 
 
 </script>
-<script>
-(function(){
-  document.querySelectorAll(".voter").forEach(function(b){
-    b.addEventListener("click",function(){
-      const c=b.closest(".projet").querySelector("[data-votes]");
-      if(b.classList.contains("vote")){
-        b.classList.remove("vote"); b.textContent="Voter";
-        c.textContent=Math.max(0,parseInt(c.textContent,10)-1);
-      } else {
-        b.classList.add("vote"); b.textContent="Voté ✓";
-        c.textContent=parseInt(c.textContent,10)+1;
-      }
-    });
-  });
-})();
-</script>
-
 
 <script>
 (function(){
@@ -995,6 +1167,40 @@ const CONTINENTS=[[[143.2,-12.0],[143.5,-13.1],[143.8,-14.3],[144.9,-14.7],[145.
   document.addEventListener("keydown",function(e){ if(e.key==="Escape") bascule(false); });
 })();
 </script>
-
+<script>
+(function(){
+  document.querySelectorAll(".filtre").forEach(function(f){
+    f.addEventListener("click",function(){
+      document.querySelectorAll(".filtre").forEach(function(x){x.classList.toggle("actif",x===f);});
+      const s=f.dataset.saison;
+      document.querySelectorAll(".saison").forEach(function(sec){
+        sec.hidden = sec.dataset.saison!==s;
+      });
+    });
+  });
+})();
+</script>
+<script>
+(function(){
+  const b=document.getElementById("burger");
+  if(!b) return;
+  const menu=document.querySelector(".menu");
+  const entete=document.querySelector(".entete");
+  function bascule(ouvrir){
+    menu.classList.toggle("ouvert",ouvrir);
+    entete.classList.toggle("menu-ouvert",ouvrir);
+    b.setAttribute("aria-expanded",String(ouvrir));
+    document.body.style.overflow=ouvrir?"hidden":"";
+  }
+  b.addEventListener("click",function(e){
+    e.stopPropagation();
+    bascule(!menu.classList.contains("ouvert"));
+  });
+  menu.querySelectorAll("a").forEach(function(a){
+    a.addEventListener("click",function(){ bascule(false); });
+  });
+  document.addEventListener("keydown",function(e){ if(e.key==="Escape") bascule(false); });
+})();
+</script>
 </body>
 </html>

@@ -3,8 +3,8 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>La communauté · O.R. World Association</title>
-<!-- version : COMMUNAUTE-002 -->
+<title>OMR Beauty · O.R. World Association</title>
+<!-- version : BEAUTY-008 -->
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:opsz,wght@6..96,400;6..96,500&family=Caveat:wght@500;600&family=Jost:wght@200;300;400&display=swap" rel="stylesheet">
@@ -413,53 +413,6 @@ h2.titre2{font-family:var(--titre);font-size:clamp(1.8rem,3.4vw,2.8rem);margin:0
 .pseudo:focus-within{border-color:var(--violet-clair);box-shadow:0 0 20px rgba(167,139,250,.35)}
 
 
-.projets{display:grid;grid-template-columns:repeat(2,1fr);gap:1.1rem;margin-top:1.4rem}
-.projet{padding:1.5rem;border:1px solid var(--bord);border-radius:16px;
-  background:linear-gradient(160deg,rgba(16,20,56,.75),rgba(4,7,24,.9))}
-.projet .cat{font-size:.64rem;letter-spacing:.18em;color:var(--rose)}
-.projet b{display:block;font-family:var(--titre);font-size:1.25rem;font-weight:500;margin:.4rem 0 .5rem}
-.projet p{color:var(--gris);font-size:.9rem;margin:0 0 1.2rem}
-.projet__bas{display:flex;justify-content:space-between;align-items:center;gap:.8rem}
-.votes{color:var(--cyan);font-size:.85rem}
-.votes b{display:inline;font-family:var(--texte);font-size:1.1rem;color:var(--cyan)}
-.voter.vote{border-color:var(--cyan);color:#fff;background:linear-gradient(120deg,rgba(91,141,255,.45),rgba(103,232,249,.3))}
-
-.concours-grille{display:grid;grid-template-columns:repeat(3,1fr);gap:1.1rem;margin-top:1.4rem}
-.concours{padding:1.5rem;border:1px solid var(--bord);border-radius:16px;background:rgba(8,12,34,.6);
-  display:flex;flex-direction:column;gap:.5rem}
-.concours b{font-family:var(--titre);font-size:1.2rem;font-weight:500}
-.concours p{color:var(--gris);font-size:.9rem;margin:0}
-.concours small{color:#8d86ab;font-size:.78rem;margin-bottom:.6rem}
-.concours .btn{align-self:flex-start;margin-top:auto}
-.etat-ouvert,.etat-attente,.etat-fini{align-self:flex-start;padding:.24rem .8rem;border-radius:999px;
-  font-size:.62rem;letter-spacing:.14em}
-.etat-ouvert{background:rgba(103,232,249,.2);color:var(--cyan)}
-.etat-attente{background:rgba(232,121,249,.18);color:var(--rose)}
-.etat-fini{background:rgba(255,255,255,.1);color:var(--gris)}
-
-.evenements{display:grid;gap:.9rem;margin-top:1.4rem}
-.evenement{display:grid;grid-template-columns:auto 1fr auto;gap:1.4rem;align-items:center;
-  padding:1.1rem 1.4rem;border:1px solid var(--bord);border-radius:14px;background:rgba(8,12,34,.55)}
-.date{text-align:center;min-width:64px}
-.date b{display:block;font-family:var(--titre);font-size:1.6rem;color:var(--cyan);
-  text-shadow:0 0 18px rgba(103,232,249,.5)}
-.date span{font-size:.62rem;letter-spacing:.18em;color:var(--gris)}
-.evenement b{font-weight:400}
-.evenement p{color:var(--gris);font-size:.88rem;margin:.2rem 0 0}
-.etiq-ev{font-size:.66rem;letter-spacing:.12em;color:var(--gris);white-space:nowrap}
-
-.galerie{display:grid;grid-template-columns:repeat(6,1fr);gap:.9rem;margin:1.4rem 0}
-.case-photo{aspect-ratio:1;border:1px solid var(--bord);border-radius:14px;display:grid;place-items:center;
-  background:linear-gradient(150deg,rgba(124,58,237,.35),rgba(4,7,24,.9));color:var(--gris);
-  font-size:.66rem;letter-spacing:.14em}
-.proposer{margin-top:2rem;padding:1.6rem;border:1px solid var(--bord);border-radius:18px;background:rgba(6,10,32,.6)}
-.proposer h3{font-family:var(--titre);font-size:1.3rem;margin:0 0 .3rem}
-.champ textarea,.champ select{width:100%;padding:.85rem 1rem;border:1px solid var(--bord);border-radius:10px;
-  background:rgba(2,4,16,.75);color:#fff;font-family:var(--texte);font-size:.95rem;resize:vertical}
-@media (max-width:1000px){.projets,.concours-grille{grid-template-columns:1fr}.galerie{grid-template-columns:repeat(3,1fr)}}
-@media (max-width:620px){.galerie{grid-template-columns:1fr 1fr}.evenement{grid-template-columns:auto 1fr}}
-
-
 /* ---------- menu mobile ---------- */
 .burger{display:none;flex-direction:column;gap:5px;padding:.6rem;border:1px solid var(--bord);
   border-radius:10px;background:rgba(6,10,32,.6);cursor:pointer}
@@ -480,6 +433,153 @@ h2.titre2{font-family:var(--titre);font-size:clamp(1.8rem,3.4vw,2.8rem);margin:0
   .marque,.outils{position:relative;z-index:2}
 }
 
+
+.filtres{display:flex;gap:.4rem;flex-wrap:wrap;margin:1.2rem 0 1.6rem}
+.filtre{padding:.45rem 1.2rem;border:1px solid var(--bord);border-radius:999px;background:rgba(8,12,34,.55);
+  color:var(--gris);font-family:var(--texte);font-size:.85rem;cursor:pointer}
+.filtre.actif{border-color:var(--violet-clair);color:#fff;box-shadow:0 0 18px rgba(167,139,250,.3)}
+.titre-ep{font-family:var(--titre);font-size:1.5rem;font-weight:500;margin:2rem 0 1rem;
+  color:var(--cyan);text-shadow:0 0 18px rgba(103,232,249,.5)}
+.episode:first-child .titre-ep{margin-top:.5rem}
+.scene{border:1px solid var(--bord);border-radius:14px;background:rgba(8,12,34,.55);
+  margin-bottom:.7rem;overflow:hidden}
+.scene summary{display:flex;align-items:baseline;gap:.9rem;padding:1rem 1.2rem;cursor:pointer;
+  list-style:none;font-size:1rem;color:#e6ecff}
+.scene summary::-webkit-details-marker{display:none}
+.scene summary::after{content:"＋";margin-left:auto;color:var(--cyan);flex:none}
+.scene[open] summary::after{content:"−"}
+.scene[open]{border-color:var(--violet-clair);box-shadow:0 0 26px rgba(120,150,255,.16)}
+.num-scene{font-family:var(--titre);font-size:.85rem;color:var(--rose);flex:none;letter-spacing:.08em}
+.texte-scene{padding:0 1.4rem 1.4rem;color:var(--gris);line-height:1.85;font-size:.95rem;
+  max-width:78ch}
+.texte-scene p{margin:0 0 1rem}
+.aucune{padding:1.6rem;border:1.5px dashed var(--bord);border-radius:14px;color:var(--gris);
+  font-size:.92rem;text-align:center;margin-top:1.4rem}
+.proposer,.infolettre{padding:1.6rem;border:1px solid var(--bord);border-radius:18px;background:rgba(6,10,32,.6)}
+.proposer h3,.infolettre h3{font-family:var(--titre);font-size:1.3rem;margin:0 0 .3rem}
+.champ textarea{width:100%;padding:.85rem 1rem;border:1px solid var(--bord);border-radius:10px;
+  background:rgba(2,4,16,.75);color:#fff;font-family:var(--texte);font-size:.95rem;resize:vertical}
+
+
+.fiche{display:grid;grid-template-columns:repeat(3,1fr);gap:1.1rem;margin:1.6rem 0}
+.bloc-fiche{padding:1.4rem;border:1px solid var(--bord);border-radius:16px;background:rgba(8,12,34,.55)}
+.bloc-fiche h3{font-size:.66rem;letter-spacing:.2em;color:var(--cyan);margin:0 0 1rem;
+  text-shadow:0 0 12px rgba(103,232,249,.5)}
+.bloc-fiche ul{list-style:none;margin:0;padding:0;display:grid;gap:.8rem}
+.bloc-fiche b{display:block;font-weight:400;color:#fff;font-size:.95rem}
+.bloc-fiche span{color:var(--gris);font-size:.86rem}
+.resume{padding:1.8rem;border:1px solid var(--bord);border-left:2px solid var(--rose);border-radius:0 18px 18px 0;
+  background:rgba(232,121,249,.05)}
+.resume h3{font-family:var(--titre);font-size:1.3rem;margin:0 0 .9rem}
+.resume p{color:var(--gris);line-height:1.85;margin:0 0 1rem}
+.citations{display:grid;gap:.9rem;margin:1.2rem 0}
+.citations blockquote{margin:0;padding:1.2rem 1.4rem;border:1px solid var(--bord);border-radius:14px;
+  background:rgba(8,12,34,.55);color:#dfe7ff;line-height:1.7;font-size:.95rem}
+.citations cite{display:block;margin-top:.7rem;font-style:normal;font-size:.78rem;color:#8d86ab}
+.emplacements{display:grid;grid-template-columns:repeat(4,1fr);gap:.9rem;margin:1rem 0 1.6rem}
+.emplacement{padding:1.3rem 1rem;border:1.5px dashed var(--bord);border-radius:14px;text-align:center;
+  background:rgba(6,10,30,.5)}
+.emplacement b{display:block;font-weight:400;color:#e6ecff;font-size:.92rem}
+.emplacement span{font-size:.72rem;color:#8d86ab}
+.vide-bloc{padding:1.4rem;border:1.5px dashed var(--bord);border-radius:14px;color:var(--gris);
+  font-size:.92rem;margin:1rem 0}
+.vide-bloc p{margin:0}
+@media (max-width:1000px){.fiche{grid-template-columns:1fr}.emplacements{grid-template-columns:1fr 1fr}}
+
+
+.frise-vie{display:grid;gap:1.1rem;margin-top:1.4rem;position:relative}
+.etape-vie{position:relative;padding:1.6rem 1.6rem 1.7rem 2.4rem;border:1px solid var(--bord);
+  border-radius:16px;background:linear-gradient(160deg,rgba(16,20,56,.72),rgba(4,7,24,.9))}
+.etape-vie::before{content:"";position:absolute;left:1rem;top:1.9rem;width:9px;height:9px;border-radius:50%;
+  background:linear-gradient(120deg,var(--cyan),var(--rose));box-shadow:0 0 16px rgba(167,139,250,.9)}
+.annees{font-size:.66rem;letter-spacing:.2em;color:var(--cyan);text-shadow:0 0 12px rgba(103,232,249,.5)}
+.etape-vie h3{font-family:var(--titre);font-size:1.35rem;font-weight:500;margin:.35rem 0 .7rem}
+.etape-vie p{color:var(--gris);line-height:1.8;margin:0 0 .9rem;max-width:80ch}
+.etape-vie .btn{margin-top:.2rem}
+.citation-omar{margin:0 0 1.4rem;padding:1.3rem 1.5rem;border-left:2px solid var(--rose);
+  border-radius:0 14px 14px 0;background:rgba(232,121,249,.07);color:#e6ecff;font-size:1.05rem;line-height:1.7}
+.extrait{margin-top:1.4rem;padding:1.4rem 1.6rem;border:1px solid var(--bord);border-radius:16px;
+  background:rgba(8,12,34,.55)}
+.date-extrait{font-size:.66rem;letter-spacing:.2em;color:var(--cyan)}
+.extrait p{color:#dfe7ff;font-size:1.05rem;line-height:1.8;margin:.6rem 0 0;font-style:italic}
+.univers{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:1rem}
+.porte{display:block;position:relative;overflow:hidden;text-align:left;padding:1.5rem 1.3rem 1.7rem;
+  border-radius:16px;border:1px solid var(--bord);text-decoration:none;
+  background:linear-gradient(160deg,rgba(18,22,60,.75),rgba(4,7,24,.88));color:var(--blanc);
+  transition:transform .3s,border-color .3s,box-shadow .3s}
+.porte:hover{transform:translateY(-5px);border-color:var(--violet-clair);box-shadow:0 18px 44px rgba(90,120,255,.28)}
+.porte::after{content:"";position:absolute;inset:auto -25% -55% -25%;height:110%;
+  background:radial-gradient(50% 55% at 50% 100%,var(--halo,rgba(124,58,237,.55)),transparent 70%)}
+.porte > *{position:relative;z-index:2}
+.porte b{display:block;font-family:var(--titre);font-size:1.25rem;font-weight:500;margin-bottom:.3rem;
+  color:var(--cyan);text-shadow:0 0 14px rgba(103,232,249,.5)}
+.porte span{color:var(--gris);font-size:.86rem}
+
+
+.produits-beaute{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:1.1rem;margin-top:1.4rem}
+.produit-b{padding:1.5rem 1.3rem;border:1px solid var(--bord);border-radius:16px;
+  background:linear-gradient(160deg,rgba(24,14,52,.8),rgba(4,7,24,.9));position:relative;overflow:hidden}
+.produit-b::after{content:"";position:absolute;inset:auto -30% -60% -30%;height:110%;
+  background:radial-gradient(50% 55% at 50% 100%,var(--h,rgba(232,121,249,.4)),transparent 70%)}
+.produit-b > *{position:relative;z-index:2}
+.produit-b b{display:block;font-family:var(--titre);font-size:1.3rem;font-weight:500;color:var(--cyan);
+  text-shadow:0 0 14px rgba(103,232,249,.5)}
+.produit-b span{display:block;color:var(--gris);font-size:.86rem;margin-top:.4rem}
+.emplacements{display:grid;grid-template-columns:repeat(4,1fr);gap:.9rem;margin:1rem 0 1.6rem}
+.emplacement{padding:1.3rem 1rem;border:1.5px dashed var(--bord);border-radius:14px;text-align:center;
+  background:rgba(6,10,30,.5)}
+.emplacement b{display:block;font-weight:400;color:#e6ecff;font-size:.92rem}
+.emplacement span{font-size:.72rem;color:#8d86ab}
+.annees-shoot{display:flex;gap:.4rem;flex-wrap:wrap;margin:1.2rem 0 1.6rem}
+.filtre{padding:.45rem 1.1rem;border:1px solid var(--bord);border-radius:999px;background:rgba(8,12,34,.55);
+  color:var(--gris);font-family:var(--texte);font-size:.85rem;cursor:pointer}
+.filtre.actif{border-color:var(--violet-clair);color:#fff;box-shadow:0 0 18px rgba(167,139,250,.3)}
+.serie{margin-bottom:2.2rem}
+.serie h3{font-family:var(--titre);font-size:1.5rem;font-weight:500;color:var(--cyan);
+  text-shadow:0 0 18px rgba(103,232,249,.5);margin:0 0 .3rem}
+.serie p.mention{margin:0 0 1rem}
+@media (max-width:1000px){.emplacements{grid-template-columns:1fr 1fr}}
+
+
+.produits-beaute{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:1.1rem;margin-top:1.4rem}
+.produit-b{padding:1.5rem 1.3rem;border:1px solid var(--bord);border-radius:16px;position:relative;overflow:hidden;
+  background:linear-gradient(160deg,rgba(24,14,52,.8),rgba(4,7,24,.9))}
+.produit-b::after{content:"";position:absolute;inset:auto -30% -60% -30%;height:110%;
+  background:radial-gradient(50% 55% at 50% 100%,var(--h,rgba(232,121,249,.4)),transparent 70%)}
+.produit-b > *{position:relative;z-index:2}
+.produit-b .date-p{font-size:.66rem;letter-spacing:.2em;color:#ffffff}
+.produit-b b{display:block;font-family:var(--titre);font-size:1.35rem;font-weight:500;margin:.3rem 0 .15rem}
+.produit-b .cat-p{display:block;color:var(--rose);font-size:.72rem;letter-spacing:.12em;margin-bottom:.7rem}
+.produit-b p{color:var(--gris);font-size:.88rem;line-height:1.7;margin:0}
+.fiche-copper h3{font-family:var(--titre);font-size:1.2rem;font-weight:500;color:var(--cyan);
+  text-shadow:0 0 14px rgba(103,232,249,.45);margin:1.4rem 0 .5rem}
+.fiche-copper h3:first-child{margin-top:0}
+.fiche-copper p{color:var(--gris);line-height:1.8;margin:0}
+.signature{margin-top:1.4rem!important;padding-left:1rem;border-left:2px solid var(--rose);
+  color:#e6ecff!important;font-size:1.02rem}
+.notes-copper{padding:1.6rem;border:1px solid var(--bord);border-radius:18px;background:rgba(6,10,32,.6)}
+.notes-copper h3{font-family:var(--titre);font-size:1.3rem;margin:0 0 1rem}
+.note-bloc{padding:.9rem 0;border-bottom:1px solid rgba(140,150,235,.14)}
+.note-bloc b{display:block;font-weight:400;color:#fff;font-size:.9rem}
+.note-bloc span{color:var(--gris);font-size:.86rem}
+.evenements{display:grid;gap:.9rem;margin-top:1.4rem}
+.evenement{display:grid;grid-template-columns:auto 1fr auto;gap:1.4rem;align-items:center;
+  padding:1.1rem 1.4rem;border:1px solid var(--bord);border-radius:14px;background:rgba(8,12,34,.55)}
+.date{text-align:center;min-width:64px}
+.date b{display:block;font-family:var(--titre);font-size:1.6rem;color:var(--cyan);
+  text-shadow:0 0 18px rgba(103,232,249,.5)}
+.date span{font-size:.62rem;letter-spacing:.18em;color:var(--gris)}
+.evenement b{font-weight:400}
+.evenement p{color:var(--gris);font-size:.88rem;margin:.2rem 0 0}
+.etiq-ev{font-size:.66rem;letter-spacing:.12em;color:var(--gris);white-space:nowrap}
+.emplacements{display:grid;grid-template-columns:repeat(4,1fr);gap:.9rem;margin:1rem 0 1.6rem}
+.emplacement{padding:1.2rem 1rem;border:1.5px dashed var(--bord);border-radius:14px;text-align:center;
+  background:rgba(6,10,30,.5)}
+.emplacement b{display:block;font-weight:400;color:#e6ecff;font-size:.88rem}
+.emplacement span{font-size:.7rem;color:#8d86ab}
+@media (max-width:1000px){.emplacements{grid-template-columns:1fr 1fr}}
+@media (max-width:620px){.evenement{grid-template-columns:auto 1fr}}
+
 @media (prefers-reduced-motion:reduce){*{animation:none!important}}
 </style>
 </head>
@@ -491,7 +591,7 @@ h2.titre2{font-family:var(--titre);font-size:clamp(1.8rem,3.4vw,2.8rem);margin:0
     <li><a href="index.html" data-i18n="nav.accueil"></a></li>
     <li><a href="explorer.html" class="" data-i18n="nav.explorer"></a></li>
     <li><a href="young-royals.html" class="" data-i18n="nav.royals"></a></li>
-    <li><a href="communaute.html" class="actif" data-i18n="nav.communaute"></a></li>
+    <li><a href="communaute.html" class="" data-i18n="nav.communaute"></a></li>
     <li><a href="membres.html" data-i18n="nav.membres"></a></li>
     <li><a href="boutique.html" class="" data-i18n="nav.boutique"></a></li>
     <li><a href="livre.html" class="" data-i18n="nav.livre"></a></li>
@@ -519,166 +619,190 @@ h2.titre2{font-family:var(--titre);font-size:clamp(1.8rem,3.4vw,2.8rem);margin:0
 
 <section class="section" style="padding-top:clamp(8rem,15vh,11rem);padding-bottom:1rem">
   <div class="contenu" style="max-width:940px;text-align:center">
-    <p class="chapeau">LA COMMUNAUTÉ</p>
-    <h1 class="titre2" style="font-size:clamp(2.2rem,5vw,3.4rem)">Ce monde est celui des fans</h1>
-    <p class="intro2" style="margin-inline:auto">Les projets naissent ici, les membres les choisissent, et l'association les réalise. Concours, ateliers, événements : chacun participe selon ses envies et ses talents.</p>
+    <p class="chapeau">OMR BEAUTY</p>
+    <h1 class="titre2" style="font-size:clamp(2.2rem,5vw,3.4rem)">La marque d'Omar</h1>
+    <p class="intro2" style="margin-inline:auto">Omar Rudberg a toujours aimé l'univers des cosmétiques et de la beauté, et c'est tout naturellement qu'il crée sa propre marque, unisexe et végane, OMR Beauty, en novembre 2023.</p>
+    <div class="barre-boutons" style="justify-content:center">
+      <a class="btn" href="https://d11cc9-16.myshopify.com" target="_blank" rel="noopener">La boutique officielle d'Omar</a>
+      <a class="btn btn--fin" href="#popup">Les pop-up stores</a>
+    </div>
   </div>
 </section>
 
 <section class="section" style="padding-top:1rem">
   <div class="contenu">
     <div class="compteurs">
-      <div class="compteur"><b>0</b><span>PROJETS PROPOSÉS</span></div>
-      <div class="compteur"><b>0</b><span>VOTES EXPRIMÉS</span></div>
-      <div class="compteur"><b>0</b><span>CONCOURS</span></div>
-      <div class="compteur"><b>0</b><span>ATELIERS</span></div>
-      <div class="compteur"><b>0</b><span>ÉVÉNEMENTS</span></div>
-      <div class="compteur"><b>0</b><span>PAYS MOBILISÉS</span></div>
+      <div class="compteur"><b>2023</b><span>CRÉATION</span></div>
+      <div class="compteur"><b>4</b><span>PARFUMS</span></div>
+      <div class="compteur"><b>6</b><span>HUILES</span></div>
+      <div class="compteur"><b>1</b><span>BOUGIE</span></div>
+      <div class="compteur"><b>1</b><span>POP-UP STORE</span></div>
+      <div class="compteur"><b>2026</b><span>EDVIN ASSOCIÉ</span></div>
+    </div>
+  </div>
+</section>
+
+<section class="section" style="padding-top:1rem">
+  <div class="contenu" style="max-width:880px">
+    <h2 class="titre2" style="font-size:1.8rem">L'histoire de la marque</h2>
+    <p class="intro2">Son premier produit est un parfum en édition limitée, Intro, sorti le 22 novembre 2023. Avec son partenaire de Young Royals, Edvin Ryding, ils décident ensuite de créer Duo, également en édition limitée, sorti le 23 mai 2024 et de retour en février 2025.</p>
+    <p class="intro2">Suivent, le 24 octobre 2024, Brunch, une huile parfumée, puis, peu après, le 7 novembre, Lunch et Dinner, qui forment ensemble la collection Occasions. Devant le grand succès de ce format, Duo sort son huile parfumée le 26 mars 2025. Puis, le 4 juin 2025, c'est Fluid.</p>
+    <p class="intro2">Le 1er novembre, alors qu'Omar est en tournée en première partie de Zara Larsson sur le Midnight Sun Tour, Edvin et lui décident d'ouvrir leur premier pop-up à Berlin. Des surprises y sont dévoilées, comme les versions en huile de Fluid et d'Intro.</p>
+    <p class="intro2">Où s'arrêteront-ils ? Edvin Ryding, acteur et ami, a rejoint l'aventure très tôt, mais en 2026 il devient associé à part entière pour écrire le prochain chapitre d'OMR aux côtés d'Omar.</p>
+  </div>
+</section>
+
+<section class="section" style="padding-top:1rem">
+  <div class="contenu">
+    <h2 class="titre2" style="font-size:1.8rem">La collection</h2>
+    <div class="produits-beaute">
+      <article class="produit-b" style="--h:rgba(232,121,249,.45)">
+        <span class="date-p">22 · 11 · 2023</span>
+        <b>Intro</b>
+        <span class="cat-p">Parfum · édition limitée</span>
+        <p>Le tout premier produit de la maison, une édition limitée sortie le 22 novembre 2023.</p>
+      </article>
+      <article class="produit-b" style="--h:rgba(167,139,250,.5)">
+        <span class="date-p">23 · 05 · 2024</span>
+        <b>Duo</b>
+        <span class="cat-p">Parfum · édition limitée</span>
+        <p>Créé avec Edvin Ryding, son partenaire de Young Royals. Édition limitée, revenue en février 2025 pour le plus grand plaisir de tous.</p>
+      </article>
+      <article class="produit-b" style="--h:rgba(255,190,120,.4)">
+        <span class="date-p">24 · 10 · 2024</span>
+        <b>Brunch</b>
+        <span class="cat-p">Huile parfumée · Occasions</span>
+        <p>La première huile parfumée de la marque, qui ouvre la collection Occasions.</p>
+      </article>
+      <article class="produit-b" style="--h:rgba(255,214,110,.38)">
+        <span class="date-p">07 · 11 · 2024</span>
+        <b>Lunch et Dinner</b>
+        <span class="cat-p">Huiles parfumées · Occasions</span>
+        <p>Deux semaines après Brunch, les deux autres moments de la journée complètent la collection Occasions.</p>
+      </article>
+      <article class="produit-b" style="--h:rgba(167,139,250,.42)">
+        <span class="date-p">26 · 03 · 2025</span>
+        <b>Duo, l'huile</b>
+        <span class="cat-p">Huile parfumée</span>
+        <p>Devant le succès du format, Duo sort à son tour son huile parfumée : la même signature, en plus intime, plus près de la peau, dans un format concentré et facile à emporter.</p>
+      </article>
+      <article class="produit-b" style="--h:rgba(103,232,249,.42)">
+        <span class="date-p">04 · 06 · 2025</span>
+        <b>Fluid</b>
+        <span class="cat-p">Parfum</span>
+        <p>Une ode à l'entre-deux, définie par le contraste. Minimaliste et pourtant expressif, exclusif et pourtant accueillant. Conçu pour celles et ceux qui refusent les définitions.</p>
+      </article>
+      <article class="produit-b" style="--h:rgba(91,141,255,.42)">
+        <span class="date-p">12 · 11 · 2025</span>
+        <b>Intro et Fluid, les huiles</b>
+        <span class="cat-p">Huiles parfumées</span>
+        <p>Révélées lors du premier pop-up de Berlin, les versions en huile d'Intro et de Fluid.</p>
+      </article>
+      <article class="produit-b" style="--h:rgba(255,160,90,.45)">
+        <span class="date-p">17 · 12 · 2025</span>
+        <b>Copper, la bougie</b>
+        <span class="cat-p">Parfum d'intérieur</span>
+        <p>Là où le parfum devient atmosphère : chaude, enveloppante, unique. Coulée à la main en Suède, dans une cire de soja 100 % naturelle. Précommandes ouvertes du 17 au 21 décembre 2025.</p>
+      </article>
+      <article class="produit-b" style="--h:rgba(255,140,80,.5)">
+        <span class="date-p">08 · 04 · 2026</span>
+        <b>Copper</b>
+        <span class="cat-p">Eau de parfum, huile et bougie</span>
+        <p>Le trio complet, pensé comme une expérience sensorielle entière : intense, chaleureuse, inoubliable.</p>
+      </article>
     </div>
   </div>
 </section>
 
 <section class="section" style="padding-top:1rem">
   <div class="contenu">
-    <h2 class="titre2" style="font-size:1.8rem">Les projets soumis au vote</h2>
-    <p class="intro2">Chaque membre dispose d'une voix par projet. Le projet le plus soutenu est réalisé en priorité, dans la limite de ce que l'association peut faire.</p>
-    <div class="projets">
-      <article class="projet">
-        <span class="cat">Projet concert</span>
-        <b>Bannière géante au prochain concert</b>
-        <p>Une banderole portée par les fans du premier rang, cousue lors d'un atelier.</p>
-        <div class="projet__bas">
-          <span class="votes"><b data-votes>0</b> votes</span>
-          <button class="btn btn--fin voter">Voter</button>
-        </div>
-      </article>
-      <article class="projet">
-        <span class="cat">Cadeau</span>
-        <b>Album photo offert à Omar</b>
-        <p>Un album relié rassemblant les photos et les messages des fans du monde entier.</p>
-        <div class="projet__bas">
-          <span class="votes"><b data-votes>0</b> votes</span>
-          <button class="btn btn--fin voter">Voter</button>
-        </div>
-      </article>
-      <article class="projet">
-        <span class="cat">Projet concert</span>
-        <b>Bracelets lumineux coordonnés</b>
-        <p>Des bracelets distribués avant le concert, allumés tous ensemble sur une chanson.</p>
-        <div class="projet__bas">
-          <span class="votes"><b data-votes>0</b> votes</span>
-          <button class="btn btn--fin voter">Voter</button>
-        </div>
-      </article>
-      <article class="projet">
-        <span class="cat">Artistique</span>
-        <b>Fresque collective</b>
-        <p>Une œuvre composée de centaines de dessins envoyés par la communauté.</p>
-        <div class="projet__bas">
-          <span class="votes"><b data-votes>0</b> votes</span>
-          <button class="btn btn--fin voter">Voter</button>
-        </div>
-      </article>
-    </div>
+    <h2 class="titre2" style="font-size:1.8rem">Copper, en détail</h2>
+    <div class="deux" style="align-items:start">
+      <div class="fiche-copper">
+        <h3>L'eau de parfum · 50 ml</h3>
+        <p>Réveillez vos sens avec Copper, un parfum qui capture l'énergie brute de la passion et de la chaleur, créé pour celles et ceux qui embrassent l'intensité. Sans genre et végane, il s'ouvre sur un mélange électrisant de clou de girofle, de baie rose, de sauge et de safran, avant de se déployer sur un cœur riche de tabac, de bois de gaïac, d'écorce de cannelle et de fruits rouges. Enfin, la fumée, la vanille, les notes balsamiques et le musc se déposent sur la peau comme des braises, laissant un sillage profond et durable.</p>
 
-    <div class="proposer">
-      <h3>Proposer un projet</h3>
-      <p class="mention">Une idée de projet pour un concert, un cadeau, une action artistique ? Décrivez-la : elle sera relue, puis soumise au vote.</p>
-      <div class="grille2">
-        <label class="champ"><span>Titre du projet</span><input type="text"></label>
-        <label class="champ"><span>Catégorie</span>
-          <select><option>Projet concert</option><option>Cadeau pour Omar</option><option>Artistique</option><option>Solidaire</option><option>Autre</option></select>
-        </label>
+        <h3>L'huile parfumée · 8 ml</h3>
+        <p>Plus intime, elle offre une lecture plus douce, au plus près de la peau. Sans alcool et enrichie d'huiles nourrissantes, elle fond sur la peau et évolue naturellement avec votre chimie. Sa chaleur s'installe discrètement et révèle, avec le temps, une signature sensuelle et personnelle.</p>
+
+        <h3>La bougie</h3>
+        <p>Et là où le parfum devient atmosphère, la bougie Copper complète le rituel. Coulée à la main en Suède dans une cire de soja 100 % naturelle, elle diffuse une chaleur douce et texturée, transformant n'importe quel espace en cocon de profondeur et d'authenticité.</p>
+
+        <p class="signature">Copper n'est pas seulement un parfum : c'est une présence, une humeur, une émotion qui s'attarde.</p>
       </div>
-      <label class="champ"><span>Description</span><textarea rows="4" placeholder="En quelques lignes…"></textarea></label>
-      <button class="btn btn--fin">Envoyer ma proposition</button>
+
+      <div class="notes-copper">
+        <h3>Les notes</h3>
+        <div class="note-bloc"><b>Chaleur · notes de tête</b><span>Clou de girofle, baie rose, safran</span></div>
+        <div class="note-bloc"><b>Transformation · notes de cœur</b><span>Tabac, bois de gaïac, écorce de cannelle, fruits rouges</span></div>
+        <div class="note-bloc"><b>Rayonnement · notes de fond</b><span>Fumée, vanille, notes balsamiques, musc</span></div>
+        <a class="btn" href="https://d11cc9-16.myshopify.com" target="_blank" rel="noopener" style="margin-top:1rem">Voir sur la boutique</a>
+      </div>
     </div>
   </div>
 </section>
 
 <section class="section" style="padding-top:1rem">
   <div class="contenu">
-    <h2 class="titre2" style="font-size:1.8rem">Jeux concours</h2>
-    <p class="intro2">Réservés aux membres, sans frais de participation. Les gagnants sont désignés par un jury, ou par tirage au sort public sur un site officiel et vérifiable.</p>
-    <div class="concours-grille">
-      <article class="concours">
-        <span class="etat-ouvert">En cours</span>
-        <b>Concours de dessin</b>
-        <p>Dessinez l'univers d'Omar. Un jury choisit les trois plus belles œuvres.</p>
-        <small>Ouvert · jusqu'au 31 octobre</small>
-        <button class="btn">Participer</button>
+    <h2 class="titre2" style="font-size:1.8rem">Les vêtements</h2>
+    <p class="intro2">Au-delà des parfums, la maison propose aussi des pièces à porter.</p>
+    <div class="produits-beaute">
+      <article class="produit-b" style="--h:rgba(167,139,250,.45)">
+        <b>Le sweatshirt</b>
+        <span class="cat-p">Vêtement</span>
+        <p>La pièce textile de la marque, dans l'esprit sobre et unisexe d'OMR Beauty.</p>
       </article>
-      <article class="concours">
-        <span class="etat-attente">À venir</span>
-        <b>Concours d'écriture</b>
-        <p>Un texte de dix lignes sur ce que sa musique vous apporte.</p>
-        <small>Ouverture en novembre</small>
-        <button class="btn btn--fin" disabled>Bientôt</button>
+      <article class="produit-b" style="--h:rgba(103,232,249,.4)">
+        <b>La casquette</b>
+        <span class="cat-p">Accessoire</span>
+        <p>L'accessoire signé OMR, à porter au quotidien comme en concert.</p>
       </article>
-      <article class="concours">
-        <span class="etat-fini">Terminé</span>
-        <b>Design du mois</b>
-        <p>Le dessin gagnant devient un produit de la boutique.</p>
-        <small>Terminé · gagnante annoncée sur Instagram</small>
-        <button class="btn btn--fin">Voir le résultat</button>
-      </article>
-    </div>
-  </div>
-</section>
-
-<section class="section" style="padding-top:1rem">
-  <div class="contenu">
-    <h2 class="titre2" style="font-size:1.8rem">Ateliers créatifs</h2>
-    <p class="intro2">On crée ensemble, à distance ou sur place : design, bracelets, affiches, éléments de projets de concert. Chacun apporte ce qu'il sait faire, et on apprend le reste.</p>
-    <div class="trio">
-      <article class="vignette"><h3>DESIGN</h3><p>Visuels des produits, affiches, cartes. Une idée validée devient un objet de la boutique.</p></article>
-      <article class="vignette"><h3>FAIT MAIN</h3><p>Bracelets, porte-clés, décorations pour les concerts, cousus et assemblés ensemble.</p></article>
-      <article class="vignette"><h3>ÉCRITURE</h3><p>Textes du livre collaboratif, messages collectifs, slogans pour les projets.</p></article>
-    </div>
-  </div>
-</section>
-
-<section class="section" style="padding-top:1rem">
-  <div class="contenu">
-    <h2 class="titre2" style="font-size:1.8rem">Les événements</h2>
-    <p class="intro2">Tous les rendez-vous, en cours, à venir et passés, sont rassemblés sur leur page. <a href="evenements.html" style="color:var(--cyan)">Voir tous les événements →</a></p>
-    <div class="evenements">
-      <article class="evenement">
-        <div class="date"><b>12</b><span>NOV</span></div>
-        <div><b>Anniversaire d'Omar</b><p>Album de messages et de dessins offert à Omar, en ligne.</p></div>
-        <span class="etiq-ev">En préparation</span>
-      </article>
-      <article class="evenement">
-        <div class="date"><b>—</b><span>2027</span></div>
-        <div><b>Omar Global Radio Day</b><p>Journée mondiale de demandes en radio, date annoncée à la sortie de l'album.</p></div>
-        <span class="etiq-ev">À venir</span>
-      </article>
-      <article class="evenement">
-        <div class="date"><b>—</b><span>2027</span></div>
-        <div><b>Atelier bracelets</b><p>Atelier créatif en visio, kit envoyé aux participants.</p></div>
-        <span class="etiq-ev">À venir</span>
-      </article>
-    </div>
-  </div>
-</section>
-
-<section class="section" style="padding-top:1rem">
-  <div class="contenu">
-    <h2 class="titre2" style="font-size:1.8rem">La galerie de la communauté</h2>
-    <p class="intro2">Les photos et créations envoyées par les fans, validées avant publication. Chacun reste propriétaire de ce qu'il partage, et peut demander le retrait à tout moment.</p>
-    <div class="galerie">
-      <div class="case-photo"><span>photo de fan</span></div>
-      <div class="case-photo"><span>création</span></div>
-      <div class="case-photo"><span>concert</span></div>
-      <div class="case-photo"><span>atelier</span></div>
-      <div class="case-photo"><span>fan art</span></div>
-      <div class="case-photo"><span>projet</span></div>
     </div>
     <div class="barre-boutons">
-      <button class="btn">Envoyer une photo</button>
-      <button class="btn btn--fin">Voir toute la galerie</button>
+      <a class="btn" href="https://d11cc9-16.myshopify.com" target="_blank" rel="noopener">Commander sur la boutique officielle</a>
     </div>
-    <p class="mention">Pour les mineurs, l'autorisation d'un parent est nécessaire avant tout envoi. Les vidéos ne sont pas hébergées : partagez simplement le lien Instagram, TikTok ou YouTube.</p>
+    <p class="mention">L'association n'est pas liée à OMR Beauty et ne vend aucun de ses produits. Ce lien mène directement à la boutique officielle d'Omar.</p>
+  </div>
+</section>
+
+<section class="section" style="padding-top:1rem" id="popup">
+  <div class="contenu">
+    <h2 class="titre2" style="font-size:1.8rem">Les pop-up stores</h2>
+    <p class="intro2">Le premier pop-up a ouvert à Berlin le 1er novembre 2025, pendant la tournée Midnight Sun, à l'initiative d'Omar et d'Edvin. Les versions en huile de Fluid et d'Intro y ont été dévoilées.</p>
+    <div class="evenements">
+      <article class="evenement">
+        <div class="date"><b>01</b><span>NOV 2025</span></div>
+        <div><b>Berlin, Allemagne</b><p>Le premier pop-up de la marque, ouvert pendant la tournée. Des surprises y sont révélées.</p></div>
+        <span class="etiq-ev">Premier pop-up</span>
+      </article>
+      <article class="evenement">
+        <div class="date"><b>—</b><span>À VENIR</span></div>
+        <div><b>Prochaine ville</b><p>Les prochains rendez-vous seront annoncés ici dès leur officialisation.</p></div>
+        <span class="etiq-ev">À venir</span>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section class="section" style="padding-top:1rem">
+  <div class="contenu">
+    <h2 class="titre2" style="font-size:1.8rem">Les annonces officielles</h2>
+    <p class="intro2">Les publications d'OMR Beauty seront intégrées ici depuis le compte officiel de la marque, et ne se chargeront qu'après votre clic.</p>
+    <div class="emplacements">
+      <div class="emplacement"><b>Intro · 22/11/2023</b><span>emplacement d'intégration</span></div>
+      <div class="emplacement"><b>Duo · 23/05/2024</b><span>emplacement d'intégration</span></div>
+      <div class="emplacement"><b>Brunch · 24/10/2024</b><span>emplacement d'intégration</span></div>
+      <div class="emplacement"><b>Lunch et Dinner · 07/11/2024</b><span>emplacement d'intégration</span></div>
+      <div class="emplacement"><b>Restock Duo · 26/02/2025</b><span>emplacement d'intégration</span></div>
+      <div class="emplacement"><b>Huile Duo · 26/03/2025</b><span>emplacement d'intégration</span></div>
+      <div class="emplacement"><b>Fluid · 04/06/2025</b><span>emplacement d'intégration</span></div>
+      <div class="emplacement"><b>Huiles Intro et Fluid · 12/11/2025</b><span>emplacement d'intégration</span></div>
+      <div class="emplacement"><b>Bougie Copper</b><span>emplacement d'intégration</span></div>
+      <div class="emplacement"><b>Copper · 08/04/2026</b><span>emplacement d'intégration</span></div>
+      <div class="emplacement"><b>Sweatshirt</b><span>emplacement d'intégration</span></div>
+      <div class="emplacement"><b>Casquette</b><span>emplacement d'intégration</span></div>
+    </div>
+    <p class="mention">Contenus intégrés depuis les comptes officiels d'OMR Beauty. Tous droits réservés à leurs auteurs.</p>
   </div>
 </section>
 
@@ -742,7 +866,7 @@ h2.titre2{font-family:var(--titre);font-size:clamp(1.8rem,3.4vw,2.8rem);margin:0
     <div class="pied__bas">
       <span>© 2026 O.R. World Association</span>
       <span data-i18n="f.heberge"></span>
-      <span class="version">version : COMMUNAUTE-002</span>
+      <span class="version">version : BEAUTY-008</span>
     </div>
   </div>
 </footer>
@@ -955,23 +1079,6 @@ const CONTINENTS=[[[143.2,-12.0],[143.5,-13.1],[143.8,-14.3],[144.9,-14.7],[145.
 
 
 </script>
-<script>
-(function(){
-  document.querySelectorAll(".voter").forEach(function(b){
-    b.addEventListener("click",function(){
-      const c=b.closest(".projet").querySelector("[data-votes]");
-      if(b.classList.contains("vote")){
-        b.classList.remove("vote"); b.textContent="Voter";
-        c.textContent=Math.max(0,parseInt(c.textContent,10)-1);
-      } else {
-        b.classList.add("vote"); b.textContent="Voté ✓";
-        c.textContent=parseInt(c.textContent,10)+1;
-      }
-    });
-  });
-})();
-</script>
-
 
 <script>
 (function(){
@@ -996,5 +1103,27 @@ const CONTINENTS=[[[143.2,-12.0],[143.5,-13.1],[143.8,-14.3],[144.9,-14.7],[145.
 })();
 </script>
 
+<script>
+(function(){
+  const b=document.getElementById("burger");
+  if(!b) return;
+  const menu=document.querySelector(".menu");
+  const entete=document.querySelector(".entete");
+  function bascule(ouvrir){
+    menu.classList.toggle("ouvert",ouvrir);
+    entete.classList.toggle("menu-ouvert",ouvrir);
+    b.setAttribute("aria-expanded",String(ouvrir));
+    document.body.style.overflow=ouvrir?"hidden":"";
+  }
+  b.addEventListener("click",function(e){
+    e.stopPropagation();
+    bascule(!menu.classList.contains("ouvert"));
+  });
+  menu.querySelectorAll("a").forEach(function(a){
+    a.addEventListener("click",function(){ bascule(false); });
+  });
+  document.addEventListener("keydown",function(e){ if(e.key==="Escape") bascule(false); });
+})();
+</script>
 </body>
 </html>

@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Omar Global Radio Day · O.R. World Association</title>
-<!-- version : RADIODAY-004 -->
+<!-- version : RADIODAY-008 -->
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:opsz,wght@6..96,400;6..96,500&family=Caveat:wght@500;600&family=Jost:wght@200;300;400&display=swap" rel="stylesheet">
@@ -490,6 +490,23 @@ h2.titre2{font-family:var(--titre);font-size:clamp(1.8rem,3.4vw,2.8rem);margin:0
   .marque,.outils{position:relative;z-index:2}
 }
 
+
+.liste-tags{list-style:none;display:flex;flex-wrap:wrap;gap:.5rem;margin:.4rem 0 1rem;padding:0}
+.liste-tags li{padding:.35rem .8rem;border:1px solid rgba(103,232,249,.35);border-radius:999px;
+  background:rgba(103,232,249,.08);color:var(--cyan);font-size:.78rem}
+.titre-ep{font-family:var(--titre);font-size:1.4rem;font-weight:500;color:var(--cyan);
+  text-shadow:0 0 16px rgba(103,232,249,.5);margin:2rem 0 .8rem}
+
+
+.etat-operation{display:flex;align-items:center;gap:1rem;max-width:620px;margin:2rem auto 1rem;
+  padding:1.1rem 1.3rem;border-radius:16px;text-align:left;
+  border:1px solid rgba(232,121,249,.4);background:rgba(232,121,249,.07)}
+.etat-operation b{display:block;color:#fff;font-size:1.05rem}
+.etat-operation span{color:var(--gris);font-size:.88rem}
+.pastille{width:12px;height:12px;border-radius:50%;flex:none;background:var(--rose);
+  box-shadow:0 0 16px rgba(232,121,249,.9);animation:battement 2.4s ease-in-out infinite}
+@keyframes battement{0%,100%{transform:scale(1);opacity:1}50%{transform:scale(1.35);opacity:.6}}
+
 @media (prefers-reduced-motion:reduce){*{animation:none!important}}
 </style>
 </head>
@@ -500,13 +517,13 @@ h2.titre2{font-family:var(--titre);font-size:clamp(1.8rem,3.4vw,2.8rem);margin:0
   <ul class="menu">
     <li><a href="index.html" data-i18n="nav.accueil"></a></li>
     <li><a href="explorer.html" class="" data-i18n="nav.explorer"></a></li>
-    <li><a href="#" class="" data-i18n="nav.royals"></a></li>
+    <li><a href="young-royals.html" class="" data-i18n="nav.royals"></a></li>
     <li><a href="communaute.html" class="actif" data-i18n="nav.communaute"></a></li>
     <li><a href="membres.html" data-i18n="nav.membres"></a></li>
     <li><a href="boutique.html" class="" data-i18n="nav.boutique"></a></li>
     <li><a href="livre.html" class="" data-i18n="nav.livre"></a></li>
     <li><a href="journal.html" class="" data-i18n="nav.journal"></a></li>
-    <li><a href="#" class="" data-i18n="nav.association"></a></li>
+    <li><a href="association.html" class="" data-i18n="nav.association"></a></li>
   </ul>
   <div class="outils">
     <div class="langues" id="langues">
@@ -538,18 +555,20 @@ h2.titre2{font-family:var(--titre);font-size:clamp(1.8rem,3.4vw,2.8rem);margin:0
 
 <section class="section" style="padding-top:2.5rem;padding-bottom:1rem">
   <div class="contenu" style="max-width:1000px;text-align:center">
-    <div class="rebours">
-      <div><b id="r-j">00</b><span>JOURS</span></div>
-      <div><b id="r-h">00</b><span>HEURES</span></div>
-      <div><b id="r-m">00</b><span>MINUTES</span></div>
-      <div><b id="r-s">00</b><span>SECONDES</span></div>
+    <div class="etat-operation">
+      <span class="pastille"></span>
+      <div>
+        <b>Opération en pause</b>
+        <span>La première édition a duré huit semaines. Le Radio Day reprendra à la sortie du prochain album d'Omar.</span>
+      </div>
     </div>
-    <p class="mention" id="date-jour" style="text-align:center"></p>
+    <p class="mention" style="text-align:center">Première édition : huit semaines, à partir du 1er mai 2026 · prochaine édition annoncée ici et sur Instagram.</p>
+
 
     <div class="chanson">
-      <span>LA CHANSON DU JOUR</span>
-      <b>À annoncer</b>
-      <small>Elle sera choisie à la sortie du prochain album et affichée ici, avec le lien pour l'écouter.</small>
+      <span>LA DERNIÈRE CHANSON DEMANDÉE</span>
+      <b>A World Like This</b>
+      <small>Premier extrait de l'album à venir, sortie le 29 mai 2026, c'était la chanson mise en avant lors de la dernière phase.</small>
     </div>
   </div>
 </section>
@@ -557,13 +576,60 @@ h2.titre2{font-family:var(--titre);font-size:clamp(1.8rem,3.4vw,2.8rem);margin:0
 <section class="section" style="padding-top:0">
   <div class="contenu">
     <div class="compteurs">
+      <div class="compteur"><b>8</b><span>SEMAINES</span></div>
       <div class="compteur"><b id="n-demandes">0</b><span>DEMANDES</span></div>
       <div class="compteur"><b id="n-pays">0</b><span>PAYS</span></div>
       <div class="compteur"><b id="n-radios">0</b><span>RADIOS TOUCHÉES</span></div>
       <div class="compteur"><b>0</b><span>PASSAGES CONFIRMÉS</span></div>
       <div class="compteur"><b>0</b><span>MESSAGES DU MUR</span></div>
-      <div class="compteur"><b>0</b><span>MEMBRES MOBILISÉS</span></div>
+      
     </div>
+  </div>
+</section>
+
+
+<section class="section" style="padding-top:1rem">
+  <div class="contenu" style="max-width:880px">
+    <h2 class="titre2" style="font-size:1.8rem">Pourquoi cette opération</h2>
+    <p class="mention" style="margin-bottom:1rem">Les consignes ci-dessous sont celles de la première édition. Elles seront reprises et adaptées pour la prochaine.</p>
+    <p class="intro2">Le but est simple : faire jouer Omar sur les radios du monde entier. C'est une opération de grande ampleur, qui a duré huit semaines pour sa première édition et qui sera renouvelée.</p>
+    <p class="intro2">À l'approche de la sortie de son nouvel album, nous devons nous mobiliser pour lui ouvrir les portes des radios. C'est là que tout se décide pour la popularité d'un artiste. Aujourd'hui, même avec des millions d'écoutes sur Spotify, YouTube ou ailleurs, ce sont encore les radios, les médias et la télévision qui donnent la vraie visibilité.</p>
+    <p class="intro2">Nous, les fans, avons un pouvoir énorme sur l'influence d'un artiste. D'une certaine façon, c'est nous qui faisons la pluie et le beau temps : sans public, pas de visibilité. Les fans d'Omar sont très nombreux, mais dispersés aux quatre coins du monde, à cause de la série qui l'a fait connaître dans plus de 190 pays, Young Royals.</p>
+    <p class="intro2">Alors nous avons réfléchi, cherché, et après plusieurs semaines d'organisation et de création, le projet est enfin là.</p>
+
+    <h3 class="titre-ep">En quoi ça consiste</h3>
+    <p class="intro2">Chaque semaine, cinq pays sont mis en avant, ce qui est déjà énorme. Les fans de tous les pays se rendent sur les liens de chaque pays, sur Instagram, et laissent <b>un seul message par radio</b>, pour éviter le spam. Tous les messages doivent être différents : pas de copier-coller, sous peine de voir des comptes supprimés.</p>
+    <p class="intro2">Parlez de ce que vous aimez chez lui, de ce que sa musique vous apporte, de ce qu'elle vous fait ressentir. Vous êtes libres d'écrire ce que vous voulez, avec respect et bienveillance. Prenez quelques minutes pour écrire avec le cœur.</p>
+
+    <div class="encadre-info">
+      <b>Les éléments à ne pas oublier</b>
+      <ul class="liste-tags">
+        <li>OMAR RUDBERG</li>
+        <li>A WORLD LIKE THIS</li>
+        <li>INTERNATIONAL ARTIST</li>
+        <li>@OFFICIALOMAR</li>
+        <li>@OR.WORLD.ASSOCIATION</li>
+        <li>#OMARGLOBALRADIODAY</li>
+        <li>#OMARRUDBERG</li>
+        <li>#AWORLDLIKETHIS</li>
+        <li>#ORWORLDASSOCIATION</li>
+      </ul>
+      <p class="mention">Pourquoi ? Parce que nous voulons montrer au monde entier l'ampleur que ce mouvement peut prendre.</p>
+    </div>
+
+    <h3 class="titre-ep">Mise à jour du 29 mai 2026</h3>
+    <p class="intro2">À la suite de la sortie d'« A World Like This » le 29 mai, nous mettons à jour certaines consignes. Pour cette nouvelle phase, nous invitons tous les participants à mettre cette chanson en avant dans leurs messages, leurs demandes et leurs échanges avec les radios.</p>
+    <p class="intro2">Cette chanson est particulièrement importante parce qu'Omar l'a écrite lui-même. C'est un morceau profondément personnel dans lequel il se livre sur son enfance, son identité, son parcours et les difficultés rencontrées après avoir déménagé dans un autre pays très jeune. À travers des paroles puissantes et sincères, il raconte la difficulté de s'adapter à une nouvelle culture, d'apprendre une nouvelle langue et de chercher sa place en grandissant entre deux mondes.</p>
+    <p class="intro2">Malgré les épreuves, les doutes et les blessures portées toute sa vie, Omar a transformé ces expériences en art. Aujourd'hui, il continue d'inspirer des milliers de personnes dans le monde par son authenticité, sa résilience, son talent et son engagement. C'est un artiste exceptionnel, et cette chanson lui ressemble.</p>
+    <p class="intro2">Nous élargissons maintenant l'opération au plus grand nombre de pays possible. Que vous suiviez Omar depuis longtemps ou que vous veniez de le découvrir, votre participation peut faire la différence.</p>
+
+    <div class="trio" style="margin-top:1.4rem">
+      <article class="vignette"><h3>DEMANDER</h3><p>Demandez « A World Like This » à vos radios locales.</p></article>
+      <article class="vignette"><h3>PARTAGER</h3><p>Partagez la chanson sur les réseaux sociaux.</p></article>
+      <article class="vignette"><h3>RACONTER</h3><p>Parlez de ce qu'elle signifie et de l'écriture d'Omar.</p></article>
+    </div>
+
+    <p class="intro2" style="margin-top:1.4rem">Chaque message, chaque demande, chaque partage compte. Faisons de ce mouvement mondial le plus grand possible, et aidons la musique d'Omar à toucher encore plus d'auditeurs à travers le monde. Ensemble, montrons au monde l'ampleur du soutien qui existe pour Omar et sa musique.</p>
   </div>
 </section>
 
@@ -769,43 +835,43 @@ h2.titre2{font-family:var(--titre);font-size:clamp(1.8rem,3.4vw,2.8rem);margin:0
         <h3 data-i18n="f.site"></h3>
         <ul>
           <li><a href="index.html" data-i18n="nav.accueil"></a></li>
-          <li><a href="explorer.html" data-i18n="f.omar"></a></li>
-          <li><a href="explorer.html" data-i18n="f.shoots"></a></li>
-          <li><a href="explorer.html" data-i18n="f.beaute"></a></li>
-          <li><a href="#" data-i18n="nav.royals"></a></li>
-          <li><a href="communaute.html" data-i18n="f.evenements"></a></li>
+          <li><a href="omar.html" data-i18n="f.omar"></a></li>
+          <li><a href="shoots.html" data-i18n="f.shoots"></a></li>
+          <li><a href="omr-beauty.html" data-i18n="f.beaute"></a></li>
+          <li><a href="young-royals.html" data-i18n="nav.royals"></a></li>
+          <li><a href="evenements.html" data-i18n="f.evenements"></a></li>
           <li><a href="livre.html" data-i18n="nav.livre"></a></li>
           <li><a href="journal.html" data-i18n="f.blog"></a></li>
           <li><a href="adhesion.html" data-i18n="f.adhesion"></a></li>
-          <li><a href="#" data-i18n="f.contactlien"></a></li>
+          <li><a href="contact.html" data-i18n="f.contactlien"></a></li>
         </ul>
       </div>
       <div>
         <h3 data-i18n="f.boutique"></h3>
         <ul>
           <li><a href="boutique.html" data-i18n="f.magasin"></a></li>
-          <li><a href="#" data-i18n="f.expedition"></a></li>
-          <li><a href="#" data-i18n="f.conditions"></a></li>
-          <li><a href="#" data-i18n="f.politiqueboutique"></a></li>
-          <li><a href="#" data-i18n="f.paiements"></a></li>
-          <li><a href="#" data-i18n="f.boutiqueomar"></a></li>
+          <li><a href="conditions.html#livraison" data-i18n="f.expedition"></a></li>
+          <li><a href="conditions.html" data-i18n="f.conditions"></a></li>
+          <li><a href="conditions.html#commandes" data-i18n="f.politiqueboutique"></a></li>
+          <li><a href="conditions.html#commandes" data-i18n="f.paiements"></a></li>
+          <li><a href="https://d11cc9-16.myshopify.com" target="_blank" rel="noopener" data-i18n="f.boutiqueomar"></a></li>
         </ul>
       </div>
       <div>
         <h3 data-i18n="f.autres"></h3>
         <ul>
-          <li><a href="#" data-i18n="f.documents"></a></li>
-          <li><a href="#" data-i18n="f.faq"></a></li>
-          <li><a href="#" data-i18n="f.rgpd"></a></li>
-          <li><a href="#" data-i18n="f.cookies"></a></li>
-          <li><a href="#" data-i18n="f.mentions"></a></li>
+          <li><a href="documents.html" data-i18n="f.documents"></a></li>
+          <li><a href="faq.html" data-i18n="f.faq"></a></li>
+          <li><a href="confidentialite.html" data-i18n="f.rgpd"></a></li>
+          <li><a href="cookies.html" data-i18n="f.cookies"></a></li>
+          <li><a href="mentions-legales.html" data-i18n="f.mentions"></a></li>
         </ul>
       </div>
     </div>
     <div class="pied__bas">
       <span>© 2026 O.R. World Association</span>
       <span data-i18n="f.heberge"></span>
-      <span class="version">version : RADIODAY-004</span>
+      <span class="version">version : RADIODAY-008</span>
     </div>
   </div>
 </footer>
@@ -1020,19 +1086,6 @@ const CONTINENTS=[[[143.2,-12.0],[143.5,-13.1],[143.8,-14.3],[144.9,-14.7],[145.
 </script>
 <script>
 (function(){
-  const JOUR_J=new Date("2026-11-12T12:00:00");
-  function rebours(){
-    const d=Math.max(0,JOUR_J-new Date());
-    document.getElementById("r-j").textContent=String(Math.floor(d/86400000)).padStart(2,"0");
-    document.getElementById("r-h").textContent=String(Math.floor(d/3600000)%24).padStart(2,"0");
-    document.getElementById("r-m").textContent=String(Math.floor(d/60000)%60).padStart(2,"0");
-    document.getElementById("r-s").textContent=String(Math.floor(d/1000)%60).padStart(2,"0");
-  }
-  rebours(); setInterval(rebours,1000);
-  document.getElementById("date-jour").textContent="Prochaine édition : "+
-    JOUR_J.toLocaleDateString("fr-FR",{day:"numeric",month:"long",year:"numeric"})+
-    " · la date sera confirmée à la sortie de l'album.";
-
   const MESSAGES={"fr": "Bonjour, je vous écris depuis [PAYS]. J'aimerais beaucoup entendre « [CHANSON] » d'Omar Rudberg dans votre programmation. C'est un artiste suédois dont la musique touche énormément de monde, et sa communauté serait ravie de l'entendre chez vous. Merci beaucoup et belle journée à toute l'équipe.", "en": "Hello, I am writing to you from [COUNTRY]. I would love to hear « [SONG] » by Omar Rudberg on your station. He is a Swedish artist whose music means a lot to many people, and his community would be delighted to hear him on your airwaves. Thank you so much, and have a lovely day.", "es": "Hola, les escribo desde [PAÍS]. Me encantaría escuchar « [CANCIÓN] » de Omar Rudberg en su programación. Es un artista sueco cuya música llega a mucha gente, y su comunidad estaría encantada de escucharlo en su emisora. Muchas gracias y que tengan un buen día.", "sv": "Hej! Jag skriver till er från [LAND]. Jag skulle verkligen vilja höra « [LÅT] » med Omar Rudberg i er sändning. Han är en svensk artist vars musik betyder mycket för många, och hans community skulle bli överlyckliga att höra honom hos er. Tack så mycket och ha en fin dag!", "de": "Hallo, ich schreibe Ihnen aus [LAND]. Ich würde sehr gerne « [SONG] » von Omar Rudberg in Ihrem Programm hören. Er ist ein schwedischer Künstler, dessen Musik vielen Menschen viel bedeutet, und seine Community würde sich riesig freuen. Vielen Dank und einen schönen Tag!", "pt": "Olá, escrevo-vos desde [PAÍS]. Gostaria muito de ouvir « [MÚSICA] » de Omar Rudberg na vossa programação. É um artista sueco cuja música toca muita gente, e a sua comunidade ficaria muito feliz por ouvi-lo na vossa rádio. Muito obrigada e um bom dia para toda a equipa."};
   const zone=document.getElementById("texte-message");
   let langue="fr";

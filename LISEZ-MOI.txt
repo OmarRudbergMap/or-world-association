@@ -1,51 +1,74 @@
-# O.R. WORLD ASSOCIATION — SITE, PREMIÈRE MISE EN LIGNE
+O.R. WORLD ASSOCIATION — SITE COMPLET
+Archive du 20 septembre 2026 · 26 pages + 6 documents officiels
 
-Ce dossier contient le site complet, prêt à être publié sur GitHub Pages.
+--------------------------------------------------------------------
+LES PAGES
+--------------------------------------------------------------------
+index.html ................ accueil (ACCUEIL-001)
+explorer.html ............. les sept univers (EXPLORER-004)
+omar.html ................. parcours d'Omar Rudberg (OMAR-003)
+musique.html .............. 72 titres, écoute, concerts (MUSIQUE-004)
+concerts.html ............. les 61 concerts et setlists (CONCERTS-012)
+shoots.html ............... séances photo par année (SHOOTS-002)
+omr-beauty.html ........... la marque et ses produits (BEAUTY-008)
+presse.html ............... archive presse par année (PRESSE-002)
+young-royals.html ......... série, 32 scènes, interviews, presse (ROYALS-002)
+communaute.html ........... projets, votes, concours, galerie (COMMUNAUTE-002)
+evenements.html ........... les rendez-vous (EVENEMENTS-002)
+radio-day.html ............ Omar Global Radio Day (RADIODAY-008)
+livre.html ................ le livre collaboratif (LIVRE-021)
+journal.html .............. les articles (JOURNAL-001)
+membres.html .............. devenir membre (MEMBRES-001)
+adhesion.html ............. adhésion en six étapes (ADHESION-007)
+espace.html ............... mon univers O.R. (ESPACE-003)
+boutique.html ............. la boutique (BOUTIQUE-001)
+association.html .......... qui nous sommes (ASSOCIATION-004)
+documents.html ............ documents officiels (DOCUMENTS-005)
+contact.html .............. nous écrire (CONTACT-001)
+faq.html .................. questions fréquentes (FAQ-001)
+mentions-legales.html ..... mentions légales (MENTIONS-004)
+confidentialite.html ...... RGPD (CONFIDENTIALITE-001)
+cookies.html .............. cookies (COOKIES-001)
+conditions.html ........... conditions générales (CONDITIONS-002)
 
-## Les fichiers
+documents/ ................ les six PDF officiels
 
-index.html ............ la page d'accueil
-explorer.html ......... les sept univers
-concerts.html ......... les 61 concerts, setlists comprises
-membres.html .......... devenir membre
-adhesion.html ......... la fiche d'adhésion en six étapes
-espace.html ........... mon univers O.R.
-boutique.html ......... la boutique et le panier
-livre.html ............ le livre collaboratif
-communaute.html ....... projets, votes, concours, événements, galerie
-journal.html .......... les articles
-radio-day.html ........ Omar Global Radio Day
+--------------------------------------------------------------------
+METTRE EN LIGNE
+--------------------------------------------------------------------
+1. github.com → dépôt or-world-association → onglet Code
+2. Add file → Upload files
+3. Glisser TOUT le contenu de ce dossier, dossier "documents" compris
+4. En bas : écrire un résumé, puis Commit changes
+5. Attendre deux minutes et recharger le site
 
-Chaque page affiche son numéro de version en bas à droite.
-Après un Push, c'est ce numéro qui vous dit si la mise en ligne a fonctionné.
+Pour vérifier : le numéro de version s'affiche en bas à droite de chaque page.
 
-## Mettre en ligne, étape par étape
-
-1. Copiez TOUT le contenu de ce dossier dans le dossier du dépôt GitHub
-   (celui que GitHub Desktop a créé lors du Clone).
-2. Ouvrez GitHub Desktop : les fichiers apparaissent à gauche.
-3. En bas à gauche, écrivez un résumé, par exemple « Première version du site ».
-4. Cliquez sur **Commit to main**, puis sur **Push origin** en haut.
-5. Sur github.com, dans le dépôt : **Settings → Pages**.
-   Source : **Deploy from a branch** · Branch : **main** · Dossier : **/ (root)** · Save.
-6. Attendez deux à trois minutes, puis ouvrez l'adresse indiquée par GitHub.
-
-## Ensuite, à chaque modification
-
-Pull (avant de commencer) → modifications → Commit → Push → vérifier le numéro de version.
-
-## Ce qui ne fonctionne pas encore
-
-Ces éléments sont visuels pour l'instant ; ils s'animeront quand Supabase,
-Stripe et PayPal seront branchés :
-
+--------------------------------------------------------------------
+CE QUI NE FONCTIONNE PAS ENCORE
+--------------------------------------------------------------------
+Ces éléments sont visuels ; ils s'animeront une fois Supabase,
+Stripe et PayPal branchés :
 - création de compte, connexion, espace membre
-- paiement de l'adhésion et commandes de la boutique
-- envoi des histoires, des projets, des photos et des articles
+- paiement de l'adhésion et commandes
+- envoi des histoires, projets, photos, articles
 - compteurs (ils affichent zéro)
-- e-mails automatiques et factures
+- e-mails automatiques, reçus et factures
 
-## Rappel important
+--------------------------------------------------------------------
+CE QUI ATTEND VOS INFORMATIONS
+--------------------------------------------------------------------
+- codes d'intégration Instagram, TikTok, YouTube (concerts, shoots,
+  presse, OMR Beauty, Young Royals)
+- photos, prix, tailles et stocks des produits de la boutique
+- dates de sortie des chansons et identifiants Spotify manquants
+- chiffres de la première édition du Radio Day
+- rapport d'activité et comptes du premier exercice
+  (5 novembre 2025 au 31 décembre 2026)
+- versions en langues étrangères des documents officiels
 
-Aucune clé secrète ne doit jamais être placée dans ce dossier : il est public.
+--------------------------------------------------------------------
+RAPPEL
+--------------------------------------------------------------------
+Aucune clé secrète ne doit figurer dans ce dossier : il est public.
 Les clés vivent dans Supabase et dans votre gestionnaire de mots de passe.

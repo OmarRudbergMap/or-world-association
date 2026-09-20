@@ -3,8 +3,8 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>La communauté · O.R. World Association</title>
-<!-- version : COMMUNAUTE-002 -->
+<title>Omar Rudberg · O.R. World Association</title>
+<!-- version : OMAR-003 -->
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:opsz,wght@6..96,400;6..96,500&family=Caveat:wght@500;600&family=Jost:wght@200;300;400&display=swap" rel="stylesheet">
@@ -413,53 +413,6 @@ h2.titre2{font-family:var(--titre);font-size:clamp(1.8rem,3.4vw,2.8rem);margin:0
 .pseudo:focus-within{border-color:var(--violet-clair);box-shadow:0 0 20px rgba(167,139,250,.35)}
 
 
-.projets{display:grid;grid-template-columns:repeat(2,1fr);gap:1.1rem;margin-top:1.4rem}
-.projet{padding:1.5rem;border:1px solid var(--bord);border-radius:16px;
-  background:linear-gradient(160deg,rgba(16,20,56,.75),rgba(4,7,24,.9))}
-.projet .cat{font-size:.64rem;letter-spacing:.18em;color:var(--rose)}
-.projet b{display:block;font-family:var(--titre);font-size:1.25rem;font-weight:500;margin:.4rem 0 .5rem}
-.projet p{color:var(--gris);font-size:.9rem;margin:0 0 1.2rem}
-.projet__bas{display:flex;justify-content:space-between;align-items:center;gap:.8rem}
-.votes{color:var(--cyan);font-size:.85rem}
-.votes b{display:inline;font-family:var(--texte);font-size:1.1rem;color:var(--cyan)}
-.voter.vote{border-color:var(--cyan);color:#fff;background:linear-gradient(120deg,rgba(91,141,255,.45),rgba(103,232,249,.3))}
-
-.concours-grille{display:grid;grid-template-columns:repeat(3,1fr);gap:1.1rem;margin-top:1.4rem}
-.concours{padding:1.5rem;border:1px solid var(--bord);border-radius:16px;background:rgba(8,12,34,.6);
-  display:flex;flex-direction:column;gap:.5rem}
-.concours b{font-family:var(--titre);font-size:1.2rem;font-weight:500}
-.concours p{color:var(--gris);font-size:.9rem;margin:0}
-.concours small{color:#8d86ab;font-size:.78rem;margin-bottom:.6rem}
-.concours .btn{align-self:flex-start;margin-top:auto}
-.etat-ouvert,.etat-attente,.etat-fini{align-self:flex-start;padding:.24rem .8rem;border-radius:999px;
-  font-size:.62rem;letter-spacing:.14em}
-.etat-ouvert{background:rgba(103,232,249,.2);color:var(--cyan)}
-.etat-attente{background:rgba(232,121,249,.18);color:var(--rose)}
-.etat-fini{background:rgba(255,255,255,.1);color:var(--gris)}
-
-.evenements{display:grid;gap:.9rem;margin-top:1.4rem}
-.evenement{display:grid;grid-template-columns:auto 1fr auto;gap:1.4rem;align-items:center;
-  padding:1.1rem 1.4rem;border:1px solid var(--bord);border-radius:14px;background:rgba(8,12,34,.55)}
-.date{text-align:center;min-width:64px}
-.date b{display:block;font-family:var(--titre);font-size:1.6rem;color:var(--cyan);
-  text-shadow:0 0 18px rgba(103,232,249,.5)}
-.date span{font-size:.62rem;letter-spacing:.18em;color:var(--gris)}
-.evenement b{font-weight:400}
-.evenement p{color:var(--gris);font-size:.88rem;margin:.2rem 0 0}
-.etiq-ev{font-size:.66rem;letter-spacing:.12em;color:var(--gris);white-space:nowrap}
-
-.galerie{display:grid;grid-template-columns:repeat(6,1fr);gap:.9rem;margin:1.4rem 0}
-.case-photo{aspect-ratio:1;border:1px solid var(--bord);border-radius:14px;display:grid;place-items:center;
-  background:linear-gradient(150deg,rgba(124,58,237,.35),rgba(4,7,24,.9));color:var(--gris);
-  font-size:.66rem;letter-spacing:.14em}
-.proposer{margin-top:2rem;padding:1.6rem;border:1px solid var(--bord);border-radius:18px;background:rgba(6,10,32,.6)}
-.proposer h3{font-family:var(--titre);font-size:1.3rem;margin:0 0 .3rem}
-.champ textarea,.champ select{width:100%;padding:.85rem 1rem;border:1px solid var(--bord);border-radius:10px;
-  background:rgba(2,4,16,.75);color:#fff;font-family:var(--texte);font-size:.95rem;resize:vertical}
-@media (max-width:1000px){.projets,.concours-grille{grid-template-columns:1fr}.galerie{grid-template-columns:repeat(3,1fr)}}
-@media (max-width:620px){.galerie{grid-template-columns:1fr 1fr}.evenement{grid-template-columns:auto 1fr}}
-
-
 /* ---------- menu mobile ---------- */
 .burger{display:none;flex-direction:column;gap:5px;padding:.6rem;border:1px solid var(--bord);
   border-radius:10px;background:rgba(6,10,32,.6);cursor:pointer}
@@ -480,6 +433,88 @@ h2.titre2{font-family:var(--titre);font-size:clamp(1.8rem,3.4vw,2.8rem);margin:0
   .marque,.outils{position:relative;z-index:2}
 }
 
+
+.filtres{display:flex;gap:.4rem;flex-wrap:wrap;margin:1.2rem 0 1.6rem}
+.filtre{padding:.45rem 1.2rem;border:1px solid var(--bord);border-radius:999px;background:rgba(8,12,34,.55);
+  color:var(--gris);font-family:var(--texte);font-size:.85rem;cursor:pointer}
+.filtre.actif{border-color:var(--violet-clair);color:#fff;box-shadow:0 0 18px rgba(167,139,250,.3)}
+.titre-ep{font-family:var(--titre);font-size:1.5rem;font-weight:500;margin:2rem 0 1rem;
+  color:var(--cyan);text-shadow:0 0 18px rgba(103,232,249,.5)}
+.episode:first-child .titre-ep{margin-top:.5rem}
+.scene{border:1px solid var(--bord);border-radius:14px;background:rgba(8,12,34,.55);
+  margin-bottom:.7rem;overflow:hidden}
+.scene summary{display:flex;align-items:baseline;gap:.9rem;padding:1rem 1.2rem;cursor:pointer;
+  list-style:none;font-size:1rem;color:#e6ecff}
+.scene summary::-webkit-details-marker{display:none}
+.scene summary::after{content:"＋";margin-left:auto;color:var(--cyan);flex:none}
+.scene[open] summary::after{content:"−"}
+.scene[open]{border-color:var(--violet-clair);box-shadow:0 0 26px rgba(120,150,255,.16)}
+.num-scene{font-family:var(--titre);font-size:.85rem;color:var(--rose);flex:none;letter-spacing:.08em}
+.texte-scene{padding:0 1.4rem 1.4rem;color:var(--gris);line-height:1.85;font-size:.95rem;
+  max-width:78ch}
+.texte-scene p{margin:0 0 1rem}
+.aucune{padding:1.6rem;border:1.5px dashed var(--bord);border-radius:14px;color:var(--gris);
+  font-size:.92rem;text-align:center;margin-top:1.4rem}
+.proposer,.infolettre{padding:1.6rem;border:1px solid var(--bord);border-radius:18px;background:rgba(6,10,32,.6)}
+.proposer h3,.infolettre h3{font-family:var(--titre);font-size:1.3rem;margin:0 0 .3rem}
+.champ textarea{width:100%;padding:.85rem 1rem;border:1px solid var(--bord);border-radius:10px;
+  background:rgba(2,4,16,.75);color:#fff;font-family:var(--texte);font-size:.95rem;resize:vertical}
+
+
+.fiche{display:grid;grid-template-columns:repeat(3,1fr);gap:1.1rem;margin:1.6rem 0}
+.bloc-fiche{padding:1.4rem;border:1px solid var(--bord);border-radius:16px;background:rgba(8,12,34,.55)}
+.bloc-fiche h3{font-size:.66rem;letter-spacing:.2em;color:var(--cyan);margin:0 0 1rem;
+  text-shadow:0 0 12px rgba(103,232,249,.5)}
+.bloc-fiche ul{list-style:none;margin:0;padding:0;display:grid;gap:.8rem}
+.bloc-fiche b{display:block;font-weight:400;color:#fff;font-size:.95rem}
+.bloc-fiche span{color:var(--gris);font-size:.86rem}
+.resume{padding:1.8rem;border:1px solid var(--bord);border-left:2px solid var(--rose);border-radius:0 18px 18px 0;
+  background:rgba(232,121,249,.05)}
+.resume h3{font-family:var(--titre);font-size:1.3rem;margin:0 0 .9rem}
+.resume p{color:var(--gris);line-height:1.85;margin:0 0 1rem}
+.citations{display:grid;gap:.9rem;margin:1.2rem 0}
+.citations blockquote{margin:0;padding:1.2rem 1.4rem;border:1px solid var(--bord);border-radius:14px;
+  background:rgba(8,12,34,.55);color:#dfe7ff;line-height:1.7;font-size:.95rem}
+.citations cite{display:block;margin-top:.7rem;font-style:normal;font-size:.78rem;color:#8d86ab}
+.emplacements{display:grid;grid-template-columns:repeat(4,1fr);gap:.9rem;margin:1rem 0 1.6rem}
+.emplacement{padding:1.3rem 1rem;border:1.5px dashed var(--bord);border-radius:14px;text-align:center;
+  background:rgba(6,10,30,.5)}
+.emplacement b{display:block;font-weight:400;color:#e6ecff;font-size:.92rem}
+.emplacement span{font-size:.72rem;color:#8d86ab}
+.vide-bloc{padding:1.4rem;border:1.5px dashed var(--bord);border-radius:14px;color:var(--gris);
+  font-size:.92rem;margin:1rem 0}
+.vide-bloc p{margin:0}
+@media (max-width:1000px){.fiche{grid-template-columns:1fr}.emplacements{grid-template-columns:1fr 1fr}}
+
+
+.frise-vie{display:grid;gap:1.1rem;margin-top:1.4rem;position:relative}
+.etape-vie{position:relative;padding:1.6rem 1.6rem 1.7rem 2.4rem;border:1px solid var(--bord);
+  border-radius:16px;background:linear-gradient(160deg,rgba(16,20,56,.72),rgba(4,7,24,.9))}
+.etape-vie::before{content:"";position:absolute;left:1rem;top:1.9rem;width:9px;height:9px;border-radius:50%;
+  background:linear-gradient(120deg,var(--cyan),var(--rose));box-shadow:0 0 16px rgba(167,139,250,.9)}
+.annees{font-size:.66rem;letter-spacing:.2em;color:var(--cyan);text-shadow:0 0 12px rgba(103,232,249,.5)}
+.etape-vie h3{font-family:var(--titre);font-size:1.35rem;font-weight:500;margin:.35rem 0 .7rem}
+.etape-vie p{color:var(--gris);line-height:1.8;margin:0 0 .9rem;max-width:80ch}
+.etape-vie .btn{margin-top:.2rem}
+.citation-omar{margin:0 0 1.4rem;padding:1.3rem 1.5rem;border-left:2px solid var(--rose);
+  border-radius:0 14px 14px 0;background:rgba(232,121,249,.07);color:#e6ecff;font-size:1.05rem;line-height:1.7}
+.extrait{margin-top:1.4rem;padding:1.4rem 1.6rem;border:1px solid var(--bord);border-radius:16px;
+  background:rgba(8,12,34,.55)}
+.date-extrait{font-size:.66rem;letter-spacing:.2em;color:var(--cyan)}
+.extrait p{color:#dfe7ff;font-size:1.05rem;line-height:1.8;margin:.6rem 0 0;font-style:italic}
+.univers{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:1rem}
+.porte{display:block;position:relative;overflow:hidden;text-align:left;padding:1.5rem 1.3rem 1.7rem;
+  border-radius:16px;border:1px solid var(--bord);text-decoration:none;
+  background:linear-gradient(160deg,rgba(18,22,60,.75),rgba(4,7,24,.88));color:var(--blanc);
+  transition:transform .3s,border-color .3s,box-shadow .3s}
+.porte:hover{transform:translateY(-5px);border-color:var(--violet-clair);box-shadow:0 18px 44px rgba(90,120,255,.28)}
+.porte::after{content:"";position:absolute;inset:auto -25% -55% -25%;height:110%;
+  background:radial-gradient(50% 55% at 50% 100%,var(--halo,rgba(124,58,237,.55)),transparent 70%)}
+.porte > *{position:relative;z-index:2}
+.porte b{display:block;font-family:var(--titre);font-size:1.25rem;font-weight:500;margin-bottom:.3rem;
+  color:var(--cyan);text-shadow:0 0 14px rgba(103,232,249,.5)}
+.porte span{color:var(--gris);font-size:.86rem}
+
 @media (prefers-reduced-motion:reduce){*{animation:none!important}}
 </style>
 </head>
@@ -491,7 +526,7 @@ h2.titre2{font-family:var(--titre);font-size:clamp(1.8rem,3.4vw,2.8rem);margin:0
     <li><a href="index.html" data-i18n="nav.accueil"></a></li>
     <li><a href="explorer.html" class="" data-i18n="nav.explorer"></a></li>
     <li><a href="young-royals.html" class="" data-i18n="nav.royals"></a></li>
-    <li><a href="communaute.html" class="actif" data-i18n="nav.communaute"></a></li>
+    <li><a href="communaute.html" class="" data-i18n="nav.communaute"></a></li>
     <li><a href="membres.html" data-i18n="nav.membres"></a></li>
     <li><a href="boutique.html" class="" data-i18n="nav.boutique"></a></li>
     <li><a href="livre.html" class="" data-i18n="nav.livre"></a></li>
@@ -518,167 +553,117 @@ h2.titre2{font-family:var(--titre);font-size:clamp(1.8rem,3.4vw,2.8rem);margin:0
 <div class="page">
 
 <section class="section" style="padding-top:clamp(8rem,15vh,11rem);padding-bottom:1rem">
-  <div class="contenu" style="max-width:940px;text-align:center">
-    <p class="chapeau">LA COMMUNAUTÉ</p>
-    <h1 class="titre2" style="font-size:clamp(2.2rem,5vw,3.4rem)">Ce monde est celui des fans</h1>
-    <p class="intro2" style="margin-inline:auto">Les projets naissent ici, les membres les choisissent, et l'association les réalise. Concours, ateliers, événements : chacun participe selon ses envies et ses talents.</p>
+  <div class="contenu" style="max-width:960px;text-align:center">
+    <p class="chapeau">OMAR RUDBERG</p>
+    <h1 class="titre2" style="font-size:clamp(2.2rem,5vw,3.4rem)">Un parcours, de Anaco aux scènes d'Europe</h1>
+    <p class="intro2" style="margin-inline:auto">Né le 12 novembre 1998 à Anaco, au Venezuela, Omar Josué Gonzalez est un chanteur, auteur-compositeur et acteur vénézuélien-suédois. À six ans, il part vivre à Kungsbacka, en Suède, avec sa mère Wilnur Gonzalez. Elle s'y marie, son mari adopte Omar, qui devient alors Omar Rudberg.</p>
   </div>
 </section>
 
 <section class="section" style="padding-top:1rem">
   <div class="contenu">
     <div class="compteurs">
-      <div class="compteur"><b>0</b><span>PROJETS PROPOSÉS</span></div>
-      <div class="compteur"><b>0</b><span>VOTES EXPRIMÉS</span></div>
-      <div class="compteur"><b>0</b><span>CONCOURS</span></div>
-      <div class="compteur"><b>0</b><span>ATELIERS</span></div>
-      <div class="compteur"><b>0</b><span>ÉVÉNEMENTS</span></div>
-      <div class="compteur"><b>0</b><span>PAYS MOBILISÉS</span></div>
+      <div class="compteur"><b>1998</b><span>NAISSANCE</span></div>
+      <div class="compteur"><b>2013</b><span>DÉBUTS AVEC FO&amp;O</span></div>
+      <div class="compteur"><b>2018</b><span>CARRIÈRE SOLO</span></div>
+      <div class="compteur"><b>2021</b><span>YOUNG ROYALS</span></div>
+      <div class="compteur"><b>2023</b><span>OMR BEAUTY</span></div>
+      <div class="compteur"><b>61</b><span>CONCERTS</span></div>
     </div>
   </div>
 </section>
 
 <section class="section" style="padding-top:1rem">
   <div class="contenu">
-    <h2 class="titre2" style="font-size:1.8rem">Les projets soumis au vote</h2>
-    <p class="intro2">Chaque membre dispose d'une voix par projet. Le projet le plus soutenu est réalisé en priorité, dans la limite de ce que l'association peut faire.</p>
-    <div class="projets">
-      <article class="projet">
-        <span class="cat">Projet concert</span>
-        <b>Bannière géante au prochain concert</b>
-        <p>Une banderole portée par les fans du premier rang, cousue lors d'un atelier.</p>
-        <div class="projet__bas">
-          <span class="votes"><b data-votes>0</b> votes</span>
-          <button class="btn btn--fin voter">Voter</button>
-        </div>
+    <h2 class="titre2" style="font-size:1.8rem">Son parcours</h2>
+
+    <div class="frise-vie">
+
+      <article class="etape-vie">
+        <span class="annees">2013 – 2017</span>
+        <h3>Les débuts avec FO&amp;O</h3>
+        <p>FO&amp;O est un boys band suédois composé d'Oscar Enestad, d'Omar Rudberg et de Felix Sandman. Il naît en 2013 sous le nom de « The Fooo », devient « The Fooo Conspiracy » en 2014, puis « FO&amp;O » après le départ d'Oscar Molander en novembre 2016. Le 19 septembre 2017, la séparation est annoncée : chacun veut se consacrer à sa carrière solo.</p>
       </article>
-      <article class="projet">
-        <span class="cat">Cadeau</span>
-        <b>Album photo offert à Omar</b>
-        <p>Un album relié rassemblant les photos et les messages des fans du monde entier.</p>
-        <div class="projet__bas">
-          <span class="votes"><b data-votes>0</b> votes</span>
-          <button class="btn btn--fin voter">Voter</button>
-        </div>
+
+      <article class="etape-vie">
+        <span class="annees">Depuis 2018</span>
+        <h3>La carrière solo</h3>
+        <p>En 2018, Omar lance sa carrière solo avec le single « Que pasa », accompagné du rappeur suédois Lamix, suivi de « La mesa » avec Elias Hurtig. En 2019, il participe au Melodifestivalen avec « Om om och om igen ». Il n'atteint pas la demi-finale, mais l'exposition lui vaut sa première entrée dans le Top 20 suédois, une première depuis le début de son parcours solo.</p>
+        <a class="btn btn--fin" href="musique.html">Toutes les chansons</a>
       </article>
-      <article class="projet">
-        <span class="cat">Projet concert</span>
-        <b>Bracelets lumineux coordonnés</b>
-        <p>Des bracelets distribués avant le concert, allumés tous ensemble sur une chanson.</p>
-        <div class="projet__bas">
-          <span class="votes"><b data-votes>0</b> votes</span>
-          <button class="btn btn--fin voter">Voter</button>
-        </div>
+
+      <article class="etape-vie">
+        <span class="annees">2020 – 2024</span>
+        <h3>La révélation : Young Royals</h3>
+        <p>En 2020, ayant toujours voulu jouer, Omar tente sa chance à la télévision et s'intéresse au casting de la série suédoise Young Royals. Il auditionne pour le rôle du prince Wilhelm et obtient finalement celui de Simon, l'un des deux protagonistes, face à Edvin Ryding. En juillet 2021, la série sort sur Netflix. 2024 marque la fin de l'aventure, après trois saisons.</p>
+        <a class="btn btn--fin" href="young-royals.html">La série</a>
       </article>
-      <article class="projet">
-        <span class="cat">Artistique</span>
-        <b>Fresque collective</b>
-        <p>Une œuvre composée de centaines de dessins envoyés par la communauté.</p>
-        <div class="projet__bas">
-          <span class="votes"><b data-votes>0</b> votes</span>
-          <button class="btn btn--fin voter">Voter</button>
-        </div>
+
+      <article class="etape-vie">
+        <span class="annees">2023</span>
+        <h3>Karusell, au cinéma</h3>
+        <p>Film suédois dans lequel Omar tient l'un des rôles principaux, Karusell est sorti en salles en 2023, uniquement en Suède. L'histoire suit un groupe de lycéens qui gagnent le droit de passer une nuit entière dans le parc d'attractions désert de Liseberg, à Göteborg, juste avant Halloween. L'ambiance de fête foraine tourne vite au cauchemar : ils ne sont pas seuls dans le parc, et quelque chose de mortel rôde entre les attractions. Rancunes anciennes et erreurs passées refont surface tandis qu'ils doivent survivre jusqu'au matin. Omar y joue Dante, l'un des jeunes du groupe. C'est l'un de ses premiers grands rôles au cinéma après Young Royals.</p>
       </article>
+
+      <article class="etape-vie">
+        <span class="annees">Depuis 2024</span>
+        <h3>Les tournées mondiales</h3>
+        <p>Pendant les années de tournage de Young Royals, Omar sort son tout premier album solo, suivi de plusieurs singles. Le moment idéal pour faire découvrir sa musique à un public large et international.</p>
+        <p>En février 2024, il monte sur la scène du Cirkus à Stockholm pour son tout premier concert solo, un moment fort et symbolique. À partir de là, tout s'accélère. Il enchaîne les scènes de festivals, pour le plus grand plaisir de tous.</p>
+        <p>En octobre 2024, après avoir signé avec le label américain Atlantic Records, il sort son EP Every Night Fantasy. Ce projet marque aussi le lancement de sa première tournée mondiale, complète, avec des concerts en Angleterre, en France, en Allemagne et aux États-Unis.</p>
+        <p>À la fin de cette première tournée, il en annonce une seconde, en février 2025 : 19 dates à travers l'Europe, du 2 février au 2 mars, dans 19 villes et 11 pays — France, Royaume-Uni, Pays-Bas, Belgique, Espagne, Italie, Allemagne, Pologne, Suède, Norvège, Danemark.</p>
+        <p>En mai 2026 paraît « A World Like This », premier extrait de l'album à venir, qu'Omar a écrit lui-même. L'album, lui, n'est pas encore sorti.</p>
+        <p>La tournée des festivals 2025 continue d'asseoir sa popularité et d'en faire une étoile montante internationale. Le public est enthousiaste, emporté par son énergie de scène : Omar donne tout, il bouge, il chante, il échange avec ses fans. Aucun temps mort, et une qualité de spectacle indéniable.</p>
+        <a class="btn btn--fin" href="concerts.html">Les 61 concerts</a>
+      </article>
+
+      <article class="etape-vie">
+        <span class="annees">Depuis novembre 2023</span>
+        <h3>OMR Beauty</h3>
+        <p>Omar a toujours aimé l'univers des cosmétiques et de la beauté. C'est tout naturellement qu'il crée sa propre marque, unisexe et végane, OMR Beauty, en novembre 2023. À ce jour, les produits comprennent Intro, Duo, Collection Oil, Fluid, Duo Oil, Intro Oil et Fluid Oil. Un nouveau parfum est en préparation.</p>
+      </article>
+
+      <article class="etape-vie">
+        <span class="annees">Mode</span>
+        <h3>Omar et le style</h3>
+        <p>En 2023, il est élu « homme le mieux habillé de Suède » par le magazine Café. Son style évolue avec son humeur : certains jours audacieux, d'autres plus sobres. Il revendique une grande liberté, « 100 % selon l'humeur ».</p>
+      </article>
+
+    </div>
+  </div>
+</section>
+
+<section class="section" style="padding-top:1rem" id="discographie">
+  <div class="contenu">
+    <h2 class="titre2" style="font-size:1.8rem">La musique</h2>
+    <blockquote class="citation-omar">
+      « Toutes les chansons d'Omar sont exceptionnelles. Elles sont le reflet de lui-même. »
+    </blockquote>
+    <p class="intro2">La carrière musicale d'Omar est déjà longue depuis ses débuts en solo. Mêlant pop, R&amp;B et influences latines, il s'impose comme une étoile montante internationale.</p>
+
+    <div class="emplacements">
+      <a class="emplacement" href="musique.html" style="text-decoration:none"><b>Singles et albums</b><span>72 titres, pochettes, écoute et concerts</span></a>
+      <div class="emplacement"><b>Clips officiels</b><span>intégrés depuis la chaîne officielle</span></div>
+      <div class="emplacement"><b>Écouter</b><span>liens Spotify, Apple Music, Deezer</span></div>
     </div>
 
-    <div class="proposer">
-      <h3>Proposer un projet</h3>
-      <p class="mention">Une idée de projet pour un concert, un cadeau, une action artistique ? Décrivez-la : elle sera relue, puis soumise au vote.</p>
-      <div class="grille2">
-        <label class="champ"><span>Titre du projet</span><input type="text"></label>
-        <label class="champ"><span>Catégorie</span>
-          <select><option>Projet concert</option><option>Cadeau pour Omar</option><option>Artistique</option><option>Solidaire</option><option>Autre</option></select>
-        </label>
-      </div>
-      <label class="champ"><span>Description</span><textarea rows="4" placeholder="En quelques lignes…"></textarea></label>
-      <button class="btn btn--fin">Envoyer ma proposition</button>
+    <div class="extrait">
+      <span class="date-extrait">15 · 07 · 2021</span>
+      <p>« Donne-moi la chance d'abattre les murs de l'attitude.<br>Je ne te demande rien, pas même ta gratitude. »</p>
     </div>
   </div>
 </section>
 
 <section class="section" style="padding-top:1rem">
   <div class="contenu">
-    <h2 class="titre2" style="font-size:1.8rem">Jeux concours</h2>
-    <p class="intro2">Réservés aux membres, sans frais de participation. Les gagnants sont désignés par un jury, ou par tirage au sort public sur un site officiel et vérifiable.</p>
-    <div class="concours-grille">
-      <article class="concours">
-        <span class="etat-ouvert">En cours</span>
-        <b>Concours de dessin</b>
-        <p>Dessinez l'univers d'Omar. Un jury choisit les trois plus belles œuvres.</p>
-        <small>Ouvert · jusqu'au 31 octobre</small>
-        <button class="btn">Participer</button>
-      </article>
-      <article class="concours">
-        <span class="etat-attente">À venir</span>
-        <b>Concours d'écriture</b>
-        <p>Un texte de dix lignes sur ce que sa musique vous apporte.</p>
-        <small>Ouverture en novembre</small>
-        <button class="btn btn--fin" disabled>Bientôt</button>
-      </article>
-      <article class="concours">
-        <span class="etat-fini">Terminé</span>
-        <b>Design du mois</b>
-        <p>Le dessin gagnant devient un produit de la boutique.</p>
-        <small>Terminé · gagnante annoncée sur Instagram</small>
-        <button class="btn btn--fin">Voir le résultat</button>
-      </article>
+    <h2 class="titre2" style="font-size:1.8rem">Aller plus loin</h2>
+    <div class="univers">
+      <a class="porte" href="concerts.html" style="--halo:rgba(232,121,249,.5)"><b>Concerts et archives</b><span>Les 61 dates, leurs salles et leurs setlists.</span></a>
+      <a class="porte" href="young-royals.html" style="--halo:rgba(167,139,250,.55)"><b>Young Royals</b><span>La série, scène par scène, interviews et presse.</span></a>
+      <a class="porte" href="shoots.html" style="--halo:rgba(103,232,249,.45)"><b>Shoots presse</b><span>Les séances photo de 2021 à aujourd'hui.</span></a>
+      <a class="porte" href="omr-beauty.html" style="--halo:rgba(91,141,255,.5)"><b>OMR Beauty</b><span>La marque, les produits, les pop-up stores.</span></a>
     </div>
-  </div>
-</section>
-
-<section class="section" style="padding-top:1rem">
-  <div class="contenu">
-    <h2 class="titre2" style="font-size:1.8rem">Ateliers créatifs</h2>
-    <p class="intro2">On crée ensemble, à distance ou sur place : design, bracelets, affiches, éléments de projets de concert. Chacun apporte ce qu'il sait faire, et on apprend le reste.</p>
-    <div class="trio">
-      <article class="vignette"><h3>DESIGN</h3><p>Visuels des produits, affiches, cartes. Une idée validée devient un objet de la boutique.</p></article>
-      <article class="vignette"><h3>FAIT MAIN</h3><p>Bracelets, porte-clés, décorations pour les concerts, cousus et assemblés ensemble.</p></article>
-      <article class="vignette"><h3>ÉCRITURE</h3><p>Textes du livre collaboratif, messages collectifs, slogans pour les projets.</p></article>
-    </div>
-  </div>
-</section>
-
-<section class="section" style="padding-top:1rem">
-  <div class="contenu">
-    <h2 class="titre2" style="font-size:1.8rem">Les événements</h2>
-    <p class="intro2">Tous les rendez-vous, en cours, à venir et passés, sont rassemblés sur leur page. <a href="evenements.html" style="color:var(--cyan)">Voir tous les événements →</a></p>
-    <div class="evenements">
-      <article class="evenement">
-        <div class="date"><b>12</b><span>NOV</span></div>
-        <div><b>Anniversaire d'Omar</b><p>Album de messages et de dessins offert à Omar, en ligne.</p></div>
-        <span class="etiq-ev">En préparation</span>
-      </article>
-      <article class="evenement">
-        <div class="date"><b>—</b><span>2027</span></div>
-        <div><b>Omar Global Radio Day</b><p>Journée mondiale de demandes en radio, date annoncée à la sortie de l'album.</p></div>
-        <span class="etiq-ev">À venir</span>
-      </article>
-      <article class="evenement">
-        <div class="date"><b>—</b><span>2027</span></div>
-        <div><b>Atelier bracelets</b><p>Atelier créatif en visio, kit envoyé aux participants.</p></div>
-        <span class="etiq-ev">À venir</span>
-      </article>
-    </div>
-  </div>
-</section>
-
-<section class="section" style="padding-top:1rem">
-  <div class="contenu">
-    <h2 class="titre2" style="font-size:1.8rem">La galerie de la communauté</h2>
-    <p class="intro2">Les photos et créations envoyées par les fans, validées avant publication. Chacun reste propriétaire de ce qu'il partage, et peut demander le retrait à tout moment.</p>
-    <div class="galerie">
-      <div class="case-photo"><span>photo de fan</span></div>
-      <div class="case-photo"><span>création</span></div>
-      <div class="case-photo"><span>concert</span></div>
-      <div class="case-photo"><span>atelier</span></div>
-      <div class="case-photo"><span>fan art</span></div>
-      <div class="case-photo"><span>projet</span></div>
-    </div>
-    <div class="barre-boutons">
-      <button class="btn">Envoyer une photo</button>
-      <button class="btn btn--fin">Voir toute la galerie</button>
-    </div>
-    <p class="mention">Pour les mineurs, l'autorisation d'un parent est nécessaire avant tout envoi. Les vidéos ne sont pas hébergées : partagez simplement le lien Instagram, TikTok ou YouTube.</p>
+    <p class="mention" style="margin-top:1.4rem">Les publications officielles d'Omar seront intégrées dans ces pages depuis ses propres comptes. Nous n'hébergeons aucune image lui appartenant.</p>
   </div>
 </section>
 
@@ -742,7 +727,7 @@ h2.titre2{font-family:var(--titre);font-size:clamp(1.8rem,3.4vw,2.8rem);margin:0
     <div class="pied__bas">
       <span>© 2026 O.R. World Association</span>
       <span data-i18n="f.heberge"></span>
-      <span class="version">version : COMMUNAUTE-002</span>
+      <span class="version">version : OMAR-003</span>
     </div>
   </div>
 </footer>
@@ -955,23 +940,6 @@ const CONTINENTS=[[[143.2,-12.0],[143.5,-13.1],[143.8,-14.3],[144.9,-14.7],[145.
 
 
 </script>
-<script>
-(function(){
-  document.querySelectorAll(".voter").forEach(function(b){
-    b.addEventListener("click",function(){
-      const c=b.closest(".projet").querySelector("[data-votes]");
-      if(b.classList.contains("vote")){
-        b.classList.remove("vote"); b.textContent="Voter";
-        c.textContent=Math.max(0,parseInt(c.textContent,10)-1);
-      } else {
-        b.classList.add("vote"); b.textContent="Voté ✓";
-        c.textContent=parseInt(c.textContent,10)+1;
-      }
-    });
-  });
-})();
-</script>
-
 
 <script>
 (function(){
@@ -996,5 +964,27 @@ const CONTINENTS=[[[143.2,-12.0],[143.5,-13.1],[143.8,-14.3],[144.9,-14.7],[145.
 })();
 </script>
 
+<script>
+(function(){
+  const b=document.getElementById("burger");
+  if(!b) return;
+  const menu=document.querySelector(".menu");
+  const entete=document.querySelector(".entete");
+  function bascule(ouvrir){
+    menu.classList.toggle("ouvert",ouvrir);
+    entete.classList.toggle("menu-ouvert",ouvrir);
+    b.setAttribute("aria-expanded",String(ouvrir));
+    document.body.style.overflow=ouvrir?"hidden":"";
+  }
+  b.addEventListener("click",function(e){
+    e.stopPropagation();
+    bascule(!menu.classList.contains("ouvert"));
+  });
+  menu.querySelectorAll("a").forEach(function(a){
+    a.addEventListener("click",function(){ bascule(false); });
+  });
+  document.addEventListener("keydown",function(e){ if(e.key==="Escape") bascule(false); });
+})();
+</script>
 </body>
 </html>

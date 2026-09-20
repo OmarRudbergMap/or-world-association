@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Adhésion · O.R. World Association</title>
-<!-- version : ADHESION-006 -->
+<!-- version : ADHESION-007 -->
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:opsz,wght@6..96,400;6..96,500&family=Caveat:wght@500;600&family=Jost:wght@200;300;400&display=swap" rel="stylesheet">
@@ -443,13 +443,13 @@ h2.titre2{font-family:var(--titre);font-size:clamp(1.8rem,3.4vw,2.8rem);margin:0
   <ul class="menu">
     <li><a href="index.html" data-i18n="nav.accueil"></a></li>
     <li><a href="explorer.html" class="" data-i18n="nav.explorer"></a></li>
-    <li><a href="#" class="" data-i18n="nav.royals"></a></li>
+    <li><a href="young-royals.html" class="" data-i18n="nav.royals"></a></li>
     <li><a href="communaute.html" class="" data-i18n="nav.communaute"></a></li>
     <li><a href="membres.html" class="actif" data-i18n="nav.membres"></a></li>
     <li><a href="boutique.html" class="" data-i18n="nav.boutique"></a></li>
     <li><a href="livre.html" class="" data-i18n="nav.livre"></a></li>
     <li><a href="journal.html" class="" data-i18n="nav.journal"></a></li>
-    <li><a href="#" class="" data-i18n="nav.association"></a></li>
+    <li><a href="association.html" class="" data-i18n="nav.association"></a></li>
   </ul>
   <div class="outils">
     <div class="langues" id="langues">
@@ -479,7 +479,7 @@ h2.titre2{font-family:var(--titre);font-size:clamp(1.8rem,3.4vw,2.8rem);margin:0
       <b>Avant de commencer</b>
       <p>Prenez le temps de télécharger, lire et remplir les documents nécessaires. Ne le faites pas trop vite. Si quelque chose n'est pas clair, écrivez-nous sur Instagram, nous vous aiderons.</p>
       <div class="barre-boutons">
-        <a class="btn btn--fin" href="#">Accéder aux documents officiels</a>
+        <a class="btn btn--fin" href="documents.html">Accéder aux documents officiels</a>
         <a class="btn btn--fin" href="https://www.instagram.com/or.world.association/" target="_blank" rel="noopener">Notre Instagram</a>
       </div>
     </div>
@@ -647,7 +647,7 @@ h2.titre2{font-family:var(--titre);font-size:clamp(1.8rem,3.4vw,2.8rem);margin:0
           <label class="champ"><span>E-mail du parent *</span><input required type="email"></label>
         </div>
         <div class="barre-boutons" style="margin-bottom:1rem">
-          <a class="btn btn--fin" href="#">Télécharger le document</a>
+          <a class="btn btn--fin" href="documents/autorisation-parentale-fr.pdf" target="_blank" rel="noopener">Télécharger l'autorisation parentale</a>
         </div>
         <label class="depot">
           <input type="file" data-doc accept=".pdf,.jpg,.jpeg,.png">
@@ -664,7 +664,7 @@ h2.titre2{font-family:var(--titre);font-size:clamp(1.8rem,3.4vw,2.8rem);margin:0
       </div>
       <p class="mention">Téléchargez le document « Autorisation de captation et d'utilisation commerciale de l'image », complétez-le, puis importez-le ici.</p>
       <div class="barre-boutons" style="margin-bottom:1rem">
-        <a class="btn btn--fin" href="#">Télécharger le document</a>
+        <a class="btn btn--fin" href="documents/autorisation-image-fr.pdf" target="_blank" rel="noopener">Télécharger l'autorisation de droit à l'image</a>
       </div>
       <label class="depot">
         <input type="file" data-doc accept=".pdf,.jpg,.jpeg,.png">
@@ -674,8 +674,8 @@ h2.titre2{font-family:var(--titre);font-size:clamp(1.8rem,3.4vw,2.8rem);margin:0
 
       <p class="chapeau" style="margin-top:1.6rem">ENGAGEMENTS</p>
       <label class="case"><input type="checkbox" required><span><b>Protection des données *</b> — J'accepte que mes informations soient utilisées uniquement dans le cadre du fonctionnement de l'association, conformément au RGPD.</span></label>
-      <label class="case"><input type="checkbox" required><span><b>Règlement intérieur *</b> — Je certifie avoir lu et approuvé le règlement intérieur de l'association.</span></label>
-      <label class="case"><input type="checkbox" required><span><b>Statuts et conditions *</b> — J'accepte les statuts, les conditions d'adhésion et la politique de confidentialité.</span></label>
+      <label class="case"><input type="checkbox" required><span><b>Règlement intérieur *</b> — Je certifie avoir lu et approuvé le <a href="documents/reglement-interieur-fr.pdf" target="_blank" rel="noopener" style="color:var(--cyan)">règlement intérieur</a> de l'association.</span></label>
+      <label class="case"><input type="checkbox" required><span><b>Statuts et conditions *</b> — J'accepte les <a href="documents/statuts-fr.pdf" target="_blank" rel="noopener" style="color:var(--cyan)">statuts</a>, les <a href="conditions.html" style="color:var(--cyan)">conditions d'adhésion</a> et la <a href="confidentialite.html" style="color:var(--cyan)">politique de confidentialité</a>.</span></label>
 
       <p class="alerte">Merci de remplir tous les champs marqués d'une étoile avant de continuer.</p>
       <p class="alerte">Merci de remplir tous les champs marqués d'une étoile avant de continuer.</p>
@@ -961,43 +961,43 @@ h2.titre2{font-family:var(--titre);font-size:clamp(1.8rem,3.4vw,2.8rem);margin:0
         <h3 data-i18n="f.site"></h3>
         <ul>
           <li><a href="index.html" data-i18n="nav.accueil"></a></li>
-          <li><a href="explorer.html" data-i18n="f.omar"></a></li>
-          <li><a href="explorer.html" data-i18n="f.shoots"></a></li>
-          <li><a href="explorer.html" data-i18n="f.beaute"></a></li>
-          <li><a href="#" data-i18n="nav.royals"></a></li>
-          <li><a href="communaute.html" data-i18n="f.evenements"></a></li>
+          <li><a href="omar.html" data-i18n="f.omar"></a></li>
+          <li><a href="shoots.html" data-i18n="f.shoots"></a></li>
+          <li><a href="omr-beauty.html" data-i18n="f.beaute"></a></li>
+          <li><a href="young-royals.html" data-i18n="nav.royals"></a></li>
+          <li><a href="evenements.html" data-i18n="f.evenements"></a></li>
           <li><a href="livre.html" data-i18n="nav.livre"></a></li>
           <li><a href="journal.html" data-i18n="f.blog"></a></li>
           <li><a href="adhesion.html" data-i18n="f.adhesion"></a></li>
-          <li><a href="#" data-i18n="f.contactlien"></a></li>
+          <li><a href="contact.html" data-i18n="f.contactlien"></a></li>
         </ul>
       </div>
       <div>
         <h3 data-i18n="f.boutique"></h3>
         <ul>
           <li><a href="boutique.html" data-i18n="f.magasin"></a></li>
-          <li><a href="#" data-i18n="f.expedition"></a></li>
-          <li><a href="#" data-i18n="f.conditions"></a></li>
-          <li><a href="#" data-i18n="f.politiqueboutique"></a></li>
-          <li><a href="#" data-i18n="f.paiements"></a></li>
-          <li><a href="#" data-i18n="f.boutiqueomar"></a></li>
+          <li><a href="conditions.html#livraison" data-i18n="f.expedition"></a></li>
+          <li><a href="conditions.html" data-i18n="f.conditions"></a></li>
+          <li><a href="conditions.html#commandes" data-i18n="f.politiqueboutique"></a></li>
+          <li><a href="conditions.html#commandes" data-i18n="f.paiements"></a></li>
+          <li><a href="https://d11cc9-16.myshopify.com" target="_blank" rel="noopener" data-i18n="f.boutiqueomar"></a></li>
         </ul>
       </div>
       <div>
         <h3 data-i18n="f.autres"></h3>
         <ul>
-          <li><a href="#" data-i18n="f.documents"></a></li>
-          <li><a href="#" data-i18n="f.faq"></a></li>
-          <li><a href="#" data-i18n="f.rgpd"></a></li>
-          <li><a href="#" data-i18n="f.cookies"></a></li>
-          <li><a href="#" data-i18n="f.mentions"></a></li>
+          <li><a href="documents.html" data-i18n="f.documents"></a></li>
+          <li><a href="faq.html" data-i18n="f.faq"></a></li>
+          <li><a href="confidentialite.html" data-i18n="f.rgpd"></a></li>
+          <li><a href="cookies.html" data-i18n="f.cookies"></a></li>
+          <li><a href="mentions-legales.html" data-i18n="f.mentions"></a></li>
         </ul>
       </div>
     </div>
     <div class="pied__bas">
       <span>© 2026 O.R. World Association</span>
       <span data-i18n="f.heberge"></span>
-      <span class="version">version : ADHESION-006</span>
+      <span class="version">version : ADHESION-007</span>
     </div>
   </div>
 </footer>

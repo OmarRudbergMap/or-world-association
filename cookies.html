@@ -3,8 +3,8 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>La communauté · O.R. World Association</title>
-<!-- version : COMMUNAUTE-002 -->
+<title>Politique de cookies · O.R. World Association</title>
+<!-- version : COOKIES-001 -->
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:opsz,wght@6..96,400;6..96,500&family=Caveat:wght@500;600&family=Jost:wght@200;300;400&display=swap" rel="stylesheet">
@@ -413,53 +413,6 @@ h2.titre2{font-family:var(--titre);font-size:clamp(1.8rem,3.4vw,2.8rem);margin:0
 .pseudo:focus-within{border-color:var(--violet-clair);box-shadow:0 0 20px rgba(167,139,250,.35)}
 
 
-.projets{display:grid;grid-template-columns:repeat(2,1fr);gap:1.1rem;margin-top:1.4rem}
-.projet{padding:1.5rem;border:1px solid var(--bord);border-radius:16px;
-  background:linear-gradient(160deg,rgba(16,20,56,.75),rgba(4,7,24,.9))}
-.projet .cat{font-size:.64rem;letter-spacing:.18em;color:var(--rose)}
-.projet b{display:block;font-family:var(--titre);font-size:1.25rem;font-weight:500;margin:.4rem 0 .5rem}
-.projet p{color:var(--gris);font-size:.9rem;margin:0 0 1.2rem}
-.projet__bas{display:flex;justify-content:space-between;align-items:center;gap:.8rem}
-.votes{color:var(--cyan);font-size:.85rem}
-.votes b{display:inline;font-family:var(--texte);font-size:1.1rem;color:var(--cyan)}
-.voter.vote{border-color:var(--cyan);color:#fff;background:linear-gradient(120deg,rgba(91,141,255,.45),rgba(103,232,249,.3))}
-
-.concours-grille{display:grid;grid-template-columns:repeat(3,1fr);gap:1.1rem;margin-top:1.4rem}
-.concours{padding:1.5rem;border:1px solid var(--bord);border-radius:16px;background:rgba(8,12,34,.6);
-  display:flex;flex-direction:column;gap:.5rem}
-.concours b{font-family:var(--titre);font-size:1.2rem;font-weight:500}
-.concours p{color:var(--gris);font-size:.9rem;margin:0}
-.concours small{color:#8d86ab;font-size:.78rem;margin-bottom:.6rem}
-.concours .btn{align-self:flex-start;margin-top:auto}
-.etat-ouvert,.etat-attente,.etat-fini{align-self:flex-start;padding:.24rem .8rem;border-radius:999px;
-  font-size:.62rem;letter-spacing:.14em}
-.etat-ouvert{background:rgba(103,232,249,.2);color:var(--cyan)}
-.etat-attente{background:rgba(232,121,249,.18);color:var(--rose)}
-.etat-fini{background:rgba(255,255,255,.1);color:var(--gris)}
-
-.evenements{display:grid;gap:.9rem;margin-top:1.4rem}
-.evenement{display:grid;grid-template-columns:auto 1fr auto;gap:1.4rem;align-items:center;
-  padding:1.1rem 1.4rem;border:1px solid var(--bord);border-radius:14px;background:rgba(8,12,34,.55)}
-.date{text-align:center;min-width:64px}
-.date b{display:block;font-family:var(--titre);font-size:1.6rem;color:var(--cyan);
-  text-shadow:0 0 18px rgba(103,232,249,.5)}
-.date span{font-size:.62rem;letter-spacing:.18em;color:var(--gris)}
-.evenement b{font-weight:400}
-.evenement p{color:var(--gris);font-size:.88rem;margin:.2rem 0 0}
-.etiq-ev{font-size:.66rem;letter-spacing:.12em;color:var(--gris);white-space:nowrap}
-
-.galerie{display:grid;grid-template-columns:repeat(6,1fr);gap:.9rem;margin:1.4rem 0}
-.case-photo{aspect-ratio:1;border:1px solid var(--bord);border-radius:14px;display:grid;place-items:center;
-  background:linear-gradient(150deg,rgba(124,58,237,.35),rgba(4,7,24,.9));color:var(--gris);
-  font-size:.66rem;letter-spacing:.14em}
-.proposer{margin-top:2rem;padding:1.6rem;border:1px solid var(--bord);border-radius:18px;background:rgba(6,10,32,.6)}
-.proposer h3{font-family:var(--titre);font-size:1.3rem;margin:0 0 .3rem}
-.champ textarea,.champ select{width:100%;padding:.85rem 1rem;border:1px solid var(--bord);border-radius:10px;
-  background:rgba(2,4,16,.75);color:#fff;font-family:var(--texte);font-size:.95rem;resize:vertical}
-@media (max-width:1000px){.projets,.concours-grille{grid-template-columns:1fr}.galerie{grid-template-columns:repeat(3,1fr)}}
-@media (max-width:620px){.galerie{grid-template-columns:1fr 1fr}.evenement{grid-template-columns:auto 1fr}}
-
-
 /* ---------- menu mobile ---------- */
 .burger{display:none;flex-direction:column;gap:5px;padding:.6rem;border:1px solid var(--bord);
   border-radius:10px;background:rgba(6,10,32,.6);cursor:pointer}
@@ -480,6 +433,215 @@ h2.titre2{font-family:var(--titre);font-size:clamp(1.8rem,3.4vw,2.8rem);margin:0
   .marque,.outils{position:relative;z-index:2}
 }
 
+
+.filtres{display:flex;gap:.4rem;flex-wrap:wrap;margin:1.2rem 0 1.6rem}
+.filtre{padding:.45rem 1.2rem;border:1px solid var(--bord);border-radius:999px;background:rgba(8,12,34,.55);
+  color:var(--gris);font-family:var(--texte);font-size:.85rem;cursor:pointer}
+.filtre.actif{border-color:var(--violet-clair);color:#fff;box-shadow:0 0 18px rgba(167,139,250,.3)}
+.titre-ep{font-family:var(--titre);font-size:1.5rem;font-weight:500;margin:2rem 0 1rem;
+  color:var(--cyan);text-shadow:0 0 18px rgba(103,232,249,.5)}
+.episode:first-child .titre-ep{margin-top:.5rem}
+.scene{border:1px solid var(--bord);border-radius:14px;background:rgba(8,12,34,.55);
+  margin-bottom:.7rem;overflow:hidden}
+.scene summary{display:flex;align-items:baseline;gap:.9rem;padding:1rem 1.2rem;cursor:pointer;
+  list-style:none;font-size:1rem;color:#e6ecff}
+.scene summary::-webkit-details-marker{display:none}
+.scene summary::after{content:"＋";margin-left:auto;color:var(--cyan);flex:none}
+.scene[open] summary::after{content:"−"}
+.scene[open]{border-color:var(--violet-clair);box-shadow:0 0 26px rgba(120,150,255,.16)}
+.num-scene{font-family:var(--titre);font-size:.85rem;color:var(--rose);flex:none;letter-spacing:.08em}
+.texte-scene{padding:0 1.4rem 1.4rem;color:var(--gris);line-height:1.85;font-size:.95rem;
+  max-width:78ch}
+.texte-scene p{margin:0 0 1rem}
+.aucune{padding:1.6rem;border:1.5px dashed var(--bord);border-radius:14px;color:var(--gris);
+  font-size:.92rem;text-align:center;margin-top:1.4rem}
+.proposer,.infolettre{padding:1.6rem;border:1px solid var(--bord);border-radius:18px;background:rgba(6,10,32,.6)}
+.proposer h3,.infolettre h3{font-family:var(--titre);font-size:1.3rem;margin:0 0 .3rem}
+.champ textarea{width:100%;padding:.85rem 1rem;border:1px solid var(--bord);border-radius:10px;
+  background:rgba(2,4,16,.75);color:#fff;font-family:var(--texte);font-size:.95rem;resize:vertical}
+
+
+.fiche{display:grid;grid-template-columns:repeat(3,1fr);gap:1.1rem;margin:1.6rem 0}
+.bloc-fiche{padding:1.4rem;border:1px solid var(--bord);border-radius:16px;background:rgba(8,12,34,.55)}
+.bloc-fiche h3{font-size:.66rem;letter-spacing:.2em;color:var(--cyan);margin:0 0 1rem;
+  text-shadow:0 0 12px rgba(103,232,249,.5)}
+.bloc-fiche ul{list-style:none;margin:0;padding:0;display:grid;gap:.8rem}
+.bloc-fiche b{display:block;font-weight:400;color:#fff;font-size:.95rem}
+.bloc-fiche span{color:var(--gris);font-size:.86rem}
+.resume{padding:1.8rem;border:1px solid var(--bord);border-left:2px solid var(--rose);border-radius:0 18px 18px 0;
+  background:rgba(232,121,249,.05)}
+.resume h3{font-family:var(--titre);font-size:1.3rem;margin:0 0 .9rem}
+.resume p{color:var(--gris);line-height:1.85;margin:0 0 1rem}
+.citations{display:grid;gap:.9rem;margin:1.2rem 0}
+.citations blockquote{margin:0;padding:1.2rem 1.4rem;border:1px solid var(--bord);border-radius:14px;
+  background:rgba(8,12,34,.55);color:#dfe7ff;line-height:1.7;font-size:.95rem}
+.citations cite{display:block;margin-top:.7rem;font-style:normal;font-size:.78rem;color:#8d86ab}
+.emplacements{display:grid;grid-template-columns:repeat(4,1fr);gap:.9rem;margin:1rem 0 1.6rem}
+.emplacement{padding:1.3rem 1rem;border:1.5px dashed var(--bord);border-radius:14px;text-align:center;
+  background:rgba(6,10,30,.5)}
+.emplacement b{display:block;font-weight:400;color:#e6ecff;font-size:.92rem}
+.emplacement span{font-size:.72rem;color:#8d86ab}
+.vide-bloc{padding:1.4rem;border:1.5px dashed var(--bord);border-radius:14px;color:var(--gris);
+  font-size:.92rem;margin:1rem 0}
+.vide-bloc p{margin:0}
+@media (max-width:1000px){.fiche{grid-template-columns:1fr}.emplacements{grid-template-columns:1fr 1fr}}
+
+
+.frise-vie{display:grid;gap:1.1rem;margin-top:1.4rem;position:relative}
+.etape-vie{position:relative;padding:1.6rem 1.6rem 1.7rem 2.4rem;border:1px solid var(--bord);
+  border-radius:16px;background:linear-gradient(160deg,rgba(16,20,56,.72),rgba(4,7,24,.9))}
+.etape-vie::before{content:"";position:absolute;left:1rem;top:1.9rem;width:9px;height:9px;border-radius:50%;
+  background:linear-gradient(120deg,var(--cyan),var(--rose));box-shadow:0 0 16px rgba(167,139,250,.9)}
+.annees{font-size:.66rem;letter-spacing:.2em;color:var(--cyan);text-shadow:0 0 12px rgba(103,232,249,.5)}
+.etape-vie h3{font-family:var(--titre);font-size:1.35rem;font-weight:500;margin:.35rem 0 .7rem}
+.etape-vie p{color:var(--gris);line-height:1.8;margin:0 0 .9rem;max-width:80ch}
+.etape-vie .btn{margin-top:.2rem}
+.citation-omar{margin:0 0 1.4rem;padding:1.3rem 1.5rem;border-left:2px solid var(--rose);
+  border-radius:0 14px 14px 0;background:rgba(232,121,249,.07);color:#e6ecff;font-size:1.05rem;line-height:1.7}
+.extrait{margin-top:1.4rem;padding:1.4rem 1.6rem;border:1px solid var(--bord);border-radius:16px;
+  background:rgba(8,12,34,.55)}
+.date-extrait{font-size:.66rem;letter-spacing:.2em;color:var(--cyan)}
+.extrait p{color:#dfe7ff;font-size:1.05rem;line-height:1.8;margin:.6rem 0 0;font-style:italic}
+.univers{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:1rem}
+.porte{display:block;position:relative;overflow:hidden;text-align:left;padding:1.5rem 1.3rem 1.7rem;
+  border-radius:16px;border:1px solid var(--bord);text-decoration:none;
+  background:linear-gradient(160deg,rgba(18,22,60,.75),rgba(4,7,24,.88));color:var(--blanc);
+  transition:transform .3s,border-color .3s,box-shadow .3s}
+.porte:hover{transform:translateY(-5px);border-color:var(--violet-clair);box-shadow:0 18px 44px rgba(90,120,255,.28)}
+.porte::after{content:"";position:absolute;inset:auto -25% -55% -25%;height:110%;
+  background:radial-gradient(50% 55% at 50% 100%,var(--halo,rgba(124,58,237,.55)),transparent 70%)}
+.porte > *{position:relative;z-index:2}
+.porte b{display:block;font-family:var(--titre);font-size:1.25rem;font-weight:500;margin-bottom:.3rem;
+  color:var(--cyan);text-shadow:0 0 14px rgba(103,232,249,.5)}
+.porte span{color:var(--gris);font-size:.86rem}
+
+
+.produits-beaute{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:1.1rem;margin-top:1.4rem}
+.produit-b{padding:1.5rem 1.3rem;border:1px solid var(--bord);border-radius:16px;
+  background:linear-gradient(160deg,rgba(24,14,52,.8),rgba(4,7,24,.9));position:relative;overflow:hidden}
+.produit-b::after{content:"";position:absolute;inset:auto -30% -60% -30%;height:110%;
+  background:radial-gradient(50% 55% at 50% 100%,var(--h,rgba(232,121,249,.4)),transparent 70%)}
+.produit-b > *{position:relative;z-index:2}
+.produit-b b{display:block;font-family:var(--titre);font-size:1.3rem;font-weight:500;color:var(--cyan);
+  text-shadow:0 0 14px rgba(103,232,249,.5)}
+.produit-b span{display:block;color:var(--gris);font-size:.86rem;margin-top:.4rem}
+.emplacements{display:grid;grid-template-columns:repeat(4,1fr);gap:.9rem;margin:1rem 0 1.6rem}
+.emplacement{padding:1.3rem 1rem;border:1.5px dashed var(--bord);border-radius:14px;text-align:center;
+  background:rgba(6,10,30,.5)}
+.emplacement b{display:block;font-weight:400;color:#e6ecff;font-size:.92rem}
+.emplacement span{font-size:.72rem;color:#8d86ab}
+.annees-shoot{display:flex;gap:.4rem;flex-wrap:wrap;margin:1.2rem 0 1.6rem}
+.filtre{padding:.45rem 1.1rem;border:1px solid var(--bord);border-radius:999px;background:rgba(8,12,34,.55);
+  color:var(--gris);font-family:var(--texte);font-size:.85rem;cursor:pointer}
+.filtre.actif{border-color:var(--violet-clair);color:#fff;box-shadow:0 0 18px rgba(167,139,250,.3)}
+.serie{margin-bottom:2.2rem}
+.serie h3{font-family:var(--titre);font-size:1.5rem;font-weight:500;color:var(--cyan);
+  text-shadow:0 0 18px rgba(103,232,249,.5);margin:0 0 .3rem}
+.serie p.mention{margin:0 0 1rem}
+@media (max-width:1000px){.emplacements{grid-template-columns:1fr 1fr}}
+
+
+.produits-beaute{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:1.1rem;margin-top:1.4rem}
+.produit-b{padding:1.5rem 1.3rem;border:1px solid var(--bord);border-radius:16px;position:relative;overflow:hidden;
+  background:linear-gradient(160deg,rgba(24,14,52,.8),rgba(4,7,24,.9))}
+.produit-b::after{content:"";position:absolute;inset:auto -30% -60% -30%;height:110%;
+  background:radial-gradient(50% 55% at 50% 100%,var(--h,rgba(232,121,249,.4)),transparent 70%)}
+.produit-b > *{position:relative;z-index:2}
+.produit-b .date-p{font-size:.66rem;letter-spacing:.2em;color:#ffffff}
+.produit-b b{display:block;font-family:var(--titre);font-size:1.35rem;font-weight:500;margin:.3rem 0 .15rem}
+.produit-b .cat-p{display:block;color:var(--rose);font-size:.72rem;letter-spacing:.12em;margin-bottom:.7rem}
+.produit-b p{color:var(--gris);font-size:.88rem;line-height:1.7;margin:0}
+.fiche-copper h3{font-family:var(--titre);font-size:1.2rem;font-weight:500;color:var(--cyan);
+  text-shadow:0 0 14px rgba(103,232,249,.45);margin:1.4rem 0 .5rem}
+.fiche-copper h3:first-child{margin-top:0}
+.fiche-copper p{color:var(--gris);line-height:1.8;margin:0}
+.signature{margin-top:1.4rem!important;padding-left:1rem;border-left:2px solid var(--rose);
+  color:#e6ecff!important;font-size:1.02rem}
+.notes-copper{padding:1.6rem;border:1px solid var(--bord);border-radius:18px;background:rgba(6,10,32,.6)}
+.notes-copper h3{font-family:var(--titre);font-size:1.3rem;margin:0 0 1rem}
+.note-bloc{padding:.9rem 0;border-bottom:1px solid rgba(140,150,235,.14)}
+.note-bloc b{display:block;font-weight:400;color:#fff;font-size:.9rem}
+.note-bloc span{color:var(--gris);font-size:.86rem}
+.evenements{display:grid;gap:.9rem;margin-top:1.4rem}
+.evenement{display:grid;grid-template-columns:auto 1fr auto;gap:1.4rem;align-items:center;
+  padding:1.1rem 1.4rem;border:1px solid var(--bord);border-radius:14px;background:rgba(8,12,34,.55)}
+.date{text-align:center;min-width:64px}
+.date b{display:block;font-family:var(--titre);font-size:1.6rem;color:var(--cyan);
+  text-shadow:0 0 18px rgba(103,232,249,.5)}
+.date span{font-size:.62rem;letter-spacing:.18em;color:var(--gris)}
+.evenement b{font-weight:400}
+.evenement p{color:var(--gris);font-size:.88rem;margin:.2rem 0 0}
+.etiq-ev{font-size:.66rem;letter-spacing:.12em;color:var(--gris);white-space:nowrap}
+.emplacements{display:grid;grid-template-columns:repeat(4,1fr);gap:.9rem;margin:1rem 0 1.6rem}
+.emplacement{padding:1.2rem 1rem;border:1.5px dashed var(--bord);border-radius:14px;text-align:center;
+  background:rgba(6,10,30,.5)}
+.emplacement b{display:block;font-weight:400;color:#e6ecff;font-size:.88rem}
+.emplacement span{font-size:.7rem;color:#8d86ab}
+@media (max-width:1000px){.emplacements{grid-template-columns:1fr 1fr}}
+@media (max-width:620px){.evenement{grid-template-columns:auto 1fr}}
+
+
+.filtres{display:flex;gap:.4rem;flex-wrap:wrap;margin:0 0 1.6rem}
+.filtre{padding:.45rem 1.1rem;border:1px solid var(--bord);border-radius:999px;background:rgba(8,12,34,.55);
+  color:var(--gris);font-family:var(--texte);font-size:.85rem;cursor:pointer}
+.filtre.actif{border-color:var(--violet-clair);color:#fff;box-shadow:0 0 18px rgba(167,139,250,.3)}
+.evenements-liste{display:grid;gap:1.1rem}
+.ev{padding:1.6rem 1.7rem;border:1px solid var(--bord);border-radius:18px;
+  background:linear-gradient(160deg,rgba(16,20,56,.75),rgba(4,7,24,.9))}
+.ev__tete{margin-bottom:.8rem}
+.ev h2{font-family:var(--titre);font-size:1.5rem;font-weight:500;margin:.5rem 0 .2rem}
+.ev__date{color:#ffffff;font-size:.82rem;letter-spacing:.06em;margin:0}
+.ev p{color:var(--gris);line-height:1.8;margin:0;max-width:85ch}
+.etat-ev{display:inline-block;padding:.24rem .8rem;border-radius:999px;font-size:.62rem;letter-spacing:.14em}
+.etat-cours{background:rgba(103,232,249,.2);color:var(--cyan)}
+.etat-venir{background:rgba(232,121,249,.18);color:var(--rose)}
+.etat-passe{background:rgba(255,255,255,.1);color:var(--gris)}
+.gagnant{display:inline-flex;align-items:center;gap:.8rem;margin-top:1.2rem;padding:.7rem 1.2rem;
+  border:1px solid rgba(255,214,110,.5);border-radius:999px;background:rgba(255,214,110,.1)}
+.gagnant span{font-size:.62rem;letter-spacing:.16em;color:#ffd66e}
+.gagnant b{font-family:var(--titre);font-size:1.1rem;font-weight:500;color:#fff}
+.aucune{padding:1.6rem;border:1.5px dashed var(--bord);border-radius:14px;color:var(--gris);text-align:center}
+.proposer,.infolettre{padding:1.6rem;border:1px solid var(--bord);border-radius:18px;background:rgba(6,10,32,.6)}
+.proposer h3,.infolettre h3{font-family:var(--titre);font-size:1.3rem;margin:0 0 .3rem}
+.champ textarea{width:100%;padding:.85rem 1rem;border:1px solid var(--bord);border-radius:10px;
+  background:rgba(2,4,16,.75);color:#fff;font-family:var(--texte);font-size:.95rem;resize:vertical}
+
+
+.appel{margin:1.6rem 0 0;padding:1.4rem 1.6rem;border-left:2px solid var(--rose);border-radius:0 16px 16px 0;
+  background:rgba(232,121,249,.07);color:#e6ecff;font-size:1.05rem;line-height:1.8}
+.missions{display:grid;grid-template-columns:repeat(3,1fr);gap:1.1rem;margin-top:1.4rem}
+.mission{padding:1.6rem 1.4rem;border:1px solid var(--bord);border-radius:16px;position:relative;
+  background:linear-gradient(160deg,rgba(16,20,56,.75),rgba(4,7,24,.9))}
+.num-m{font-family:var(--titre);font-size:1.6rem;color:var(--cyan);text-shadow:0 0 18px rgba(103,232,249,.55)}
+.mission b{display:block;font-family:var(--titre);font-size:1.2rem;font-weight:500;margin:.3rem 0 .6rem}
+.mission p{color:var(--gris);font-size:.9rem;line-height:1.75;margin:0}
+.fiche{display:grid;grid-template-columns:repeat(3,1fr);gap:1.1rem;margin-top:1.4rem}
+.bloc-fiche{padding:1.4rem;border:1px solid var(--bord);border-radius:16px;background:rgba(8,12,34,.55)}
+.bloc-fiche h3{font-size:.66rem;letter-spacing:.2em;color:var(--cyan);margin:0 0 1rem;
+  text-shadow:0 0 12px rgba(103,232,249,.5)}
+.bloc-fiche ul{list-style:none;margin:0;padding:0;display:grid;gap:.8rem}
+.bloc-fiche b{display:block;font-weight:400;color:#fff;font-size:.9rem}
+.bloc-fiche span{color:var(--gris);font-size:.86rem}
+@media (max-width:1000px){.missions,.fiche{grid-template-columns:1fr}}
+
+
+.texte-legal{max-width:80ch}
+.texte-legal h2{font-family:var(--titre);font-size:1.5rem;font-weight:500;color:var(--cyan);
+  text-shadow:0 0 16px rgba(103,232,249,.45);margin:2.4rem 0 .8rem}
+.texte-legal h2:first-child{margin-top:0}
+.texte-legal h3{font-family:var(--titre);font-size:1.15rem;font-weight:500;margin:1.6rem 0 .5rem}
+.texte-legal p,.texte-legal li{color:var(--gris);line-height:1.85}
+.texte-legal ul{padding-left:1.2rem;display:grid;gap:.4rem}
+.texte-legal b{color:#fff;font-weight:400}
+.encadre-legal{padding:1.3rem 1.5rem;border:1px solid rgba(103,232,249,.35);border-radius:16px;
+  background:rgba(103,232,249,.06);margin:1.6rem 0}
+.encadre-legal p{margin:0;color:#e6ecff}
+.sommaire{display:flex;gap:.5rem;flex-wrap:wrap;margin:1.6rem 0 2.4rem}
+.sommaire a{padding:.45rem 1rem;border:1px solid var(--bord);border-radius:999px;color:var(--gris);
+  text-decoration:none;font-size:.82rem;background:rgba(8,12,34,.55)}
+.sommaire a:hover{color:#fff;border-color:var(--violet-clair)}
+.maj{font-size:.78rem;color:#8d86ab;margin-top:2.4rem}
+
 @media (prefers-reduced-motion:reduce){*{animation:none!important}}
 </style>
 </head>
@@ -491,7 +653,7 @@ h2.titre2{font-family:var(--titre);font-size:clamp(1.8rem,3.4vw,2.8rem);margin:0
     <li><a href="index.html" data-i18n="nav.accueil"></a></li>
     <li><a href="explorer.html" class="" data-i18n="nav.explorer"></a></li>
     <li><a href="young-royals.html" class="" data-i18n="nav.royals"></a></li>
-    <li><a href="communaute.html" class="actif" data-i18n="nav.communaute"></a></li>
+    <li><a href="communaute.html" class="" data-i18n="nav.communaute"></a></li>
     <li><a href="membres.html" data-i18n="nav.membres"></a></li>
     <li><a href="boutique.html" class="" data-i18n="nav.boutique"></a></li>
     <li><a href="livre.html" class="" data-i18n="nav.livre"></a></li>
@@ -518,167 +680,36 @@ h2.titre2{font-family:var(--titre);font-size:clamp(1.8rem,3.4vw,2.8rem);margin:0
 <div class="page">
 
 <section class="section" style="padding-top:clamp(8rem,15vh,11rem);padding-bottom:1rem">
-  <div class="contenu" style="max-width:940px;text-align:center">
-    <p class="chapeau">LA COMMUNAUTÉ</p>
-    <h1 class="titre2" style="font-size:clamp(2.2rem,5vw,3.4rem)">Ce monde est celui des fans</h1>
-    <p class="intro2" style="margin-inline:auto">Les projets naissent ici, les membres les choisissent, et l'association les réalise. Concours, ateliers, événements : chacun participe selon ses envies et ses talents.</p>
+  <div class="contenu" style="max-width:900px">
+    <p class="chapeau">POLITIQUE DE COOKIES</p>
+    <h1 class="titre2" style="font-size:clamp(2rem,4.4vw,3rem)">Ce site ne vous piste pas</h1>
+    <p class="intro2">Nous n'utilisons aucun cookie publicitaire, aucun traceur commercial et aucun outil de mesure d'audience qui suivrait votre navigation.</p>
   </div>
 </section>
 
 <section class="section" style="padding-top:1rem">
-  <div class="contenu">
-    <div class="compteurs">
-      <div class="compteur"><b>0</b><span>PROJETS PROPOSÉS</span></div>
-      <div class="compteur"><b>0</b><span>VOTES EXPRIMÉS</span></div>
-      <div class="compteur"><b>0</b><span>CONCOURS</span></div>
-      <div class="compteur"><b>0</b><span>ATELIERS</span></div>
-      <div class="compteur"><b>0</b><span>ÉVÉNEMENTS</span></div>
-      <div class="compteur"><b>0</b><span>PAYS MOBILISÉS</span></div>
-    </div>
-  </div>
-</section>
+  <div class="contenu texte-legal">
+    <h2>Ce que nous déposons</h2>
+    <p>Le strict nécessaire au fonctionnement du site :</p>
+    <ul>
+      <li><b>Votre langue</b> : pour retrouver le français, l'anglais, l'espagnol, le suédois, l'allemand ou le portugais à votre prochaine visite.</li>
+      <li><b>Votre connexion</b> : pour rester connectée à votre espace membre sans retaper votre mot de passe à chaque page.</li>
+      <li><b>Votre panier</b> : pour ne pas le perdre en changeant de page.</li>
+    </ul>
+    <p>Ces informations restent sur votre appareil et ne servent à rien d'autre.</p>
 
-<section class="section" style="padding-top:1rem">
-  <div class="contenu">
-    <h2 class="titre2" style="font-size:1.8rem">Les projets soumis au vote</h2>
-    <p class="intro2">Chaque membre dispose d'une voix par projet. Le projet le plus soutenu est réalisé en priorité, dans la limite de ce que l'association peut faire.</p>
-    <div class="projets">
-      <article class="projet">
-        <span class="cat">Projet concert</span>
-        <b>Bannière géante au prochain concert</b>
-        <p>Une banderole portée par les fans du premier rang, cousue lors d'un atelier.</p>
-        <div class="projet__bas">
-          <span class="votes"><b data-votes>0</b> votes</span>
-          <button class="btn btn--fin voter">Voter</button>
-        </div>
-      </article>
-      <article class="projet">
-        <span class="cat">Cadeau</span>
-        <b>Album photo offert à Omar</b>
-        <p>Un album relié rassemblant les photos et les messages des fans du monde entier.</p>
-        <div class="projet__bas">
-          <span class="votes"><b data-votes>0</b> votes</span>
-          <button class="btn btn--fin voter">Voter</button>
-        </div>
-      </article>
-      <article class="projet">
-        <span class="cat">Projet concert</span>
-        <b>Bracelets lumineux coordonnés</b>
-        <p>Des bracelets distribués avant le concert, allumés tous ensemble sur une chanson.</p>
-        <div class="projet__bas">
-          <span class="votes"><b data-votes>0</b> votes</span>
-          <button class="btn btn--fin voter">Voter</button>
-        </div>
-      </article>
-      <article class="projet">
-        <span class="cat">Artistique</span>
-        <b>Fresque collective</b>
-        <p>Une œuvre composée de centaines de dessins envoyés par la communauté.</p>
-        <div class="projet__bas">
-          <span class="votes"><b data-votes>0</b> votes</span>
-          <button class="btn btn--fin voter">Voter</button>
-        </div>
-      </article>
+    <h2>Les contenus intégrés</h2>
+    <p>Certaines pages affichent des publications d'Instagram, de TikTok, de YouTube ou de Spotify. Ces plateformes déposent leurs propres traceurs, sur lesquels nous n'avons aucune prise.</p>
+    <div class="encadre-legal">
+      <p>C'est pourquoi rien ne se charge automatiquement. Chaque contenu extérieur attend votre clic, après vous avoir prévenue. Tant que vous ne cliquez pas, aucune donnée ne part vers ces sites.</p>
     </div>
 
-    <div class="proposer">
-      <h3>Proposer un projet</h3>
-      <p class="mention">Une idée de projet pour un concert, un cadeau, une action artistique ? Décrivez-la : elle sera relue, puis soumise au vote.</p>
-      <div class="grille2">
-        <label class="champ"><span>Titre du projet</span><input type="text"></label>
-        <label class="champ"><span>Catégorie</span>
-          <select><option>Projet concert</option><option>Cadeau pour Omar</option><option>Artistique</option><option>Solidaire</option><option>Autre</option></select>
-        </label>
-      </div>
-      <label class="champ"><span>Description</span><textarea rows="4" placeholder="En quelques lignes…"></textarea></label>
-      <button class="btn btn--fin">Envoyer ma proposition</button>
-    </div>
-  </div>
-</section>
+    <h2>Mesure d'audience</h2>
+    <p>Nous n'utilisons ni Google Analytics, ni aucun outil équivalent. Nous ne savons pas qui visite le site, d'où, ni combien de temps.</p>
 
-<section class="section" style="padding-top:1rem">
-  <div class="contenu">
-    <h2 class="titre2" style="font-size:1.8rem">Jeux concours</h2>
-    <p class="intro2">Réservés aux membres, sans frais de participation. Les gagnants sont désignés par un jury, ou par tirage au sort public sur un site officiel et vérifiable.</p>
-    <div class="concours-grille">
-      <article class="concours">
-        <span class="etat-ouvert">En cours</span>
-        <b>Concours de dessin</b>
-        <p>Dessinez l'univers d'Omar. Un jury choisit les trois plus belles œuvres.</p>
-        <small>Ouvert · jusqu'au 31 octobre</small>
-        <button class="btn">Participer</button>
-      </article>
-      <article class="concours">
-        <span class="etat-attente">À venir</span>
-        <b>Concours d'écriture</b>
-        <p>Un texte de dix lignes sur ce que sa musique vous apporte.</p>
-        <small>Ouverture en novembre</small>
-        <button class="btn btn--fin" disabled>Bientôt</button>
-      </article>
-      <article class="concours">
-        <span class="etat-fini">Terminé</span>
-        <b>Design du mois</b>
-        <p>Le dessin gagnant devient un produit de la boutique.</p>
-        <small>Terminé · gagnante annoncée sur Instagram</small>
-        <button class="btn btn--fin">Voir le résultat</button>
-      </article>
-    </div>
-  </div>
-</section>
-
-<section class="section" style="padding-top:1rem">
-  <div class="contenu">
-    <h2 class="titre2" style="font-size:1.8rem">Ateliers créatifs</h2>
-    <p class="intro2">On crée ensemble, à distance ou sur place : design, bracelets, affiches, éléments de projets de concert. Chacun apporte ce qu'il sait faire, et on apprend le reste.</p>
-    <div class="trio">
-      <article class="vignette"><h3>DESIGN</h3><p>Visuels des produits, affiches, cartes. Une idée validée devient un objet de la boutique.</p></article>
-      <article class="vignette"><h3>FAIT MAIN</h3><p>Bracelets, porte-clés, décorations pour les concerts, cousus et assemblés ensemble.</p></article>
-      <article class="vignette"><h3>ÉCRITURE</h3><p>Textes du livre collaboratif, messages collectifs, slogans pour les projets.</p></article>
-    </div>
-  </div>
-</section>
-
-<section class="section" style="padding-top:1rem">
-  <div class="contenu">
-    <h2 class="titre2" style="font-size:1.8rem">Les événements</h2>
-    <p class="intro2">Tous les rendez-vous, en cours, à venir et passés, sont rassemblés sur leur page. <a href="evenements.html" style="color:var(--cyan)">Voir tous les événements →</a></p>
-    <div class="evenements">
-      <article class="evenement">
-        <div class="date"><b>12</b><span>NOV</span></div>
-        <div><b>Anniversaire d'Omar</b><p>Album de messages et de dessins offert à Omar, en ligne.</p></div>
-        <span class="etiq-ev">En préparation</span>
-      </article>
-      <article class="evenement">
-        <div class="date"><b>—</b><span>2027</span></div>
-        <div><b>Omar Global Radio Day</b><p>Journée mondiale de demandes en radio, date annoncée à la sortie de l'album.</p></div>
-        <span class="etiq-ev">À venir</span>
-      </article>
-      <article class="evenement">
-        <div class="date"><b>—</b><span>2027</span></div>
-        <div><b>Atelier bracelets</b><p>Atelier créatif en visio, kit envoyé aux participants.</p></div>
-        <span class="etiq-ev">À venir</span>
-      </article>
-    </div>
-  </div>
-</section>
-
-<section class="section" style="padding-top:1rem">
-  <div class="contenu">
-    <h2 class="titre2" style="font-size:1.8rem">La galerie de la communauté</h2>
-    <p class="intro2">Les photos et créations envoyées par les fans, validées avant publication. Chacun reste propriétaire de ce qu'il partage, et peut demander le retrait à tout moment.</p>
-    <div class="galerie">
-      <div class="case-photo"><span>photo de fan</span></div>
-      <div class="case-photo"><span>création</span></div>
-      <div class="case-photo"><span>concert</span></div>
-      <div class="case-photo"><span>atelier</span></div>
-      <div class="case-photo"><span>fan art</span></div>
-      <div class="case-photo"><span>projet</span></div>
-    </div>
-    <div class="barre-boutons">
-      <button class="btn">Envoyer une photo</button>
-      <button class="btn btn--fin">Voir toute la galerie</button>
-    </div>
-    <p class="mention">Pour les mineurs, l'autorisation d'un parent est nécessaire avant tout envoi. Les vidéos ne sont pas hébergées : partagez simplement le lien Instagram, TikTok ou YouTube.</p>
+    <h2>Comment tout effacer</h2>
+    <p>Votre navigateur permet d'effacer à tout moment les informations enregistrées par un site, dans ses réglages de confidentialité. Vous serez simplement déconnectée et votre langue reviendra par défaut.</p>
+    <p class="maj">Dernière mise à jour : septembre 2026. Ces conditions peuvent évoluer ; la version en ligne fait foi.</p>
   </div>
 </section>
 
@@ -742,7 +773,7 @@ h2.titre2{font-family:var(--titre);font-size:clamp(1.8rem,3.4vw,2.8rem);margin:0
     <div class="pied__bas">
       <span>© 2026 O.R. World Association</span>
       <span data-i18n="f.heberge"></span>
-      <span class="version">version : COMMUNAUTE-002</span>
+      <span class="version">version : COOKIES-001</span>
     </div>
   </div>
 </footer>
@@ -955,23 +986,6 @@ const CONTINENTS=[[[143.2,-12.0],[143.5,-13.1],[143.8,-14.3],[144.9,-14.7],[145.
 
 
 </script>
-<script>
-(function(){
-  document.querySelectorAll(".voter").forEach(function(b){
-    b.addEventListener("click",function(){
-      const c=b.closest(".projet").querySelector("[data-votes]");
-      if(b.classList.contains("vote")){
-        b.classList.remove("vote"); b.textContent="Voter";
-        c.textContent=Math.max(0,parseInt(c.textContent,10)-1);
-      } else {
-        b.classList.add("vote"); b.textContent="Voté ✓";
-        c.textContent=parseInt(c.textContent,10)+1;
-      }
-    });
-  });
-})();
-</script>
-
 
 <script>
 (function(){
@@ -996,5 +1010,27 @@ const CONTINENTS=[[[143.2,-12.0],[143.5,-13.1],[143.8,-14.3],[144.9,-14.7],[145.
 })();
 </script>
 
+<script>
+(function(){
+  const b=document.getElementById("burger");
+  if(!b) return;
+  const menu=document.querySelector(".menu");
+  const entete=document.querySelector(".entete");
+  function bascule(ouvrir){
+    menu.classList.toggle("ouvert",ouvrir);
+    entete.classList.toggle("menu-ouvert",ouvrir);
+    b.setAttribute("aria-expanded",String(ouvrir));
+    document.body.style.overflow=ouvrir?"hidden":"";
+  }
+  b.addEventListener("click",function(e){
+    e.stopPropagation();
+    bascule(!menu.classList.contains("ouvert"));
+  });
+  menu.querySelectorAll("a").forEach(function(a){
+    a.addEventListener("click",function(){ bascule(false); });
+  });
+  document.addEventListener("keydown",function(e){ if(e.key==="Escape") bascule(false); });
+})();
+</script>
 </body>
 </html>
