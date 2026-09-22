@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Young Royals · O.R. World Association</title>
-<!-- version : ROYALS-002 -->
+<!-- version : ROYALS-008 -->
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:opsz,wght@6..96,400;6..96,500&family=Caveat:wght@500;600&family=Jost:wght@200;300;400&display=swap" rel="stylesheet">
@@ -486,6 +486,38 @@ h2.titre2{font-family:var(--titre);font-size:clamp(1.8rem,3.4vw,2.8rem);margin:0
 .vide-bloc p{margin:0}
 @media (max-width:1000px){.fiche{grid-template-columns:1fr}.emplacements{grid-template-columns:1fr 1fr}}
 
+
+/* ---------- la couronne de lumière ---------- */
+.bloc-couronne{position:relative;height:clamp(340px,52vh,520px);overflow:hidden;margin-top:-1rem}
+#ciel-couronne{position:absolute;inset:0;width:100%;height:100%;display:block}
+.couronne{position:absolute;left:50%;top:52%;width:min(640px,92vw);transform:translate(-50%,-50%);
+  overflow:visible;animation:flotte 7s ease-in-out infinite}
+@keyframes flotte{0%,100%{transform:translate(-50%,-50%)}50%{transform:translate(-50%,-53%)}}
+.halo{transform-origin:300px 240px;animation:respire 5s ease-in-out infinite}
+@keyframes respire{0%,100%{opacity:.75;transform:scale(1)}50%{opacity:1;transform:scale(1.07)}}
+.orbite ellipse{animation:glisse 18s linear infinite}
+@keyframes glisse{to{stroke-dashoffset:-600}}
+.trace{stroke-dasharray:1400;stroke-dashoffset:1400;animation:dessine 3.2s cubic-bezier(.6,.05,.25,1) forwards}
+.t2{animation-delay:.9s}.t3{animation-delay:1.2s}.t4{animation-delay:1.5s}
+.t5{animation-delay:1.9s}.t6{animation-delay:2.3s}
+@keyframes dessine{to{stroke-dashoffset:0}}
+.joyaux circle{fill:#fff;opacity:0;filter:drop-shadow(0 0 8px #ff8ef0) drop-shadow(0 0 16px #a78bfa);
+  animation:allume .6s ease-out forwards,scintille 2.6s ease-in-out infinite}
+.joyaux circle:nth-child(1){animation-delay:2.6s,3.2s}
+.joyaux circle:nth-child(2){animation-delay:2.75s,3.6s}
+.joyaux circle:nth-child(3){animation-delay:2.9s,3.0s}
+.joyaux circle:nth-child(4){animation-delay:3.05s,3.9s}
+.joyaux circle:nth-child(5){animation-delay:3.2s,3.4s}
+.joyaux circle:nth-child(n+6){animation-delay:3.4s,4.1s}
+@keyframes allume{to{opacity:1}}
+@keyframes scintille{0%,100%{opacity:1}50%{opacity:.4}}
+.pierres *{fill:#7cf3ff;opacity:0;filter:drop-shadow(0 0 10px #7cf3ff);
+  animation:allume .8s ease-out 3.6s forwards,scintille 3.4s ease-in-out 4.4s infinite}
+.pierres rect{fill:#ff8ef0;filter:drop-shadow(0 0 12px #ff8ef0)}
+@media (prefers-reduced-motion:reduce){
+  .trace{stroke-dashoffset:0}.joyaux circle,.pierres *{opacity:1}
+}
+
 @media (prefers-reduced-motion:reduce){*{animation:none!important}}
 </style>
 </head>
@@ -530,6 +562,69 @@ h2.titre2{font-family:var(--titre);font-size:clamp(1.8rem,3.4vw,2.8rem);margin:0
     <p class="intro2" style="margin-inline:auto">Beaucoup d'entre nous ont découvert Omar grâce à Young Royals, dans le rôle bouleversant de Simon Eriksson. Cette série n'est pas qu'une série : c'est une ode à la liberté d'aimer, un miroir des émotions les plus humaines, une histoire où la tendresse l'emporte sur la peur et le silence.</p>
     <p class="mention" style="margin-inline:auto;max-width:60ch">Young Royals est une série originale Netflix. Tous les droits liés à la série, à ses personnages et à son univers appartiennent à Netflix et aux ayants droit. La O.R. World Association est une association de fans indépendante et sans but lucratif, sans lien officiel avec Netflix.</p>
   </div>
+</section>
+
+
+<section class="bloc-couronne" aria-hidden="true">
+  <canvas id="ciel-couronne"></canvas>
+  <svg class="couronne" viewBox="0 0 600 420" xmlns="http://www.w3.org/2000/svg">
+    <defs>
+      <linearGradient id="gc" x1="0" y1="0" x2="1" y2="1">
+        <stop offset="0" stop-color="#7cf3ff"/>
+        <stop offset=".45" stop-color="#a78bfa"/>
+        <stop offset="1" stop-color="#ff8ef0"/>
+      </linearGradient>
+      <radialGradient id="gh" cx=".5" cy=".55" r=".5">
+        <stop offset="0" stop-color="#ffb6f5" stop-opacity=".55"/>
+        <stop offset=".55" stop-color="#8b7bff" stop-opacity=".18"/>
+        <stop offset="1" stop-color="#000" stop-opacity="0"/>
+      </radialGradient>
+      <filter id="lueur" x="-50%" y="-50%" width="200%" height="200%">
+        <feGaussianBlur stdDeviation="6" result="f"/>
+        <feMerge><feMergeNode in="f"/><feMergeNode in="f"/><feMergeNode in="SourceGraphic"/></feMerge>
+      </filter>
+    </defs>
+
+    <!-- halo qui respire -->
+    <ellipse class="halo" cx="300" cy="240" rx="250" ry="170" fill="url(#gh)"/>
+
+    <!-- anneau d'orbite qui tourne -->
+    <g class="orbite">
+      <ellipse cx="300" cy="352" rx="250" ry="40" fill="none" stroke="url(#gc)" stroke-width="1.4"
+               stroke-dasharray="3 12" opacity=".6"/>
+    </g>
+
+    <!-- la couronne : une arche souveraine à sept pointes -->
+    <g filter="url(#lueur)" fill="none" stroke="url(#gc)" stroke-linecap="round" stroke-linejoin="round">
+      <path class="trace t1" stroke-width="4"
+        d="M120 300 L108 150 L175 225 L205 118 L255 208 L300 78 L345 208 L395 118 L425 225 L492 150 L480 300"/>
+      <path class="trace t2" stroke-width="3.4" d="M118 300 Q300 332 482 300"/>
+      <path class="trace t3" stroke-width="3.4" d="M124 334 Q300 366 476 334"/>
+      <path class="trace t4" stroke-width="2" opacity=".75"
+        d="M150 316 Q300 344 450 316"/>
+      <!-- arabesques intérieures -->
+      <path class="trace t5" stroke-width="1.6" opacity=".7"
+        d="M175 280 Q205 240 235 280 Q265 240 300 272 Q335 240 365 280 Q395 240 425 280"/>
+      <path class="trace t6" stroke-width="1.4" opacity=".55"
+        d="M300 272 L300 168 M300 168 Q280 190 300 205 Q320 190 300 168"/>
+    </g>
+
+    <!-- les joyaux au sommet de chaque pointe -->
+    <g class="joyaux">
+      <circle cx="108" cy="150" r="7"/><circle cx="205" cy="118" r="8"/>
+      <circle cx="300" cy="78"  r="11"/><circle cx="395" cy="118" r="8"/>
+      <circle cx="492" cy="150" r="7"/>
+      <circle cx="175" cy="225" r="4.5"/><circle cx="425" cy="225" r="4.5"/>
+      <circle cx="255" cy="208" r="4.5"/><circle cx="345" cy="208" r="4.5"/>
+    </g>
+
+    <!-- pierres du bandeau -->
+    <g class="pierres">
+      <rect x="291" y="310" width="18" height="18" rx="3" transform="rotate(45 300 319)"/>
+      <circle cx="220" cy="316" r="6"/><circle cx="380" cy="316" r="6"/>
+      <circle cx="160" cy="310" r="4"/><circle cx="440" cy="310" r="4"/>
+    </g>
+  </svg>
 </section>
 
 <section class="section" style="padding-top:1rem">
@@ -931,7 +1026,7 @@ h2.titre2{font-family:var(--titre);font-size:clamp(1.8rem,3.4vw,2.8rem);margin:0
     <div class="pied__bas">
       <span>© 2026 O.R. World Association</span>
       <span data-i18n="f.heberge"></span>
-      <span class="version">version : ROYALS-002</span>
+      <span class="version">version : ROYALS-008</span>
     </div>
   </div>
 </footer>
@@ -1202,5 +1297,196 @@ const CONTINENTS=[[[143.2,-12.0],[143.5,-13.1],[143.8,-14.3],[144.9,-14.7],[145.
   document.addEventListener("keydown",function(e){ if(e.key==="Escape") bascule(false); });
 })();
 </script>
+
+<script>
+(function(){
+  const c=document.getElementById("ciel-couronne");
+  if(!c) return;
+  const x=c.getContext("2d");
+  let L,H,parts=[];
+  const TEINTES=["124,243,255","167,139,250","255,142,240","255,255,255"];
+  function taille(){
+    const r=window.devicePixelRatio||1;
+    L=c.clientWidth; H=c.clientHeight;
+    c.width=L*r; c.height=H*r; x.setTransform(r,0,0,r,0,0);
+  }
+  // Les étoiles naissent dans le cœur de la couronne, montent, se rassemblent
+  // vers ses cinq pointes et continuent de s'élever : le panache reprend
+  // la forme de la couronne au-dessus d'elle.
+  const PICS=[[108,150],[205,118],[300,78],[395,118],[492,150]];
+  function k(){ return Math.min(640, window.innerWidth*0.92)/600; }
+  function versCanvas(sx,sy){ return [L/2+(sx-300)*k(), H*0.52+(sy-210)*k()]; }
+  function naissance(){
+    // départ : n'importe où sur toute la largeur du fond de la couronne
+    const sx=122+Math.random()*356;
+    const sy=300+Math.random()*28;
+    const pos=versCanvas(sx,sy);
+    const ecart=(sx-300)/178;                  // -1 à gauche, +1 à droite
+    const vy=-(0.7+Math.random()*1.1);
+    parts.push({
+      x:pos[0], y:pos[1],
+      vx: ecart*(0.28+Math.random()*0.42) + (Math.random()-.5)*0.12,   // plus on est au bord, plus on s'écarte
+      vy: vy,
+      r:0.7+Math.random()*2.2,
+      c:TEINTES[Math.floor(Math.random()*TEINTES.length)],
+      vie:0, max:240+Math.random()*220,
+      etoile:Math.random()<0.4
+    });
+  }
+  function etoile(px,py,r){
+    x.beginPath();
+    for(let i=0;i<10;i++){
+      const a=-Math.PI/2+i*Math.PI/5, rr=i%2?r*0.45:r;
+      x.lineTo(px+Math.cos(a)*rr, py+Math.sin(a)*rr);
+    }
+    x.closePath(); x.fill();
+  }
+
+  // ---------- petites couronnes qui lévitent sur les côtés ----------
+  const COULEURS=["255,255,255","255,142,240","167,139,250","124,200,255"];
+  let petites=[];
+  function semer(){
+    petites=[];
+    const n = L<700 ? 8 : 14;
+    for(let i=0;i<n;i++){
+      const gauche = i%2===0;
+      // on évite le centre, où se trouve la grande couronne
+      const zone = gauche ? [0.04,0.30] : [0.70,0.96];
+      petites.push({
+        x: L*(zone[0]+Math.random()*(zone[1]-zone[0])),
+        y: H*(0.14+Math.random()*0.72),
+        t: 20+Math.random()*30,
+        c: COULEURS[i%COULEURS.length],
+        ph: Math.random()*Math.PI*2,
+        v: 0.6+Math.random()*0.8,
+        amp: 6+Math.random()*12,
+        inc: (Math.random()-.5)*0.5
+      });
+    }
+  }
+  function petiteCouronne(p,tm){
+    const y = p.y + Math.sin(tm*0.0012*p.v + p.ph)*p.amp;
+    const a = p.inc + Math.sin(tm*0.0008*p.v + p.ph)*0.12;
+    const lueur = 0.55 + Math.sin(tm*0.002*p.v + p.ph)*0.3;
+    const w=p.t, h=p.t*0.62;
+    x.save();
+    x.translate(p.x,y); x.rotate(a);
+    x.strokeStyle="rgba("+p.c+","+lueur.toFixed(2)+")";
+    x.shadowColor="rgba("+p.c+",1)"; x.shadowBlur=14;
+    x.lineWidth=Math.max(1.2,p.t/14); x.lineJoin="round"; x.lineCap="round";
+    // silhouette : cinq pointes et un bandeau légèrement cintré
+    x.beginPath();
+    x.moveTo(-w*0.5, h*0.45);
+    x.lineTo(-w*0.56,-h*0.30);
+    x.lineTo(-w*0.26, h*0.08);
+    x.lineTo(-w*0.14,-h*0.50);
+    x.lineTo( 0,      h*0.02);
+    x.lineTo( w*0.14,-h*0.50);
+    x.lineTo( w*0.26, h*0.08);
+    x.lineTo( w*0.56,-h*0.30);
+    x.lineTo( w*0.5,  h*0.45);
+    x.quadraticCurveTo(0, h*0.62, -w*0.5, h*0.45);
+    x.stroke();
+    // joyaux
+    x.fillStyle="rgba("+p.c+","+Math.min(1,lueur+0.25).toFixed(2)+")";
+    [[-w*0.56,-h*0.30],[-w*0.14,-h*0.50],[w*0.14,-h*0.50],[w*0.56,-h*0.30]].forEach(function(j){
+      x.beginPath(); x.arc(j[0],j[1],Math.max(1.3,p.t/16),0,6.3); x.fill();
+    });
+    x.restore();
+  }
+
+
+  // ---------- étoiles jaillissant des pointes, comme des rayons ----------
+  const POINTES=[[108,150],[205,118],[300,78],[395,118],[492,150]];
+  let rayons=[];
+  function echelle(){
+    const w=Math.min(640, window.innerWidth*0.92);
+    return w/600;
+  }
+  function jaillir(){
+    const k=echelle();
+    const i=Math.floor(Math.random()*POINTES.length);
+    const px=L/2+(POINTES[i][0]-300)*k;
+    const py=H*0.52+(POINTES[i][1]-210)*k;
+    // direction : du cœur de la couronne vers la pointe, avec un léger éventail
+    let dx=POINTES[i][0]-300, dy=POINTES[i][1]-320;
+    const n=Math.hypot(dx,dy); dx/=n; dy/=n;
+    const ev=(Math.random()-.5)*0.38;
+    const cx=dx*Math.cos(ev)-dy*Math.sin(ev), cy=dx*Math.sin(ev)+dy*Math.cos(ev);
+    const vit=2.2+Math.random()*3.2;
+    rayons.push({
+      x:px, y:py, vx:cx*vit, vy:cy*vit,
+      trace:[], vie:0, max:110+Math.random()*110,
+      r:1.8+Math.random()*3,
+      c:TEINTES[Math.floor(Math.random()*TEINTES.length)]
+    });
+  }
+  function dessinerRayons(){
+    if(rayons.length<110){ jaillir(); if(Math.random()<0.6) jaillir(); }
+    rayons=rayons.filter(function(r){ return r.vie<r.max; });
+    rayons.forEach(function(r){
+      r.vie++;
+      r.trace.push([r.x,r.y]);
+      if(r.trace.length>28) r.trace.shift();
+      r.x+=r.vx; r.y+=r.vy;
+      r.vx*=0.995; r.vy*=0.995;
+      const a=Math.sin(Math.PI*r.vie/r.max);
+      // la traînée lumineuse
+      if(r.trace.length>2){
+        const d=r.trace[0];
+        const g=x.createLinearGradient(d[0],d[1],r.x,r.y);
+        g.addColorStop(0,"rgba("+r.c+",0)");
+        g.addColorStop(1,"rgba("+r.c+","+(a*0.75).toFixed(2)+")");
+        x.strokeStyle=g; x.lineWidth=r.r*0.9; x.lineCap="round";
+        x.shadowColor="rgba("+r.c+",1)"; x.shadowBlur=12;
+        x.beginPath(); x.moveTo(d[0],d[1]);
+        r.trace.forEach(function(q){ x.lineTo(q[0],q[1]); });
+        x.lineTo(r.x,r.y); x.stroke();
+      }
+      // l'étoile en tête
+      x.fillStyle="rgba("+r.c+","+Math.min(1,a+0.15).toFixed(2)+")";
+      x.shadowBlur=16;
+      etoile(r.x,r.y,r.r*2.2);
+    });
+  }
+
+  function boucle(){
+    x.clearRect(0,0,L,H);
+    x.globalCompositeOperation="lighter";
+    // faisceaux qui descendent sur la couronne
+    const t=performance.now();
+    [["124,243,255",-0.28],["255,142,240",-0.09],["167,139,250",0.09],["124,170,255",0.28]].forEach(function(f,i){
+      const bal=Math.sin(t*0.0003*(1+i*0.3)+i)*L*0.04;
+      const hx=L/2+f[1]*L*0.8+bal, bx=L/2+f[1]*L*0.12;
+      const g=x.createLinearGradient(hx,0,bx,H*0.62);
+      g.addColorStop(0,"rgba("+f[0]+",.22)"); g.addColorStop(1,"rgba("+f[0]+",0)");
+      x.fillStyle=g; x.beginPath();
+      x.moveTo(hx-L*0.01,0); x.lineTo(hx+L*0.01,0);
+      x.lineTo(bx+L*0.06,H*0.62); x.lineTo(bx-L*0.06,H*0.62); x.closePath(); x.fill();
+    });
+    // poussière de lumière qui s'élève
+    if(t>2600 && parts.length<200){ naissance(); naissance(); }
+    parts=parts.filter(function(p){ return p.vie<p.max && p.y>-10; });
+    parts.forEach(function(p){
+      p.vie++;
+      p.x += p.vx + Math.sin((p.vie + p.r*40)*0.035)*0.15;
+      p.y += p.vy;
+      p.vx *= 1.002;   // l'écartement s'accentue en montant : effet évasé
+      const a=Math.sin(Math.PI*p.vie/p.max);
+      x.fillStyle="rgba("+p.c+","+(a*0.9).toFixed(2)+")";
+      x.shadowColor="rgba("+p.c+",1)"; x.shadowBlur=10;
+      if(p.etoile) etoile(p.x,p.y,p.r*2.4);
+      else { x.beginPath(); x.arc(p.x,p.y,p.r,0,6.3); x.fill(); }
+    });
+    petites.forEach(function(p){ petiteCouronne(p,t); });
+    x.shadowBlur=0; x.globalCompositeOperation="source-over";
+    requestAnimationFrame(boucle);
+  }
+  taille(); semer();
+  window.addEventListener("resize",function(){ taille(); semer(); });
+  boucle();
+})();
+</script>
+
 </body>
 </html>
