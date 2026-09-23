@@ -3,8 +3,8 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Concerts et archives · O.R. World Association</title>
-<!-- version : CONCERTS-013 -->
+<title>La musique · O.R. World Association</title>
+<!-- version : MUSIQUE-005 -->
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:opsz,wght@6..96,400;6..96,500&family=Caveat:wght@500;600&family=Jost:wght@200;300;400&display=swap" rel="stylesheet">
@@ -413,62 +413,6 @@ h2.titre2{font-family:var(--titre);font-size:clamp(1.8rem,3.4vw,2.8rem);margin:0
 .pseudo:focus-within{border-color:var(--violet-clair);box-shadow:0 0 20px rgba(167,139,250,.35)}
 
 
-.intro-tournee{display:none;padding:1.1rem 1.4rem;border-left:2px solid var(--rose);
-  border-radius:0 14px 14px 0;background:rgba(232,121,249,.07);color:#e6ecff;line-height:1.75;
-  margin:0 0 1.4rem}
-.aucune{display:none;padding:1.6rem;border:1.5px dashed var(--bord);border-radius:14px;
-  color:var(--gris);font-size:.92rem;text-align:center;margin-bottom:1rem}
-.filtres{display:flex;gap:.4rem;flex-wrap:wrap;margin:1.2rem 0 1.6rem}
-.filtre{padding:.45rem 1rem;border:1px solid var(--bord);border-radius:999px;background:rgba(8,12,34,.55);
-  color:var(--gris);font-family:var(--texte);font-size:.8rem;cursor:pointer}
-.filtre.actif{border-color:var(--violet-clair);color:#fff;box-shadow:0 0 18px rgba(167,139,250,.3)}
-
-.concerts{display:grid;gap:.7rem}
-.concert{display:grid;grid-template-columns:78px 1fr auto;gap:1.2rem;align-items:start;cursor:pointer;
-  padding:.9rem 1.2rem;border:1px solid var(--bord);border-radius:14px;background:rgba(8,12,34,.55);
-  transition:border-color .3s,box-shadow .3s}
-.concert:hover{border-color:var(--violet-clair);box-shadow:0 0 26px rgba(120,150,255,.18)}
-.jour{text-align:center}
-.jour b{display:block;font-family:var(--titre);font-size:1.5rem;color:var(--cyan);
-  text-shadow:0 0 16px rgba(103,232,249,.5);line-height:1}
-.jour span{font-size:.6rem;letter-spacing:.14em;color:var(--gris)}
-.lieu b{font-weight:400;font-size:1.05rem}
-.lieu span{display:block;color:var(--gris);font-size:.84rem;margin-top:.15rem}
-.complet{margin-left:.6rem;padding:.16rem .55rem;border-radius:999px;font-size:.58rem;letter-spacing:.12em;
-  background:rgba(232,121,249,.2);color:var(--rose)}
-.tournee{font-size:.66rem;letter-spacing:.1em;color:#8d86ab;white-space:nowrap;padding-top:.3rem}
-
-.detail{grid-column:1/-1;display:none}
-.concert.ouvert .detail{display:block;animation:apparait .4s ease-out}
-.titre-bloc{font-size:.66rem;letter-spacing:.2em;color:var(--cyan);margin:1rem 0 .7rem;
-  text-shadow:0 0 12px rgba(103,232,249,.5);padding-top:.9rem;border-top:1px solid rgba(140,150,235,.16)}
-.recit{color:var(--gris);font-size:.92rem;line-height:1.7;margin:0}
-.setlist ol{list-style:none;counter-reset:t;margin:0;padding:0;
-  display:grid;grid-template-columns:repeat(2,1fr);gap:.3rem 1.4rem}
-.setlist li{counter-increment:t;display:flex;align-items:baseline;gap:.6rem;padding:.3rem .2rem;
-  border-bottom:1px dashed rgba(140,150,235,.14);color:#e6ecff;font-size:.9rem}
-.setlist li::before{content:counter(t,decimal-leading-zero);font-family:var(--titre);color:var(--rose);
-  font-size:.82rem;min-width:22px}
-.note-set{margin:.8rem 0 0;font-size:.8rem;color:#8d86ab;line-height:1.6}
-.medias__boutons{display:flex;gap:.5rem;flex-wrap:wrap}
-.media-btn{padding:.42rem .9rem;border:1px solid var(--bord);border-radius:999px;background:rgba(8,12,34,.6);
-  color:var(--gris);font-family:var(--texte);font-size:.76rem;cursor:pointer}
-.media-btn:hover{color:#fff;border-color:var(--violet-clair)}
-.media-btn.actif{color:#fff;border-color:var(--cyan);box-shadow:0 0 16px rgba(103,232,249,.25)}
-.medias__zone{margin-top:.8rem}
-.grille-medias{display:grid;grid-template-columns:repeat(3,1fr);gap:.9rem}
-.cadre-media{border:1px solid var(--bord);border-radius:14px;background:rgba(3,6,22,.6);
-  min-height:130px;display:grid;place-items:center;padding:1.2rem;text-align:center}
-.cadre-media p{color:var(--gris);font-size:.84rem;margin:0 0 .7rem}
-.avertissement{font-size:.72rem;color:#8d86ab}
-.proposer,.infolettre{padding:1.6rem;border:1px solid var(--bord);border-radius:18px;background:rgba(6,10,32,.6)}
-.proposer h3,.infolettre h3{font-family:var(--titre);font-size:1.3rem;margin:0 0 .3rem}
-.champ textarea{width:100%;padding:.85rem 1rem;border:1px solid var(--bord);border-radius:10px;
-  background:rgba(2,4,16,.75);color:#fff;font-family:var(--texte);font-size:.95rem;resize:vertical}
-@media (max-width:900px){.grille-medias{grid-template-columns:1fr 1fr}.setlist ol{grid-template-columns:1fr}}
-@media (max-width:700px){.concert{grid-template-columns:64px 1fr}.tournee{display:none}}
-
-
 /* ---------- menu mobile ---------- */
 .burger{display:none;flex-direction:column;gap:5px;padding:.6rem;border:1px solid var(--bord);
   border-radius:10px;background:rgba(6,10,32,.6);cursor:pointer}
@@ -489,6 +433,143 @@ h2.titre2{font-family:var(--titre);font-size:clamp(1.8rem,3.4vw,2.8rem);margin:0
   .marque,.outils{position:relative;z-index:2}
 }
 
+
+.filtres{display:flex;gap:.4rem;flex-wrap:wrap;margin:1.2rem 0 1.6rem}
+.filtre{padding:.45rem 1.2rem;border:1px solid var(--bord);border-radius:999px;background:rgba(8,12,34,.55);
+  color:var(--gris);font-family:var(--texte);font-size:.85rem;cursor:pointer}
+.filtre.actif{border-color:var(--violet-clair);color:#fff;box-shadow:0 0 18px rgba(167,139,250,.3)}
+.titre-ep{font-family:var(--titre);font-size:1.5rem;font-weight:500;margin:2rem 0 1rem;
+  color:var(--cyan);text-shadow:0 0 18px rgba(103,232,249,.5)}
+.episode:first-child .titre-ep{margin-top:.5rem}
+.scene{border:1px solid var(--bord);border-radius:14px;background:rgba(8,12,34,.55);
+  margin-bottom:.7rem;overflow:hidden}
+.scene summary{display:flex;align-items:baseline;gap:.9rem;padding:1rem 1.2rem;cursor:pointer;
+  list-style:none;font-size:1rem;color:#e6ecff}
+.scene summary::-webkit-details-marker{display:none}
+.scene summary::after{content:"＋";margin-left:auto;color:var(--cyan);flex:none}
+.scene[open] summary::after{content:"−"}
+.scene[open]{border-color:var(--violet-clair);box-shadow:0 0 26px rgba(120,150,255,.16)}
+.num-scene{font-family:var(--titre);font-size:.85rem;color:var(--rose);flex:none;letter-spacing:.08em}
+.texte-scene{padding:0 1.4rem 1.4rem;color:var(--gris);line-height:1.85;font-size:.95rem;
+  max-width:78ch}
+.texte-scene p{margin:0 0 1rem}
+.aucune{padding:1.6rem;border:1.5px dashed var(--bord);border-radius:14px;color:var(--gris);
+  font-size:.92rem;text-align:center;margin-top:1.4rem}
+.proposer,.infolettre{padding:1.6rem;border:1px solid var(--bord);border-radius:18px;background:rgba(6,10,32,.6)}
+.proposer h3,.infolettre h3{font-family:var(--titre);font-size:1.3rem;margin:0 0 .3rem}
+.champ textarea{width:100%;padding:.85rem 1rem;border:1px solid var(--bord);border-radius:10px;
+  background:rgba(2,4,16,.75);color:#fff;font-family:var(--texte);font-size:.95rem;resize:vertical}
+
+
+.fiche{display:grid;grid-template-columns:repeat(3,1fr);gap:1.1rem;margin:1.6rem 0}
+.bloc-fiche{padding:1.4rem;border:1px solid var(--bord);border-radius:16px;background:rgba(8,12,34,.55)}
+.bloc-fiche h3{font-size:.66rem;letter-spacing:.2em;color:var(--cyan);margin:0 0 1rem;
+  text-shadow:0 0 12px rgba(103,232,249,.5)}
+.bloc-fiche ul{list-style:none;margin:0;padding:0;display:grid;gap:.8rem}
+.bloc-fiche b{display:block;font-weight:400;color:#fff;font-size:.95rem}
+.bloc-fiche span{color:var(--gris);font-size:.86rem}
+.resume{padding:1.8rem;border:1px solid var(--bord);border-left:2px solid var(--rose);border-radius:0 18px 18px 0;
+  background:rgba(232,121,249,.05)}
+.resume h3{font-family:var(--titre);font-size:1.3rem;margin:0 0 .9rem}
+.resume p{color:var(--gris);line-height:1.85;margin:0 0 1rem}
+.citations{display:grid;gap:.9rem;margin:1.2rem 0}
+.citations blockquote{margin:0;padding:1.2rem 1.4rem;border:1px solid var(--bord);border-radius:14px;
+  background:rgba(8,12,34,.55);color:#dfe7ff;line-height:1.7;font-size:.95rem}
+.citations cite{display:block;margin-top:.7rem;font-style:normal;font-size:.78rem;color:#8d86ab}
+.emplacements{display:grid;grid-template-columns:repeat(4,1fr);gap:.9rem;margin:1rem 0 1.6rem}
+.emplacement{padding:1.3rem 1rem;border:1.5px dashed var(--bord);border-radius:14px;text-align:center;
+  background:rgba(6,10,30,.5)}
+.emplacement b{display:block;font-weight:400;color:#e6ecff;font-size:.92rem}
+.emplacement span{font-size:.72rem;color:#8d86ab}
+.vide-bloc{padding:1.4rem;border:1.5px dashed var(--bord);border-radius:14px;color:var(--gris);
+  font-size:.92rem;margin:1rem 0}
+.vide-bloc p{margin:0}
+@media (max-width:1000px){.fiche{grid-template-columns:1fr}.emplacements{grid-template-columns:1fr 1fr}}
+
+
+.frise-vie{display:grid;gap:1.1rem;margin-top:1.4rem;position:relative}
+.etape-vie{position:relative;padding:1.6rem 1.6rem 1.7rem 2.4rem;border:1px solid var(--bord);
+  border-radius:16px;background:linear-gradient(160deg,rgba(16,20,56,.72),rgba(4,7,24,.9))}
+.etape-vie::before{content:"";position:absolute;left:1rem;top:1.9rem;width:9px;height:9px;border-radius:50%;
+  background:linear-gradient(120deg,var(--cyan),var(--rose));box-shadow:0 0 16px rgba(167,139,250,.9)}
+.annees{font-size:.66rem;letter-spacing:.2em;color:var(--cyan);text-shadow:0 0 12px rgba(103,232,249,.5)}
+.etape-vie h3{font-family:var(--titre);font-size:1.35rem;font-weight:500;margin:.35rem 0 .7rem}
+.etape-vie p{color:var(--gris);line-height:1.8;margin:0 0 .9rem;max-width:80ch}
+.etape-vie .btn{margin-top:.2rem}
+.citation-omar{margin:0 0 1.4rem;padding:1.3rem 1.5rem;border-left:2px solid var(--rose);
+  border-radius:0 14px 14px 0;background:rgba(232,121,249,.07);color:#e6ecff;font-size:1.05rem;line-height:1.7}
+.extrait{margin-top:1.4rem;padding:1.4rem 1.6rem;border:1px solid var(--bord);border-radius:16px;
+  background:rgba(8,12,34,.55)}
+.date-extrait{font-size:.66rem;letter-spacing:.2em;color:var(--cyan)}
+.extrait p{color:#dfe7ff;font-size:1.05rem;line-height:1.8;margin:.6rem 0 0;font-style:italic}
+.univers{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:1rem}
+.porte{display:block;position:relative;overflow:hidden;text-align:left;padding:1.5rem 1.3rem 1.7rem;
+  border-radius:16px;border:1px solid var(--bord);text-decoration:none;
+  background:linear-gradient(160deg,rgba(18,22,60,.75),rgba(4,7,24,.88));color:var(--blanc);
+  transition:transform .3s,border-color .3s,box-shadow .3s}
+.porte:hover{transform:translateY(-5px);border-color:var(--violet-clair);box-shadow:0 18px 44px rgba(90,120,255,.28)}
+.porte::after{content:"";position:absolute;inset:auto -25% -55% -25%;height:110%;
+  background:radial-gradient(50% 55% at 50% 100%,var(--halo,rgba(124,58,237,.55)),transparent 70%)}
+.porte > *{position:relative;z-index:2}
+.porte b{display:block;font-family:var(--titre);font-size:1.25rem;font-weight:500;margin-bottom:.3rem;
+  color:var(--cyan);text-shadow:0 0 14px rgba(103,232,249,.5)}
+.porte span{color:var(--gris);font-size:.86rem}
+
+
+.barre-recherche{display:grid;gap:1rem;margin-bottom:1.6rem}
+#recherche{width:100%;max-width:420px;padding:.8rem 1.1rem;border:1px solid var(--bord);border-radius:999px;
+  background:rgba(2,4,16,.75);color:#fff;font-family:var(--texte);font-size:.95rem}
+#recherche:focus{outline:none;border-color:var(--violet-clair);box-shadow:0 0 20px rgba(167,139,250,.3)}
+.filtres{display:flex;gap:.4rem;flex-wrap:wrap}
+.filtre{padding:.45rem 1rem;border:1px solid var(--bord);border-radius:999px;background:rgba(8,12,34,.55);
+  color:var(--gris);font-family:var(--texte);font-size:.8rem;cursor:pointer}
+.filtre.actif{border-color:var(--violet-clair);color:#fff;box-shadow:0 0 18px rgba(167,139,250,.3)}
+.disques{display:grid;grid-template-columns:repeat(auto-fill,minmax(160px,1fr));gap:1.1rem}
+.disque{position:relative;border:0;padding:0;background:none;cursor:pointer;text-align:left;
+  color:var(--blanc);font-family:var(--texte);transition:transform .3s}
+.disque:hover{transform:translateY(-6px)}
+.pochette{position:relative;aspect-ratio:1;border-radius:14px;overflow:hidden;border:1px solid var(--bord);
+  background:linear-gradient(150deg,rgba(124,58,237,.45),rgba(4,7,24,.9))}
+.pochette img{width:100%;height:100%;object-fit:cover;display:block}
+.disque:hover .pochette{border-color:var(--violet-clair);box-shadow:0 16px 40px rgba(90,120,255,.3)}
+.marque-scene{position:absolute;top:.5rem;right:.5rem;padding:.2rem .55rem;border-radius:999px;
+  font-size:.6rem;letter-spacing:.1em;background:rgba(3,6,22,.8);color:var(--cyan)}
+.disque b{display:block;font-weight:400;font-size:.92rem;margin:.6rem 0 .1rem;line-height:1.35}
+.disque small{color:#8d86ab;font-size:.72rem}
+.fiche-chanson{display:grid;grid-template-columns:150px 1fr;gap:1.4rem;align-items:start}
+.fiche-chanson img{width:150px;height:150px;object-fit:cover;border-radius:14px;border:1px solid var(--bord)}
+.fiche-chanson h3{font-family:var(--titre);font-size:1.5rem;margin:0 0 .3rem}
+.fc-info{color:var(--gris);font-size:.86rem;line-height:1.7;margin:0 0 1rem}
+#fc-ecoute iframe{border-radius:12px;margin-bottom:1rem}
+@media (max-width:620px){.fiche-chanson{grid-template-columns:1fr}.fiche-chanson img{width:100%;height:auto;aspect-ratio:1}}
+
+.lecteur{position:fixed;inset:0;z-index:80;display:grid;place-items:center;padding:1.2rem;
+  background:rgba(2,3,12,.75);backdrop-filter:blur(6px);opacity:0;pointer-events:none;transition:opacity .35s}
+.lecteur.ouvert{opacity:1;pointer-events:auto}
+.lecteur__boite{position:relative;max-width:620px;width:100%;padding:2.2rem;border:1px solid var(--bord);
+  border-radius:20px;background:linear-gradient(160deg,rgba(18,14,52,.98),rgba(4,6,22,.99));
+  box-shadow:0 30px 80px rgba(0,0,0,.7)}
+.fermer{position:absolute;top:1rem;right:1rem;width:34px;height:34px;border:1px solid var(--bord);
+  border-radius:50%;background:none;color:#fff;font-size:1.2rem;cursor:pointer}
+.aucune{padding:1.6rem;border:1.5px dashed var(--bord);border-radius:14px;color:var(--gris);text-align:center}
+
+
+.pochette{display:grid;place-items:center;padding:1rem;text-align:center;
+  background:linear-gradient(150deg,
+    hsl(calc(250 + var(--i,0) * 16) 70% 34% / .85),
+    rgba(4,7,24,.95))}
+.vignette-titre{font-family:var(--titre);font-size:1.05rem;line-height:1.25;color:#fff;
+  text-shadow:0 0 18px rgba(0,0,0,.5)}
+.fiche-chanson{grid-template-columns:1fr}
+
+
+.extrait-chanson{margin:0 0 1.2rem;padding:1.1rem 1.3rem;border-left:2px solid var(--rose);
+  border-radius:0 12px 12px 0;background:rgba(232,121,249,.07);color:#e6ecff;
+  font-family:var(--titre);font-size:1.05rem;line-height:1.85;display:grid;gap:.1rem;position:relative}
+.extrait-chanson span{display:block}
+.langue-extrait{position:absolute;top:.6rem;right:.9rem;font-family:var(--texte);font-size:.6rem;
+  letter-spacing:.16em;color:#8d86ab}
+
 @media (prefers-reduced-motion:reduce){*{animation:none!important}}
 </style>
 </head>
@@ -498,7 +579,7 @@ h2.titre2{font-family:var(--titre);font-size:clamp(1.8rem,3.4vw,2.8rem);margin:0
   <a class="marque" href="#haut"><img src="data:image/webp;base64,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" alt="O.R. World Association"></a>
   <ul class="menu">
     <li><a href="index.html" data-i18n="nav.accueil"></a></li>
-    <li><a href="explorer.html" class="actif" data-i18n="nav.explorer"></a></li>
+    <li><a href="explorer.html" class="" data-i18n="nav.explorer"></a></li>
     <li><a href="young-royals.html" class="" data-i18n="nav.royals"></a></li>
     <li><a href="communaute.html" class="" data-i18n="nav.communaute"></a></li>
     <li><a href="membres.html" data-i18n="nav.membres"></a></li>
@@ -527,422 +608,60 @@ h2.titre2{font-family:var(--titre);font-size:clamp(1.8rem,3.4vw,2.8rem);margin:0
 <div class="page">
 
 <section class="section" style="padding-top:clamp(8rem,15vh,11rem);padding-bottom:1rem">
-  <div class="contenu" style="max-width:960px;text-align:center">
-    <p class="chapeau">CONCERTS ET ARCHIVES</p>
-    <h1 class="titre2" style="font-size:clamp(2.2rem,5vw,3.4rem)">Chaque date, ville par ville</h1>
-    <p class="intro2" style="margin-inline:auto">Du premier concert solo au Cirkus de Stockholm jusqu'aux festivals 2026 : toutes les dates, leurs salles et leurs setlists. Cliquez sur une date pour ouvrir sa fiche.</p>
+  <div class="contenu" style="max-width:940px;text-align:center">
+    <p class="chapeau">LA MUSIQUE</p>
+    <h1 class="titre2" style="font-size:clamp(2.2rem,5vw,3.4rem)">Toutes les chansons</h1>
+    <p class="intro2" style="margin-inline:auto">La carrière musicale d'Omar est déjà longue depuis ses débuts en solo. Mêlant pop, R&amp;B et influences latines, il s'impose comme une étoile montante internationale.</p>
+    <blockquote class="citation-omar" style="max-width:620px;margin:1.6rem auto 0">« Toutes les chansons d'Omar sont exceptionnelles. Elles sont le reflet de lui-même. »</blockquote>
   </div>
 </section>
 
 <section class="section" style="padding-top:1rem">
   <div class="contenu">
     <div class="compteurs">
-      <div class="compteur"><b>61</b><span>CONCERTS</span></div>
-      <div class="compteur"><b>36</b><span>VILLES</span></div>
-      <div class="compteur"><b>16</b><span>PAYS</span></div>
+      <div class="compteur"><b>72</b><span>TITRES</span></div>
+      <div class="compteur"><b>48</b><span>JOUÉS EN CONCERT</span></div>
+      <div class="compteur"><b>63</b><span>TITRES DATÉS</span></div>
       <div class="compteur"><b>7</b><span>TOURNÉES</span></div>
-      <div class="compteur"><b>61</b><span>SETLISTS</span></div>
-      <div class="compteur"><b>0</b><span>PHOTOS DE FANS</span></div>
+      <div class="compteur"><b>0</b><span>VOTES DE LA COMMUNAUTÉ</span></div>
+      <div class="compteur"><b>0</b><span>PAROLES PARTAGÉES</span></div>
     </div>
   </div>
 </section>
 
 <section class="section" style="padding-top:1rem">
   <div class="contenu">
-    <h2 class="titre2" style="font-size:1.8rem">Toutes les dates</h2>
-    <div class="filtres"><button class="filtre actif" data-filtre="Toutes">Toutes</button><button class="filtre" data-filtre="Festivals 2026">Festivals 2026</button><button class="filtre" data-filtre="Midnight Sun 2025">Midnight Sun 2025</button><button class="filtre" data-filtre="Festivals 2025">Festivals 2025</button><button class="filtre" data-filtre="Every Night Fantasy 2025">Every Night Fantasy 2025</button><button class="filtre" data-filtre="Every Night Fantasy 2024">Every Night Fantasy 2024</button><button class="filtre" data-filtre="Festivals 2024">Festivals 2024</button><button class="filtre" data-filtre="Premier concert solo">Premier concert solo</button></div>
-    <p class="aucune" id="aucune">Aucune date pour cette sélection.</p>
-    <div class="concerts">
-      <article class="concert" data-tournee="Festivals 2026" data-cle="f26-30.08.2026" data-pays="🇸🇪">
-        <div class="jour"><b>30</b><span>AOÛT 2026</span></div>
-        <div class="lieu"><b>🇸🇪 Göteborg</b><span>Göteborgs Kulturkalas · Götaplatsen</span></div>
-        <span class="tournee">Festivals 2026</span>
-        <div class="detail"></div>
-      </article>
-      <article class="concert" data-tournee="Festivals 2026" data-cle="f26-12.08.2026" data-pays="🇸🇪">
-        <div class="jour"><b>12</b><span>AOÛT 2026</span></div>
-        <div class="lieu"><b>🇸🇪 Stockholm</b><span>RixFM Festival · lieu à confirmer</span></div>
-        <span class="tournee">Festivals 2026</span>
-        <div class="detail"></div>
-      </article>
-      <article class="concert" data-tournee="Festivals 2026" data-cle="f26-09.08.2026" data-pays="🇸🇪">
-        <div class="jour"><b>09</b><span>AOÛT 2026</span></div>
-        <div class="lieu"><b>🇸🇪 Malmö</b><span>RixFM Festival</span></div>
-        <span class="tournee">Festivals 2026</span>
-        <div class="detail"></div>
-      </article>
-      <article class="concert" data-tournee="Festivals 2026" data-cle="f26-27.06.2026" data-pays="🇩🇪">
-        <div class="jour"><b>27</b><span>JUIN 2026</span></div>
-        <div class="lieu"><b>🇩🇪 Cologne</b><span>Rainbow Festival · Sunshine Stage · Fühlinger See</span></div>
-        <span class="tournee">Festivals 2026</span>
-        <div class="detail"></div>
-      </article>
-      <article class="concert" data-tournee="Midnight Sun 2025" data-cle="ms25-28.11.2025" data-pays="🇸🇪">
-        <div class="jour"><b>28</b><span>NOV 2025</span></div>
-        <div class="lieu"><b>🇸🇪 Stockholm</b><span>Avicii Arena</span></div>
-        <span class="tournee">Midnight Sun 2025</span>
-        <div class="detail"></div>
-      </article>
-      <article class="concert" data-tournee="Midnight Sun 2025" data-cle="ms25-26.11.2025" data-pays="🇫🇮">
-        <div class="jour"><b>26</b><span>NOV 2025</span></div>
-        <div class="lieu"><b>🇫🇮 Helsinki</b><span>Veikkaus Arena</span></div>
-        <span class="tournee">Midnight Sun 2025</span>
-        <div class="detail"></div>
-      </article>
-      <article class="concert" data-tournee="Midnight Sun 2025" data-cle="ms25-22.11.2025" data-pays="🇸🇪">
-        <div class="jour"><b>22</b><span>NOV 2025</span></div>
-        <div class="lieu"><b>🇸🇪 Göteborg</b><span>Scandinavium</span></div>
-        <span class="tournee">Midnight Sun 2025</span>
-        <div class="detail"></div>
-      </article>
-      <article class="concert" data-tournee="Midnight Sun 2025" data-cle="ms25-21.11.2025" data-pays="🇳🇴">
-        <div class="jour"><b>21</b><span>NOV 2025</span></div>
-        <div class="lieu"><b>🇳🇴 Oslo</b><span>Unity Arena · Fornebu</span></div>
-        <span class="tournee">Midnight Sun 2025</span>
-        <div class="detail"></div>
-      </article>
-      <article class="concert" data-tournee="Midnight Sun 2025" data-cle="ms25-19.11.2025" data-pays="🇸🇪">
-        <div class="jour"><b>19</b><span>NOV 2025</span></div>
-        <div class="lieu"><b>🇸🇪 Malmö</b><span>Malmö Arena</span></div>
-        <span class="tournee">Midnight Sun 2025</span>
-        <div class="detail"></div>
-      </article>
-      <article class="concert" data-tournee="Midnight Sun 2025" data-cle="ms25-18.11.2025" data-pays="🇩🇰">
-        <div class="jour"><b>18</b><span>NOV 2025</span></div>
-        <div class="lieu"><b>🇩🇰 Copenhagen</b><span>Royal Arena</span></div>
-        <span class="tournee">Midnight Sun 2025</span>
-        <div class="detail"></div>
-      </article>
-      <article class="concert" data-tournee="Midnight Sun 2025" data-cle="ms25-16.11.2025" data-pays="🇱🇻">
-        <div class="jour"><b>16</b><span>NOV 2025</span></div>
-        <div class="lieu"><b>🇱🇻 Riga</b><span>Xiaomi Arena</span></div>
-        <span class="tournee">Midnight Sun 2025</span>
-        <div class="detail"></div>
-      </article>
-      <article class="concert" data-tournee="Midnight Sun 2025" data-cle="ms25-12.11.2025" data-pays="🇳🇱">
-        <div class="jour"><b>12</b><span>NOV 2025</span></div>
-        <div class="lieu"><b>🇳🇱 Amsterdam</b><span>Ziggo Dome</span></div>
-        <span class="tournee">Midnight Sun 2025</span>
-        <div class="detail"></div>
-      </article>
-      <article class="concert" data-tournee="Midnight Sun 2025" data-cle="ms25-11.11.2025" data-pays="🇩🇪">
-        <div class="jour"><b>11</b><span>NOV 2025</span></div>
-        <div class="lieu"><b>🇩🇪 Düsseldorf</b><span>Mitsubishi Electric Halle</span></div>
-        <span class="tournee">Midnight Sun 2025</span>
-        <div class="detail"></div>
-      </article>
-      <article class="concert" data-tournee="Midnight Sun 2025" data-cle="ms25-09.11.2025" data-pays="🇬🇧">
-        <div class="jour"><b>09</b><span>NOV 2025</span></div>
-        <div class="lieu"><b>🇬🇧 Manchester</b><span>O2 Victoria Warehouse</span></div>
-        <span class="tournee">Midnight Sun 2025</span>
-        <div class="detail"></div>
-      </article>
-      <article class="concert" data-tournee="Midnight Sun 2025" data-cle="ms25-07.11.2025" data-pays="🇮🇪">
-        <div class="jour"><b>07</b><span>NOV 2025</span></div>
-        <div class="lieu"><b>🇮🇪 Dublin</b><span>3Arena</span></div>
-        <span class="tournee">Midnight Sun 2025</span>
-        <div class="detail"></div>
-      </article>
-      <article class="concert" data-tournee="Midnight Sun 2025" data-cle="ms25-05.11.2025" data-pays="🇬🇧">
-        <div class="jour"><b>05</b><span>NOV 2025</span></div>
-        <div class="lieu"><b>🇬🇧 London</b><span>OVO Arena Wembley</span></div>
-        <span class="tournee">Midnight Sun 2025</span>
-        <div class="detail"></div>
-      </article>
-      <article class="concert" data-tournee="Midnight Sun 2025" data-cle="ms25-03.11.2025" data-pays="🇫🇷">
-        <div class="jour"><b>03</b><span>NOV 2025</span></div>
-        <div class="lieu"><b>🇫🇷 Paris</b><span>Salle Pleyel</span></div>
-        <span class="tournee">Midnight Sun 2025</span>
-        <div class="detail"></div>
-      </article>
-      <article class="concert" data-tournee="Midnight Sun 2025" data-cle="ms25-02.11.2025" data-pays="🇧🇪">
-        <div class="jour"><b>02</b><span>NOV 2025</span></div>
-        <div class="lieu"><b>🇧🇪 Antwerp</b><span>Lotto Arena</span></div>
-        <span class="tournee">Midnight Sun 2025</span>
-        <div class="detail"></div>
-      </article>
-      <article class="concert" data-tournee="Midnight Sun 2025" data-cle="ms25-31.10.2025" data-pays="🇩🇪">
-        <div class="jour"><b>31</b><span>OCT 2025</span></div>
-        <div class="lieu"><b>🇩🇪 Berlin</b><span>Tempodrom</span></div>
-        <span class="tournee">Midnight Sun 2025</span>
-        <div class="detail"></div>
-      </article>
-      <article class="concert" data-tournee="Midnight Sun 2025" data-cle="ms25-30.10.2025" data-pays="🇦🇹">
-        <div class="jour"><b>30</b><span>OCT 2025</span></div>
-        <div class="lieu"><b>🇦🇹 Vienna</b><span>Raiffeisen Halle im Gasometer</span></div>
-        <span class="tournee">Midnight Sun 2025</span>
-        <div class="detail"></div>
-      </article>
-      <article class="concert" data-tournee="Midnight Sun 2025" data-cle="ms25-28.10.2025" data-pays="🇩🇪">
-        <div class="jour"><b>28</b><span>OCT 2025</span></div>
-        <div class="lieu"><b>🇩🇪 Munich</b><span>Zenith</span></div>
-        <span class="tournee">Midnight Sun 2025</span>
-        <div class="detail"></div>
-      </article>
-      <article class="concert" data-tournee="Festivals 2025" data-cle="f25-30.08.2025" data-pays="🇩🇪">
-        <div class="jour"><b>30</b><span>AOÛT 2025</span></div>
-        <div class="lieu"><b>🇩🇪 Munich</b><span>Superbloom Festival · NeoNeo Stage</span></div>
-        <span class="tournee">Festivals 2025</span>
-        <div class="detail"></div>
-      </article>
-      <article class="concert" data-tournee="Festivals 2025" data-cle="f25-23.08.2025" data-pays="🇳🇴">
-        <div class="jour"><b>23</b><span>AOÛT 2025</span></div>
-        <div class="lieu"><b>🇳🇴 Bergen</b><span>Feelings Festival</span></div>
-        <span class="tournee">Festivals 2025</span>
-        <div class="detail"></div>
-      </article>
-      <article class="concert" data-tournee="Festivals 2025" data-cle="f25-09.08.2025" data-pays="🇸🇪">
-        <div class="jour"><b>09</b><span>AOÛT 2025</span></div>
-        <div class="lieu"><b>🇸🇪 Göteborg</b><span>Way Out West Festival</span></div>
-        <span class="tournee">Festivals 2025</span>
-        <div class="detail"></div>
-      </article>
-      <article class="concert" data-tournee="Festivals 2025" data-cle="f25-01.08.2025" data-pays="🇸🇪">
-        <div class="jour"><b>01</b><span>AOÛT 2025</span></div>
-        <div class="lieu"><b>🇸🇪 Stockholm</b><span>Stockholm Pride Festival</span></div>
-        <span class="tournee">Festivals 2025</span>
-        <div class="detail"></div>
-      </article>
-      <article class="concert" data-tournee="Festivals 2025" data-cle="f25-04.07.2025" data-pays="🇫🇮">
-        <div class="jour"><b>04</b><span>JUIL 2025</span></div>
-        <div class="lieu"><b>🇫🇮 Turku</b><span>Ruisrock Festival · Ruissalo</span></div>
-        <span class="tournee">Festivals 2025</span>
-        <div class="detail"></div>
-      </article>
-      <article class="concert" data-tournee="Festivals 2025" data-cle="f25-28.06.2025" data-pays="🇩🇰">
-        <div class="jour"><b>28</b><span>JUIN 2025</span></div>
-        <div class="lieu"><b>🇩🇰 Odense</b><span>Tinderbox Festival</span></div>
-        <span class="tournee">Festivals 2025</span>
-        <div class="detail"></div>
-      </article>
-      <article class="concert" data-tournee="Festivals 2025" data-cle="f25-21.06.2025" data-pays="🇳🇱">
-        <div class="jour"><b>21</b><span>JUIN 2025</span></div>
-        <div class="lieu"><b>🇳🇱 Landgraaf</b><span>Pinkpop Festival · Megaland</span></div>
-        <span class="tournee">Festivals 2025</span>
-        <div class="detail"></div>
-      </article>
-      <article class="concert" data-tournee="Festivals 2025" data-cle="f25-31.05.2025" data-pays="🇬🇧">
-        <div class="jour"><b>31</b><span>MAI 2025</span></div>
-        <div class="lieu"><b>🇬🇧 London</b><span>Mighty Hoopla · Brockwell Park</span></div>
-        <span class="tournee">Festivals 2025</span>
-        <div class="detail"></div>
-      </article>
-      <article class="concert" data-tournee="Every Night Fantasy 2025" data-cle="enf25-02.03.2025" data-pays="🇩🇪">
-        <div class="jour"><b>02</b><span>MAR 2025</span></div>
-        <div class="lieu"><b>🇩🇪 Berlin</b><span>Huxleys Neue Welt</span></div>
-        <span class="tournee">Every Night Fantasy 2025</span>
-        <div class="detail"></div>
-      </article>
-      <article class="concert" data-tournee="Every Night Fantasy 2025" data-cle="enf25-28.02.2025" data-pays="🇩🇰">
-        <div class="jour"><b>28</b><span>FÉV 2025</span></div>
-        <div class="lieu"><b>🇩🇰 Copenhagen</b><span>DR Koncerthuset</span></div>
-        <span class="tournee">Every Night Fantasy 2025</span>
-        <div class="detail"></div>
-      </article>
-      <article class="concert" data-tournee="Every Night Fantasy 2025" data-cle="enf25-27.02.2025" data-pays="🇸🇪">
-        <div class="jour"><b>27</b><span>FÉV 2025</span></div>
-        <div class="lieu"><b>🇸🇪 Stockholm</b><span>salle à confirmer</span></div>
-        <span class="tournee">Every Night Fantasy 2025</span>
-        <div class="detail"></div>
-      </article>
-      <article class="concert" data-tournee="Every Night Fantasy 2025" data-cle="enf25-26.02.2025" data-pays="🇳🇴">
-        <div class="jour"><b>26</b><span>FÉV 2025</span></div>
-        <div class="lieu"><b>🇳🇴 Oslo</b><span>Sentrum Scene</span></div>
-        <span class="tournee">Every Night Fantasy 2025</span>
-        <div class="detail"></div>
-      </article>
-      <article class="concert" data-tournee="Every Night Fantasy 2025" data-cle="enf25-24.02.2025" data-pays="🇩🇪">
-        <div class="jour"><b>24</b><span>FÉV 2025</span></div>
-        <div class="lieu"><b>🇩🇪 Cologne</b><span>Live Music Hall</span></div>
-        <span class="tournee">Every Night Fantasy 2025</span>
-        <div class="detail"></div>
-      </article>
-      <article class="concert" data-tournee="Every Night Fantasy 2025" data-cle="enf25-23.02.2025" data-pays="🇩🇪">
-        <div class="jour"><b>23</b><span>FÉV 2025</span></div>
-        <div class="lieu"><b>🇩🇪 Hamburg</b><span>Docks</span></div>
-        <span class="tournee">Every Night Fantasy 2025</span>
-        <div class="detail"></div>
-      </article>
-      <article class="concert" data-tournee="Every Night Fantasy 2025" data-cle="enf25-21.02.2025" data-pays="🇵🇱">
-        <div class="jour"><b>21</b><span>FÉV 2025</span></div>
-        <div class="lieu"><b>🇵🇱 Warsaw</b><span>Klub Stodoła</span></div>
-        <span class="tournee">Every Night Fantasy 2025</span>
-        <div class="detail"></div>
-      </article>
-      <article class="concert" data-tournee="Every Night Fantasy 2025" data-cle="enf25-19.02.2025" data-pays="🇩🇪">
-        <div class="jour"><b>19</b><span>FÉV 2025</span></div>
-        <div class="lieu"><b>🇩🇪 Munich</b><span>Tonhalle</span></div>
-        <span class="tournee">Every Night Fantasy 2025</span>
-        <div class="detail"></div>
-      </article>
-      <article class="concert" data-tournee="Every Night Fantasy 2025" data-cle="enf25-18.02.2025" data-pays="🇮🇹">
-        <div class="jour"><b>18</b><span>FÉV 2025</span></div>
-        <div class="lieu"><b>🇮🇹 Milan</b><span>Alcatraz</span></div>
-        <span class="tournee">Every Night Fantasy 2025</span>
-        <div class="detail"></div>
-      </article>
-      <article class="concert" data-tournee="Every Night Fantasy 2025" data-cle="enf25-16.02.2025" data-pays="🇪🇸">
-        <div class="jour"><b>16</b><span>FÉV 2025</span></div>
-        <div class="lieu"><b>🇪🇸 Barcelona</b><span>Razzmatazz</span></div>
-        <span class="tournee">Every Night Fantasy 2025</span>
-        <div class="detail"></div>
-      </article>
-      <article class="concert" data-tournee="Every Night Fantasy 2025" data-cle="enf25-15.02.2025" data-pays="🇪🇸">
-        <div class="jour"><b>15</b><span>FÉV 2025</span></div>
-        <div class="lieu"><b>🇪🇸 Madrid</b><span>Changó Live</span></div>
-        <span class="tournee">Every Night Fantasy 2025</span>
-        <div class="detail"></div>
-      </article>
-      <article class="concert" data-tournee="Every Night Fantasy 2025" data-cle="enf25-13.02.2025" data-pays="🇫🇷">
-        <div class="jour"><b>13</b><span>FÉV 2025</span></div>
-        <div class="lieu"><b>🇫🇷 Paris</b><span>Bataclan</span></div>
-        <span class="tournee">Every Night Fantasy 2025</span>
-        <div class="detail"></div>
-      </article>
-      <article class="concert" data-tournee="Every Night Fantasy 2025" data-cle="enf25-12.02.2025" data-pays="🇧🇪">
-        <div class="jour"><b>12</b><span>FÉV 2025</span></div>
-        <div class="lieu"><b>🇧🇪 Antwerp</b><span>Trix</span></div>
-        <span class="tournee">Every Night Fantasy 2025</span>
-        <div class="detail"></div>
-      </article>
-      <article class="concert" data-tournee="Every Night Fantasy 2025" data-cle="enf25-10.02.2025" data-pays="🇳🇱">
-        <div class="jour"><b>10</b><span>FÉV 2025</span></div>
-        <div class="lieu"><b>🇳🇱 Amsterdam</b><span>Melkweg (The Max)</span></div>
-        <span class="tournee">Every Night Fantasy 2025</span>
-        <div class="detail"></div>
-      </article>
-      <article class="concert" data-tournee="Every Night Fantasy 2025" data-cle="enf25-08.02.2025" data-pays="🇬🇧">
-        <div class="jour"><b>08</b><span>FÉV 2025</span></div>
-        <div class="lieu"><b>🇬🇧 Bristol</b><span>SWX</span></div>
-        <span class="tournee">Every Night Fantasy 2025</span>
-        <div class="detail"></div>
-      </article>
-      <article class="concert" data-tournee="Every Night Fantasy 2025" data-cle="enf25-06.02.2025" data-pays="🇬🇧">
-        <div class="jour"><b>06</b><span>FÉV 2025</span></div>
-        <div class="lieu"><b>🇬🇧 Birmingham</b><span>O2 Academy</span></div>
-        <span class="tournee">Every Night Fantasy 2025</span>
-        <div class="detail"></div>
-      </article>
-      <article class="concert" data-tournee="Every Night Fantasy 2025" data-cle="enf25-05.02.2025" data-pays="🇬🇧">
-        <div class="jour"><b>05</b><span>FÉV 2025</span></div>
-        <div class="lieu"><b>🇬🇧 London</b><span>O2 Shepherd&#x27;s Bush Empire (avec Edvin Ryding)</span></div>
-        <span class="tournee">Every Night Fantasy 2025</span>
-        <div class="detail"></div>
-      </article>
-      <article class="concert" data-tournee="Every Night Fantasy 2025" data-cle="enf25-03.02.2025" data-pays="🇬🇧">
-        <div class="jour"><b>03</b><span>FÉV 2025</span></div>
-        <div class="lieu"><b>🇬🇧 Manchester</b><span>O2 Ritz</span></div>
-        <span class="tournee">Every Night Fantasy 2025</span>
-        <div class="detail"></div>
-      </article>
-      <article class="concert" data-tournee="Every Night Fantasy 2025" data-cle="enf25-02.02.2025" data-pays="🇬🇧">
-        <div class="jour"><b>02</b><span>FÉV 2025</span></div>
-        <div class="lieu"><b>🇬🇧 Glasgow</b><span>salle à confirmer</span></div>
-        <span class="tournee">Every Night Fantasy 2025</span>
-        <div class="detail"></div>
-      </article>
-      <article class="concert" data-tournee="Every Night Fantasy 2024" data-cle="enf24-04.11.2024" data-pays="🇺🇸">
-        <div class="jour"><b>04</b><span>NOV 2024</span></div>
-        <div class="lieu"><b>🇺🇸 Los Angeles</b><span class="complet">COMPLET</span><span>El Rey Theatre</span></div>
-        <span class="tournee">Every Night Fantasy 2024</span>
-        <div class="detail"></div>
-      </article>
-      <article class="concert" data-tournee="Every Night Fantasy 2024" data-cle="enf24-28.10.2024" data-pays="🇺🇸">
-        <div class="jour"><b>28</b><span>OCT 2024</span></div>
-        <div class="lieu"><b>🇺🇸 New York</b><span class="complet">COMPLET</span><span>Music Hall of Williamsburg</span></div>
-        <span class="tournee">Every Night Fantasy 2024</span>
-        <div class="detail"></div>
-      </article>
-      <article class="concert" data-tournee="Every Night Fantasy 2024" data-cle="enf24-25.10.2024" data-pays="🇩🇪">
-        <div class="jour"><b>25</b><span>OCT 2024</span></div>
-        <div class="lieu"><b>🇩🇪 Cologne</b><span>Club Bahnhof Ehrenfeld</span></div>
-        <span class="tournee">Every Night Fantasy 2024</span>
-        <div class="detail"></div>
-      </article>
-      <article class="concert" data-tournee="Every Night Fantasy 2024" data-cle="enf24-24.10.2024" data-pays="🇳🇱">
-        <div class="jour"><b>24</b><span>OCT 2024</span></div>
-        <div class="lieu"><b>🇳🇱 Amsterdam</b><span>Melkweg</span></div>
-        <span class="tournee">Every Night Fantasy 2024</span>
-        <div class="detail"></div>
-      </article>
-      <article class="concert" data-tournee="Every Night Fantasy 2024" data-cle="enf24-23.10.2024" data-pays="🇫🇷">
-        <div class="jour"><b>23</b><span>OCT 2024</span></div>
-        <div class="lieu"><b>🇫🇷 Paris</b><span>Badaboum</span></div>
-        <span class="tournee">Every Night Fantasy 2024</span>
-        <div class="detail"></div>
-      </article>
-      <article class="concert" data-tournee="Every Night Fantasy 2024" data-cle="enf24-21.10.2024" data-pays="🇬🇧">
-        <div class="jour"><b>21</b><span>OCT 2024</span></div>
-        <div class="lieu"><b>🇬🇧 London</b><span>Heaven</span></div>
-        <span class="tournee">Every Night Fantasy 2024</span>
-        <div class="detail"></div>
-      </article>
-      <article class="concert" data-tournee="Festivals 2024" data-cle="f24-01.09.2024" data-pays="🇩🇪">
-        <div class="jour"><b>01</b><span>SEP 2024</span></div>
-        <div class="lieu"><b>🇩🇪 Soltau</b><span>Heide Park Festival</span></div>
-        <span class="tournee">Festivals 2024</span>
-        <div class="detail"></div>
-      </article>
-      <article class="concert" data-tournee="Festivals 2024" data-cle="f24-29.08.2024" data-pays="🇸🇪">
-        <div class="jour"><b>29</b><span>AOÛT 2024</span></div>
-        <div class="lieu"><b>🇸🇪 Göteborg</b><span>Göteborgs Kulturkalas</span></div>
-        <span class="tournee">Festivals 2024</span>
-        <div class="detail"></div>
-      </article>
-      <article class="concert" data-tournee="Festivals 2024" data-cle="f24-24.08.2024" data-pays="🇸🇪">
-        <div class="jour"><b>24</b><span>AOÛT 2024</span></div>
-        <div class="lieu"><b>🇸🇪 Kristianstad</b><span>Trädgården Festival · Tivoliparken</span></div>
-        <span class="tournee">Festivals 2024</span>
-        <div class="detail"></div>
-      </article>
-      <article class="concert" data-tournee="Festivals 2024" data-cle="f24-11.06.2024" data-pays="🇸🇪">
-        <div class="jour"><b>11</b><span>JUIN 2024</span></div>
-        <div class="lieu"><b>🇸🇪 Söderhamn</b><span>School&#x27;s Out Festival · Stadsparken</span></div>
-        <span class="tournee">Festivals 2024</span>
-        <div class="detail"></div>
-      </article>
-      <article class="concert" data-tournee="Festivals 2024" data-cle="f24-01.06.2024" data-pays="🇸🇪">
-        <div class="jour"><b>01</b><span>JUIN 2024</span></div>
-        <div class="lieu"><b>🇸🇪 Stockholm</b><span>Gröna Lund Live</span></div>
-        <span class="tournee">Festivals 2024</span>
-        <div class="detail"></div>
-      </article>
-      <article class="concert" data-tournee="Festivals 2024" data-cle="f24-25.05.2024" data-pays="🇸🇪">
-        <div class="jour"><b>25</b><span>MAI 2024</span></div>
-        <div class="lieu"><b>🇸🇪 Gävle</b><span>Furuvik Live</span></div>
-        <span class="tournee">Festivals 2024</span>
-        <div class="detail"></div>
-      </article>
-      <article class="concert" data-tournee="Premier concert solo" data-cle="solo24-17.02.2024" data-pays="🇸🇪">
-        <div class="jour"><b>17</b><span>FÉV 2024</span></div>
-        <div class="lieu"><b>🇸🇪 Stockholm</b><span>Cirkus</span></div>
-        <span class="tournee">Premier concert solo</span>
-        <div class="detail"></div>
-      </article>
-    </div>
-  </div>
-</section>
-
-<section class="section" style="padding-top:1rem">
-  <div class="contenu deux" style="align-items:start">
-    <div class="proposer">
-      <h3>Vous y étiez ?</h3>
-      <p class="mention">Racontez votre concert : l'ambiance, un moment précis, ce que vous avez ressenti. Votre récit sera relu, puis ajouté à la date correspondante, signé de votre prénom et de votre pays.</p>
-      <div class="grille2">
-        <label class="champ"><span>Prénom et pays</span><input type="text" placeholder="Camille, France"></label>
-        <label class="champ"><span>Date du concert</span><input type="text" placeholder="Paris · 03/11/2025"></label>
+    <div class="barre-recherche">
+      <input type="search" id="recherche" placeholder="Chercher une chanson…">
+      <div class="filtres">
+        <button class="filtre actif" data-filtre="tous">Toutes</button>
+        <button class="filtre" data-filtre="scene">Jouées en concert</button>
+        <button class="filtre" data-filtre="ecoute">Écoutables ici</button>
+        <button class="filtre" data-filtre="datees">Avec date de sortie</button>
+        <button class="filtre" data-filtre="versions">Remixes et versions</button>
       </div>
-      <label class="champ"><span>Votre récit</span><textarea rows="5" placeholder="Ce soir-là…"></textarea></label>
-      <button class="btn btn--fin">Envoyer mon récit</button>
     </div>
-
-    <div class="infolettre">
-      <h3>Les prochaines dates</h3>
-      <p class="mention">Les festivals 2026 sont déjà annoncés : Cologne le 27 juin, Malmö le 9 août, Stockholm le 12 août et Göteborg le 30 août. Les nouvelles dates apparaîtront ici dès leur annonce officielle.</p>
-      <div class="barre-boutons"><a class="btn btn--fin" href="https://www.instagram.com/omarrudberg/" target="_blank" rel="noopener">Annonces officielles</a><a class="btn btn--fin" href="https://omarrudbergmap.com/#concerts" target="_blank" rel="noopener">Les concerts sur la carte</a></div>
-    </div>
+    <div class="disques" id="disques"></div>
+    <p class="aucune" id="aucune" style="display:none">Aucune chanson ne correspond à cette recherche.</p>
+    <p class="mention" style="margin-top:1.4rem">Nous n'hébergeons aucune pochette : l'illustration officielle s'affiche dans le lecteur Spotify, qui appartient à Spotify et aux ayants droit. Les dates de sortie seront ajoutées titre par titre.</p>
   </div>
 </section>
+
+<div class="lecteur" id="lecteur">
+  <div class="lecteur__boite">
+    <button class="fermer" id="fermer-lecteur" aria-label="Fermer">×</button>
+    <div class="fiche-chanson">
+      <img id="fc-pochette" alt="" loading="lazy">
+      <div>
+        <h3 id="fc-titre"></h3>
+        <p class="fc-info" id="fc-info"></p>
+        <blockquote id="fc-extrait" hidden></blockquote>
+        <div id="fc-ecoute"></div>
+        <div class="barre-boutons" id="fc-liens"></div>
+      </div>
+    </div>
+  </div>
+</div>
 
 </div>
 
@@ -1004,7 +723,7 @@ h2.titre2{font-family:var(--titre);font-size:clamp(1.8rem,3.4vw,2.8rem);margin:0
     <div class="pied__bas">
       <span>© 2026 O.R. World Association</span>
       <span data-i18n="f.heberge"></span>
-      <span class="version">version : CONCERTS-013</span>
+      <span class="version">version : MUSIQUE-005</span>
     </div>
   </div>
 </footer>
@@ -1217,91 +936,6 @@ const CONTINENTS=[[[143.2,-12.0],[143.5,-13.1],[143.8,-14.3],[144.9,-14.7],[145.
 
 
 </script>
-<script>
-(function(){
-  const DETAILS = {"f26-30.08.2026": {"titres": ["A World Like This", "Careless", "Malandro"], "note": "Même setlist pour les trois dernières dates de l'été 2026.", "recit": ""}, "f26-12.08.2026": {"titres": ["A World Like This", "Careless", "Malandro"], "note": "Même setlist pour les trois dernières dates de l'été 2026.", "recit": ""}, "f26-09.08.2026": {"titres": ["A World Like This", "Careless", "Malandro"], "note": "Même setlist pour les trois dernières dates de l'été 2026.", "recit": ""}, "f26-27.06.2026": {"titres": ["Bye Bye", "Girlfriend", "Careless (nouvelle chanson — grande surprise 🎉)", "Dying", "A World Like This (1ʳᵉ interprétation sur scène)", "Talk", "Malandro", "Mi Casa Su Casa", "Sabotage"], "note": "Avant son propre set, Omar est monté chanter « Siren » avec Felix, sur le set de Felix. « Careless » est une toute nouvelle chanson (Omar en avait donné une démo lors d'un moment VIP d'un ancien concert) et « A World Like This » était interprétée pour la première fois sur scène.", "recit": ""}, "ms25-28.11.2025": {"titres": ["Girlfriend", "Bye Bye", "Yo Dije OUFF", "Rude Boy (reprise de Rihanna)", "Dying", "Sabotage", "Talk", "Malandro", "Tití Me Preguntó (reprise de Bad Bunny)", "Mi Casa Su Casa"], "note": "", "recit": ""}, "ms25-26.11.2025": {"titres": ["Girlfriend", "Bye Bye", "Yo Dije OUFF", "Rude Boy (reprise de Rihanna)", "Dying", "Sabotage", "Talk", "Malandro", "Tití Me Preguntó (reprise de Bad Bunny)", "Mi Casa Su Casa"], "note": "", "recit": ""}, "ms25-22.11.2025": {"titres": ["Girlfriend", "Bye Bye", "Yo Dije OUFF", "Rude Boy (reprise de Rihanna)", "Dying", "Sabotage", "Talk", "Malandro", "Tití Me Preguntó (reprise de Bad Bunny)", "Mi Casa Su Casa"], "note": "", "recit": ""}, "ms25-21.11.2025": {"titres": ["Girlfriend", "Bye Bye", "Yo Dije OUFF", "Rude Boy (reprise de Rihanna)", "Dying", "Sabotage", "Talk", "Malandro", "Tití Me Preguntó (reprise de Bad Bunny)", "Mi Casa Su Casa"], "note": "", "recit": ""}, "ms25-19.11.2025": {"titres": ["Girlfriend", "Bye Bye", "Yo Dije OUFF", "Rude Boy (reprise de Rihanna)", "Dying", "Sabotage", "Talk", "Malandro", "Tití Me Preguntó (reprise de Bad Bunny)", "Mi Casa Su Casa"], "note": "", "recit": ""}, "ms25-18.11.2025": {"titres": ["Girlfriend", "Bye Bye", "Yo Dije OUFF", "Rude Boy (reprise de Rihanna)", "Dying", "Sabotage", "Talk", "Malandro", "Tití Me Preguntó (reprise de Bad Bunny)", "Mi Casa Su Casa"], "note": "", "recit": ""}, "ms25-16.11.2025": {"titres": ["Girlfriend", "Bye Bye", "Yo Dije OUFF", "Rude Boy (reprise de Rihanna)", "Dying", "Sabotage", "Talk", "Malandro", "Tití Me Preguntó (reprise de Bad Bunny)", "Mi Casa Su Casa"], "note": "", "recit": ""}, "ms25-12.11.2025": {"titres": ["Girlfriend", "Bye Bye", "Yo Dije OUFF", "Rude Boy (reprise de Rihanna)", "Dying", "Sabotage", "Talk", "Malandro", "Tití Me Preguntó (reprise de Bad Bunny)", "Mi Casa Su Casa"], "note": "", "recit": "Le concert d'Amsterdam tombe le jour de l'anniversaire d'Omar."}, "ms25-11.11.2025": {"titres": ["Girlfriend", "Bye Bye", "Yo Dije OUFF", "Rude Boy (reprise de Rihanna)", "Dying", "Sabotage", "Talk", "Malandro", "Tití Me Preguntó (reprise de Bad Bunny)", "Mi Casa Su Casa"], "note": "", "recit": ""}, "ms25-09.11.2025": {"titres": ["Girlfriend", "Bye Bye", "Yo Dije OUFF", "Rude Boy (reprise de Rihanna)", "Dying", "Sabotage", "Talk", "Malandro", "Tití Me Preguntó (reprise de Bad Bunny)", "Mi Casa Su Casa"], "note": "", "recit": ""}, "ms25-07.11.2025": {"titres": ["Girlfriend", "Bye Bye", "Yo Dije OUFF", "Rude Boy (reprise de Rihanna)", "Dying", "Sabotage", "Talk", "Malandro", "Tití Me Preguntó (reprise de Bad Bunny)", "Mi Casa Su Casa"], "note": "", "recit": ""}, "ms25-05.11.2025": {"titres": ["Girlfriend", "Bye Bye", "Yo Dije OUFF", "Rude Boy (reprise de Rihanna)", "Dying", "Sabotage", "Talk", "Malandro", "Tití Me Preguntó (reprise de Bad Bunny)", "Mi Casa Su Casa"], "note": "", "recit": ""}, "ms25-03.11.2025": {"titres": ["Girlfriend", "Bye Bye", "Yo Dije OUFF", "Rude Boy (reprise de Rihanna)", "Dying", "Sabotage", "Talk", "Malandro", "Tití Me Preguntó (reprise de Bad Bunny)", "Mi Casa Su Casa"], "note": "", "recit": ""}, "ms25-02.11.2025": {"titres": ["Girlfriend", "Bye Bye", "Yo Dije OUFF", "Rude Boy (reprise de Rihanna)", "Dying", "Sabotage", "Talk", "Malandro", "Tití Me Preguntó (reprise de Bad Bunny)", "Mi Casa Su Casa"], "note": "", "recit": ""}, "ms25-31.10.2025": {"titres": ["Girlfriend", "Bye Bye", "Yo Dije OUFF", "Rude Boy (reprise de Rihanna)", "Dying", "Sabotage", "Talk", "Malandro", "Tití Me Preguntó (reprise de Bad Bunny)", "Mi Casa Su Casa"], "note": "", "recit": "Omar entre en scène tout de noir vêtu, chemise transparente et pantalon constellé de strass. Sur Dying, des centaines de téléphones s'allument et transforment la salle en ciel étoilé ; on le voit ému. Il annonce la sortie de Malandro, se trompe, rit de bon cœur avec le public."}, "ms25-30.10.2025": {"titres": ["Girlfriend", "Bye Bye", "Yo Dije OUFF", "Rude Boy (reprise de Rihanna)", "Dying", "Sabotage", "Talk", "Malandro", "Tití Me Preguntó (reprise de Bad Bunny)", "Mi Casa Su Casa"], "note": "", "recit": ""}, "ms25-28.10.2025": {"titres": ["Girlfriend", "Bye Bye", "Yo Dije OUFF", "Rude Boy (reprise de Rihanna)", "Dying", "Sabotage", "Talk", "Malandro", "Tití Me Preguntó (reprise de Bad Bunny)", "Mi Casa Su Casa"], "note": "", "recit": "Il est exactement 20 h. Les lumières s'éteignent, la salle retient son souffle, et Omar apparaît. La foule explose. Girlfriend ouvre le concert avec une nouvelle chorégraphie. Le silence tombe sur Dying, avant la toute première interprétation de Malandro : « Cette chanson fait partie de moi. Elle parle de ma culture, du Venezuela, et de mon amour. »"}, "f25-30.08.2025": {"titres": ["Bye Bye", "Yo Dije OUFF", "Girlfriend", "Como Ayer / La Mesa / Pull Up / Que Pasa (medley)", "I'm Not a Boy", "Lose Me", "Talk", "Rude Boy (reprise de Rihanna)", "Moving Like That", "Happier", "Mi Casa Su Casa", "Sabotage", "Dum", "Red Light", "In The Sunrise", "It Takes A Fool To Remain Sane"], "note": "", "recit": ""}, "f25-23.08.2025": {"titres": ["Bye Bye", "Yo Dije OUFF", "Girlfriend", "Como Ayer / La Mesa / Pull Up / Que Pasa (medley)", "I'm Not a Boy", "Lose Me", "Talk", "Rude Boy (reprise de Rihanna)", "Moving Like That", "Happier", "Mi Casa Su Casa", "Sabotage", "Dum", "Red Light", "In The Sunrise", "It Takes A Fool To Remain Sane"], "note": "", "recit": ""}, "f25-09.08.2025": {"titres": ["Bye Bye", "Yo Dije OUFF", "Girlfriend", "Como Ayer / La Mesa / Pull Up / Que Pasa (medley)", "I'm Not a Boy", "Lose Me", "Talk", "Rude Boy (reprise de Rihanna)", "Moving Like That", "Happier", "Mi Casa Su Casa", "Sabotage", "Dum", "Red Light", "In The Sunrise", "It Takes A Fool To Remain Sane"], "note": "", "recit": ""}, "f25-01.08.2025": {"titres": ["Bye Bye", "Yo Dije OUFF", "Girlfriend", "Como Ayer / La Mesa / Pull Up / Que Pasa (medley)", "I'm Not a Boy", "Lose Me", "Talk", "Rude Boy (reprise de Rihanna)", "Moving Like That", "Happier", "Mi Casa Su Casa", "Sabotage", "Dum", "Red Light", "In The Sunrise", "It Takes A Fool To Remain Sane"], "note": "", "recit": ""}, "f25-04.07.2025": {"titres": ["Bye Bye", "Yo Dije OUFF", "Girlfriend", "Como Ayer / La Mesa / Pull Up / Que Pasa (medley)", "I'm Not a Boy", "Lose Me", "Talk", "Rude Boy (reprise de Rihanna)", "Moving Like That", "Happier", "Mi Casa Su Casa", "Sabotage", "Dum", "Red Light", "In The Sunrise", "It Takes A Fool To Remain Sane"], "note": "", "recit": ""}, "f25-28.06.2025": {"titres": ["Bye Bye", "Yo Dije OUFF", "Girlfriend", "Como Ayer / La Mesa / Pull Up / Que Pasa (medley)", "I'm Not a Boy", "Lose Me", "Talk", "Rude Boy (reprise de Rihanna)", "Moving Like That", "Happier", "Mi Casa Su Casa", "Sabotage", "Dum", "Red Light", "In The Sunrise", "It Takes A Fool To Remain Sane"], "note": "", "recit": ""}, "f25-21.06.2025": {"titres": ["Bye Bye", "Yo Dije OUFF", "Girlfriend", "Como Ayer / La Mesa / Pull Up / Que Pasa (medley)", "I'm Not a Boy", "Lose Me", "Talk", "Rude Boy (reprise de Rihanna)", "Moving Like That", "Happier", "Mi Casa Su Casa", "Sabotage", "Dum", "Red Light", "In The Sunrise", "It Takes A Fool To Remain Sane"], "note": "Show rallongé à partir du Pinkpop (21.06.2025) sur les créneaux d'une heure : titres 13 à 16 ajoutés.", "recit": ""}, "f25-31.05.2025": {"titres": ["Bye Bye", "Yo Dije OUFF", "Girlfriend", "Como Ayer / La Mesa / Pull Up / Que Pasa (medley)", "I'm Not a Boy", "Lose Me", "Talk", "Rude Boy (reprise de Rihanna)", "Moving Like That", "Happier", "Mi Casa Su Casa", "Sabotage"], "note": "", "recit": ""}, "enf25-02.03.2025": {"titres": ["Bye Bye", "Yo Dije OUFF", "Girlfriend", "Como Ayer / La Mesa / Pull Up / Que Pasa (medley)", "Simon's Song", "Wrong", "Red Light", "I'm Not a Boy", "Lose Me", "Talk", "Rude Boy (reprise de Rihanna)", "In The Sunrise", "Moving Like That", "It Takes A Fool To Remain Sane", "She Fell In Love In The Summer", "Dum", "Happier", "Mi Casa Su Casa", "Sabotage"], "note": "", "recit": "Dernière date de la tournée. Quand les dernières notes de Sabotage s'éteignent, Omar lève les yeux vers la foule : « Ce n'est pas la fin… ce n'est que le début. »"}, "enf25-28.02.2025": {"titres": ["Bye Bye", "Yo Dije OUFF", "Girlfriend", "Como Ayer / La Mesa / Pull Up / Que Pasa (medley)", "Simon's Song", "Wrong", "Red Light", "I'm Not a Boy", "Lose Me", "Talk", "Rude Boy (reprise de Rihanna)", "In The Sunrise", "Moving Like That", "It Takes A Fool To Remain Sane", "She Fell In Love In The Summer", "Dum", "Happier", "Mi Casa Su Casa", "Sabotage"], "note": "", "recit": ""}, "enf25-27.02.2025": {"titres": ["Bye Bye", "Yo Dije OUFF", "Girlfriend", "Como Ayer / La Mesa / Pull Up / Que Pasa (medley)", "Simon's Song", "Wrong", "Red Light", "I'm Not a Boy", "Lose Me", "Talk", "Rude Boy (reprise de Rihanna)", "In The Sunrise", "Moving Like That", "It Takes A Fool To Remain Sane", "She Fell In Love In The Summer", "Dum", "Happier", "Mi Casa Su Casa", "Sabotage"], "note": "", "recit": ""}, "enf25-26.02.2025": {"titres": ["Bye Bye", "Yo Dije OUFF", "Girlfriend", "Como Ayer / La Mesa / Pull Up / Que Pasa (medley)", "Simon's Song", "Wrong", "Red Light", "I'm Not a Boy", "Lose Me", "Talk", "Rude Boy (reprise de Rihanna)", "In The Sunrise", "Moving Like That", "It Takes A Fool To Remain Sane", "She Fell In Love In The Summer", "Dum", "Happier", "Mi Casa Su Casa", "Sabotage"], "note": "", "recit": ""}, "enf25-24.02.2025": {"titres": ["Bye Bye", "Yo Dije OUFF", "Girlfriend", "Como Ayer / La Mesa / Pull Up / Que Pasa (medley)", "Simon's Song", "Wrong", "Red Light", "I'm Not a Boy", "Lose Me", "Talk", "Rude Boy (reprise de Rihanna)", "In The Sunrise", "Moving Like That", "It Takes A Fool To Remain Sane", "She Fell In Love In The Summer", "Dum", "Happier", "Mi Casa Su Casa", "Sabotage"], "note": "", "recit": ""}, "enf25-23.02.2025": {"titres": ["Bye Bye", "Yo Dije OUFF", "Girlfriend", "Como Ayer / La Mesa / Pull Up / Que Pasa (medley)", "Simon's Song", "Wrong", "Red Light", "I'm Not a Boy", "Lose Me", "Talk", "Rude Boy (reprise de Rihanna)", "In The Sunrise", "Moving Like That", "It Takes A Fool To Remain Sane", "She Fell In Love In The Summer", "Dum", "Happier", "Mi Casa Su Casa", "Sabotage"], "note": "", "recit": ""}, "enf25-21.02.2025": {"titres": ["Bye Bye", "Yo Dije OUFF", "Girlfriend", "Como Ayer / La Mesa / Pull Up / Que Pasa (medley)", "Simon's Song", "Wrong", "Red Light", "I'm Not a Boy", "Lose Me", "Talk", "Rude Boy (reprise de Rihanna)", "In The Sunrise", "Moving Like That", "It Takes A Fool To Remain Sane", "She Fell In Love In The Summer", "Dum", "Happier", "Mi Casa Su Casa", "Sabotage"], "note": "", "recit": ""}, "enf25-19.02.2025": {"titres": ["Bye Bye", "Yo Dije OUFF", "Girlfriend", "Como Ayer / La Mesa / Pull Up / Que Pasa (medley)", "Simon's Song", "Wrong", "Red Light", "I'm Not a Boy", "Lose Me", "Talk", "Rude Boy (reprise de Rihanna)", "In The Sunrise", "Moving Like That", "It Takes A Fool To Remain Sane", "She Fell In Love In The Summer", "Dum", "Happier", "Mi Casa Su Casa", "Sabotage"], "note": "", "recit": ""}, "enf25-18.02.2025": {"titres": ["Bye Bye", "Yo Dije OUFF", "Girlfriend", "Como Ayer / La Mesa / Pull Up / Que Pasa (medley)", "Simon's Song", "Wrong", "Red Light", "I'm Not a Boy", "Lose Me", "Talk", "Rude Boy (reprise de Rihanna)", "In The Sunrise", "Moving Like That", "It Takes A Fool To Remain Sane", "She Fell In Love In The Summer", "Dum", "Happier", "Mi Casa Su Casa", "Sabotage"], "note": "", "recit": ""}, "enf25-16.02.2025": {"titres": ["Bye Bye", "Yo Dije OUFF", "Girlfriend", "Como Ayer / La Mesa / Pull Up / Que Pasa (medley)", "Simon's Song", "Wrong", "Red Light", "I'm Not a Boy", "Lose Me", "Talk", "Rude Boy (reprise de Rihanna)", "In The Sunrise", "Moving Like That", "It Takes A Fool To Remain Sane", "She Fell In Love In The Summer", "Dum", "Happier", "Mi Casa Su Casa", "Sabotage"], "note": "", "recit": ""}, "enf25-15.02.2025": {"titres": ["Bye Bye", "Yo Dije OUFF", "Girlfriend", "Como Ayer / La Mesa / Pull Up / Que Pasa (medley)", "Simon's Song", "Wrong", "Red Light", "I'm Not a Boy", "Lose Me", "Talk", "Rude Boy (reprise de Rihanna)", "In The Sunrise", "Moving Like That", "It Takes A Fool To Remain Sane", "She Fell In Love In The Summer", "Dum", "Happier", "Mi Casa Su Casa", "Sabotage"], "note": "", "recit": ""}, "enf25-13.02.2025": {"titres": ["Bye Bye", "Yo Dije OUFF", "Girlfriend", "Como Ayer / La Mesa / Pull Up / Que Pasa (medley)", "Simon's Song", "Wrong", "Red Light", "I'm Not a Boy", "Lose Me", "Talk", "Rude Boy (reprise de Rihanna)", "In The Sunrise", "Moving Like That", "It Takes A Fool To Remain Sane", "She Fell In Love In The Summer", "Dum", "Happier", "Mi Casa Su Casa", "Sabotage"], "note": "", "recit": ""}, "enf25-12.02.2025": {"titres": ["Bye Bye", "Yo Dije OUFF", "Girlfriend", "Como Ayer / La Mesa / Pull Up / Que Pasa (medley)", "Simon's Song", "Wrong", "Red Light", "I'm Not a Boy", "Lose Me", "Talk", "Rude Boy (reprise de Rihanna)", "In The Sunrise", "Moving Like That", "It Takes A Fool To Remain Sane", "She Fell In Love In The Summer", "Dum", "Happier", "Mi Casa Su Casa", "Sabotage"], "note": "", "recit": ""}, "enf25-10.02.2025": {"titres": ["Bye Bye", "Yo Dije OUFF", "Girlfriend", "Como Ayer / La Mesa / Pull Up / Que Pasa (medley)", "Simon's Song", "Wrong", "Red Light", "I'm Not a Boy", "Lose Me", "Talk", "Rude Boy (reprise de Rihanna)", "In The Sunrise", "Moving Like That", "It Takes A Fool To Remain Sane", "She Fell In Love In The Summer", "Dum", "Happier", "Mi Casa Su Casa", "Sabotage"], "note": "", "recit": ""}, "enf25-08.02.2025": {"titres": ["Bye Bye", "Yo Dije OUFF", "Girlfriend", "Como Ayer / La Mesa / Pull Up / Que Pasa (medley)", "Simon's Song", "Wrong", "Red Light", "I'm Not a Boy", "Lose Me", "Talk", "Rude Boy (reprise de Rihanna)", "In The Sunrise", "Moving Like That", "It Takes A Fool To Remain Sane", "She Fell In Love In The Summer", "Dum", "Happier", "Mi Casa Su Casa", "Sabotage"], "note": "", "recit": ""}, "enf25-06.02.2025": {"titres": ["Bye Bye", "Yo Dije OUFF", "Girlfriend", "Como Ayer / La Mesa / Pull Up / Que Pasa (medley)", "Simon's Song", "Wrong", "Red Light", "I'm Not a Boy", "Lose Me", "Talk", "Rude Boy (reprise de Rihanna)", "In The Sunrise", "Moving Like That", "It Takes A Fool To Remain Sane", "She Fell In Love In The Summer", "Dum", "Happier", "Mi Casa Su Casa", "Sabotage"], "note": "", "recit": ""}, "enf25-05.02.2025": {"titres": ["Bye Bye", "Yo Dije OUFF", "Girlfriend", "Como Ayer / La Mesa / Pull Up / Que Pasa (medley)", "Simon's Song", "Wrong", "Red Light", "I'm Not a Boy", "Lose Me", "Talk", "Rude Boy (reprise de Rihanna)", "In The Sunrise", "Moving Like That", "It Takes A Fool To Remain Sane", "She Fell In Love In The Summer", "Dum", "Happier", "Mi Casa Su Casa", "Sabotage"], "note": "", "recit": "Le soir où la fiction a rejoint la réalité. Pendant Simon's Song, une silhouette familière apparaît derrière Omar : Edvin Ryding. Il s'approche et l'enlace doucement, en écho à Young Royals. Omar rit, surpris, ému, incapable de continuer à chanter."}, "enf25-03.02.2025": {"titres": ["Bye Bye", "Yo Dije OUFF", "Girlfriend", "Como Ayer / La Mesa / Pull Up / Que Pasa (medley)", "Simon's Song", "Wrong", "Red Light", "I'm Not a Boy", "Lose Me", "Talk", "Rude Boy (reprise de Rihanna)", "In The Sunrise", "Moving Like That", "It Takes A Fool To Remain Sane", "She Fell In Love In The Summer", "Dum", "Happier", "Mi Casa Su Casa", "Sabotage"], "note": "", "recit": ""}, "enf25-02.02.2025": {"titres": ["Bye Bye", "Yo Dije OUFF", "Girlfriend", "Como Ayer / La Mesa / Pull Up / Que Pasa (medley)", "Simon's Song", "Wrong", "Red Light", "I'm Not a Boy", "Lose Me", "Talk", "Rude Boy (reprise de Rihanna)", "In The Sunrise", "Moving Like That", "It Takes A Fool To Remain Sane", "She Fell In Love In The Summer", "Dum", "Happier", "Mi Casa Su Casa", "Sabotage"], "note": "", "recit": "La tournée s'ouvre à Glasgow. Les lumières s'éteignent, les premières notes de Bye Bye résonnent, et la salle retient son souffle."}, "enf24-04.11.2024": {"titres": ["Bye Bye", "Yo Dije OUFF / I Like It (mashup avec Cardi B, Bad Bunny & J Balvin)", "Girlfriend", "Como Ayer / La Mesa / Pull Up / Que Pasa (medley)", "Simon's Song", "Wrong", "Red Light", "I'm Not a Boy", "Lose Me", "Talk", "Rude Boy (reprise de Rihanna)", "In The Sunrise", "Moving Like That", "It Takes A Fool To Remain Sane", "She Fell In Love In The Summer", "Dum", "Happier", "Mi Casa Su Casa", "Sabotage"], "note": "", "recit": ""}, "enf24-28.10.2024": {"titres": ["Bye Bye", "Yo Dije OUFF / I Like It (mashup avec Cardi B, Bad Bunny & J Balvin)", "Girlfriend", "Como Ayer / La Mesa / Pull Up / Que Pasa (medley)", "Simon's Song", "Wrong", "Red Light", "I'm Not a Boy", "Lose Me", "Talk", "Rude Boy (reprise de Rihanna)", "In The Sunrise", "Moving Like That", "It Takes A Fool To Remain Sane", "She Fell In Love In The Summer", "Dum", "Happier", "Mi Casa Su Casa", "Sabotage"], "note": "", "recit": ""}, "enf24-25.10.2024": {"titres": ["Bye Bye", "Yo Dije OUFF / I Like It (mashup avec Cardi B, Bad Bunny & J Balvin)", "Girlfriend", "Como Ayer / La Mesa / Pull Up / Que Pasa (medley)", "Simon's Song", "Wrong", "Red Light", "I'm Not a Boy", "Lose Me", "Talk", "Rude Boy (reprise de Rihanna)", "In The Sunrise", "Moving Like That", "It Takes A Fool To Remain Sane", "She Fell In Love In The Summer", "Dum", "Happier", "Mi Casa Su Casa", "Sabotage"], "note": "", "recit": ""}, "enf24-24.10.2024": {"titres": ["Bye Bye", "Yo Dije OUFF / I Like It (mashup avec Cardi B, Bad Bunny & J Balvin)", "Girlfriend", "Como Ayer / La Mesa / Pull Up / Que Pasa (medley)", "Simon's Song", "Wrong", "Red Light", "I'm Not a Boy", "Lose Me", "Talk", "Rude Boy (reprise de Rihanna)", "In The Sunrise", "Moving Like That", "It Takes A Fool To Remain Sane", "She Fell In Love In The Summer", "Dum", "Happier", "Mi Casa Su Casa", "Sabotage"], "note": "", "recit": ""}, "enf24-23.10.2024": {"titres": ["Bye Bye", "Yo Dije OUFF / I Like It (mashup avec Cardi B, Bad Bunny & J Balvin)", "Girlfriend", "Como Ayer / La Mesa / Pull Up / Que Pasa (medley)", "Simon's Song", "Wrong", "Red Light", "I'm Not a Boy", "Lose Me", "Talk", "Rude Boy (reprise de Rihanna)", "In The Sunrise", "Moving Like That", "It Takes A Fool To Remain Sane", "She Fell In Love In The Summer", "Dum", "Happier", "Mi Casa Su Casa", "Sabotage"], "note": "", "recit": ""}, "enf24-21.10.2024": {"titres": ["Bye Bye", "Yo Dije OUFF / I Like It (mashup avec Cardi B, Bad Bunny & J Balvin)", "Girlfriend", "Como Ayer / La Mesa / Pull Up / Que Pasa (medley)", "Simon's Song", "Wrong", "Red Light", "I'm Not a Boy", "Lose Me", "Talk", "Rude Boy (reprise de Rihanna)", "In The Sunrise", "Moving Like That", "It Takes A Fool To Remain Sane", "She Fell In Love In The Summer", "Dum", "Happier", "Mi Casa Su Casa", "Sabotage"], "note": "", "recit": ""}, "f24-01.09.2024": {"titres": ["Mi Casa Su Casa", "Yo Dije OUFF", "Todo De Ti (All That She Wants)", "Coast Side", "Como Ayer", "La Mesa", "Pull Up", "Que Pasa", "Simon's Song", "Höj ett glas", "Dum", "Om du inte fanns", "Talk", "Min första", "In The Sunrise", "Moving Like That", "Bye Bye", "Happier", "Red Light", "It Takes A Fool To Remain Sane"], "note": "", "recit": ""}, "f24-29.08.2024": {"titres": ["Mi Casa Su Casa", "Yo Dije OUFF", "Todo De Ti (All That She Wants)", "Coast Side", "Como Ayer", "La Mesa", "Pull Up", "Que Pasa", "Simon's Song", "Höj ett glas", "Dum", "Om du inte fanns", "Talk", "Min första", "In The Sunrise", "Moving Like That", "Bye Bye", "Happier", "Red Light", "It Takes A Fool To Remain Sane"], "note": "", "recit": ""}, "f24-24.08.2024": {"titres": ["Mi Casa Su Casa", "Yo Dije OUFF", "Todo De Ti (All That She Wants)", "Coast Side", "Como Ayer", "La Mesa", "Pull Up", "Que Pasa", "Simon's Song", "Höj ett glas", "Dum", "Om du inte fanns", "Talk", "Min första", "In The Sunrise", "Moving Like That", "Bye Bye", "Happier", "Red Light", "It Takes A Fool To Remain Sane"], "note": "", "recit": ""}, "f24-11.06.2024": {"titres": ["Mi Casa Su Casa", "Yo Dije OUFF", "Todo De Ti (All That She Wants)", "Coast Side", "Como Ayer", "La Mesa", "Pull Up", "Que Pasa", "Simon's Song", "Höj ett glas", "Dum", "Om du inte fanns", "Talk", "Min första", "In The Sunrise", "Moving Like That", "Bye Bye", "Happier", "Red Light", "It Takes A Fool To Remain Sane"], "note": "", "recit": ""}, "f24-01.06.2024": {"titres": ["Mi Casa Su Casa", "Yo Dije OUFF", "Todo De Ti (All That She Wants)", "Coast Side", "Como Ayer", "La Mesa", "Pull Up", "Que Pasa", "Simon's Song", "Höj ett glas", "Dum", "Om du inte fanns", "Talk", "Min första", "In The Sunrise", "Moving Like That", "Bye Bye", "Happier", "Red Light", "It Takes A Fool To Remain Sane"], "note": "", "recit": ""}, "f24-25.05.2024": {"titres": ["Mi Casa Su Casa", "Yo Dije OUFF", "Todo De Ti (All That She Wants)", "Coast Side", "Como Ayer", "La Mesa", "Pull Up", "Que Pasa", "Simon's Song", "Höj ett glas", "Dum", "Om du inte fanns", "Talk", "Min första", "In The Sunrise", "Moving Like That", "Bye Bye", "Happier", "Red Light", "It Takes A Fool To Remain Sane"], "note": "", "recit": ""}, "solo24-17.02.2024": {"titres": ["Mi Casa Su Casa", "Yo Dije OUFF (avec un passage de « I Like It » de Cardi B, Bad Bunny & J Balvin)", "Todo De Ti (All That She Wants)", "Coast Side", "Como Ayer", "La Mesa", "Pull Up (version salsa)", "Que Pasa", "Simon's Song", "Höj ett glas", "Mama", "Build a Girl (version acoustique · reprise de FO&O / The Fooo Conspiracy)", "Dum", "Om du inte fanns (avec Mapei)", "Happier", "Off My Mind (avec Jubël)", "Min första", "In The Sunrise (avec un passage de « STAY » de The Kid LAROI & Justin Bieber)", "Moving Like That", "Red Light (première interprétation publique d'un titre alors inédit)", "It Takes A Fool To Remain Sane (reprise de The Ark)"], "note": "", "recit": "Le 17 février, la salle du Cirkus vibre d'une émotion particulière : Omar fait ses vrais débuts en solo. Pour la première fois, il n'est plus seulement l'acteur de la série ou une figure montante ; il se présente tel qu'il est, artiste à part entière, riche d'une identité pleinement assumée. En tant que fan, on sent l'adrénaline monter dès les premières secondes : les lumières plongent la salle dans une attente silencieuse, les visages se tournent vers la scène, prêts à vivre quelque chose d'unique.\n\nD'un point de vue professionnel, c'est une étape majeure : un artiste qui célèbre son premier concert solo devant un public venu de nombreux pays — plus de quarante nationalités semblent présentes — offre un moment décisif dans la construction de son identité artistique. Omar choisit son décor, son rythme, sa mise en scène ; il doit rassurer, surprendre, captiver, rassembler.\n\nSur scène, l'équilibre est remarquable : la setlist mêle les titres de son répertoire solo et quelques surprises, comme la toute première interprétation de « Red Light ». Pour un fan, ce mélange revient à dire « je te connais » et en même temps « je te découvre ». Le spectacle alterne les moments intenses et les respirations, les envolées vocales et les instants plus doux.\n\nLa voix d'Omar est mise en valeur : claire, sûre, on sent qu'il se donne entièrement. Les mouvements, la chorégraphie et les lumières se répondent pour servir chaque chanson. Il y a aussi quelque chose de vulnérable, presque fragile : ce n'est pas seulement la performance d'une vedette, c'est celle d'un jeune homme qui vit un rêve, ses fans à ses côtés.\n\nLa gestion du temps, de l'énergie et du public est finement pensée. La salle est engagée : elle suit, elle réagit, elle chante. Pour un premier concert solo, c'est une réussite : l'artiste et son équipe technique ont su créer une atmosphère immersive. Le Cirkus de Stockholm est un lieu symbolique, intime et élégant, un cadre parfait pour ce tournant.\n\nL'un des moments les plus forts est celui où le lien se noue vraiment : Omar lance un regard, un sourire, un geste vers la foule. On sent qu'il mesure ce que ces instants représentent pour nous, et pour lui. On n'est plus spectateur, on devient partie d'une célébration collective.\n\nLa soirée s'achève avec le sentiment que ce n'est que le début. Pour l'artiste, c'est une marche, un tremplin vers quelque chose de plus grand. Pour les fans, c'est un souvenir fondateur, une date gravée : 17 février 2024, Omar en solo, au Cirkus. On repart plein d'énergie, impatient de la suite.\n\nEn résumé, ce concert n'était pas seulement un spectacle : c'était le premier chapitre d'une nouvelle ère pour Omar Rudberg, avec tout l'espoir, tout le charme et toute l'énergie que cela suppose."}};
-  const LIENS = {};        // "cle|plateforme": [ {t:"titre", u:"adresse d'intégration"} ]
-  const NOMS = {instagram:"Instagram", tiktok:"TikTok", youtube:"YouTube"};
-
-  function bloc(titre, contenu){
-    return '<p class="titre-bloc">'+titre+'</p>'+contenu;
-  }
-
-  document.querySelectorAll(".concert").forEach(function(art){
-    const cle=art.dataset.cle;
-    const d=DETAILS[cle]||{};
-    let html="";
-    if(d.recit) html+=bloc("Le récit", '<p class="recit">'+d.recit+'</p>');
-    if(d.titres && d.titres.length){
-      let ol='<div class="setlist"><ol>';
-      d.titres.forEach(function(t){ ol+='<li>'+t+'</li>'; });
-      ol+='</ol>'+(d.note?'<p class="note-set">'+d.note+'</p>':'')+'</div>';
-      html+=bloc("Setlist", ol);
-    }
-    html+=bloc("Photos et vidéos",
-      '<div class="medias__boutons">'+
-      '<button class="media-btn" data-type="instagram">Instagram</button>'+
-      '<button class="media-btn" data-type="tiktok">TikTok</button>'+
-      '<button class="media-btn" data-type="youtube">YouTube</button></div>'+
-      '<div class="medias__zone"></div>');
-    art.querySelector(".detail").innerHTML=html;
-
-    art.addEventListener("click",function(){ art.classList.toggle("ouvert"); });
-
-    art.querySelectorAll(".media-btn").forEach(function(b){
-      const liste=LIENS[cle+"|"+b.dataset.type];
-      if(liste&&liste.length){
-        const p=document.createElement("span");
-        p.className="pastille-media"; p.textContent=liste.length; b.appendChild(p);
-      }
-      b.addEventListener("click",function(e){
-        e.stopPropagation();
-        const zone=art.querySelector(".medias__zone");
-        art.querySelectorAll(".media-btn").forEach(function(x){x.classList.toggle("actif",x===b);});
-        const type=b.dataset.type, l=LIENS[cle+"|"+type];
-        zone.innerHTML="";
-        if(!l||!l.length){
-          const c=document.createElement("div");
-          c.className="cadre-media";
-          c.innerHTML="<div><p>Aucune publication "+NOMS[type]+" n'est encore reliée à cette date.</p>"+
-            '<p class="avertissement">Les publications officielles d\'Omar seront intégrées ici, sans être hébergées par le site.</p></div>';
-          zone.appendChild(c); return;
-        }
-        const g=document.createElement("div"); g.className="grille-medias";
-        l.forEach(function(item){
-          const c=document.createElement("div"); c.className="cadre-media";
-          c.innerHTML='<div><b>'+(item.t||NOMS[type])+'</b><p>En l\'affichant, vous acceptez que '+
-            NOMS[type]+' dépose ses traceurs.</p><button class="btn btn--fin charger">Afficher</button></div>';
-          c.querySelector(".charger").addEventListener("click",function(ev){
-            ev.stopPropagation();
-            const i=document.createElement("iframe");
-            i.loading="lazy"; i.referrerPolicy="strict-origin-when-cross-origin";
-            i.height = type==="youtube" ? "320" : "600"; i.style.width="100%"; i.style.border="0";
-            i.src=item.u;
-            c.innerHTML=""; c.appendChild(i);
-          });
-          g.appendChild(c);
-        });
-        zone.appendChild(g);
-      });
-    });
-  });
-
-  const concerts=[...document.querySelectorAll(".concert")];
-  document.querySelectorAll(".filtre").forEach(function(f){
-    f.addEventListener("click",function(){
-      document.querySelectorAll(".filtre").forEach(function(x){x.classList.toggle("actif",x===f);});
-      const t=f.dataset.filtre; let n=0;
-      concerts.forEach(function(c){
-        const ok=(t==="Toutes"||c.dataset.tournee===t);
-        c.style.display=ok?"grid":"none"; if(ok) n++;
-      });
-      document.getElementById("aucune").style.display=n?"none":"block";
-    });
-  });
-})();
-</script>
-
 
 <script>
 (function(){
@@ -1326,32 +960,148 @@ const CONTINENTS=[[[143.2,-12.0],[143.5,-13.1],[143.8,-14.3],[144.9,-14.7],[145.
 })();
 </script>
 
-
 <script>
 (function(){
-  const INTROS = {
-    "Premier concert solo":"Le 17 février 2024, au Cirkus de Stockholm : le premier concert d'Omar en son nom propre, devant un public venu de plus de quarante pays.",
-    "Festivals 2024":"Après le Cirkus, l'été des festivals : Omar enchaîne les scènes suédoises et se fait connaître d'un public toujours plus large.",
-    "Every Night Fantasy 2024":"La première tournée mondiale, lancée après la signature avec Atlantic Records et la sortie de l'EP Every Night Fantasy. New York et Los Angeles affichent complet.",
-    "Every Night Fantasy 2025":"Dix-neuf dates, dix-neuf villes, onze pays, du 2 février au 2 mars. La tournée qui a fait basculer bien des choses, jusqu'à la dernière note de Sabotage à Berlin.",
-    "Festivals 2025":"L'été 2025 sur les scènes de festivals, entre la sortie de Dying et celle de Malandro.",
-    "Midnight Sun 2025":"En première partie de Zara Larsson, dix-sept dates dans les grandes salles d'Europe, et la toute première interprétation de Malandro à Munich.",
-    "Festivals 2026":"Les prochains rendez-vous de l'été, de Cologne à Göteborg, avec les nouvelles chansons."
-  };
-  const zone=document.createElement("p");
-  zone.className="intro-tournee";
-  const filtres=document.querySelector(".filtres");
-  filtres.after(zone);
-  function afficher(nom){
-    const t=INTROS[nom];
-    zone.textContent=t||"";
-    zone.style.display=t?"block":"none";
+  const b=document.getElementById("burger");
+  if(!b) return;
+  const menu=document.querySelector(".menu");
+  const entete=document.querySelector(".entete");
+  function bascule(ouvrir){
+    menu.classList.toggle("ouvert",ouvrir);
+    entete.classList.toggle("menu-ouvert",ouvrir);
+    b.setAttribute("aria-expanded",String(ouvrir));
+    document.body.style.overflow=ouvrir?"hidden":"";
   }
-  afficher(null);
-  document.querySelectorAll(".filtre").forEach(function(f){
-    f.addEventListener("click",function(){ afficher(f.dataset.filtre); });
+  b.addEventListener("click",function(e){
+    e.stopPropagation();
+    bascule(!menu.classList.contains("ouvert"));
   });
+  menu.querySelectorAll("a").forEach(function(a){
+    a.addEventListener("click",function(){ bascule(false); });
+  });
+  document.addEventListener("keydown",function(e){ if(e.key==="Escape") bascule(false); });
 })();
+</script>
+<script>
+(function(){
+  const CH=[{"t": "Careless", "p": "https://omarrudbergmap.com/photos/CARELESS_PH2.webp", "s": "4JP5g7hhIZjvquzHfa3Ebz", "n": 2, "pr": "27/06/2026 · Cologne", "to": ["Festivals 2026"], "remix": false, "d": "03/07/2026"}, {"t": "Siren (feat. Felix Jaehn)", "p": "https://omarrudbergmap.com/photos/PH_SIREN.webp", "s": "", "n": 0, "pr": "", "to": [], "remix": false, "d": "19/06/2026"}, {"t": "A World Like This", "p": "https://omarrudbergmap.com/photos/PH_WORLD.webp", "s": "", "n": 2, "pr": "27/06/2026 · Cologne", "to": ["Festivals 2026"], "remix": false, "d": "29/05/2026"}, {"t": "Gabriela (Spotify Singles)", "p": "https://omarrudbergmap.com/photos/PH_GABRIELA.webp", "s": "", "n": 0, "pr": "", "to": [], "remix": false, "d": "12/12/2025"}, {"t": "Bebezinho (feat. Omar Rudberg)", "p": "https://omarrudbergmap.com/photos/PH_BEBEZINHO.webp", "s": "", "n": 0, "pr": "", "to": [], "remix": false, "d": "28/11/2025"}, {"t": "Malandro", "p": "https://omarrudbergmap.com/photos/PH_MALANDRO.webp", "s": "", "n": 19, "pr": "28/10/2025 · Munich", "to": ["Festivals 2026", "Midnight Sun 2025"], "remix": false, "d": "30/10/2025"}, {"t": "Dying", "p": "https://omarrudbergmap.com/photos/PH_DYING.webp", "s": "", "n": 18, "pr": "28/10/2025 · Munich", "to": ["Festivals 2026", "Midnight Sun 2025"], "remix": false, "d": "05/09/2025"}, {"t": "Bye Bye", "p": "https://omarrudbergmap.com/photos/PH_BYEBYE.webp", "s": "", "n": 57, "pr": "25/05/2024 · Gävle", "to": ["Every Night Fantasy 2024", "Every Night Fantasy 2025", "Festivals 2024", "Festivals 2025", "Festivals 2026", "Midnight Sun 2025"], "remix": false, "d": "18/10/2024"}, {"t": "Girlfriend", "p": "https://omarrudbergmap.com/photos/PH_GIRLFRIEND.webp", "s": "3MfysK4blbsihpWvCSDOhy", "n": 51, "pr": "21/10/2024 · London", "to": ["Every Night Fantasy 2024", "Every Night Fantasy 2025", "Festivals 2025", "Festivals 2026", "Midnight Sun 2025"], "remix": false, "d": "18/10/2024"}, {"t": "Lose Me", "p": "https://omarrudbergmap.com/photos/PH_LOSEME.webp", "s": "", "n": 33, "pr": "21/10/2024 · London", "to": ["Every Night Fantasy 2024", "Every Night Fantasy 2025", "Festivals 2025"], "remix": false, "d": "18/10/2024"}, {"t": "Wrong", "p": "https://omarrudbergmap.com/photos/PH_WRONG.webp", "s": "", "n": 25, "pr": "21/10/2024 · London", "to": ["Every Night Fantasy 2024", "Every Night Fantasy 2025"], "remix": false, "d": "18/10/2024"}, {"t": "Sabotage", "p": "https://omarrudbergmap.com/photos/PH_SABOTAGE.webp", "s": "2ZRhNEadmYEmEPpEzL0UC7", "n": 51, "pr": "21/10/2024 · London", "to": ["Every Night Fantasy 2024", "Every Night Fantasy 2025", "Festivals 2025", "Festivals 2026", "Midnight Sun 2025"], "remix": false, "d": "11/10/2024"}, {"t": "Talk", "p": "https://omarrudbergmap.com/photos/PH_TALK.webp", "s": "0pELfDyyPkiaI14fuDSd3p", "n": 57, "pr": "25/05/2024 · Gävle", "to": ["Every Night Fantasy 2024", "Every Night Fantasy 2025", "Festivals 2024", "Festivals 2025", "Festivals 2026", "Midnight Sun 2025"], "remix": false, "d": "28/06/2024"}, {"t": "Sorry (reprise de Madonna)", "p": "https://omarrudbergmap.com/photos/PH_SORRY.webp", "s": "", "n": 0, "pr": "", "to": [], "remix": false, "d": "18/06/2024"}, {"t": "Red Light", "p": "https://omarrudbergmap.com/photos/PH_REDLIGHT.webp", "s": "2TXyJJEe1AMm2kj67g5Vnz", "n": 39, "pr": "17/02/2024 · Stockholm", "to": ["Every Night Fantasy 2024", "Every Night Fantasy 2025", "Festivals 2024", "Festivals 2025", "Premier concert solo"], "remix": false, "d": "17/05/2024"}, {"t": "Min Första (I Will Always Be Your Soldier)", "p": "https://omarrudbergmap.com/photos/PH_MINFORSTA.webp", "s": "", "n": 7, "pr": "17/02/2024 · Stockholm", "to": ["Festivals 2024", "Premier concert solo"], "remix": false, "d": "09/12/2023"}, {"t": "Om du inte fanns (Don't Wait)", "p": "https://omarrudbergmap.com/photos/PH_SMB.webp", "s": "", "n": 7, "pr": "17/02/2024 · Stockholm", "to": ["Festivals 2024", "Premier concert solo"], "remix": false, "d": "25/11/2023"}, {"t": "Höj ett glas (Fanfar)", "p": "https://omarrudbergmap.com/photos/PH_SMB.webp", "s": "", "n": 7, "pr": "17/02/2024 · Stockholm", "to": ["Festivals 2024", "Premier concert solo"], "remix": false, "d": "20/10/2023"}, {"t": "Off My Mind (feat. Jubël)", "p": "https://omarrudbergmap.com/photos/PH_OFFMYMIND.webp", "s": "", "n": 1, "pr": "17/02/2024 · Stockholm", "to": ["Premier concert solo"], "remix": false, "d": "20/10/2023"}, {"t": "Happier", "p": "https://omarrudbergmap.com/photos/PH_HAPPIER.webp", "s": "", "n": 40, "pr": "17/02/2024 · Stockholm", "to": ["Every Night Fantasy 2024", "Every Night Fantasy 2025", "Festivals 2024", "Festivals 2025", "Premier concert solo"], "remix": false, "d": "01/07/2023"}, {"t": "All In My Head (feat. Omar Rudberg)", "p": "https://omarrudbergmap.com/photos/PH_ALLHEAD.webp", "s": "", "n": 0, "pr": "", "to": [], "remix": false, "d": "29/06/2023"}, {"t": "Call Me By Your Name", "p": "https://omarrudbergmap.com/photos/PH_CMBYN.webp", "s": "", "n": 0, "pr": "", "to": [], "remix": false, "d": "01/05/2023"}, {"t": "She Fell In Love In The Summer (acoustic)", "p": "https://omarrudbergmap.com/photos/PH_SHEFELL.webp", "s": "", "n": 25, "pr": "21/10/2024 · London", "to": ["Every Night Fantasy 2024", "Every Night Fantasy 2025"], "remix": false, "d": "01/05/2023"}, {"t": "She Fell In Love In The Summer", "p": "https://omarrudbergmap.com/photos/PH_SHEFELL.webp", "s": "", "n": 25, "pr": "21/10/2024 · London", "to": ["Every Night Fantasy 2024", "Every Night Fantasy 2025"], "remix": false, "d": "01/05/2023"}, {"t": "La Incondicional (live from Benjamin's)", "p": "https://omarrudbergmap.com/photos/PH_BENJAMINS.webp", "s": "", "n": 0, "pr": "", "to": [], "remix": false, "d": "02/07/2022"}, {"t": "La Incondicional", "p": "https://omarrudbergmap.com/photos/PH_BENJAMINS.webp", "s": "", "n": 0, "pr": "", "to": [], "remix": false, "d": "02/07/2022"}, {"t": "Todo De Ti (All That She Wants)", "p": "https://omarrudbergmap.com/photos/PH_TODODETI.webp", "s": "", "n": 7, "pr": "17/02/2024 · Stockholm", "to": ["Festivals 2024", "Premier concert solo"], "remix": false, "d": "01/07/2022"}, {"t": "Nakna", "p": "https://omarrudbergmap.com/photos/PH_NAKNA.webp", "s": "", "n": 0, "pr": "", "to": [], "remix": false, "d": "23/06/2022"}, {"t": "In The Sunrise", "p": "https://omarrudbergmap.com/photos/PH_SUNRISE.webp", "s": "", "n": 39, "pr": "17/02/2024 · Stockholm", "to": ["Every Night Fantasy 2024", "Every Night Fantasy 2025", "Festivals 2024", "Festivals 2025", "Premier concert solo"], "remix": false, "d": "21/06/2022"}, {"t": "Breathe", "p": "https://omarrudbergmap.com/photos/PH_BREATHE.webp", "s": "0y3C8kobslt7MOiloZyt3T", "n": 0, "pr": "", "to": [], "remix": false, "d": "01/06/2022"}, {"t": "Como Ayer", "p": "https://omarrudbergmap.com/photos/PH_OMR.webp", "s": "", "n": 7, "pr": "17/02/2024 · Stockholm", "to": ["Festivals 2024", "Premier concert solo"], "remix": false, "d": "01/06/2022"}, {"t": "Mi Casa Su Casa", "p": "https://omarrudbergmap.com/photos/PH_MICASA.webp", "s": "4q3fWjv4mlsAXRZsx5ZGn5", "n": 58, "pr": "17/02/2024 · Stockholm", "to": ["Every Night Fantasy 2024", "Every Night Fantasy 2025", "Festivals 2024", "Festivals 2025", "Festivals 2026", "Midnight Sun 2025", "Premier concert solo"], "remix": false, "d": "01/06/2022"}, {"t": "Pull Up", "p": "https://omarrudbergmap.com/photos/PH_PULLUP.webp", "s": "", "n": 7, "pr": "17/02/2024 · Stockholm", "to": ["Festivals 2024", "Premier concert solo"], "remix": false, "d": "01/06/2022"}, {"t": "Que Puedo Hacer?", "p": "https://omarrudbergmap.com/photos/PH_QUEPUEDO.webp", "s": "", "n": 0, "pr": "", "to": [], "remix": false, "d": "01/06/2022"}, {"t": "Coast Side", "p": "https://omarrudbergmap.com/photos/PH_CAROUSEL.webp", "s": "", "n": 7, "pr": "17/02/2024 · Stockholm", "to": ["Festivals 2024", "Premier concert solo"], "remix": false, "d": "31/05/2022"}, {"t": "Mama", "p": "https://omarrudbergmap.com/photos/PH_OMR.webp", "s": "", "n": 1, "pr": "17/02/2024 · Stockholm", "to": ["Premier concert solo"], "remix": false, "d": "31/05/2022"}, {"t": "Läppar", "p": "https://omarrudbergmap.com/photos/PH_LAPPAR.webp", "s": "", "n": 0, "pr": "", "to": [], "remix": false, "d": "12/05/2022"}, {"t": "Moving Like That", "p": "https://omarrudbergmap.com/photos/PH_MOVING.webp", "s": "3vt6ye36c6OtBxzFoTjgaZ", "n": 40, "pr": "17/02/2024 · Stockholm", "to": ["Every Night Fantasy 2024", "Every Night Fantasy 2025", "Festivals 2024", "Festivals 2025", "Premier concert solo"], "remix": false, "d": "12/05/2022"}, {"t": "Dum", "p": "https://omarrudbergmap.com/photos/PH_DUM.webp", "s": "", "n": 39, "pr": "17/02/2024 · Stockholm", "to": ["Every Night Fantasy 2024", "Every Night Fantasy 2025", "Festivals 2024", "Festivals 2025", "Premier concert solo"], "remix": false, "d": "13/08/2021"}, {"t": "Yo Dije OUFF", "p": "https://omarrudbergmap.com/photos/PH_OUFF.webp", "s": "", "n": 51, "pr": "17/02/2024 · Stockholm", "to": ["Every Night Fantasy 2025", "Festivals 2024", "Festivals 2025", "Midnight Sun 2025", "Premier concert solo"], "remix": false, "d": "31/07/2021"}, {"t": "It Takes A Fool To Remain Sane", "p": "https://omarrudbergmap.com/photos/PH_FOOL.webp", "s": "733ITqdz64L7i5p0XyYeRe", "n": 39, "pr": "17/02/2024 · Stockholm", "to": ["Every Night Fantasy 2024", "Every Night Fantasy 2025", "Festivals 2024", "Festivals 2025", "Premier concert solo"], "remix": false, "d": "15/07/2021"}, {"t": "Remember", "p": "https://omarrudbergmap.com/photos/PH_REMEMBER.webp", "s": "", "n": 0, "pr": "", "to": [], "remix": false, "d": "10/07/2021"}, {"t": "Symphony", "p": "https://omarrudbergmap.com/photos/PH_REMEMBER.webp", "s": "14DjGeKNKqqMDSQpAiPulu", "n": 0, "pr": "", "to": [], "remix": false, "d": "09/07/2021"}, {"t": "Jag e nån annan", "p": "https://omarrudbergmap.com/photos/PH_JAGE.webp", "s": "", "n": 0, "pr": "", "to": [], "remix": false, "d": "17/05/2020"}, {"t": "Dale Bye", "p": "https://omarrudbergmap.com/photos/PH_DALEBYE.webp", "s": "", "n": 0, "pr": "", "to": [], "remix": false, "d": "17/04/2020"}, {"t": "Om om och om igen", "p": "https://omarrudbergmap.com/photos/PH_OMOM.webp", "s": "", "n": 0, "pr": "", "to": [], "remix": false, "d": "16/02/2019"}, {"t": "La Mesa (feat. Elias Hurtig)", "p": "https://omarrudbergmap.com/photos/PH_LAMESA.webp", "s": "", "n": 7, "pr": "17/02/2024 · Stockholm", "to": ["Festivals 2024", "Premier concert solo"], "remix": false, "d": "22/08/2018"}, {"t": "Que Pasa (feat. Lamix)", "p": "https://omarrudbergmap.com/photos/PH_QUEPASA.webp", "s": "", "n": 7, "pr": "17/02/2024 · Stockholm", "to": ["Festivals 2024", "Premier concert solo"], "remix": false, "d": "23/01/2018"}, {"t": "Alla Ba OUFF", "p": "https://omarrudbergmap.com/photos/PH_OUFF.webp", "s": "", "n": 0, "pr": "", "to": [], "remix": false}, {"t": "I'm Not a Boy", "p": "https://omarrudbergmap.com/photos/PH_NOTABOY.webp", "s": "", "n": 33, "pr": "21/10/2024 · London", "to": ["Every Night Fantasy 2024", "Every Night Fantasy 2025", "Festivals 2025"], "remix": false}, {"t": "I'm So Excited (Live at QX Gala)", "p": "https://omarrudbergmap.com/photos/PH_EXCITED.webp", "s": "", "n": 0, "pr": "", "to": [], "remix": false}, {"t": "Luz Roja (Bonus)", "p": "https://omarrudbergmap.com/photos/PH_LUZROJA.webp", "s": "", "n": 0, "pr": "", "to": [], "remix": false}, {"t": "No Soy un Hombre", "p": "https://omarrudbergmap.com/photos/PH_NOTABOY.webp", "s": "", "n": 0, "pr": "", "to": [], "remix": false}, {"t": "På min telephone toda la noche", "p": "https://omarrudbergmap.com/photos/PH_TELEPHONE.webp", "s": "", "n": 0, "pr": "", "to": [], "remix": false}, {"t": "Simon's Song", "p": "https://omarrudbergmap.com/photos/PH_SIMONSSONG.webp", "s": "", "n": 32, "pr": "17/02/2024 · Stockholm", "to": ["Every Night Fantasy 2024", "Every Night Fantasy 2025", "Festivals 2024", "Premier concert solo"], "remix": false}, {"t": "Happier (After Midnight xxx / In The Club Remix)", "p": "https://omarrudbergmap.com/photos/PH_HAPPIER_REMIX.webp", "s": "", "n": 40, "pr": "17/02/2024 · Stockholm", "to": ["Every Night Fantasy 2024", "Every Night Fantasy 2025", "Festivals 2024", "Festivals 2025", "Premier concert solo"], "remix": true, "d": "01/07/2023"}, {"t": "Happier (House/Club Remix)", "p": "https://omarrudbergmap.com/photos/PH_HAPPIER_REMIX.webp", "s": "", "n": 40, "pr": "17/02/2024 · Stockholm", "to": ["Every Night Fantasy 2024", "Every Night Fantasy 2025", "Festivals 2024", "Festivals 2025", "Premier concert solo"], "remix": true, "d": "01/07/2023"}, {"t": "Happier (Jungle Mood Remix)", "p": "https://omarrudbergmap.com/photos/PH_HAPPIER_REMIX.webp", "s": "", "n": 40, "pr": "17/02/2024 · Stockholm", "to": ["Every Night Fantasy 2024", "Every Night Fantasy 2025", "Festivals 2024", "Festivals 2025", "Premier concert solo"], "remix": true, "d": "01/07/2023"}, {"t": "Happier (Indiefeels Remix)", "p": "https://omarrudbergmap.com/photos/PH_HAPPIER_REMIX.webp", "s": "", "n": 40, "pr": "17/02/2024 · Stockholm", "to": ["Every Night Fantasy 2024", "Every Night Fantasy 2025", "Festivals 2024", "Festivals 2025", "Premier concert solo"], "remix": true, "d": "01/07/2023"}, {"t": "Happier (Move Your Body / Rhythm & Dance Remix)", "p": "https://omarrudbergmap.com/photos/PH_HAPPIER_REMIX.webp", "s": "", "n": 40, "pr": "17/02/2024 · Stockholm", "to": ["Every Night Fantasy 2024", "Every Night Fantasy 2025", "Festivals 2024", "Festivals 2025", "Premier concert solo"], "remix": true, "d": "01/07/2023"}, {"t": "Happier (Steerner Remix)", "p": "https://omarrudbergmap.com/photos/PH_HAPPIER_REMIX.webp", "s": "", "n": 40, "pr": "17/02/2024 · Stockholm", "to": ["Every Night Fantasy 2024", "Every Night Fantasy 2025", "Festivals 2024", "Festivals 2025", "Premier concert solo"], "remix": true, "d": "01/07/2023"}, {"t": "Happier (On The Beat Remix)", "p": "https://omarrudbergmap.com/photos/PH_HAPPIER_REMIX.webp", "s": "", "n": 40, "pr": "17/02/2024 · Stockholm", "to": ["Every Night Fantasy 2024", "Every Night Fantasy 2025", "Festivals 2024", "Festivals 2025", "Premier concert solo"], "remix": true, "d": "01/07/2023"}, {"t": "Happier (Floor Remix)", "p": "https://omarrudbergmap.com/photos/PH_HAPPIER_REMIX.webp", "s": "", "n": 40, "pr": "17/02/2024 · Stockholm", "to": ["Every Night Fantasy 2024", "Every Night Fantasy 2025", "Festivals 2024", "Festivals 2025", "Premier concert solo"], "remix": true, "d": "01/07/2023"}, {"t": "Happier (Just Dance Remix)", "p": "https://omarrudbergmap.com/photos/PH_HAPPIER_REMIX.webp", "s": "", "n": 40, "pr": "17/02/2024 · Stockholm", "to": ["Every Night Fantasy 2024", "Every Night Fantasy 2025", "Festivals 2024", "Festivals 2025", "Premier concert solo"], "remix": true, "d": "01/07/2023"}, {"t": "Happier (SlowNspeed Remix)", "p": "https://omarrudbergmap.com/photos/PH_HAPPIER_REMIX.webp", "s": "", "n": 40, "pr": "17/02/2024 · Stockholm", "to": ["Every Night Fantasy 2024", "Every Night Fantasy 2025", "Festivals 2024", "Festivals 2025", "Premier concert solo"], "remix": true, "d": "01/07/2023"}, {"t": "Happier (Either Way Remix)", "p": "https://omarrudbergmap.com/photos/PH_HAPPIER_REMIX.webp", "s": "", "n": 40, "pr": "17/02/2024 · Stockholm", "to": ["Every Night Fantasy 2024", "Every Night Fantasy 2025", "Festivals 2024", "Festivals 2025", "Premier concert solo"], "remix": true, "d": "01/07/2023"}, {"t": "Happier (Mystic Remix)", "p": "https://omarrudbergmap.com/photos/PH_HAPPIER_REMIX.webp", "s": "", "n": 40, "pr": "17/02/2024 · Stockholm", "to": ["Every Night Fantasy 2024", "Every Night Fantasy 2025", "Festivals 2024", "Festivals 2025", "Premier concert solo"], "remix": true, "d": "01/07/2023"}, {"t": "She Fell In Love In The Summer (radio edit · Benji of Sweden)", "p": "https://omarrudbergmap.com/photos/PH_SHEFELL.webp", "s": "", "n": 25, "pr": "21/10/2024 · London", "to": ["Every Night Fantasy 2024", "Every Night Fantasy 2025"], "remix": true, "d": "01/05/2023"}, {"t": "Coast Side (Carousel Remix)", "p": "https://omarrudbergmap.com/photos/PH_CAROUSEL.webp", "s": "", "n": 7, "pr": "17/02/2024 · Stockholm", "to": ["Festivals 2024", "Premier concert solo"], "remix": true, "d": "31/05/2022"}, {"t": "Dum (Singback version)", "p": "https://omarrudbergmap.com/photos/PH_DUM.webp", "s": "", "n": 39, "pr": "17/02/2024 · Stockholm", "to": ["Every Night Fantasy 2024", "Every Night Fantasy 2025", "Festivals 2024", "Festivals 2025", "Premier concert solo"], "remix": true, "d": "13/08/2021"}, {"t": "I'm So Excited (club version)", "p": "https://omarrudbergmap.com/photos/PH_EXCITED.webp", "s": "", "n": 0, "pr": "", "to": [], "remix": true}, {"t": "I'm So Excited (additional version)", "p": "https://omarrudbergmap.com/photos/PH_EXCITED.webp", "s": "", "n": 0, "pr": "", "to": [], "remix": true}];
+  const grille=document.getElementById("disques");
+  const lecteur=document.getElementById("lecteur");
+  let filtre="tous", recherche="";
+
+  function normalise(t){
+    return t.toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g,"");
+  }
+  function visible(c){
+    if(recherche && !normalise(c.t).includes(recherche)) return false;
+    if(filtre==="scene") return c.n>0;
+    if(filtre==="ecoute") return !!c.s;
+    if(filtre==="datees") return !!c.d;
+    if(filtre==="versions") return c.remix;
+    return true;
+  }
+  function dessine(){
+    grille.innerHTML="";
+    let n=0;
+    CH.forEach(function(c,i){
+      if(!visible(c)) return;
+      n++;
+      const b=document.createElement("button");
+      b.className="disque";
+      b.innerHTML='<div class="pochette" style="--i:'+(i%7)+'">'+
+        '<span class="vignette-titre">'+c.t.replace(/\s*\(.*$/,"")+'</span>'+
+        (c.n?'<span class="marque-scene">'+c.n+' concerts</span>':'')+'</div>'+
+        '<b>'+c.t+'</b>'+
+        '<small>'+(c.d? c.d.slice(6)+" · " : "")+
+          (c.n? "sur scène · "+c.to.length+" tournée"+(c.to.length>1?"s":"") : "studio")+'</small>';
+      b.addEventListener("click",function(){ouvre(i);});
+      grille.appendChild(b);
+    });
+    document.getElementById("aucune").style.display=n?"none":"block";
+  }
+
+  function ouvre(i){
+    const c=CH[i];
+    document.getElementById("fc-titre").textContent=c.t;
+    const img=document.getElementById("fc-pochette");
+    img.style.display="none";
+    let info="";
+    if(c.d) info="Sortie le "+c.d+"<br>";
+    if(c.n){
+      info+="Jouée "+c.n+" fois en concert · première fois le "+c.pr+
+           "<br>Tournées : "+c.to.join(", ");
+    } else {
+      info+="Pas encore jouée sur scène, d'après nos archives.";
+    }
+    document.getElementById("fc-info").innerHTML=info;
+
+    // extrait de paroles, dans la langue d'origine, jamais traduit
+    const ex=(window.EXTRAITS||{})[c.t];
+    const zoneEx=document.getElementById("fc-extrait");
+    if(ex && ex.t){
+      zoneEx.hidden=false;
+      zoneEx.lang=ex.l||"en";
+      zoneEx.setAttribute("translate","no");
+      zoneEx.className="extrait-chanson notranslate";
+      zoneEx.innerHTML='<span class="langue-extrait">'+(ex.l||"").toUpperCase()+'</span>'+
+        ex.t.split("\n").map(function(l){return "<span>"+l.trim()+"</span>";}).join("");
+    } else {
+      zoneEx.hidden=true;
+    }
+
+    const zone=document.getElementById("fc-ecoute");
+    zone.innerHTML = c.s
+      ? '<iframe src="https://open.spotify.com/embed/track/'+c.s+'?theme=0" width="100%" height="152" frameborder="0" loading="lazy" allow="encrypted-media" style="border-radius:12px"></iframe>'
+      : '<p class="mention">Le lecteur officiel sera ajouté pour ce titre. En attendant, les liens ci-dessous ouvrent la chanson sur les plateformes.</p>';
+
+    const liens=document.getElementById("fc-liens");
+    const q=encodeURIComponent(c.t+" Omar Rudberg");
+    liens.innerHTML=
+      '<a class="btn btn--fin" target="_blank" rel="noopener" href="'+
+        (c.s?"https://open.spotify.com/track/"+c.s:"https://open.spotify.com/search/"+q)+'">Spotify</a>'+
+      '<a class="btn btn--fin" target="_blank" rel="noopener" href="https://www.youtube.com/results?search_query='+q+'">YouTube</a>'+
+      (c.n?'<a class="btn btn--fin" href="concerts.html">Voir les concerts</a>'+
+           '<a class="btn btn--fin" target="_blank" rel="noopener" href="https://omarrudbergmap.com/#concerts">Sur la carte</a>':'');
+    lecteur.classList.add("ouvert");
+  }
+  function ferme(){ lecteur.classList.remove("ouvert"); }
+  document.getElementById("fermer-lecteur").addEventListener("click",ferme);
+  lecteur.addEventListener("click",function(e){ if(e.target===lecteur) ferme(); });
+  document.addEventListener("keydown",function(e){ if(e.key==="Escape") ferme(); });
+
+  document.getElementById("recherche").addEventListener("input",function(e){
+    recherche=normalise(e.target.value.trim()); dessine();
+  });
+  document.querySelectorAll(".filtre").forEach(function(f){
+    f.addEventListener("click",function(){
+      document.querySelectorAll(".filtre").forEach(function(x){x.classList.toggle("actif",x===f);});
+      filtre=f.dataset.filtre; dessine();
+    });
+  });
+  dessine();
+})();
+</script>
+
+
+<script>
+/* =====================================================================
+   EXTRAITS DE CHANSONS
+   ---------------------------------------------------------------------
+   Écrivez ici l'extrait de votre choix pour chaque titre.
+   Format :   "Titre exact de la chanson": { l:"code langue", t:`extrait` }
+   Codes de langue : sv (suédois), en (anglais), es (espagnol), fr (français).
+   Les extraits ne sont jamais traduits : ils restent dans la langue
+   de la chanson, même quand le visiteur change la langue du site.
+   Laissez les accents graves ` ` autour du texte, et allez à la ligne
+   librement à l'intérieur.
+   ===================================================================== */
+window.EXTRAITS = {
+
+  // "Careless": { l:"en", t:`première ligne
+  // deuxième ligne
+  // troisième ligne` },
+
+};
 </script>
 
 </body>
