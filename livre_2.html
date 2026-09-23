@@ -3,8 +3,8 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>La musique · O.R. World Association</title>
-<!-- version : MUSIQUE-005 -->
+<title>Le livre collaboratif · O.R. World Association</title>
+<!-- version : LIVRE-023 -->
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:opsz,wght@6..96,400;6..96,500&family=Caveat:wght@500;600&family=Jost:wght@200;300;400&display=swap" rel="stylesheet">
@@ -28,8 +28,8 @@ body{margin:0;background:var(--noir);color:var(--blanc);font-family:var(--texte)
 .marque:hover img{animation-duration:2.4s}
 @keyframes halo{
   0%   {filter:drop-shadow(0 0 10px rgba(167,139,250,.75)) drop-shadow(0 0 24px rgba(124,58,237,.45))}
-  33%  {filter:drop-shadow(0 0 14px rgba(232,121,249,.85)) drop-shadow(0 0 30px rgba(232,121,249,.5))}
-  66%  {filter:drop-shadow(0 0 14px rgba(103,232,249,.8)) drop-shadow(0 0 30px rgba(91,141,255,.5))}
+  33%  {filter:drop-shadow(0 0 14px rgba(255,140,255,1)) drop-shadow(0 0 30px rgba(232,121,249,.5))}
+  66%  {filter:drop-shadow(0 0 14px rgba(130,245,255,1)) drop-shadow(0 0 30px rgba(91,141,255,.5))}
   100% {filter:drop-shadow(0 0 10px rgba(167,139,250,.75)) drop-shadow(0 0 24px rgba(124,58,237,.45))}
 }
 .menu{margin-left:auto;display:flex;gap:clamp(.5rem,1.5vw,1.5rem);list-style:none;margin-block:0;padding:0}
@@ -237,7 +237,7 @@ h2.titre2{font-family:var(--titre);font-size:clamp(1.8rem,3.4vw,2.8rem);margin:0
   backdrop-filter:blur(8px);padding:1rem 1.2rem;margin-bottom:.8rem}
 .question summary{cursor:pointer;font-size:1rem;color:var(--blanc);list-style:none}
 .question summary::-webkit-details-marker{display:none}
-.question summary::before{content:"＋";color:var(--cyan);margin-right:.6rem;text-shadow:0 0 12px rgba(103,232,249,.8)}
+.question summary::before{content:"＋";color:var(--cyan);margin-right:.6rem;text-shadow:0 0 12px rgba(130,245,255,1)}
 .question[open] summary::before{content:"−"}
 .question p{color:var(--gris);font-size:.92rem;margin:.8rem 0 .2rem}
 @media (max-width:900px){.etapes{grid-template-columns:1fr 1fr}}
@@ -413,6 +413,96 @@ h2.titre2{font-family:var(--titre);font-size:clamp(1.8rem,3.4vw,2.8rem);margin:0
 .pseudo:focus-within{border-color:var(--violet-clair);box-shadow:0 0 20px rgba(167,139,250,.35)}
 
 
+.scene-haut{position:relative;min-height:auto;display:flex;align-items:flex-start;
+  padding:clamp(7rem,13vh,9rem) 0 1rem}
+.scene-haut #carte-scene{position:absolute;inset:auto 0 0 0;width:100%;height:58%;display:block;z-index:0;
+  pointer-events:none}
+.scene-haut__texte{position:relative;z-index:2;text-align:center;max-width:1000px}
+.texte-clair{color:#dfe7ff;text-shadow:0 2px 18px rgba(3,6,22,.95)}
+
+.chapitres{display:grid;grid-template-columns:repeat(3,1fr);gap:1rem;margin-top:1.4rem}
+.chapitre{display:flex;flex-direction:column;padding:1.5rem 1.2rem;border:1px solid var(--bord);
+  border-radius:16px;background:linear-gradient(170deg,rgba(18,22,60,.75),rgba(4,7,24,.85));
+  transition:transform .3s,border-color .3s,box-shadow .3s}
+.chapitre:hover{transform:translateY(-5px);border-color:var(--violet-clair);box-shadow:0 18px 44px rgba(90,120,255,.25)}
+.rom{font-family:var(--titre);font-size:2rem;color:var(--cyan);text-shadow:0 0 22px rgba(103,232,249,.6);
+  line-height:1}
+.chapitre b{font-family:var(--titre);font-size:1.2rem;font-weight:500;margin:.4rem 0 .5rem}
+.chapitre p{color:var(--gris);font-size:.86rem;margin:0 0 1.2rem;flex:1}
+
+.ciel-histoires{position:relative;margin-top:1.4rem;border:1px solid var(--bord);border-radius:20px;
+  overflow:hidden;background:radial-gradient(70% 90% at 50% 20%,rgba(40,25,95,.55),rgba(3,6,22,.95))}
+#ciel{display:block;width:100%;height:clamp(320px,46vh,460px);cursor:pointer}
+.bulle-histoire{position:absolute;max-width:300px;padding:1rem 1.2rem;border:1px solid var(--bord);
+  border-radius:14px;background:rgba(6,10,30,.96);backdrop-filter:blur(10px);opacity:0;pointer-events:none;
+  transition:opacity .3s;box-shadow:0 20px 50px rgba(0,0,0,.6)}
+.bulle-histoire.visible{opacity:1}
+.bulle-histoire b{display:block;font-family:var(--titre);font-size:1.05rem}
+.bulle-histoire span{color:var(--cyan);font-size:.72rem;letter-spacing:.14em}
+.bulle-histoire p{color:var(--gris);font-size:.86rem;margin:.6rem 0 0;line-height:1.6}
+
+.champ textarea,.champ select{width:100%;padding:.85rem 1rem;border:1px solid var(--bord);border-radius:10px;
+  background:rgba(2,4,16,.75);color:#fff;font-family:var(--texte);font-size:.95rem;resize:vertical}
+.champ textarea:focus,.champ select:focus{outline:none;border-color:var(--violet-clair);
+  box-shadow:0 0 20px rgba(167,139,250,.35)}
+@media (max-width:1000px){.chapitres{grid-template-columns:1fr 1fr}}
+@media (max-width:620px){.chapitres{grid-template-columns:1fr}}
+
+
+
+/* --- livre dessiné, façon illustration --- */
+
+.bloc-livre{position:relative;overflow:hidden;padding:1rem 1.2rem 3rem;isolation:isolate}
+.bloc-livre .livre-scene{margin-top:0}
+.livre-scene{position:relative;margin:0 auto;max-width:820px}
+#envol,#mots{position:absolute;left:50%;bottom:-4%;transform:translateX(-50%);
+  width:150%;height:118%;pointer-events:none}
+#envol{z-index:3}
+#mots{z-index:6}
+.livre{position:relative;display:block;width:min(96%,760px);margin:0 auto;border:0;background:none;
+  cursor:pointer;transition:transform .5s}
+.livre:hover{transform:translateY(-6px) scale(1.02)}
+.livre-svg{display:block;width:100%;height:auto;
+  filter:drop-shadow(0 0 30px rgba(232,121,249,.45)) drop-shadow(0 0 60px rgba(120,190,255,.3))}
+.reflet{position:absolute;left:0;right:0;top:86%;height:70%;pointer-events:none;z-index:-2;
+  background:radial-gradient(60% 60% at 50% 0%,rgba(232,121,249,.22),transparent 70%);
+  filter:blur(18px)}
+.lueur-livre{position:absolute;left:50%;top:6%;width:52%;height:62%;transform:translateX(-50%);
+  pointer-events:none;z-index:-1;
+  background:radial-gradient(50% 55% at 50% 60%,rgba(232,121,249,.5),transparent 70%),
+             radial-gradient(60% 60% at 50% 45%,rgba(103,232,249,.35),transparent 72%),
+             radial-gradient(70% 70% at 50% 50%,rgba(167,139,250,.4),transparent 75%);
+  filter:blur(26px);animation:respire-livre 6s ease-in-out infinite alternate}
+@keyframes respire-livre{from{opacity:.75;transform:translateX(-50%) scale(.95)}
+  to{opacity:1;transform:translateX(-50%) scale(1.07)}}
+
+/* --- bibliothèque --- */
+.histoires-grille{display:grid;grid-template-columns:repeat(3,1fr);gap:1.1rem;margin-top:.6rem}
+.histoire{position:relative;padding:1.4rem 1.3rem;border:1px solid var(--bord);border-radius:16px;
+  background:linear-gradient(165deg,rgba(16,20,56,.75),rgba(4,7,24,.9));cursor:pointer;text-align:left;
+  color:var(--blanc);font-family:var(--texte);transition:transform .3s,border-color .3s,box-shadow .3s}
+.histoire:hover{transform:translateY(-4px);border-color:var(--violet-clair);box-shadow:0 16px 40px rgba(90,120,255,.25)}
+.histoire b{display:block;font-family:var(--titre);font-size:1.1rem;font-weight:500}
+.histoire .pays{color:var(--cyan);font-size:.7rem;letter-spacing:.14em}
+.histoire p{color:var(--gris);font-size:.88rem;margin:.7rem 0 0;line-height:1.6}
+.histoire .chap{position:absolute;top:1rem;right:1.1rem;font-size:.62rem;letter-spacing:.12em;color:#8d86ab}
+
+.lecteur{position:fixed;inset:0;z-index:80;display:grid;place-items:center;padding:1.2rem;
+  background:rgba(2,3,12,.75);backdrop-filter:blur(6px);opacity:0;pointer-events:none;transition:opacity .35s}
+.lecteur.ouvert{opacity:1;pointer-events:auto}
+.lecteur__boite{position:relative;max-width:620px;width:100%;padding:2.2rem;border:1px solid var(--bord);
+  border-radius:20px;background:linear-gradient(160deg,rgba(18,14,52,.98),rgba(4,6,22,.99));
+  box-shadow:0 30px 80px rgba(0,0,0,.7)}
+.lecteur__boite h3{font-family:var(--titre);font-size:1.6rem;margin:.2rem 0 .2rem}
+.lec-pays{color:var(--cyan);font-size:.72rem;letter-spacing:.16em;margin:0}
+.lec-texte{color:#dfe7ff;line-height:1.85;margin:1.2rem 0 0;font-size:.98rem;
+  max-height:60vh;overflow-y:auto;padding-right:.6rem}
+.lec-texte p{margin:0 0 1rem}
+.lecteur .fermer{position:absolute;top:1rem;right:1rem}
+@media (max-width:1000px){.histoires-grille{grid-template-columns:1fr 1fr}}
+@media (max-width:620px){.histoires-grille{grid-template-columns:1fr}}
+
+
 /* ---------- menu mobile ---------- */
 .burger{display:none;flex-direction:column;gap:5px;padding:.6rem;border:1px solid var(--bord);
   border-radius:10px;background:rgba(6,10,32,.6);cursor:pointer}
@@ -434,141 +524,18 @@ h2.titre2{font-family:var(--titre);font-size:clamp(1.8rem,3.4vw,2.8rem);margin:0
 }
 
 
-.filtres{display:flex;gap:.4rem;flex-wrap:wrap;margin:1.2rem 0 1.6rem}
-.filtre{padding:.45rem 1.2rem;border:1px solid var(--bord);border-radius:999px;background:rgba(8,12,34,.55);
-  color:var(--gris);font-family:var(--texte);font-size:.85rem;cursor:pointer}
-.filtre.actif{border-color:var(--violet-clair);color:#fff;box-shadow:0 0 18px rgba(167,139,250,.3)}
-.titre-ep{font-family:var(--titre);font-size:1.5rem;font-weight:500;margin:2rem 0 1rem;
-  color:var(--cyan);text-shadow:0 0 18px rgba(103,232,249,.5)}
-.episode:first-child .titre-ep{margin-top:.5rem}
-.scene{border:1px solid var(--bord);border-radius:14px;background:rgba(8,12,34,.55);
-  margin-bottom:.7rem;overflow:hidden}
-.scene summary{display:flex;align-items:baseline;gap:.9rem;padding:1rem 1.2rem;cursor:pointer;
-  list-style:none;font-size:1rem;color:#e6ecff}
-.scene summary::-webkit-details-marker{display:none}
-.scene summary::after{content:"＋";margin-left:auto;color:var(--cyan);flex:none}
-.scene[open] summary::after{content:"−"}
-.scene[open]{border-color:var(--violet-clair);box-shadow:0 0 26px rgba(120,150,255,.16)}
-.num-scene{font-family:var(--titre);font-size:.85rem;color:var(--rose);flex:none;letter-spacing:.08em}
-.texte-scene{padding:0 1.4rem 1.4rem;color:var(--gris);line-height:1.85;font-size:.95rem;
-  max-width:78ch}
-.texte-scene p{margin:0 0 1rem}
-.aucune{padding:1.6rem;border:1.5px dashed var(--bord);border-radius:14px;color:var(--gris);
-  font-size:.92rem;text-align:center;margin-top:1.4rem}
-.proposer,.infolettre{padding:1.6rem;border:1px solid var(--bord);border-radius:18px;background:rgba(6,10,32,.6)}
-.proposer h3,.infolettre h3{font-family:var(--titre);font-size:1.3rem;margin:0 0 .3rem}
-.champ textarea{width:100%;padding:.85rem 1rem;border:1px solid var(--bord);border-radius:10px;
-  background:rgba(2,4,16,.75);color:#fff;font-family:var(--texte);font-size:.95rem;resize:vertical}
+.citation{max-width:680px;margin:1.6rem auto 0;padding:1.4rem 1.6rem;border-left:2px solid var(--rose);
+  border-radius:0 14px 14px 0;background:rgba(232,121,249,.07);color:#e6ecff;font-size:1rem;line-height:1.75;
+  text-align:left}
+.citation cite{display:block;margin-top:.6rem;font-style:normal;font-size:.78rem;letter-spacing:.16em;
+  color:var(--rose)}
+.aucune-histoire{grid-column:1/-1;padding:2rem;border:1.5px dashed var(--bord);border-radius:16px;
+  color:var(--gris);text-align:center;font-size:.95rem;line-height:1.7}
 
 
-.fiche{display:grid;grid-template-columns:repeat(3,1fr);gap:1.1rem;margin:1.6rem 0}
-.bloc-fiche{padding:1.4rem;border:1px solid var(--bord);border-radius:16px;background:rgba(8,12,34,.55)}
-.bloc-fiche h3{font-size:.66rem;letter-spacing:.2em;color:var(--cyan);margin:0 0 1rem;
-  text-shadow:0 0 12px rgba(103,232,249,.5)}
-.bloc-fiche ul{list-style:none;margin:0;padding:0;display:grid;gap:.8rem}
-.bloc-fiche b{display:block;font-weight:400;color:#fff;font-size:.95rem}
-.bloc-fiche span{color:var(--gris);font-size:.86rem}
-.resume{padding:1.8rem;border:1px solid var(--bord);border-left:2px solid var(--rose);border-radius:0 18px 18px 0;
-  background:rgba(232,121,249,.05)}
-.resume h3{font-family:var(--titre);font-size:1.3rem;margin:0 0 .9rem}
-.resume p{color:var(--gris);line-height:1.85;margin:0 0 1rem}
-.citations{display:grid;gap:.9rem;margin:1.2rem 0}
-.citations blockquote{margin:0;padding:1.2rem 1.4rem;border:1px solid var(--bord);border-radius:14px;
-  background:rgba(8,12,34,.55);color:#dfe7ff;line-height:1.7;font-size:.95rem}
-.citations cite{display:block;margin-top:.7rem;font-style:normal;font-size:.78rem;color:#8d86ab}
-.emplacements{display:grid;grid-template-columns:repeat(4,1fr);gap:.9rem;margin:1rem 0 1.6rem}
-.emplacement{padding:1.3rem 1rem;border:1.5px dashed var(--bord);border-radius:14px;text-align:center;
-  background:rgba(6,10,30,.5)}
-.emplacement b{display:block;font-weight:400;color:#e6ecff;font-size:.92rem}
-.emplacement span{font-size:.72rem;color:#8d86ab}
-.vide-bloc{padding:1.4rem;border:1.5px dashed var(--bord);border-radius:14px;color:var(--gris);
-  font-size:.92rem;margin:1rem 0}
-.vide-bloc p{margin:0}
-@media (max-width:1000px){.fiche{grid-template-columns:1fr}.emplacements{grid-template-columns:1fr 1fr}}
-
-
-.frise-vie{display:grid;gap:1.1rem;margin-top:1.4rem;position:relative}
-.etape-vie{position:relative;padding:1.6rem 1.6rem 1.7rem 2.4rem;border:1px solid var(--bord);
-  border-radius:16px;background:linear-gradient(160deg,rgba(16,20,56,.72),rgba(4,7,24,.9))}
-.etape-vie::before{content:"";position:absolute;left:1rem;top:1.9rem;width:9px;height:9px;border-radius:50%;
-  background:linear-gradient(120deg,var(--cyan),var(--rose));box-shadow:0 0 16px rgba(167,139,250,.9)}
-.annees{font-size:.66rem;letter-spacing:.2em;color:var(--cyan);text-shadow:0 0 12px rgba(103,232,249,.5)}
-.etape-vie h3{font-family:var(--titre);font-size:1.35rem;font-weight:500;margin:.35rem 0 .7rem}
-.etape-vie p{color:var(--gris);line-height:1.8;margin:0 0 .9rem;max-width:80ch}
-.etape-vie .btn{margin-top:.2rem}
-.citation-omar{margin:0 0 1.4rem;padding:1.3rem 1.5rem;border-left:2px solid var(--rose);
-  border-radius:0 14px 14px 0;background:rgba(232,121,249,.07);color:#e6ecff;font-size:1.05rem;line-height:1.7}
-.extrait{margin-top:1.4rem;padding:1.4rem 1.6rem;border:1px solid var(--bord);border-radius:16px;
-  background:rgba(8,12,34,.55)}
-.date-extrait{font-size:.66rem;letter-spacing:.2em;color:var(--cyan)}
-.extrait p{color:#dfe7ff;font-size:1.05rem;line-height:1.8;margin:.6rem 0 0;font-style:italic}
-.univers{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:1rem}
-.porte{display:block;position:relative;overflow:hidden;text-align:left;padding:1.5rem 1.3rem 1.7rem;
-  border-radius:16px;border:1px solid var(--bord);text-decoration:none;
-  background:linear-gradient(160deg,rgba(18,22,60,.75),rgba(4,7,24,.88));color:var(--blanc);
-  transition:transform .3s,border-color .3s,box-shadow .3s}
-.porte:hover{transform:translateY(-5px);border-color:var(--violet-clair);box-shadow:0 18px 44px rgba(90,120,255,.28)}
-.porte::after{content:"";position:absolute;inset:auto -25% -55% -25%;height:110%;
-  background:radial-gradient(50% 55% at 50% 100%,var(--halo,rgba(124,58,237,.55)),transparent 70%)}
-.porte > *{position:relative;z-index:2}
-.porte b{display:block;font-family:var(--titre);font-size:1.25rem;font-weight:500;margin-bottom:.3rem;
-  color:var(--cyan);text-shadow:0 0 14px rgba(103,232,249,.5)}
-.porte span{color:var(--gris);font-size:.86rem}
-
-
-.barre-recherche{display:grid;gap:1rem;margin-bottom:1.6rem}
-#recherche{width:100%;max-width:420px;padding:.8rem 1.1rem;border:1px solid var(--bord);border-radius:999px;
-  background:rgba(2,4,16,.75);color:#fff;font-family:var(--texte);font-size:.95rem}
-#recherche:focus{outline:none;border-color:var(--violet-clair);box-shadow:0 0 20px rgba(167,139,250,.3)}
-.filtres{display:flex;gap:.4rem;flex-wrap:wrap}
-.filtre{padding:.45rem 1rem;border:1px solid var(--bord);border-radius:999px;background:rgba(8,12,34,.55);
-  color:var(--gris);font-family:var(--texte);font-size:.8rem;cursor:pointer}
-.filtre.actif{border-color:var(--violet-clair);color:#fff;box-shadow:0 0 18px rgba(167,139,250,.3)}
-.disques{display:grid;grid-template-columns:repeat(auto-fill,minmax(160px,1fr));gap:1.1rem}
-.disque{position:relative;border:0;padding:0;background:none;cursor:pointer;text-align:left;
-  color:var(--blanc);font-family:var(--texte);transition:transform .3s}
-.disque:hover{transform:translateY(-6px)}
-.pochette{position:relative;aspect-ratio:1;border-radius:14px;overflow:hidden;border:1px solid var(--bord);
-  background:linear-gradient(150deg,rgba(124,58,237,.45),rgba(4,7,24,.9))}
-.pochette img{width:100%;height:100%;object-fit:cover;display:block}
-.disque:hover .pochette{border-color:var(--violet-clair);box-shadow:0 16px 40px rgba(90,120,255,.3)}
-.marque-scene{position:absolute;top:.5rem;right:.5rem;padding:.2rem .55rem;border-radius:999px;
-  font-size:.6rem;letter-spacing:.1em;background:rgba(3,6,22,.8);color:var(--cyan)}
-.disque b{display:block;font-weight:400;font-size:.92rem;margin:.6rem 0 .1rem;line-height:1.35}
-.disque small{color:#8d86ab;font-size:.72rem}
-.fiche-chanson{display:grid;grid-template-columns:150px 1fr;gap:1.4rem;align-items:start}
-.fiche-chanson img{width:150px;height:150px;object-fit:cover;border-radius:14px;border:1px solid var(--bord)}
-.fiche-chanson h3{font-family:var(--titre);font-size:1.5rem;margin:0 0 .3rem}
-.fc-info{color:var(--gris);font-size:.86rem;line-height:1.7;margin:0 0 1rem}
-#fc-ecoute iframe{border-radius:12px;margin-bottom:1rem}
-@media (max-width:620px){.fiche-chanson{grid-template-columns:1fr}.fiche-chanson img{width:100%;height:auto;aspect-ratio:1}}
-
-.lecteur{position:fixed;inset:0;z-index:80;display:grid;place-items:center;padding:1.2rem;
-  background:rgba(2,3,12,.75);backdrop-filter:blur(6px);opacity:0;pointer-events:none;transition:opacity .35s}
-.lecteur.ouvert{opacity:1;pointer-events:auto}
-.lecteur__boite{position:relative;max-width:620px;width:100%;padding:2.2rem;border:1px solid var(--bord);
-  border-radius:20px;background:linear-gradient(160deg,rgba(18,14,52,.98),rgba(4,6,22,.99));
-  box-shadow:0 30px 80px rgba(0,0,0,.7)}
-.fermer{position:absolute;top:1rem;right:1rem;width:34px;height:34px;border:1px solid var(--bord);
-  border-radius:50%;background:none;color:#fff;font-size:1.2rem;cursor:pointer}
-.aucune{padding:1.6rem;border:1.5px dashed var(--bord);border-radius:14px;color:var(--gris);text-align:center}
-
-
-.pochette{display:grid;place-items:center;padding:1rem;text-align:center;
-  background:linear-gradient(150deg,
-    hsl(calc(250 + var(--i,0) * 16) 70% 34% / .85),
-    rgba(4,7,24,.95))}
-.vignette-titre{font-family:var(--titre);font-size:1.05rem;line-height:1.25;color:#fff;
-  text-shadow:0 0 18px rgba(0,0,0,.5)}
-.fiche-chanson{grid-template-columns:1fr}
-
-
-.extrait-chanson{margin:0 0 1.2rem;padding:1.1rem 1.3rem;border-left:2px solid var(--rose);
-  border-radius:0 12px 12px 0;background:rgba(232,121,249,.07);color:#e6ecff;
-  font-family:var(--titre);font-size:1.05rem;line-height:1.85;display:grid;gap:.1rem;position:relative}
-.extrait-chanson span{display:block}
-.langue-extrait{position:absolute;top:.6rem;right:.9rem;font-family:var(--texte);font-size:.6rem;
-  letter-spacing:.16em;color:#8d86ab}
+.lec-langue{display:flex;align-items:center;gap:.8rem;flex-wrap:wrap;margin-top:.7rem}
+.etiq-langue{font-size:.72rem;letter-spacing:.06em;color:#8d86ab}
+.btn.petit{padding:.34rem .9rem;font-size:.74rem}
 
 @media (prefers-reduced-motion:reduce){*{animation:none!important}}
 </style>
@@ -584,7 +551,7 @@ h2.titre2{font-family:var(--titre);font-size:clamp(1.8rem,3.4vw,2.8rem);margin:0
     <li><a href="communaute.html" class="" data-i18n="nav.communaute"></a></li>
     <li><a href="membres.html" data-i18n="nav.membres"></a></li>
     <li><a href="boutique.html" class="" data-i18n="nav.boutique"></a></li>
-    <li><a href="livre.html" class="" data-i18n="nav.livre"></a></li>
+    <li><a href="livre.html" class="actif" data-i18n="nav.livre"></a></li>
     <li><a href="journal.html" class="" data-i18n="nav.journal"></a></li>
     <li><a href="association.html" class="" data-i18n="nav.association"></a></li>
   </ul>
@@ -607,63 +574,269 @@ h2.titre2{font-family:var(--titre);font-size:clamp(1.8rem,3.4vw,2.8rem);margin:0
 
 <div class="page">
 
-<section class="section" style="padding-top:clamp(8rem,15vh,11rem);padding-bottom:1rem">
-  <div class="contenu" style="max-width:940px;text-align:center">
-    <p class="chapeau">LA MUSIQUE</p>
-    <h1 class="titre2" style="font-size:clamp(2.2rem,5vw,3.4rem)">Toutes les chansons</h1>
-    <p class="intro2" style="margin-inline:auto">La carrière musicale d'Omar est déjà longue depuis ses débuts en solo. Mêlant pop, R&amp;B et influences latines, il s'impose comme une étoile montante internationale.</p>
-    <blockquote class="citation-omar" style="max-width:620px;margin:1.6rem auto 0">« Toutes les chansons d'Omar sont exceptionnelles. Elles sont le reflet de lui-même. »</blockquote>
+<section class="scene-haut">
+  <div class="contenu scene-haut__texte">
+    <p class="chapeau">UN LIVRE ÉCRIT PAR LES FANS</p>
+    <h1 class="titre2" style="font-size:clamp(2.2rem,5vw,3.4rem)">Votre histoire, notre livre</h1>
+    <p class="intro2 texte-clair" style="margin-inline:auto">Omar ne fait pas que créer : il inspire, il apaise, il rassemble. Chaque rencontre laisse une trace, et c'est cette lumière que nous voulons garder. Un livre vivant, nourri par la communauté, offert un jour à celui qui l'a fait naître.</p>
+
   </div>
 </section>
 
-<section class="section" style="padding-top:1rem">
+<section class="bloc-livre">
+    <blockquote class="citation">
+      <span data-i18n="livre.citation"></span>
+      <cite>Omar Rudberg</cite>
+    </blockquote>
+
+    <div class="livre-scene">
+      <canvas id="envol" aria-hidden="true"></canvas>
+      <canvas id="mots" aria-hidden="true"></canvas>
+      <canvas id="mots" aria-hidden="true"></canvas>
+      <button class="livre" id="livre" aria-label="Ouvrir une histoire">
+        <svg class="livre-svg" viewBox="0 0 1000 560" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+  <defs>
+    <radialGradient id="coeur-lum" cx="50%" cy="100%" r="70%">
+      <stop offset="0%" stop-color="rgba(255,150,245,.75)"/>
+      <stop offset="55%" stop-color="rgba(167,139,250,.35)"/>
+      <stop offset="100%" stop-color="rgba(103,232,249,0)"/>
+    </radialGradient>
+    <filter id="halo-livre" x="-40%" y="-40%" width="180%" height="180%">
+      <feGaussianBlur stdDeviation="7" result="f"/>
+      <feMerge><feMergeNode in="f"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+    <filter id="halo-doux" x="-60%" y="-60%" width="220%" height="220%">
+      <feGaussianBlur stdDeviation="18"/>
+    </filter>
+  </defs>
+
+  <!-- souffle de lumière au centre -->
+  <ellipse cx="500" cy="330" rx="240" ry="200" fill="url(#coeur-lum)" filter="url(#halo-doux)" opacity=".8"/>
+
+  <g fill="none" filter="url(#halo-livre)">
+    <!-- la masse des pages, en rose -->
+    <g>
+      <path d="M96,336 C250,304 400,318 500,350 C600,318 750,304 904,336" stroke="rgba(244,140,255,0.85)" stroke-width="1.8"/>
+      <path d="M96,340 C250,308 400,322 500,354 C600,322 750,308 904,340" stroke="rgba(244,140,255,0.82)" stroke-width="1.8"/>
+      <path d="M96,344 C250,312 400,326 500,358 C600,326 750,312 904,344" stroke="rgba(244,140,255,0.79)" stroke-width="1.8"/>
+      <path d="M96,349 C250,317 400,331 500,363 C600,331 750,317 904,349" stroke="rgba(244,140,255,0.75)" stroke-width="1.8"/>
+      <path d="M96,353 C250,321 400,335 500,367 C600,335 750,321 904,353" stroke="rgba(244,140,255,0.72)" stroke-width="1.8"/>
+      <path d="M96,357 C250,325 400,339 500,371 C600,339 750,325 904,357" stroke="rgba(244,140,255,0.69)" stroke-width="1.8"/>
+      <path d="M96,361 C250,329 400,343 500,375 C600,343 750,329 904,361" stroke="rgba(244,140,255,0.66)" stroke-width="1.8"/>
+      <path d="M96,365 C250,333 400,347 500,379 C600,347 750,333 904,365" stroke="rgba(244,140,255,0.63)" stroke-width="1.8"/>
+      <path d="M96,370 C250,338 400,352 500,384 C600,352 750,338 904,370" stroke="rgba(244,140,255,0.59)" stroke-width="1.8"/>
+      <path d="M96,374 C250,342 400,356 500,388 C600,356 750,342 904,374" stroke="rgba(244,140,255,0.56)" stroke-width="1.8"/>
+      <path d="M96,378 C250,346 400,360 500,392 C600,360 750,346 904,378" stroke="rgba(244,140,255,0.53)" stroke-width="1.8"/>
+      <path d="M96,382 C250,350 400,364 500,396 C600,364 750,350 904,382" stroke="rgba(244,140,255,0.50)" stroke-width="1.8"/>
+      <path d="M96,386 C250,354 400,368 500,400 C600,368 750,354 904,386" stroke="rgba(244,140,255,0.47)" stroke-width="1.8"/>
+      <path d="M96,391 C250,359 400,373 500,405 C600,373 750,359 904,391" stroke="rgba(244,140,255,0.43)" stroke-width="1.8"/>
+      <path d="M96,395 C250,363 400,377 500,409 C600,377 750,363 904,395" stroke="rgba(244,140,255,0.40)" stroke-width="1.8"/>
+      <path d="M96,399 C250,367 400,381 500,413 C600,381 750,367 904,399" stroke="rgba(244,140,255,0.37)" stroke-width="1.8"/>
+      <path d="M96,403 C250,371 400,385 500,417 C600,385 750,371 904,403" stroke="rgba(244,140,255,0.34)" stroke-width="1.8"/>
+      <path d="M96,407 C250,375 400,389 500,421 C600,389 750,375 904,407" stroke="rgba(244,140,255,0.31)" stroke-width="1.8"/>
+      <path d="M96,412 C250,380 400,394 500,426 C600,394 750,380 904,412" stroke="rgba(244,140,255,0.27)" stroke-width="1.8"/>
+      <path d="M96,416 C250,384 400,398 500,430 C600,398 750,384 904,416" stroke="rgba(244,140,255,0.24)" stroke-width="1.8"/>
+    </g>
+
+    <!-- contour des deux pages ouvertes, en bleu clair -->
+    <path d="M500,336 C400,302 250,286 96,320 C170,278 320,256 438,268 C474,272 492,292 500,314 Z"
+          stroke="rgba(150,225,255,.95)" stroke-width="2.6"/>
+    <path d="M500,336 C600,302 750,286 904,320 C830,278 680,256 562,268 C526,272 508,292 500,314 Z"
+          stroke="rgba(150,225,255,.95)" stroke-width="2.6"/>
+
+    <!-- écriture -->
+    <g>
+      <path d="M152,268 C280,264 390,268 476,282" stroke="rgba(150,215,255,0.50)" stroke-width="1.6" stroke-dasharray="6 9"/>
+      <path d="M524,282 C610,268 720,264 848,268" stroke="rgba(150,215,255,0.50)" stroke-width="1.6" stroke-dasharray="6 9"/>
+      <path d="M157,283 C280,279 390,284 476,298" stroke="rgba(150,215,255,0.45)" stroke-width="1.6" stroke-dasharray="6 9"/>
+      <path d="M524,298 C610,284 720,279 843,283" stroke="rgba(150,215,255,0.45)" stroke-width="1.6" stroke-dasharray="6 9"/>
+      <path d="M162,298 C280,294 390,300 476,314" stroke="rgba(150,215,255,0.40)" stroke-width="1.6" stroke-dasharray="6 9"/>
+      <path d="M524,314 C610,300 720,294 838,298" stroke="rgba(150,215,255,0.40)" stroke-width="1.6" stroke-dasharray="6 9"/>
+      <path d="M167,313 C280,309 390,316 476,330" stroke="rgba(150,215,255,0.35)" stroke-width="1.6" stroke-dasharray="6 9"/>
+      <path d="M524,330 C610,316 720,309 833,313" stroke="rgba(150,215,255,0.35)" stroke-width="1.6" stroke-dasharray="6 9"/>
+      <path d="M172,328 C280,324 390,332 476,346" stroke="rgba(150,215,255,0.30)" stroke-width="1.6" stroke-dasharray="6 9"/>
+      <path d="M524,346 C610,332 720,324 828,328" stroke="rgba(150,215,255,0.30)" stroke-width="1.6" stroke-dasharray="6 9"/>
+      <path d="M177,343 C280,339 390,348 476,362" stroke="rgba(150,215,255,0.25)" stroke-width="1.6" stroke-dasharray="6 9"/>
+      <path d="M524,362 C610,348 720,339 823,343" stroke="rgba(150,215,255,0.25)" stroke-width="1.6" stroke-dasharray="6 9"/>
+      <path d="M182,358 C280,354 390,364 476,378" stroke="rgba(150,215,255,0.20)" stroke-width="1.6" stroke-dasharray="6 9"/>
+      <path d="M524,378 C610,364 720,354 818,358" stroke="rgba(150,215,255,0.20)" stroke-width="1.6" stroke-dasharray="6 9"/>
+    </g>
+
+    <!-- une page en train d'être tournée, comme dans un vrai livre -->
+    <path d="M500,330 C520,282 580,250 660,246 C742,242 806,264 848,296
+             C782,290 700,296 636,318 C580,336 534,344 500,336 Z"
+          fill="rgba(232,121,249,.05)" stroke="rgba(255,150,245,.9)" stroke-width="2.4"/>
+    <path d="M500,332 C538,300 592,282 652,278" stroke="rgba(255,150,245,.45)" stroke-width="1.6"/>
+
+    <!-- l'ombre de cette page sur la page de droite -->
+    <path d="M520,344 C600,326 700,318 800,324" stroke="rgba(120,80,200,.35)" stroke-width="6"/>
+
+    <!-- creux de la reliure -->
+    <path d="M500,314 L500,352" stroke="rgba(255,150,245,.9)" stroke-width="3"/>
+    <path d="M500,352 C508,392 496,424 486,452 C500,438 512,436 524,450 C518,420 516,388 512,356"
+          stroke="rgba(255,150,245,.9)" stroke-width="2.4"/>
+  </g>
+</svg>
+        <span class="lueur-livre"></span>
+        <span class="reflet" aria-hidden="true"></span>
+      </button>
+      <p class="mention" style="text-align:center">Cliquez sur le livre pour ouvrir une histoire au hasard</p>
+    </div>
+  </div>
+</section>
+
+
+
+<section class="section" style="padding-top:2rem">
   <div class="contenu">
     <div class="compteurs">
-      <div class="compteur"><b>72</b><span>TITRES</span></div>
-      <div class="compteur"><b>48</b><span>JOUÉS EN CONCERT</span></div>
-      <div class="compteur"><b>63</b><span>TITRES DATÉS</span></div>
-      <div class="compteur"><b>7</b><span>TOURNÉES</span></div>
-      <div class="compteur"><b>0</b><span>VOTES DE LA COMMUNAUTÉ</span></div>
-      <div class="compteur"><b>0</b><span>PAROLES PARTAGÉES</span></div>
+      <div class="compteur"><b>3</b><span>HISTOIRES</span></div>
+      <div class="compteur"><b>2</b><span>PAYS</span></div>
+      <div class="compteur"><b>2</b><span>LANGUES</span></div>
+      <div class="compteur"><b>6</b><span>CHAPITRES</span></div>
+      <div class="compteur"><b>3</b><span>PAGES ÉCRITES</span></div>
+      <div class="compteur"><b>3</b><span>CONTRIBUTEURS</span></div>
     </div>
   </div>
 </section>
 
 <section class="section" style="padding-top:1rem">
   <div class="contenu">
-    <div class="barre-recherche">
-      <input type="search" id="recherche" placeholder="Chercher une chanson…">
-      <div class="filtres">
-        <button class="filtre actif" data-filtre="tous">Toutes</button>
-        <button class="filtre" data-filtre="scene">Jouées en concert</button>
-        <button class="filtre" data-filtre="ecoute">Écoutables ici</button>
-        <button class="filtre" data-filtre="datees">Avec date de sortie</button>
-        <button class="filtre" data-filtre="versions">Remixes et versions</button>
+    <h2 class="titre2" style="font-size:1.8rem">Les chapitres</h2>
+    <p class="intro2">Le livre grandit avec la communauté. Choisissez le chapitre qui vous parle, ou écrivez dans plusieurs.</p>
+    <div class="chapitres">
+      <article class="chapitre">
+        <span class="rom">I</span>
+        <b>Le commencement</b>
+        <p>Comment avez-vous découvert Omar ? Une vidéo, une chanson, un épisode, une amie qui insiste…</p>
+        <button class="btn btn--fin">Lire ce chapitre</button>
+      </article>
+      <article class="chapitre">
+        <span class="rom">II</span>
+        <b>La musique</b>
+        <p>La chanson qui vous a marquée, celle que vous mettez en boucle, celle qui vous fait pleurer.</p>
+        <button class="btn btn--fin">Lire ce chapitre</button>
+      </article>
+      <article class="chapitre">
+        <span class="rom">III</span>
+        <b>Les moments</b>
+        <p>Un concert, une rencontre, un voyage, un message reçu un soir difficile.</p>
+        <button class="btn btn--fin">Lire ce chapitre</button>
+      </article>
+      <article class="chapitre">
+        <span class="rom">IV</span>
+        <b>L'impact</b>
+        <p>Ce que sa musique et son parcours ont changé chez vous, ce qu'ils vous ont donné.</p>
+        <button class="btn btn--fin">Lire ce chapitre</button>
+      </article>
+      <article class="chapitre">
+        <span class="rom">V</span>
+        <b>La communauté</b>
+        <p>Les amitiés nées grâce à lui, aux quatre coins du monde.</p>
+        <button class="btn btn--fin">Lire ce chapitre</button>
+      </article>
+      <article class="chapitre">
+        <span class="rom">VI</span>
+        <b>Les concerts</b>
+        <p>Votre premier concert, la salle, la foule, le moment où sa voix a rempli l'espace. Ce que vous avez ressenti, et ce que vous en gardez.</p>
+        <button class="btn btn--fin">Lire ce chapitre</button>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section class="section" style="padding-top:1rem" id="constellation">
+  <div class="contenu">
+    <h2 class="titre2" style="font-size:1.8rem">La constellation des fans</h2>
+    <p class="intro2">Chaque étoile est une histoire. Cliquez sur l'une d'elles pour la lire.</p>
+    <div class="ciel-histoires">
+      <canvas id="ciel"></canvas>
+      <div class="bulle-histoire" id="bulle-histoire">
+        <b id="bh-nom"></b>
+        <span id="bh-pays"></span>
+        <p id="bh-texte"></p>
       </div>
     </div>
-    <div class="disques" id="disques"></div>
-    <p class="aucune" id="aucune" style="display:none">Aucune chanson ne correspond à cette recherche.</p>
-    <p class="mention" style="margin-top:1.4rem">Nous n'hébergeons aucune pochette : l'illustration officielle s'affiche dans le lecteur Spotify, qui appartient à Spotify et aux ayants droit. Les dates de sortie seront ajoutées titre par titre.</p>
+    <p class="mention">Trois étoiles brillent déjà. Une de plus à chaque histoire reçue.</p>
+  </div>
+</section>
+
+
+<section class="section" style="padding-top:1rem" id="bibliotheque">
+  <div class="contenu">
+    <h2 class="titre2" style="font-size:1.8rem">Toutes les histoires</h2>
+    <p class="intro2">Le livre est ouvert à tous : chacun peut lire les pages des autres, membre ou non. C'est la seule partie du site entièrement publique.</p>
+    <div class="filtres" id="filtres-histoires"></div>
+    <div class="histoires-grille" id="histoires-grille"></div>
   </div>
 </section>
 
 <div class="lecteur" id="lecteur">
   <div class="lecteur__boite">
     <button class="fermer" id="fermer-lecteur" aria-label="Fermer">×</button>
-    <div class="fiche-chanson">
-      <img id="fc-pochette" alt="" loading="lazy">
-      <div>
-        <h3 id="fc-titre"></h3>
-        <p class="fc-info" id="fc-info"></p>
-        <blockquote id="fc-extrait" hidden></blockquote>
-        <div id="fc-ecoute"></div>
-        <div class="barre-boutons" id="fc-liens"></div>
-      </div>
+    <p class="chapeau" id="lec-chap"></p>
+    <h3 id="lec-nom"></h3>
+    <p class="lec-pays" id="lec-pays"></p>
+    <div class="lec-langue" id="lec-langue"></div>
+    <p class="lec-texte" id="lec-texte"></p>
+    <div class="barre-boutons">
+      <button class="btn btn--fin" id="suivante">Histoire suivante</button>
     </div>
   </div>
 </div>
 
+<section class="section" style="padding-top:1rem" id="ecrire">
+  <div class="contenu" style="max-width:820px">
+    <h2 class="titre2" style="font-size:1.8rem">Écrire ma page</h2>
+    <p class="intro2">Un récit, un message, une lettre, un poème. Quelques lignes ou plusieurs pages. Peu importe la forme : c'est la sincérité qui fera vivre ce livre.</p>
+
+    <div class="panneau visible">
+      <div class="grille2">
+        <label class="champ"><span>Prénom ou pseudo *</span><input type="text"></label>
+        <label class="champ"><span>Pays *</span><input type="text" list="liste-pays" placeholder="Tapez la première lettre…"></label>
+      </div>
+      <label class="champ"><span>Chapitre *</span>
+        <select>
+          <option>Chapitre I · Le commencement</option>
+          <option>Chapitre II · La musique</option>
+          <option>Chapitre III · Les moments</option>
+          <option>Chapitre IV · L'impact</option>
+          <option>Chapitre V · La communauté</option>
+          <option>Chapitre VI · Les concerts</option>
+        </select>
+      </label>
+      <label class="champ"><span>Votre histoire *</span>
+        <textarea rows="9" placeholder="Racontez…"></textarea>
+      </label>
+      <p class="mention" id="compteur-signes">0 signe</p>
+
+      <label class="case"><input type="checkbox"><span><b>Publication *</b> — J'accepte que mon texte soit publié dans le livre et sur le site, sous mon prénom ou mon pseudo et mon pays.</span></label>
+      <label class="case"><input type="checkbox"><span><b>Relecture</b> — J'accepte qu'il soit légèrement corrigé ou traduit pour être lu par toute la communauté.</span></label>
+      <label class="case"><input type="checkbox"><span><b>Mineurs</b> — Si j'ai moins de 18 ans, j'ai l'autorisation de mon parent ou responsable légal.</span></label>
+
+      <div class="barre-boutons">
+        <button class="btn">Envoyer mon histoire</button>
+        <button class="btn btn--fin">Enregistrer un brouillon</button>
+      </div>
+      <p class="mention demo">Chaque histoire est relue avant publication. Les textes blessants ou hors sujet ne sont pas publiés.</p>
+    </div>
+  </div>
+</section>
+
+<section class="section" style="padding-top:1rem">
+  <div class="contenu">
+    <h2 class="titre2" style="font-size:1.8rem">Et après ?</h2>
+    <div class="trio">
+      <article class="vignette"><h3>LE LIVRE PAPIER</h3><p>Quand les histoires seront assez nombreuses, elles deviendront un vrai livre, avec la liste des contributeurs et leurs pays.</p></article>
+      <article class="vignette"><h3>UN CADEAU POUR OMAR</h3><p>Le livre lui sera offert au nom de la communauté, comme un merci venu du monde entier.</p></article>
+      <article class="vignette"><h3>VOTRE ÉTOILE</h3><p>Chaque contribution ajoute une étoile à la constellation, qui s'agrandit à mesure que la communauté grandit.</p></article>
+    </div>
+  </div>
+</section>
+
 </div>
+
+<datalist id="liste-pays"></datalist>
 
 <footer class="pied">
   <div class="contenu">
@@ -723,14 +896,14 @@ h2.titre2{font-family:var(--titre);font-size:clamp(1.8rem,3.4vw,2.8rem);margin:0
     <div class="pied__bas">
       <span>© 2026 O.R. World Association</span>
       <span data-i18n="f.heberge"></span>
-      <span class="version">version : MUSIQUE-005</span>
+      <span class="version">version : LIVRE-023</span>
     </div>
   </div>
 </footer>
 
 <script>
 const LANGUES=[{"c": "fr", "n": "Français", "d": "🇫🇷"}, {"c": "en", "n": "English", "d": "🇬🇧"}, {"c": "es", "n": "Español", "d": "🇪🇸"}, {"c": "sv", "n": "Svenska", "d": "🇸🇪"}, {"c": "de", "n": "Deutsch", "d": "🇩🇪"}, {"c": "pt", "n": "Português", "d": "🇧🇷"}];
-const TEXTES={"fr": {"m.titre": "Devenir membre", "m.sous": "Rejoignez la communauté et vivez l'aventure toute l'année, aux côtés de fans du monde entier.", "m.paran": "par an, soit 1 € par mois", "m.annee": "Adhésion valable pour l'année civile en cours.", "m.cta": "Je deviens membre", "m.don": "Faire un don", "m.carte": "MEMBRE", "m.depuis": "MEMBRE DEPUIS", "m.avtitre": "Ce que l'adhésion vous apporte", "m.a1": "Jeux concours", "m.a1t": "Des concours réservés aux membres, sans frais de participation.", "m.a2": "Votes", "m.a2t": "Choisissez les projets que l'association réalisera.", "m.a3": "Ateliers créatifs", "m.a3t": "Créez avec la communauté : design, bracelets, affiches, projets de concert.", "m.a4": "Carte de membre", "m.a4t": "Votre carte numérotée, à votre nom, valable pour l'année.", "m.a5": "Cadeau de bienvenue", "m.a5t": "Un petit objet créé par l'association, envoyé après l'adhésion.", "m.a6": "Éditions réservées", "m.a6t": "Des créations de la boutique proposées uniquement aux membres.", "m.cttitre": "Comment ça se passe", "m.e1": "Créez votre compte", "m.e1t": "Une adresse e-mail et un mot de passe suffisent.", "m.e2": "Réglez les 12 €", "m.e2t": "Par carte bancaire avec Stripe, ou avec PayPal. Paiement sécurisé.", "m.e3": "Recevez votre carte", "m.e3t": "Votre carte numérotée apparaît aussitôt dans votre espace.", "m.e4": "Participez", "m.e4t": "Concours, votes, ateliers, projets : tout s'ouvre à vous.", "m.mintitre": "Vous avez moins de 18 ans ?", "m.mintexte": "Vous êtes les bienvenus. Une autorisation d'un parent ou d'un responsable légal est demandée à l'adhésion, puis pour chaque participation : concours, ateliers, envoi de photos ou d'une histoire. Un parent peut à tout moment demander la suppression des données de son enfant.", "m.faq": "Questions fréquentes", "m.q1": "L'adhésion se renouvelle-t-elle toute seule ?", "m.r1": "Non. Elle couvre l'année civile et vous recevez un rappel avant la fin.", "m.q2": "À quoi servent les 12 € ?", "m.r2": "À financer les projets de la communauté, les créations et les envois. L'association est à but non lucratif.", "m.q3": "Puis-je adhérer depuis l'étranger ?", "m.r3": "Oui, depuis n'importe quel pays. Seuls les frais d'envoi du cadeau varient.", "m.q4": "Comment sont protégées mes données ?", "m.r4": "Elles servent uniquement à la vie de l'association, ne sont jamais vendues, et vous pouvez demander leur suppression à tout moment.", "nav.accueil": "Accueil", "nav.explorer": "Omar infos", "nav.royals": "Young Royals", "nav.communaute": "Communauté", "nav.membres": "Membres", "nav.boutique": "Boutique", "nav.livre": "Livre collaboratif", "nav.journal": "Journal", "nav.association": "Association", "h.l1": "La musique.", "h.l2": "La créativité.", "h.l3": "Les valeurs d'Omar Rudberg.", "h.intro": "Bienvenue à la O.R. World Association, une association de fans qui célèbre son talent, son énergie et son message inspirant. Vous trouverez ici les actualités, les analyses, les projets de la communauté et les liens vers ses plateformes officielles.", "h.mention": "Association indépendante : nous ne représentons pas officiellement Omar ni son équipe. · Site disponible en 6 langues.", "h.btn1": "Entrer dans l'univers →", "h.btn2": "Devenir membre", "h.btn3": "Boutique", "marquee": "BIENVENUE À LA O.R. WORLD ASSOCIATION · LA MUSIQUE · LA COMMUNAUTÉ · LE VOYAGE ·", "c.membres": "MEMBRES", "c.pays": "PAYS", "c.projets": "PROJETS", "c.histoires": "HISTOIRES", "c.concours": "CONCOURS", "c.evenements": "ÉVÉNEMENTS", "c.note": "Ces chiffres se mettent à jour automatiquement. Le nouveau site vient d'ouvrir : tout commence à zéro.", "f.site": "SITE INTERNET", "f.boutique": "BOUTIQUE", "f.autres": "AUTRES", "f.contact": "CONTACT", "f.omar": "Omar Rudberg", "f.shoots": "Shoots presse", "f.beaute": "OMR Beauty", "f.evenements": "Événements", "f.adhesion": "Adhésion et dons", "f.documents": "Documents officiels", "f.contactlien": "Contact", "f.blog": "Blog", "f.magasin": "Magasin", "f.expedition": "Expédition et retours", "f.conditions": "Conditions générales", "f.politiqueboutique": "Politique de la boutique", "f.paiements": "Paiements", "f.faq": "FAQ", "f.rgpd": "Politique de confidentialité et RGPD", "f.cookies": "Politique de cookies", "f.mentions": "Mentions légales", "f.boutiqueomar": "Boutique officielle d'Omar", "f.mentionlegale": "Association de fans indépendante. Nous ne représentons pas officiellement Omar Rudberg ni son équipe. Les contenus intégrés proviennent des comptes officiels et restent la propriété de leurs auteurs.", "f.heberge": "Site hébergé par GitHub · Base de données Supabase"}, "en": {"m.titre": "Become a member", "m.sous": "Join the community and live the adventure all year round, alongside fans from all over the world.", "m.paran": "a year, just €1 a month", "m.annee": "Membership valid for the current calendar year.", "m.cta": "I'm joining", "m.don": "Make a donation", "m.carte": "MEMBER", "m.depuis": "MEMBER SINCE", "m.avtitre": "What membership gives you", "m.a1": "Giveaways", "m.a1t": "Members-only giveaways, with no entry fee.", "m.a2": "Voting", "m.a2t": "Choose the projects the association will carry out.", "m.a3": "Creative workshops", "m.a3t": "Create with the community: design, bracelets, posters, concert projects.", "m.a4": "Membership card", "m.a4t": "Your numbered card, in your name, valid for the year.", "m.a5": "Welcome gift", "m.a5t": "A small item created by the association, sent after joining.", "m.a6": "Members-only editions", "m.a6t": "Shop creations offered to members only.", "m.cttitre": "How it works", "m.e1": "Create your account", "m.e1t": "An email address and a password are enough.", "m.e2": "Pay the €12", "m.e2t": "By card with Stripe, or with PayPal. Secure payment.", "m.e3": "Get your card", "m.e3t": "Your numbered card appears in your space straight away.", "m.e4": "Take part", "m.e4t": "Giveaways, votes, workshops, projects: everything opens up to you.", "m.mintitre": "Under 18?", "m.mintexte": "You are very welcome. Permission from a parent or legal guardian is required when joining, then for each activity: giveaways, workshops, sending photos or a story. A parent can ask for their child's data to be deleted at any time.", "m.faq": "Frequently asked questions", "m.q1": "Does membership renew automatically?", "m.r1": "No. It covers the calendar year and you receive a reminder before it ends.", "m.q2": "What are the €12 used for?", "m.r2": "To fund community projects, creations and shipping. The association is non-profit.", "m.q3": "Can I join from abroad?", "m.r3": "Yes, from any country. Only the shipping cost of the gift varies.", "m.q4": "How is my data protected?", "m.r4": "It is used only for the life of the association, never sold, and you can ask for it to be deleted at any time.", "nav.accueil": "Home", "nav.explorer": "Omar info", "nav.royals": "Young Royals", "nav.communaute": "Community", "nav.membres": "Members", "nav.boutique": "Shop", "nav.livre": "Collaborative book", "nav.journal": "Journal", "nav.association": "Association", "h.l1": "The music.", "h.l2": "The creativity.", "h.l3": "The values of Omar Rudberg.", "h.intro": "Welcome to the O.R. World Association, a fan association celebrating his talent, his energy and his inspiring message. Here you will find news, analyses, community projects and links to his official platforms.", "h.mention": "Independent association: we do not officially represent Omar or his team. · Site available in 6 languages.", "h.btn1": "Enter the world →", "h.btn2": "Become a member", "h.btn3": "Shop", "marquee": "WELCOME TO THE O.R. WORLD ASSOCIATION · THE MUSIC · THE COMMUNITY · THE JOURNEY ·", "c.membres": "MEMBERS", "c.pays": "COUNTRIES", "c.projets": "PROJECTS", "c.histoires": "STORIES", "c.concours": "GIVEAWAYS", "c.evenements": "EVENTS", "c.note": "These numbers update automatically. The new site has just opened: everything starts at zero.", "f.site": "THE SITE", "f.boutique": "SHOP", "f.autres": "OTHER", "f.contact": "CONTACT", "f.omar": "Omar Rudberg", "f.shoots": "Press shoots", "f.beaute": "OMR Beauty", "f.evenements": "Events", "f.adhesion": "Membership and donations", "f.documents": "Official documents", "f.contactlien": "Contact", "f.blog": "Blog", "f.magasin": "Store", "f.expedition": "Shipping and returns", "f.conditions": "Terms and conditions", "f.politiqueboutique": "Store policy", "f.paiements": "Payments", "f.faq": "FAQ", "f.rgpd": "Privacy policy and GDPR", "f.cookies": "Cookie policy", "f.mentions": "Legal notices", "f.boutiqueomar": "Omar's official shop", "f.mentionlegale": "Independent fan association. We do not officially represent Omar Rudberg or his team. Embedded content comes from the official accounts and remains the property of its authors.", "f.heberge": "Hosted on GitHub · Database by Supabase"}, "es": {"m.titre": "Hazte socio", "m.sous": "Únete a la comunidad y vive la aventura todo el año, junto a fans de todo el mundo.", "m.paran": "al año, solo 1 € al mes", "m.annee": "Afiliación válida para el año natural en curso.", "m.cta": "Quiero ser socio", "m.don": "Hacer un donativo", "m.carte": "SOCIO", "m.depuis": "SOCIO DESDE", "m.avtitre": "Lo que te aporta la afiliación", "m.a1": "Sorteos", "m.a1t": "Sorteos solo para socios, sin coste de participación.", "m.a2": "Votaciones", "m.a2t": "Elige los proyectos que realizará la asociación.", "m.a3": "Talleres creativos", "m.a3t": "Crea con la comunidad: diseño, pulseras, carteles, proyectos de concierto.", "m.a4": "Tarjeta de socio", "m.a4t": "Tu tarjeta numerada, a tu nombre, válida para el año.", "m.a5": "Regalo de bienvenida", "m.a5t": "Un pequeño objeto creado por la asociación, enviado tras la afiliación.", "m.a6": "Ediciones exclusivas", "m.a6t": "Creaciones de la tienda solo para socios.", "m.cttitre": "Cómo funciona", "m.e1": "Crea tu cuenta", "m.e1t": "Basta un correo electrónico y una contraseña.", "m.e2": "Paga los 12 €", "m.e2t": "Con tarjeta mediante Stripe, o con PayPal. Pago seguro.", "m.e3": "Recibe tu tarjeta", "m.e3t": "Tu tarjeta numerada aparece enseguida en tu espacio.", "m.e4": "Participa", "m.e4t": "Sorteos, votaciones, talleres, proyectos: todo se abre para ti.", "m.mintitre": "¿Tienes menos de 18 años?", "m.mintexte": "Eres bienvenido. Se pide la autorización de un padre o tutor legal al afiliarse, y luego para cada participación: sorteos, talleres, envío de fotos o de una historia. Un padre puede pedir en cualquier momento la supresión de los datos de su hijo.", "m.faq": "Preguntas frecuentes", "m.q1": "¿La afiliación se renueva sola?", "m.r1": "No. Cubre el año natural y recibirás un recordatorio antes de que termine.", "m.q2": "¿Para qué sirven los 12 €?", "m.r2": "A financiar los proyectos de la comunidad, las creaciones y los envíos. La asociación es sin ánimo de lucro.", "m.q3": "¿Puedo asociarme desde el extranjero?", "m.r3": "Sí, desde cualquier país. Solo varían los gastos de envío del regalo.", "m.q4": "¿Cómo se protegen mis datos?", "m.r4": "Solo se usan para la vida de la asociación, nunca se venden, y puedes pedir su supresión en cualquier momento.", "nav.accueil": "Inicio", "nav.explorer": "Omar info", "nav.royals": "Young Royals", "nav.communaute": "Comunidad", "nav.membres": "Socios", "nav.boutique": "Tienda", "nav.livre": "Libro colaborativo", "nav.journal": "Diario", "nav.association": "Asociación", "h.l1": "La música.", "h.l2": "La creatividad.", "h.l3": "Los valores de Omar Rudberg.", "h.intro": "Bienvenida a la O.R. World Association, una asociación de fans que celebra su talento, su energía y su mensaje inspirador. Aquí encontrarás noticias, análisis, proyectos de la comunidad y enlaces a sus plataformas oficiales.", "h.mention": "Asociación independiente: no representamos oficialmente a Omar ni a su equipo. · Sitio disponible en 6 idiomas.", "h.btn1": "Entrar en el universo →", "h.btn2": "Hazte socio", "h.btn3": "Tienda", "marquee": "BIENVENIDA A LA O.R. WORLD ASSOCIATION · LA MÚSICA · LA COMUNIDAD · EL VIAJE ·", "c.membres": "SOCIOS", "c.pays": "PAÍSES", "c.projets": "PROYECTOS", "c.histoires": "HISTORIAS", "c.concours": "SORTEOS", "c.evenements": "EVENTOS", "c.note": "Estas cifras se actualizan solas. El nuevo sitio acaba de abrir: todo empieza desde cero.", "f.site": "EL SITIO", "f.boutique": "TIENDA", "f.autres": "OTROS", "f.contact": "CONTACTO", "f.omar": "Omar Rudberg", "f.shoots": "Sesiones de prensa", "f.beaute": "OMR Beauty", "f.evenements": "Eventos", "f.adhesion": "Afiliación y donativos", "f.documents": "Documentos oficiales", "f.contactlien": "Contacto", "f.blog": "Blog", "f.magasin": "Tienda", "f.expedition": "Envíos y devoluciones", "f.conditions": "Condiciones generales", "f.politiqueboutique": "Política de la tienda", "f.paiements": "Pagos", "f.faq": "Preguntas frecuentes", "f.rgpd": "Política de privacidad y RGPD", "f.cookies": "Política de cookies", "f.mentions": "Aviso legal", "f.boutiqueomar": "Tienda oficial de Omar", "f.mentionlegale": "Asociación de fans independiente. No representamos oficialmente a Omar Rudberg ni a su equipo. Los contenidos integrados proceden de las cuentas oficiales y pertenecen a sus autores.", "f.heberge": "Sitio alojado en GitHub · Base de datos Supabase"}, "sv": {"m.titre": "Bli medlem", "m.sous": "Gå med i gemenskapen och var med hela året, tillsammans med fans från hela världen.", "m.paran": "per år, bara 1 € i månaden", "m.annee": "Medlemskapet gäller innevarande kalenderår.", "m.cta": "Jag blir medlem", "m.don": "Ge en gåva", "m.carte": "MEDLEM", "m.depuis": "MEDLEM SEDAN", "m.avtitre": "Vad medlemskapet ger dig", "m.a1": "Tävlingar", "m.a1t": "Tävlingar endast för medlemmar, utan deltagaravgift.", "m.a2": "Omröstningar", "m.a2t": "Välj vilka projekt föreningen ska genomföra.", "m.a3": "Kreativa workshops", "m.a3t": "Skapa med gemenskapen: design, armband, affischer, konsertprojekt.", "m.a4": "Medlemskort", "m.a4t": "Ditt numrerade kort, i ditt namn, giltigt för året.", "m.a5": "Välkomstgåva", "m.a5t": "Ett litet föremål skapat av föreningen, skickas efter att du blivit medlem.", "m.a6": "Utgåvor för medlemmar", "m.a6t": "Skapelser i butiken endast för medlemmar.", "m.cttitre": "Så går det till", "m.e1": "Skapa ditt konto", "m.e1t": "Det räcker med en e-postadress och ett lösenord.", "m.e2": "Betala 12 €", "m.e2t": "Med kort via Stripe eller med PayPal. Säker betalning.", "m.e3": "Få ditt kort", "m.e3t": "Ditt numrerade kort visas direkt på din sida.", "m.e4": "Delta", "m.e4t": "Tävlingar, omröstningar, workshops, projekt: allt öppnar sig.", "m.mintitre": "Under 18 år?", "m.mintexte": "Du är välkommen. Tillstånd från en förälder eller vårdnadshavare krävs vid medlemskapet och sedan vid varje deltagande: tävlingar, workshops, foton eller berättelser. En förälder kan när som helst begära att barnets uppgifter raderas.", "m.faq": "Vanliga frågor", "m.q1": "Förnyas medlemskapet automatiskt?", "m.r1": "Nej. Det gäller kalenderåret och du får en påminnelse innan det tar slut.", "m.q2": "Vad används de 12 € till?", "m.r2": "Till gemenskapens projekt, skapelser och frakt. Föreningen är ideell.", "m.q3": "Kan jag bli medlem från utlandet?", "m.r3": "Ja, från vilket land som helst. Bara fraktkostnaden för gåvan varierar.", "m.q4": "Hur skyddas mina uppgifter?", "m.r4": "De används bara för föreningens verksamhet, säljs aldrig, och du kan begära radering när som helst.", "nav.accueil": "Hem", "nav.explorer": "Omar info", "nav.royals": "Young Royals", "nav.communaute": "Gemenskap", "nav.membres": "Medlemmar", "nav.boutique": "Butik", "nav.livre": "Gemensam bok", "nav.journal": "Journal", "nav.association": "Föreningen", "h.l1": "Musiken.", "h.l2": "Kreativiteten.", "h.l3": "Omar Rudbergs värderingar.", "h.intro": "Välkommen till O.R. World Association, en fanförening som hyllar hans talang, hans energi och hans inspirerande budskap. Här hittar du nyheter, analyser, gemenskapens projekt och länkar till hans officiella plattformar.", "h.mention": "Fristående förening: vi företräder inte officiellt Omar eller hans team. · Sajten finns på 6 språk.", "h.btn1": "Gå in i världen →", "h.btn2": "Bli medlem", "h.btn3": "Butik", "marquee": "VÄLKOMMEN TILL O.R. WORLD ASSOCIATION · MUSIKEN · GEMENSKAPEN · RESAN ·", "c.membres": "MEDLEMMAR", "c.pays": "LÄNDER", "c.projets": "PROJEKT", "c.histoires": "BERÄTTELSER", "c.concours": "TÄVLINGAR", "c.evenements": "EVENEMANG", "c.note": "Siffrorna uppdateras automatiskt. Den nya sajten har just öppnat: allt börjar på noll.", "f.site": "SAJTEN", "f.boutique": "BUTIK", "f.autres": "ÖVRIGT", "f.contact": "KONTAKT", "f.omar": "Omar Rudberg", "f.shoots": "Pressbilder", "f.beaute": "OMR Beauty", "f.evenements": "Evenemang", "f.adhesion": "Medlemskap och gåvor", "f.documents": "Officiella dokument", "f.contactlien": "Kontakt", "f.blog": "Blogg", "f.magasin": "Butik", "f.expedition": "Frakt och retur", "f.conditions": "Allmänna villkor", "f.politiqueboutique": "Butikspolicy", "f.paiements": "Betalningar", "f.faq": "Vanliga frågor", "f.rgpd": "Integritetspolicy och GDPR", "f.cookies": "Cookiepolicy", "f.mentions": "Juridisk information", "f.boutiqueomar": "Omars officiella butik", "f.mentionlegale": "Fristående fanförening. Vi företräder inte officiellt Omar Rudberg eller hans team. Inbäddat innehåll kommer från de officiella kontona och tillhör sina upphovspersoner.", "f.heberge": "Sajten drivs på GitHub · Databas hos Supabase"}, "de": {"m.titre": "Mitglied werden", "m.sous": "Werde Teil der Gemeinschaft und erlebe das ganze Jahr über das Abenteuer, gemeinsam mit Fans aus aller Welt.", "m.paran": "pro Jahr, nur 1 € im Monat", "m.annee": "Mitgliedschaft gilt für das laufende Kalenderjahr.", "m.cta": "Ich werde Mitglied", "m.don": "Spenden", "m.carte": "MITGLIED", "m.depuis": "MITGLIED SEIT", "m.avtitre": "Was dir die Mitgliedschaft bringt", "m.a1": "Gewinnspiele", "m.a1t": "Gewinnspiele nur für Mitglieder, ohne Teilnahmegebühr.", "m.a2": "Abstimmungen", "m.a2t": "Wähle die Projekte, die der Verein umsetzt.", "m.a3": "Kreativworkshops", "m.a3t": "Gestalte mit der Gemeinschaft: Design, Armbänder, Poster, Konzertprojekte.", "m.a4": "Mitgliedskarte", "m.a4t": "Deine nummerierte Karte auf deinen Namen, gültig für das Jahr.", "m.a5": "Willkommensgeschenk", "m.a5t": "Ein kleines, vom Verein gestaltetes Objekt, nach dem Beitritt verschickt.", "m.a6": "Editionen für Mitglieder", "m.a6t": "Kreationen aus dem Shop nur für Mitglieder.", "m.cttitre": "So läuft es ab", "m.e1": "Erstelle dein Konto", "m.e1t": "Eine E-Mail-Adresse und ein Passwort genügen.", "m.e2": "Zahle die 12 €", "m.e2t": "Per Karte über Stripe oder mit PayPal. Sichere Zahlung.", "m.e3": "Erhalte deine Karte", "m.e3t": "Deine nummerierte Karte erscheint sofort in deinem Bereich.", "m.e4": "Mach mit", "m.e4t": "Gewinnspiele, Abstimmungen, Workshops, Projekte: alles steht dir offen.", "m.mintitre": "Unter 18 Jahren?", "m.mintexte": "Du bist willkommen. Beim Beitritt und danach bei jeder Teilnahme ist die Zustimmung eines Elternteils oder Erziehungsberechtigten nötig: Gewinnspiele, Workshops, Fotos oder Geschichten. Eltern können jederzeit die Löschung der Daten ihres Kindes verlangen.", "m.faq": "Häufige Fragen", "m.q1": "Verlängert sich die Mitgliedschaft automatisch?", "m.r1": "Nein. Sie gilt für das Kalenderjahr, und du erhältst vorher eine Erinnerung.", "m.q2": "Wofür werden die 12 € verwendet?", "m.r2": "Für die Projekte der Gemeinschaft, Kreationen und den Versand. Der Verein ist gemeinnützig.", "m.q3": "Kann ich aus dem Ausland beitreten?", "m.r3": "Ja, aus jedem Land. Nur die Versandkosten für das Geschenk unterscheiden sich.", "m.q4": "Wie werden meine Daten geschützt?", "m.r4": "Sie dienen nur dem Vereinsleben, werden nie verkauft, und du kannst jederzeit die Löschung verlangen.", "nav.accueil": "Startseite", "nav.explorer": "Omar Infos", "nav.royals": "Young Royals", "nav.communaute": "Gemeinschaft", "nav.membres": "Mitglieder", "nav.boutique": "Shop", "nav.livre": "Gemeinsames Buch", "nav.journal": "Journal", "nav.association": "Verein", "h.l1": "Die Musik.", "h.l2": "Die Kreativität.", "h.l3": "Die Werte von Omar Rudberg.", "h.intro": "Willkommen bei der O.R. World Association, einem Fanverein, der sein Talent, seine Energie und seine inspirierende Botschaft feiert. Hier findest du Neuigkeiten, Analysen, Projekte der Gemeinschaft und Links zu seinen offiziellen Plattformen.", "h.mention": "Unabhängiger Verein: wir vertreten Omar und sein Team nicht offiziell. · Seite in 6 Sprachen verfügbar.", "h.btn1": "Die Welt betreten →", "h.btn2": "Mitglied werden", "h.btn3": "Shop", "marquee": "WILLKOMMEN BEI DER O.R. WORLD ASSOCIATION · DIE MUSIK · DIE GEMEINSCHAFT · DIE REISE ·", "c.membres": "MITGLIEDER", "c.pays": "LÄNDER", "c.projets": "PROJEKTE", "c.histoires": "GESCHICHTEN", "c.concours": "GEWINNSPIELE", "c.evenements": "VERANSTALTUNGEN", "c.note": "Diese Zahlen aktualisieren sich automatisch. Die neue Seite ist gerade gestartet: alles beginnt bei null.", "f.site": "DIE SEITE", "f.boutique": "SHOP", "f.autres": "WEITERES", "f.contact": "KONTAKT", "f.omar": "Omar Rudberg", "f.shoots": "Pressefotos", "f.beaute": "OMR Beauty", "f.evenements": "Veranstaltungen", "f.adhesion": "Mitgliedschaft und Spenden", "f.documents": "Offizielle Dokumente", "f.contactlien": "Kontakt", "f.blog": "Blog", "f.magasin": "Shop", "f.expedition": "Versand und Rückgabe", "f.conditions": "Allgemeine Geschäftsbedingungen", "f.politiqueboutique": "Shop-Richtlinie", "f.paiements": "Zahlungen", "f.faq": "Häufige Fragen", "f.rgpd": "Datenschutz und DSGVO", "f.cookies": "Cookie-Richtlinie", "f.mentions": "Impressum", "f.boutiqueomar": "Omars offizieller Shop", "f.mentionlegale": "Unabhängiger Fanverein. Wir vertreten Omar Rudberg und sein Team nicht offiziell. Eingebettete Inhalte stammen von den offiziellen Konten und gehören ihren Urhebern.", "f.heberge": "Gehostet bei GitHub · Datenbank bei Supabase"}, "pt": {"m.titre": "Tornar-me membro", "m.sous": "Junta-te à comunidade e vive a aventura durante todo o ano, ao lado de fãs do mundo inteiro.", "m.paran": "por ano, apenas 1 € por mês", "m.annee": "Adesão válida para o ano civil em curso.", "m.cta": "Quero ser membro", "m.don": "Fazer um donativo", "m.carte": "MEMBRO", "m.depuis": "MEMBRO DESDE", "m.avtitre": "O que a adesão te traz", "m.a1": "Passatempos", "m.a1t": "Passatempos só para membros, sem custo de participação.", "m.a2": "Votações", "m.a2t": "Escolhe os projetos que a associação vai realizar.", "m.a3": "Ateliês criativos", "m.a3t": "Cria com a comunidade: design, pulseiras, cartazes, projetos de concerto.", "m.a4": "Cartão de membro", "m.a4t": "O teu cartão numerado, em teu nome, válido para o ano.", "m.a5": "Prenda de boas-vindas", "m.a5t": "Um pequeno objeto criado pela associação, enviado após a adesão.", "m.a6": "Edições reservadas", "m.a6t": "Criações da loja apenas para membros.", "m.cttitre": "Como funciona", "m.e1": "Cria a tua conta", "m.e1t": "Basta um e-mail e uma palavra-passe.", "m.e2": "Paga os 12 €", "m.e2t": "Com cartão através da Stripe, ou com PayPal. Pagamento seguro.", "m.e3": "Recebe o teu cartão", "m.e3t": "O teu cartão numerado aparece logo no teu espaço.", "m.e4": "Participa", "m.e4t": "Passatempos, votações, ateliês, projetos: tudo se abre para ti.", "m.mintitre": "Tens menos de 18 anos?", "m.mintexte": "És bem-vindo. É pedida a autorização de um dos pais ou do responsável legal na adesão e depois em cada participação: passatempos, ateliês, envio de fotos ou de uma história. Um dos pais pode pedir a qualquer momento a eliminação dos dados do seu filho.", "m.faq": "Perguntas frequentes", "m.q1": "A adesão renova-se sozinha?", "m.r1": "Não. Cobre o ano civil e recebes um lembrete antes do fim.", "m.q2": "Para que servem os 12 €?", "m.r2": "Para financiar os projetos da comunidade, as criações e os envios. A associação não tem fins lucrativos.", "m.q3": "Posso aderir do estrangeiro?", "m.r3": "Sim, a partir de qualquer país. Só variam os custos de envio da prenda.", "m.q4": "Como são protegidos os meus dados?", "m.r4": "São usados apenas para a vida da associação, nunca são vendidos, e podes pedir a eliminação a qualquer momento.", "nav.accueil": "Início", "nav.explorer": "Omar info", "nav.royals": "Young Royals", "nav.communaute": "Comunidade", "nav.membres": "Membros", "nav.boutique": "Loja", "nav.livre": "Livro colaborativo", "nav.journal": "Jornal", "nav.association": "Associação", "h.l1": "A música.", "h.l2": "A criatividade.", "h.l3": "Os valores de Omar Rudberg.", "h.intro": "Bem-vinda à O.R. World Association, uma associação de fãs que celebra o seu talento, a sua energia e a sua mensagem inspiradora. Aqui encontras notícias, análises, projetos da comunidade e ligações para as suas plataformas oficiais.", "h.mention": "Associação independente: não representamos oficialmente Omar nem a sua equipa. · Site disponível em 6 línguas.", "h.btn1": "Entrar no universo →", "h.btn2": "Tornar-me membro", "h.btn3": "Loja", "marquee": "BEM-VINDA À O.R. WORLD ASSOCIATION · A MÚSICA · A COMUNIDADE · A VIAGEM ·", "c.membres": "MEMBROS", "c.pays": "PAÍSES", "c.projets": "PROJETOS", "c.histoires": "HISTÓRIAS", "c.concours": "PASSATEMPOS", "c.evenements": "EVENTOS", "c.note": "Estes números atualizam-se sozinhos. O novo site acaba de abrir: tudo começa do zero.", "f.site": "O SITE", "f.boutique": "LOJA", "f.autres": "OUTROS", "f.contact": "CONTACTO", "f.omar": "Omar Rudberg", "f.shoots": "Sessões de imprensa", "f.beaute": "OMR Beauty", "f.evenements": "Eventos", "f.adhesion": "Adesão e donativos", "f.documents": "Documentos oficiais", "f.contactlien": "Contacto", "f.blog": "Blog", "f.magasin": "Loja", "f.expedition": "Envios e devoluções", "f.conditions": "Condições gerais", "f.politiqueboutique": "Política da loja", "f.paiements": "Pagamentos", "f.faq": "Perguntas frequentes", "f.rgpd": "Política de privacidade e RGPD", "f.cookies": "Política de cookies", "f.mentions": "Informações legais", "f.boutiqueomar": "Loja oficial de Omar", "f.mentionlegale": "Associação de fãs independente. Não representamos oficialmente Omar Rudberg nem a sua equipa. Os conteúdos integrados vêm das contas oficiais e pertencem aos seus autores.", "f.heberge": "Site alojado no GitHub · Base de dados Supabase"}};
+const TEXTES={"fr": {"livre.traduitpar": "traduction de l'association", "livre.pastraduit": "Traduction pas encore disponible dans cette langue.", "livre.original": "Voir l'original", "livre.traduire": "Traduire", "livre.ecriten": "Écrit en", "livre.citation": "« Omarcito. Maintenant, arrête de pleurer. Prends une douche, coiffe-toi, mets ta plus belle tenue et sors en ville ! Montre-toi au monde entier ! Si la vie te met à terre, relève-toi et montre-lui de quoi tu es capable. »", "m.titre": "Devenir membre", "m.sous": "Rejoignez la communauté et vivez l'aventure toute l'année, aux côtés de fans du monde entier.", "m.paran": "par an, soit 1 € par mois", "m.annee": "Adhésion valable pour l'année civile en cours.", "m.cta": "Je deviens membre", "m.don": "Faire un don", "m.carte": "MEMBRE", "m.depuis": "MEMBRE DEPUIS", "m.avtitre": "Ce que l'adhésion vous apporte", "m.a1": "Jeux concours", "m.a1t": "Des concours réservés aux membres, sans frais de participation.", "m.a2": "Votes", "m.a2t": "Choisissez les projets que l'association réalisera.", "m.a3": "Ateliers créatifs", "m.a3t": "Créez avec la communauté : design, bracelets, affiches, projets de concert.", "m.a4": "Carte de membre", "m.a4t": "Votre carte numérotée, à votre nom, valable pour l'année.", "m.a5": "Cadeau de bienvenue", "m.a5t": "Un petit objet créé par l'association, envoyé après l'adhésion.", "m.a6": "Éditions réservées", "m.a6t": "Des créations de la boutique proposées uniquement aux membres.", "m.cttitre": "Comment ça se passe", "m.e1": "Créez votre compte", "m.e1t": "Une adresse e-mail et un mot de passe suffisent.", "m.e2": "Réglez les 12 €", "m.e2t": "Par carte bancaire avec Stripe, ou avec PayPal. Paiement sécurisé.", "m.e3": "Recevez votre carte", "m.e3t": "Votre carte numérotée apparaît aussitôt dans votre espace.", "m.e4": "Participez", "m.e4t": "Concours, votes, ateliers, projets : tout s'ouvre à vous.", "m.mintitre": "Vous avez moins de 18 ans ?", "m.mintexte": "Vous êtes les bienvenus. Une autorisation d'un parent ou d'un responsable légal est demandée à l'adhésion, puis pour chaque participation : concours, ateliers, envoi de photos ou d'une histoire. Un parent peut à tout moment demander la suppression des données de son enfant.", "m.faq": "Questions fréquentes", "m.q1": "L'adhésion se renouvelle-t-elle toute seule ?", "m.r1": "Non. Elle couvre l'année civile et vous recevez un rappel avant la fin.", "m.q2": "À quoi servent les 12 € ?", "m.r2": "À financer les projets de la communauté, les créations et les envois. L'association est à but non lucratif.", "m.q3": "Puis-je adhérer depuis l'étranger ?", "m.r3": "Oui, depuis n'importe quel pays. Seuls les frais d'envoi du cadeau varient.", "m.q4": "Comment sont protégées mes données ?", "m.r4": "Elles servent uniquement à la vie de l'association, ne sont jamais vendues, et vous pouvez demander leur suppression à tout moment.", "nav.accueil": "Accueil", "nav.explorer": "Omar infos", "nav.royals": "Young Royals", "nav.communaute": "Communauté", "nav.membres": "Membres", "nav.boutique": "Boutique", "nav.livre": "Livre collaboratif", "nav.journal": "Journal", "nav.association": "Association", "h.l1": "La musique.", "h.l2": "La créativité.", "h.l3": "Les valeurs d'Omar Rudberg.", "h.intro": "Bienvenue à la O.R. World Association, une association de fans qui célèbre son talent, son énergie et son message inspirant. Vous trouverez ici les actualités, les analyses, les projets de la communauté et les liens vers ses plateformes officielles.", "h.mention": "Association indépendante : nous ne représentons pas officiellement Omar ni son équipe. · Site disponible en 6 langues.", "h.btn1": "Entrer dans l'univers →", "h.btn2": "Devenir membre", "h.btn3": "Boutique", "marquee": "BIENVENUE À LA O.R. WORLD ASSOCIATION · LA MUSIQUE · LA COMMUNAUTÉ · LE VOYAGE ·", "c.membres": "MEMBRES", "c.pays": "PAYS", "c.projets": "PROJETS", "c.histoires": "HISTOIRES", "c.concours": "CONCOURS", "c.evenements": "ÉVÉNEMENTS", "c.note": "Ces chiffres se mettent à jour automatiquement. Le nouveau site vient d'ouvrir : tout commence à zéro.", "f.site": "SITE INTERNET", "f.boutique": "BOUTIQUE", "f.autres": "AUTRES", "f.contact": "CONTACT", "f.omar": "Omar Rudberg", "f.shoots": "Shoots presse", "f.beaute": "OMR Beauty", "f.evenements": "Événements", "f.adhesion": "Adhésion et dons", "f.documents": "Documents officiels", "f.contactlien": "Contact", "f.blog": "Blog", "f.magasin": "Magasin", "f.expedition": "Expédition et retours", "f.conditions": "Conditions générales", "f.politiqueboutique": "Politique de la boutique", "f.paiements": "Paiements", "f.faq": "FAQ", "f.rgpd": "Politique de confidentialité et RGPD", "f.cookies": "Politique de cookies", "f.mentions": "Mentions légales", "f.boutiqueomar": "Boutique officielle d'Omar", "f.mentionlegale": "Association de fans indépendante. Nous ne représentons pas officiellement Omar Rudberg ni son équipe. Les contenus intégrés proviennent des comptes officiels et restent la propriété de leurs auteurs.", "f.heberge": "Site hébergé par GitHub · Base de données Supabase"}, "en": {"livre.traduitpar": "translated by the association", "livre.pastraduit": "Translation not available in this language yet.", "livre.original": "See the original", "livre.traduire": "Translate", "livre.ecriten": "Written in", "livre.citation": "“Omarcito. Now, stop crying. Take a shower, fix your hair, put on your best outfit and go out into the city! Show yourself to the whole world! If life knocks you down, get back up and show it what you're capable of.”", "m.titre": "Become a member", "m.sous": "Join the community and live the adventure all year round, alongside fans from all over the world.", "m.paran": "a year, just €1 a month", "m.annee": "Membership valid for the current calendar year.", "m.cta": "I'm joining", "m.don": "Make a donation", "m.carte": "MEMBER", "m.depuis": "MEMBER SINCE", "m.avtitre": "What membership gives you", "m.a1": "Giveaways", "m.a1t": "Members-only giveaways, with no entry fee.", "m.a2": "Voting", "m.a2t": "Choose the projects the association will carry out.", "m.a3": "Creative workshops", "m.a3t": "Create with the community: design, bracelets, posters, concert projects.", "m.a4": "Membership card", "m.a4t": "Your numbered card, in your name, valid for the year.", "m.a5": "Welcome gift", "m.a5t": "A small item created by the association, sent after joining.", "m.a6": "Members-only editions", "m.a6t": "Shop creations offered to members only.", "m.cttitre": "How it works", "m.e1": "Create your account", "m.e1t": "An email address and a password are enough.", "m.e2": "Pay the €12", "m.e2t": "By card with Stripe, or with PayPal. Secure payment.", "m.e3": "Get your card", "m.e3t": "Your numbered card appears in your space straight away.", "m.e4": "Take part", "m.e4t": "Giveaways, votes, workshops, projects: everything opens up to you.", "m.mintitre": "Under 18?", "m.mintexte": "You are very welcome. Permission from a parent or legal guardian is required when joining, then for each activity: giveaways, workshops, sending photos or a story. A parent can ask for their child's data to be deleted at any time.", "m.faq": "Frequently asked questions", "m.q1": "Does membership renew automatically?", "m.r1": "No. It covers the calendar year and you receive a reminder before it ends.", "m.q2": "What are the €12 used for?", "m.r2": "To fund community projects, creations and shipping. The association is non-profit.", "m.q3": "Can I join from abroad?", "m.r3": "Yes, from any country. Only the shipping cost of the gift varies.", "m.q4": "How is my data protected?", "m.r4": "It is used only for the life of the association, never sold, and you can ask for it to be deleted at any time.", "nav.accueil": "Home", "nav.explorer": "Omar info", "nav.royals": "Young Royals", "nav.communaute": "Community", "nav.membres": "Members", "nav.boutique": "Shop", "nav.livre": "Collaborative book", "nav.journal": "Journal", "nav.association": "Association", "h.l1": "The music.", "h.l2": "The creativity.", "h.l3": "The values of Omar Rudberg.", "h.intro": "Welcome to the O.R. World Association, a fan association celebrating his talent, his energy and his inspiring message. Here you will find news, analyses, community projects and links to his official platforms.", "h.mention": "Independent association: we do not officially represent Omar or his team. · Site available in 6 languages.", "h.btn1": "Enter the world →", "h.btn2": "Become a member", "h.btn3": "Shop", "marquee": "WELCOME TO THE O.R. WORLD ASSOCIATION · THE MUSIC · THE COMMUNITY · THE JOURNEY ·", "c.membres": "MEMBERS", "c.pays": "COUNTRIES", "c.projets": "PROJECTS", "c.histoires": "STORIES", "c.concours": "GIVEAWAYS", "c.evenements": "EVENTS", "c.note": "These numbers update automatically. The new site has just opened: everything starts at zero.", "f.site": "THE SITE", "f.boutique": "SHOP", "f.autres": "OTHER", "f.contact": "CONTACT", "f.omar": "Omar Rudberg", "f.shoots": "Press shoots", "f.beaute": "OMR Beauty", "f.evenements": "Events", "f.adhesion": "Membership and donations", "f.documents": "Official documents", "f.contactlien": "Contact", "f.blog": "Blog", "f.magasin": "Store", "f.expedition": "Shipping and returns", "f.conditions": "Terms and conditions", "f.politiqueboutique": "Store policy", "f.paiements": "Payments", "f.faq": "FAQ", "f.rgpd": "Privacy policy and GDPR", "f.cookies": "Cookie policy", "f.mentions": "Legal notices", "f.boutiqueomar": "Omar's official shop", "f.mentionlegale": "Independent fan association. We do not officially represent Omar Rudberg or his team. Embedded content comes from the official accounts and remains the property of its authors.", "f.heberge": "Hosted on GitHub · Database by Supabase"}, "es": {"livre.traduitpar": "traducción de la asociación", "livre.pastraduit": "Traducción aún no disponible en este idioma.", "livre.original": "Ver el original", "livre.traduire": "Traducir", "livre.ecriten": "Escrito en", "livre.citation": "«Omarcito. Ahora, deja de llorar. Dúchate, arréglate el pelo, ponte tu mejor ropa y sal a la ciudad. ¡Muéstrate al mundo entero! Si la vida te tumba, levántate y enséñale de lo que eres capaz.»", "m.titre": "Hazte socio", "m.sous": "Únete a la comunidad y vive la aventura todo el año, junto a fans de todo el mundo.", "m.paran": "al año, solo 1 € al mes", "m.annee": "Afiliación válida para el año natural en curso.", "m.cta": "Quiero ser socio", "m.don": "Hacer un donativo", "m.carte": "SOCIO", "m.depuis": "SOCIO DESDE", "m.avtitre": "Lo que te aporta la afiliación", "m.a1": "Sorteos", "m.a1t": "Sorteos solo para socios, sin coste de participación.", "m.a2": "Votaciones", "m.a2t": "Elige los proyectos que realizará la asociación.", "m.a3": "Talleres creativos", "m.a3t": "Crea con la comunidad: diseño, pulseras, carteles, proyectos de concierto.", "m.a4": "Tarjeta de socio", "m.a4t": "Tu tarjeta numerada, a tu nombre, válida para el año.", "m.a5": "Regalo de bienvenida", "m.a5t": "Un pequeño objeto creado por la asociación, enviado tras la afiliación.", "m.a6": "Ediciones exclusivas", "m.a6t": "Creaciones de la tienda solo para socios.", "m.cttitre": "Cómo funciona", "m.e1": "Crea tu cuenta", "m.e1t": "Basta un correo electrónico y una contraseña.", "m.e2": "Paga los 12 €", "m.e2t": "Con tarjeta mediante Stripe, o con PayPal. Pago seguro.", "m.e3": "Recibe tu tarjeta", "m.e3t": "Tu tarjeta numerada aparece enseguida en tu espacio.", "m.e4": "Participa", "m.e4t": "Sorteos, votaciones, talleres, proyectos: todo se abre para ti.", "m.mintitre": "¿Tienes menos de 18 años?", "m.mintexte": "Eres bienvenido. Se pide la autorización de un padre o tutor legal al afiliarse, y luego para cada participación: sorteos, talleres, envío de fotos o de una historia. Un padre puede pedir en cualquier momento la supresión de los datos de su hijo.", "m.faq": "Preguntas frecuentes", "m.q1": "¿La afiliación se renueva sola?", "m.r1": "No. Cubre el año natural y recibirás un recordatorio antes de que termine.", "m.q2": "¿Para qué sirven los 12 €?", "m.r2": "A financiar los proyectos de la comunidad, las creaciones y los envíos. La asociación es sin ánimo de lucro.", "m.q3": "¿Puedo asociarme desde el extranjero?", "m.r3": "Sí, desde cualquier país. Solo varían los gastos de envío del regalo.", "m.q4": "¿Cómo se protegen mis datos?", "m.r4": "Solo se usan para la vida de la asociación, nunca se venden, y puedes pedir su supresión en cualquier momento.", "nav.accueil": "Inicio", "nav.explorer": "Omar info", "nav.royals": "Young Royals", "nav.communaute": "Comunidad", "nav.membres": "Socios", "nav.boutique": "Tienda", "nav.livre": "Libro colaborativo", "nav.journal": "Diario", "nav.association": "Asociación", "h.l1": "La música.", "h.l2": "La creatividad.", "h.l3": "Los valores de Omar Rudberg.", "h.intro": "Bienvenida a la O.R. World Association, una asociación de fans que celebra su talento, su energía y su mensaje inspirador. Aquí encontrarás noticias, análisis, proyectos de la comunidad y enlaces a sus plataformas oficiales.", "h.mention": "Asociación independiente: no representamos oficialmente a Omar ni a su equipo. · Sitio disponible en 6 idiomas.", "h.btn1": "Entrar en el universo →", "h.btn2": "Hazte socio", "h.btn3": "Tienda", "marquee": "BIENVENIDA A LA O.R. WORLD ASSOCIATION · LA MÚSICA · LA COMUNIDAD · EL VIAJE ·", "c.membres": "SOCIOS", "c.pays": "PAÍSES", "c.projets": "PROYECTOS", "c.histoires": "HISTORIAS", "c.concours": "SORTEOS", "c.evenements": "EVENTOS", "c.note": "Estas cifras se actualizan solas. El nuevo sitio acaba de abrir: todo empieza desde cero.", "f.site": "EL SITIO", "f.boutique": "TIENDA", "f.autres": "OTROS", "f.contact": "CONTACTO", "f.omar": "Omar Rudberg", "f.shoots": "Sesiones de prensa", "f.beaute": "OMR Beauty", "f.evenements": "Eventos", "f.adhesion": "Afiliación y donativos", "f.documents": "Documentos oficiales", "f.contactlien": "Contacto", "f.blog": "Blog", "f.magasin": "Tienda", "f.expedition": "Envíos y devoluciones", "f.conditions": "Condiciones generales", "f.politiqueboutique": "Política de la tienda", "f.paiements": "Pagos", "f.faq": "Preguntas frecuentes", "f.rgpd": "Política de privacidad y RGPD", "f.cookies": "Política de cookies", "f.mentions": "Aviso legal", "f.boutiqueomar": "Tienda oficial de Omar", "f.mentionlegale": "Asociación de fans independiente. No representamos oficialmente a Omar Rudberg ni a su equipo. Los contenidos integrados proceden de las cuentas oficiales y pertenecen a sus autores.", "f.heberge": "Sitio alojado en GitHub · Base de datos Supabase"}, "sv": {"livre.traduitpar": "översatt av föreningen", "livre.pastraduit": "Översättning finns ännu inte på detta språk.", "livre.original": "Visa originalet", "livre.traduire": "Översätt", "livre.ecriten": "Skrivet på", "livre.citation": "”Omarcito. Sluta gråta nu. Ta en dusch, fixa håret, ta på dig dina finaste kläder och gå ut i stan! Visa dig för hela världen! Om livet slår omkull dig, res dig upp och visa vad du går för.”", "m.titre": "Bli medlem", "m.sous": "Gå med i gemenskapen och var med hela året, tillsammans med fans från hela världen.", "m.paran": "per år, bara 1 € i månaden", "m.annee": "Medlemskapet gäller innevarande kalenderår.", "m.cta": "Jag blir medlem", "m.don": "Ge en gåva", "m.carte": "MEDLEM", "m.depuis": "MEDLEM SEDAN", "m.avtitre": "Vad medlemskapet ger dig", "m.a1": "Tävlingar", "m.a1t": "Tävlingar endast för medlemmar, utan deltagaravgift.", "m.a2": "Omröstningar", "m.a2t": "Välj vilka projekt föreningen ska genomföra.", "m.a3": "Kreativa workshops", "m.a3t": "Skapa med gemenskapen: design, armband, affischer, konsertprojekt.", "m.a4": "Medlemskort", "m.a4t": "Ditt numrerade kort, i ditt namn, giltigt för året.", "m.a5": "Välkomstgåva", "m.a5t": "Ett litet föremål skapat av föreningen, skickas efter att du blivit medlem.", "m.a6": "Utgåvor för medlemmar", "m.a6t": "Skapelser i butiken endast för medlemmar.", "m.cttitre": "Så går det till", "m.e1": "Skapa ditt konto", "m.e1t": "Det räcker med en e-postadress och ett lösenord.", "m.e2": "Betala 12 €", "m.e2t": "Med kort via Stripe eller med PayPal. Säker betalning.", "m.e3": "Få ditt kort", "m.e3t": "Ditt numrerade kort visas direkt på din sida.", "m.e4": "Delta", "m.e4t": "Tävlingar, omröstningar, workshops, projekt: allt öppnar sig.", "m.mintitre": "Under 18 år?", "m.mintexte": "Du är välkommen. Tillstånd från en förälder eller vårdnadshavare krävs vid medlemskapet och sedan vid varje deltagande: tävlingar, workshops, foton eller berättelser. En förälder kan när som helst begära att barnets uppgifter raderas.", "m.faq": "Vanliga frågor", "m.q1": "Förnyas medlemskapet automatiskt?", "m.r1": "Nej. Det gäller kalenderåret och du får en påminnelse innan det tar slut.", "m.q2": "Vad används de 12 € till?", "m.r2": "Till gemenskapens projekt, skapelser och frakt. Föreningen är ideell.", "m.q3": "Kan jag bli medlem från utlandet?", "m.r3": "Ja, från vilket land som helst. Bara fraktkostnaden för gåvan varierar.", "m.q4": "Hur skyddas mina uppgifter?", "m.r4": "De används bara för föreningens verksamhet, säljs aldrig, och du kan begära radering när som helst.", "nav.accueil": "Hem", "nav.explorer": "Omar info", "nav.royals": "Young Royals", "nav.communaute": "Gemenskap", "nav.membres": "Medlemmar", "nav.boutique": "Butik", "nav.livre": "Gemensam bok", "nav.journal": "Journal", "nav.association": "Föreningen", "h.l1": "Musiken.", "h.l2": "Kreativiteten.", "h.l3": "Omar Rudbergs värderingar.", "h.intro": "Välkommen till O.R. World Association, en fanförening som hyllar hans talang, hans energi och hans inspirerande budskap. Här hittar du nyheter, analyser, gemenskapens projekt och länkar till hans officiella plattformar.", "h.mention": "Fristående förening: vi företräder inte officiellt Omar eller hans team. · Sajten finns på 6 språk.", "h.btn1": "Gå in i världen →", "h.btn2": "Bli medlem", "h.btn3": "Butik", "marquee": "VÄLKOMMEN TILL O.R. WORLD ASSOCIATION · MUSIKEN · GEMENSKAPEN · RESAN ·", "c.membres": "MEDLEMMAR", "c.pays": "LÄNDER", "c.projets": "PROJEKT", "c.histoires": "BERÄTTELSER", "c.concours": "TÄVLINGAR", "c.evenements": "EVENEMANG", "c.note": "Siffrorna uppdateras automatiskt. Den nya sajten har just öppnat: allt börjar på noll.", "f.site": "SAJTEN", "f.boutique": "BUTIK", "f.autres": "ÖVRIGT", "f.contact": "KONTAKT", "f.omar": "Omar Rudberg", "f.shoots": "Pressbilder", "f.beaute": "OMR Beauty", "f.evenements": "Evenemang", "f.adhesion": "Medlemskap och gåvor", "f.documents": "Officiella dokument", "f.contactlien": "Kontakt", "f.blog": "Blogg", "f.magasin": "Butik", "f.expedition": "Frakt och retur", "f.conditions": "Allmänna villkor", "f.politiqueboutique": "Butikspolicy", "f.paiements": "Betalningar", "f.faq": "Vanliga frågor", "f.rgpd": "Integritetspolicy och GDPR", "f.cookies": "Cookiepolicy", "f.mentions": "Juridisk information", "f.boutiqueomar": "Omars officiella butik", "f.mentionlegale": "Fristående fanförening. Vi företräder inte officiellt Omar Rudberg eller hans team. Inbäddat innehåll kommer från de officiella kontona och tillhör sina upphovspersoner.", "f.heberge": "Sajten drivs på GitHub · Databas hos Supabase"}, "de": {"livre.traduitpar": "Übersetzung des Vereins", "livre.pastraduit": "Übersetzung in dieser Sprache noch nicht verfügbar.", "livre.original": "Original ansehen", "livre.traduire": "Übersetzen", "livre.ecriten": "Geschrieben auf", "livre.citation": "„Omarcito. Hör jetzt auf zu weinen. Geh duschen, mach dir die Haare, zieh dein schönstes Outfit an und geh raus in die Stadt! Zeig dich der ganzen Welt! Wenn das Leben dich niederwirft, steh auf und zeig ihm, wozu du fähig bist.“", "m.titre": "Mitglied werden", "m.sous": "Werde Teil der Gemeinschaft und erlebe das ganze Jahr über das Abenteuer, gemeinsam mit Fans aus aller Welt.", "m.paran": "pro Jahr, nur 1 € im Monat", "m.annee": "Mitgliedschaft gilt für das laufende Kalenderjahr.", "m.cta": "Ich werde Mitglied", "m.don": "Spenden", "m.carte": "MITGLIED", "m.depuis": "MITGLIED SEIT", "m.avtitre": "Was dir die Mitgliedschaft bringt", "m.a1": "Gewinnspiele", "m.a1t": "Gewinnspiele nur für Mitglieder, ohne Teilnahmegebühr.", "m.a2": "Abstimmungen", "m.a2t": "Wähle die Projekte, die der Verein umsetzt.", "m.a3": "Kreativworkshops", "m.a3t": "Gestalte mit der Gemeinschaft: Design, Armbänder, Poster, Konzertprojekte.", "m.a4": "Mitgliedskarte", "m.a4t": "Deine nummerierte Karte auf deinen Namen, gültig für das Jahr.", "m.a5": "Willkommensgeschenk", "m.a5t": "Ein kleines, vom Verein gestaltetes Objekt, nach dem Beitritt verschickt.", "m.a6": "Editionen für Mitglieder", "m.a6t": "Kreationen aus dem Shop nur für Mitglieder.", "m.cttitre": "So läuft es ab", "m.e1": "Erstelle dein Konto", "m.e1t": "Eine E-Mail-Adresse und ein Passwort genügen.", "m.e2": "Zahle die 12 €", "m.e2t": "Per Karte über Stripe oder mit PayPal. Sichere Zahlung.", "m.e3": "Erhalte deine Karte", "m.e3t": "Deine nummerierte Karte erscheint sofort in deinem Bereich.", "m.e4": "Mach mit", "m.e4t": "Gewinnspiele, Abstimmungen, Workshops, Projekte: alles steht dir offen.", "m.mintitre": "Unter 18 Jahren?", "m.mintexte": "Du bist willkommen. Beim Beitritt und danach bei jeder Teilnahme ist die Zustimmung eines Elternteils oder Erziehungsberechtigten nötig: Gewinnspiele, Workshops, Fotos oder Geschichten. Eltern können jederzeit die Löschung der Daten ihres Kindes verlangen.", "m.faq": "Häufige Fragen", "m.q1": "Verlängert sich die Mitgliedschaft automatisch?", "m.r1": "Nein. Sie gilt für das Kalenderjahr, und du erhältst vorher eine Erinnerung.", "m.q2": "Wofür werden die 12 € verwendet?", "m.r2": "Für die Projekte der Gemeinschaft, Kreationen und den Versand. Der Verein ist gemeinnützig.", "m.q3": "Kann ich aus dem Ausland beitreten?", "m.r3": "Ja, aus jedem Land. Nur die Versandkosten für das Geschenk unterscheiden sich.", "m.q4": "Wie werden meine Daten geschützt?", "m.r4": "Sie dienen nur dem Vereinsleben, werden nie verkauft, und du kannst jederzeit die Löschung verlangen.", "nav.accueil": "Startseite", "nav.explorer": "Omar Infos", "nav.royals": "Young Royals", "nav.communaute": "Gemeinschaft", "nav.membres": "Mitglieder", "nav.boutique": "Shop", "nav.livre": "Gemeinsames Buch", "nav.journal": "Journal", "nav.association": "Verein", "h.l1": "Die Musik.", "h.l2": "Die Kreativität.", "h.l3": "Die Werte von Omar Rudberg.", "h.intro": "Willkommen bei der O.R. World Association, einem Fanverein, der sein Talent, seine Energie und seine inspirierende Botschaft feiert. Hier findest du Neuigkeiten, Analysen, Projekte der Gemeinschaft und Links zu seinen offiziellen Plattformen.", "h.mention": "Unabhängiger Verein: wir vertreten Omar und sein Team nicht offiziell. · Seite in 6 Sprachen verfügbar.", "h.btn1": "Die Welt betreten →", "h.btn2": "Mitglied werden", "h.btn3": "Shop", "marquee": "WILLKOMMEN BEI DER O.R. WORLD ASSOCIATION · DIE MUSIK · DIE GEMEINSCHAFT · DIE REISE ·", "c.membres": "MITGLIEDER", "c.pays": "LÄNDER", "c.projets": "PROJEKTE", "c.histoires": "GESCHICHTEN", "c.concours": "GEWINNSPIELE", "c.evenements": "VERANSTALTUNGEN", "c.note": "Diese Zahlen aktualisieren sich automatisch. Die neue Seite ist gerade gestartet: alles beginnt bei null.", "f.site": "DIE SEITE", "f.boutique": "SHOP", "f.autres": "WEITERES", "f.contact": "KONTAKT", "f.omar": "Omar Rudberg", "f.shoots": "Pressefotos", "f.beaute": "OMR Beauty", "f.evenements": "Veranstaltungen", "f.adhesion": "Mitgliedschaft und Spenden", "f.documents": "Offizielle Dokumente", "f.contactlien": "Kontakt", "f.blog": "Blog", "f.magasin": "Shop", "f.expedition": "Versand und Rückgabe", "f.conditions": "Allgemeine Geschäftsbedingungen", "f.politiqueboutique": "Shop-Richtlinie", "f.paiements": "Zahlungen", "f.faq": "Häufige Fragen", "f.rgpd": "Datenschutz und DSGVO", "f.cookies": "Cookie-Richtlinie", "f.mentions": "Impressum", "f.boutiqueomar": "Omars offizieller Shop", "f.mentionlegale": "Unabhängiger Fanverein. Wir vertreten Omar Rudberg und sein Team nicht offiziell. Eingebettete Inhalte stammen von den offiziellen Konten und gehören ihren Urhebern.", "f.heberge": "Gehostet bei GitHub · Datenbank bei Supabase"}, "pt": {"livre.traduitpar": "tradução da associação", "livre.pastraduit": "Tradução ainda não disponível nesta língua.", "livre.original": "Ver o original", "livre.traduire": "Traduzir", "livre.ecriten": "Escrito em", "livre.citation": "«Omarcito. Agora, para de chorar. Toma um duche, arranja o cabelo, veste a tua melhor roupa e sai pela cidade! Mostra-te ao mundo inteiro! Se a vida te deitar abaixo, levanta-te e mostra-lhe do que és capaz.»", "m.titre": "Tornar-me membro", "m.sous": "Junta-te à comunidade e vive a aventura durante todo o ano, ao lado de fãs do mundo inteiro.", "m.paran": "por ano, apenas 1 € por mês", "m.annee": "Adesão válida para o ano civil em curso.", "m.cta": "Quero ser membro", "m.don": "Fazer um donativo", "m.carte": "MEMBRO", "m.depuis": "MEMBRO DESDE", "m.avtitre": "O que a adesão te traz", "m.a1": "Passatempos", "m.a1t": "Passatempos só para membros, sem custo de participação.", "m.a2": "Votações", "m.a2t": "Escolhe os projetos que a associação vai realizar.", "m.a3": "Ateliês criativos", "m.a3t": "Cria com a comunidade: design, pulseiras, cartazes, projetos de concerto.", "m.a4": "Cartão de membro", "m.a4t": "O teu cartão numerado, em teu nome, válido para o ano.", "m.a5": "Prenda de boas-vindas", "m.a5t": "Um pequeno objeto criado pela associação, enviado após a adesão.", "m.a6": "Edições reservadas", "m.a6t": "Criações da loja apenas para membros.", "m.cttitre": "Como funciona", "m.e1": "Cria a tua conta", "m.e1t": "Basta um e-mail e uma palavra-passe.", "m.e2": "Paga os 12 €", "m.e2t": "Com cartão através da Stripe, ou com PayPal. Pagamento seguro.", "m.e3": "Recebe o teu cartão", "m.e3t": "O teu cartão numerado aparece logo no teu espaço.", "m.e4": "Participa", "m.e4t": "Passatempos, votações, ateliês, projetos: tudo se abre para ti.", "m.mintitre": "Tens menos de 18 anos?", "m.mintexte": "És bem-vindo. É pedida a autorização de um dos pais ou do responsável legal na adesão e depois em cada participação: passatempos, ateliês, envio de fotos ou de uma história. Um dos pais pode pedir a qualquer momento a eliminação dos dados do seu filho.", "m.faq": "Perguntas frequentes", "m.q1": "A adesão renova-se sozinha?", "m.r1": "Não. Cobre o ano civil e recebes um lembrete antes do fim.", "m.q2": "Para que servem os 12 €?", "m.r2": "Para financiar os projetos da comunidade, as criações e os envios. A associação não tem fins lucrativos.", "m.q3": "Posso aderir do estrangeiro?", "m.r3": "Sim, a partir de qualquer país. Só variam os custos de envio da prenda.", "m.q4": "Como são protegidos os meus dados?", "m.r4": "São usados apenas para a vida da associação, nunca são vendidos, e podes pedir a eliminação a qualquer momento.", "nav.accueil": "Início", "nav.explorer": "Omar info", "nav.royals": "Young Royals", "nav.communaute": "Comunidade", "nav.membres": "Membros", "nav.boutique": "Loja", "nav.livre": "Livro colaborativo", "nav.journal": "Jornal", "nav.association": "Associação", "h.l1": "A música.", "h.l2": "A criatividade.", "h.l3": "Os valores de Omar Rudberg.", "h.intro": "Bem-vinda à O.R. World Association, uma associação de fãs que celebra o seu talento, a sua energia e a sua mensagem inspiradora. Aqui encontras notícias, análises, projetos da comunidade e ligações para as suas plataformas oficiais.", "h.mention": "Associação independente: não representamos oficialmente Omar nem a sua equipa. · Site disponível em 6 línguas.", "h.btn1": "Entrar no universo →", "h.btn2": "Tornar-me membro", "h.btn3": "Loja", "marquee": "BEM-VINDA À O.R. WORLD ASSOCIATION · A MÚSICA · A COMUNIDADE · A VIAGEM ·", "c.membres": "MEMBROS", "c.pays": "PAÍSES", "c.projets": "PROJETOS", "c.histoires": "HISTÓRIAS", "c.concours": "PASSATEMPOS", "c.evenements": "EVENTOS", "c.note": "Estes números atualizam-se sozinhos. O novo site acaba de abrir: tudo começa do zero.", "f.site": "O SITE", "f.boutique": "LOJA", "f.autres": "OUTROS", "f.contact": "CONTACTO", "f.omar": "Omar Rudberg", "f.shoots": "Sessões de imprensa", "f.beaute": "OMR Beauty", "f.evenements": "Eventos", "f.adhesion": "Adesão e donativos", "f.documents": "Documentos oficiais", "f.contactlien": "Contacto", "f.blog": "Blog", "f.magasin": "Loja", "f.expedition": "Envios e devoluções", "f.conditions": "Condições gerais", "f.politiqueboutique": "Política da loja", "f.paiements": "Pagamentos", "f.faq": "Perguntas frequentes", "f.rgpd": "Política de privacidade e RGPD", "f.cookies": "Política de cookies", "f.mentions": "Informações legais", "f.boutiqueomar": "Loja oficial de Omar", "f.mentionlegale": "Associação de fãs independente. Não representamos oficialmente Omar Rudberg nem a sua equipa. Os conteúdos integrados vêm das contas oficiais e pertencem aos seus autores.", "f.heberge": "Site alojado no GitHub · Base de dados Supabase"}};
 
 (function(){
   const liste=document.getElementById("langue-liste");
@@ -936,172 +1109,392 @@ const CONTINENTS=[[[143.2,-12.0],[143.5,-13.1],[143.8,-14.3],[144.9,-14.7],[145.
 
 
 </script>
-
 <script>
 (function(){
-  const b=document.getElementById("burger");
-  if(!b) return;
-  const menu=document.querySelector(".menu");
-  const entete=document.querySelector(".entete");
-  function bascule(ouvrir){
-    menu.classList.toggle("ouvert",ouvrir);
-    entete.classList.toggle("menu-ouvert",ouvrir);
-    b.setAttribute("aria-expanded",String(ouvrir));
-    document.body.style.overflow=ouvrir?"hidden":"";
-  }
-  b.addEventListener("click",function(e){
-    e.stopPropagation();
-    bascule(!menu.classList.contains("ouvert"));
-  });
-  menu.querySelectorAll("a").forEach(function(a){
-    a.addEventListener("click",function(){ bascule(false); });
-  });
-  document.addEventListener("keydown",function(e){ if(e.key==="Escape") bascule(false); });
-})();
-</script>
-
-<script>
-(function(){
-  const b=document.getElementById("burger");
-  if(!b) return;
-  const menu=document.querySelector(".menu");
-  const entete=document.querySelector(".entete");
-  function bascule(ouvrir){
-    menu.classList.toggle("ouvert",ouvrir);
-    entete.classList.toggle("menu-ouvert",ouvrir);
-    b.setAttribute("aria-expanded",String(ouvrir));
-    document.body.style.overflow=ouvrir?"hidden":"";
-  }
-  b.addEventListener("click",function(e){
-    e.stopPropagation();
-    bascule(!menu.classList.contains("ouvert"));
-  });
-  menu.querySelectorAll("a").forEach(function(a){
-    a.addEventListener("click",function(){ bascule(false); });
-  });
-  document.addEventListener("keydown",function(e){ if(e.key==="Escape") bascule(false); });
-})();
-</script>
-<script>
-(function(){
-  const CH=[{"t": "Careless", "p": "https://omarrudbergmap.com/photos/CARELESS_PH2.webp", "s": "4JP5g7hhIZjvquzHfa3Ebz", "n": 2, "pr": "27/06/2026 · Cologne", "to": ["Festivals 2026"], "remix": false, "d": "03/07/2026"}, {"t": "Siren (feat. Felix Jaehn)", "p": "https://omarrudbergmap.com/photos/PH_SIREN.webp", "s": "", "n": 0, "pr": "", "to": [], "remix": false, "d": "19/06/2026"}, {"t": "A World Like This", "p": "https://omarrudbergmap.com/photos/PH_WORLD.webp", "s": "", "n": 2, "pr": "27/06/2026 · Cologne", "to": ["Festivals 2026"], "remix": false, "d": "29/05/2026"}, {"t": "Gabriela (Spotify Singles)", "p": "https://omarrudbergmap.com/photos/PH_GABRIELA.webp", "s": "", "n": 0, "pr": "", "to": [], "remix": false, "d": "12/12/2025"}, {"t": "Bebezinho (feat. Omar Rudberg)", "p": "https://omarrudbergmap.com/photos/PH_BEBEZINHO.webp", "s": "", "n": 0, "pr": "", "to": [], "remix": false, "d": "28/11/2025"}, {"t": "Malandro", "p": "https://omarrudbergmap.com/photos/PH_MALANDRO.webp", "s": "", "n": 19, "pr": "28/10/2025 · Munich", "to": ["Festivals 2026", "Midnight Sun 2025"], "remix": false, "d": "30/10/2025"}, {"t": "Dying", "p": "https://omarrudbergmap.com/photos/PH_DYING.webp", "s": "", "n": 18, "pr": "28/10/2025 · Munich", "to": ["Festivals 2026", "Midnight Sun 2025"], "remix": false, "d": "05/09/2025"}, {"t": "Bye Bye", "p": "https://omarrudbergmap.com/photos/PH_BYEBYE.webp", "s": "", "n": 57, "pr": "25/05/2024 · Gävle", "to": ["Every Night Fantasy 2024", "Every Night Fantasy 2025", "Festivals 2024", "Festivals 2025", "Festivals 2026", "Midnight Sun 2025"], "remix": false, "d": "18/10/2024"}, {"t": "Girlfriend", "p": "https://omarrudbergmap.com/photos/PH_GIRLFRIEND.webp", "s": "3MfysK4blbsihpWvCSDOhy", "n": 51, "pr": "21/10/2024 · London", "to": ["Every Night Fantasy 2024", "Every Night Fantasy 2025", "Festivals 2025", "Festivals 2026", "Midnight Sun 2025"], "remix": false, "d": "18/10/2024"}, {"t": "Lose Me", "p": "https://omarrudbergmap.com/photos/PH_LOSEME.webp", "s": "", "n": 33, "pr": "21/10/2024 · London", "to": ["Every Night Fantasy 2024", "Every Night Fantasy 2025", "Festivals 2025"], "remix": false, "d": "18/10/2024"}, {"t": "Wrong", "p": "https://omarrudbergmap.com/photos/PH_WRONG.webp", "s": "", "n": 25, "pr": "21/10/2024 · London", "to": ["Every Night Fantasy 2024", "Every Night Fantasy 2025"], "remix": false, "d": "18/10/2024"}, {"t": "Sabotage", "p": "https://omarrudbergmap.com/photos/PH_SABOTAGE.webp", "s": "2ZRhNEadmYEmEPpEzL0UC7", "n": 51, "pr": "21/10/2024 · London", "to": ["Every Night Fantasy 2024", "Every Night Fantasy 2025", "Festivals 2025", "Festivals 2026", "Midnight Sun 2025"], "remix": false, "d": "11/10/2024"}, {"t": "Talk", "p": "https://omarrudbergmap.com/photos/PH_TALK.webp", "s": "0pELfDyyPkiaI14fuDSd3p", "n": 57, "pr": "25/05/2024 · Gävle", "to": ["Every Night Fantasy 2024", "Every Night Fantasy 2025", "Festivals 2024", "Festivals 2025", "Festivals 2026", "Midnight Sun 2025"], "remix": false, "d": "28/06/2024"}, {"t": "Sorry (reprise de Madonna)", "p": "https://omarrudbergmap.com/photos/PH_SORRY.webp", "s": "", "n": 0, "pr": "", "to": [], "remix": false, "d": "18/06/2024"}, {"t": "Red Light", "p": "https://omarrudbergmap.com/photos/PH_REDLIGHT.webp", "s": "2TXyJJEe1AMm2kj67g5Vnz", "n": 39, "pr": "17/02/2024 · Stockholm", "to": ["Every Night Fantasy 2024", "Every Night Fantasy 2025", "Festivals 2024", "Festivals 2025", "Premier concert solo"], "remix": false, "d": "17/05/2024"}, {"t": "Min Första (I Will Always Be Your Soldier)", "p": "https://omarrudbergmap.com/photos/PH_MINFORSTA.webp", "s": "", "n": 7, "pr": "17/02/2024 · Stockholm", "to": ["Festivals 2024", "Premier concert solo"], "remix": false, "d": "09/12/2023"}, {"t": "Om du inte fanns (Don't Wait)", "p": "https://omarrudbergmap.com/photos/PH_SMB.webp", "s": "", "n": 7, "pr": "17/02/2024 · Stockholm", "to": ["Festivals 2024", "Premier concert solo"], "remix": false, "d": "25/11/2023"}, {"t": "Höj ett glas (Fanfar)", "p": "https://omarrudbergmap.com/photos/PH_SMB.webp", "s": "", "n": 7, "pr": "17/02/2024 · Stockholm", "to": ["Festivals 2024", "Premier concert solo"], "remix": false, "d": "20/10/2023"}, {"t": "Off My Mind (feat. Jubël)", "p": "https://omarrudbergmap.com/photos/PH_OFFMYMIND.webp", "s": "", "n": 1, "pr": "17/02/2024 · Stockholm", "to": ["Premier concert solo"], "remix": false, "d": "20/10/2023"}, {"t": "Happier", "p": "https://omarrudbergmap.com/photos/PH_HAPPIER.webp", "s": "", "n": 40, "pr": "17/02/2024 · Stockholm", "to": ["Every Night Fantasy 2024", "Every Night Fantasy 2025", "Festivals 2024", "Festivals 2025", "Premier concert solo"], "remix": false, "d": "01/07/2023"}, {"t": "All In My Head (feat. Omar Rudberg)", "p": "https://omarrudbergmap.com/photos/PH_ALLHEAD.webp", "s": "", "n": 0, "pr": "", "to": [], "remix": false, "d": "29/06/2023"}, {"t": "Call Me By Your Name", "p": "https://omarrudbergmap.com/photos/PH_CMBYN.webp", "s": "", "n": 0, "pr": "", "to": [], "remix": false, "d": "01/05/2023"}, {"t": "She Fell In Love In The Summer (acoustic)", "p": "https://omarrudbergmap.com/photos/PH_SHEFELL.webp", "s": "", "n": 25, "pr": "21/10/2024 · London", "to": ["Every Night Fantasy 2024", "Every Night Fantasy 2025"], "remix": false, "d": "01/05/2023"}, {"t": "She Fell In Love In The Summer", "p": "https://omarrudbergmap.com/photos/PH_SHEFELL.webp", "s": "", "n": 25, "pr": "21/10/2024 · London", "to": ["Every Night Fantasy 2024", "Every Night Fantasy 2025"], "remix": false, "d": "01/05/2023"}, {"t": "La Incondicional (live from Benjamin's)", "p": "https://omarrudbergmap.com/photos/PH_BENJAMINS.webp", "s": "", "n": 0, "pr": "", "to": [], "remix": false, "d": "02/07/2022"}, {"t": "La Incondicional", "p": "https://omarrudbergmap.com/photos/PH_BENJAMINS.webp", "s": "", "n": 0, "pr": "", "to": [], "remix": false, "d": "02/07/2022"}, {"t": "Todo De Ti (All That She Wants)", "p": "https://omarrudbergmap.com/photos/PH_TODODETI.webp", "s": "", "n": 7, "pr": "17/02/2024 · Stockholm", "to": ["Festivals 2024", "Premier concert solo"], "remix": false, "d": "01/07/2022"}, {"t": "Nakna", "p": "https://omarrudbergmap.com/photos/PH_NAKNA.webp", "s": "", "n": 0, "pr": "", "to": [], "remix": false, "d": "23/06/2022"}, {"t": "In The Sunrise", "p": "https://omarrudbergmap.com/photos/PH_SUNRISE.webp", "s": "", "n": 39, "pr": "17/02/2024 · Stockholm", "to": ["Every Night Fantasy 2024", "Every Night Fantasy 2025", "Festivals 2024", "Festivals 2025", "Premier concert solo"], "remix": false, "d": "21/06/2022"}, {"t": "Breathe", "p": "https://omarrudbergmap.com/photos/PH_BREATHE.webp", "s": "0y3C8kobslt7MOiloZyt3T", "n": 0, "pr": "", "to": [], "remix": false, "d": "01/06/2022"}, {"t": "Como Ayer", "p": "https://omarrudbergmap.com/photos/PH_OMR.webp", "s": "", "n": 7, "pr": "17/02/2024 · Stockholm", "to": ["Festivals 2024", "Premier concert solo"], "remix": false, "d": "01/06/2022"}, {"t": "Mi Casa Su Casa", "p": "https://omarrudbergmap.com/photos/PH_MICASA.webp", "s": "4q3fWjv4mlsAXRZsx5ZGn5", "n": 58, "pr": "17/02/2024 · Stockholm", "to": ["Every Night Fantasy 2024", "Every Night Fantasy 2025", "Festivals 2024", "Festivals 2025", "Festivals 2026", "Midnight Sun 2025", "Premier concert solo"], "remix": false, "d": "01/06/2022"}, {"t": "Pull Up", "p": "https://omarrudbergmap.com/photos/PH_PULLUP.webp", "s": "", "n": 7, "pr": "17/02/2024 · Stockholm", "to": ["Festivals 2024", "Premier concert solo"], "remix": false, "d": "01/06/2022"}, {"t": "Que Puedo Hacer?", "p": "https://omarrudbergmap.com/photos/PH_QUEPUEDO.webp", "s": "", "n": 0, "pr": "", "to": [], "remix": false, "d": "01/06/2022"}, {"t": "Coast Side", "p": "https://omarrudbergmap.com/photos/PH_CAROUSEL.webp", "s": "", "n": 7, "pr": "17/02/2024 · Stockholm", "to": ["Festivals 2024", "Premier concert solo"], "remix": false, "d": "31/05/2022"}, {"t": "Mama", "p": "https://omarrudbergmap.com/photos/PH_OMR.webp", "s": "", "n": 1, "pr": "17/02/2024 · Stockholm", "to": ["Premier concert solo"], "remix": false, "d": "31/05/2022"}, {"t": "Läppar", "p": "https://omarrudbergmap.com/photos/PH_LAPPAR.webp", "s": "", "n": 0, "pr": "", "to": [], "remix": false, "d": "12/05/2022"}, {"t": "Moving Like That", "p": "https://omarrudbergmap.com/photos/PH_MOVING.webp", "s": "3vt6ye36c6OtBxzFoTjgaZ", "n": 40, "pr": "17/02/2024 · Stockholm", "to": ["Every Night Fantasy 2024", "Every Night Fantasy 2025", "Festivals 2024", "Festivals 2025", "Premier concert solo"], "remix": false, "d": "12/05/2022"}, {"t": "Dum", "p": "https://omarrudbergmap.com/photos/PH_DUM.webp", "s": "", "n": 39, "pr": "17/02/2024 · Stockholm", "to": ["Every Night Fantasy 2024", "Every Night Fantasy 2025", "Festivals 2024", "Festivals 2025", "Premier concert solo"], "remix": false, "d": "13/08/2021"}, {"t": "Yo Dije OUFF", "p": "https://omarrudbergmap.com/photos/PH_OUFF.webp", "s": "", "n": 51, "pr": "17/02/2024 · Stockholm", "to": ["Every Night Fantasy 2025", "Festivals 2024", "Festivals 2025", "Midnight Sun 2025", "Premier concert solo"], "remix": false, "d": "31/07/2021"}, {"t": "It Takes A Fool To Remain Sane", "p": "https://omarrudbergmap.com/photos/PH_FOOL.webp", "s": "733ITqdz64L7i5p0XyYeRe", "n": 39, "pr": "17/02/2024 · Stockholm", "to": ["Every Night Fantasy 2024", "Every Night Fantasy 2025", "Festivals 2024", "Festivals 2025", "Premier concert solo"], "remix": false, "d": "15/07/2021"}, {"t": "Remember", "p": "https://omarrudbergmap.com/photos/PH_REMEMBER.webp", "s": "", "n": 0, "pr": "", "to": [], "remix": false, "d": "10/07/2021"}, {"t": "Symphony", "p": "https://omarrudbergmap.com/photos/PH_REMEMBER.webp", "s": "14DjGeKNKqqMDSQpAiPulu", "n": 0, "pr": "", "to": [], "remix": false, "d": "09/07/2021"}, {"t": "Jag e nån annan", "p": "https://omarrudbergmap.com/photos/PH_JAGE.webp", "s": "", "n": 0, "pr": "", "to": [], "remix": false, "d": "17/05/2020"}, {"t": "Dale Bye", "p": "https://omarrudbergmap.com/photos/PH_DALEBYE.webp", "s": "", "n": 0, "pr": "", "to": [], "remix": false, "d": "17/04/2020"}, {"t": "Om om och om igen", "p": "https://omarrudbergmap.com/photos/PH_OMOM.webp", "s": "", "n": 0, "pr": "", "to": [], "remix": false, "d": "16/02/2019"}, {"t": "La Mesa (feat. Elias Hurtig)", "p": "https://omarrudbergmap.com/photos/PH_LAMESA.webp", "s": "", "n": 7, "pr": "17/02/2024 · Stockholm", "to": ["Festivals 2024", "Premier concert solo"], "remix": false, "d": "22/08/2018"}, {"t": "Que Pasa (feat. Lamix)", "p": "https://omarrudbergmap.com/photos/PH_QUEPASA.webp", "s": "", "n": 7, "pr": "17/02/2024 · Stockholm", "to": ["Festivals 2024", "Premier concert solo"], "remix": false, "d": "23/01/2018"}, {"t": "Alla Ba OUFF", "p": "https://omarrudbergmap.com/photos/PH_OUFF.webp", "s": "", "n": 0, "pr": "", "to": [], "remix": false}, {"t": "I'm Not a Boy", "p": "https://omarrudbergmap.com/photos/PH_NOTABOY.webp", "s": "", "n": 33, "pr": "21/10/2024 · London", "to": ["Every Night Fantasy 2024", "Every Night Fantasy 2025", "Festivals 2025"], "remix": false}, {"t": "I'm So Excited (Live at QX Gala)", "p": "https://omarrudbergmap.com/photos/PH_EXCITED.webp", "s": "", "n": 0, "pr": "", "to": [], "remix": false}, {"t": "Luz Roja (Bonus)", "p": "https://omarrudbergmap.com/photos/PH_LUZROJA.webp", "s": "", "n": 0, "pr": "", "to": [], "remix": false}, {"t": "No Soy un Hombre", "p": "https://omarrudbergmap.com/photos/PH_NOTABOY.webp", "s": "", "n": 0, "pr": "", "to": [], "remix": false}, {"t": "På min telephone toda la noche", "p": "https://omarrudbergmap.com/photos/PH_TELEPHONE.webp", "s": "", "n": 0, "pr": "", "to": [], "remix": false}, {"t": "Simon's Song", "p": "https://omarrudbergmap.com/photos/PH_SIMONSSONG.webp", "s": "", "n": 32, "pr": "17/02/2024 · Stockholm", "to": ["Every Night Fantasy 2024", "Every Night Fantasy 2025", "Festivals 2024", "Premier concert solo"], "remix": false}, {"t": "Happier (After Midnight xxx / In The Club Remix)", "p": "https://omarrudbergmap.com/photos/PH_HAPPIER_REMIX.webp", "s": "", "n": 40, "pr": "17/02/2024 · Stockholm", "to": ["Every Night Fantasy 2024", "Every Night Fantasy 2025", "Festivals 2024", "Festivals 2025", "Premier concert solo"], "remix": true, "d": "01/07/2023"}, {"t": "Happier (House/Club Remix)", "p": "https://omarrudbergmap.com/photos/PH_HAPPIER_REMIX.webp", "s": "", "n": 40, "pr": "17/02/2024 · Stockholm", "to": ["Every Night Fantasy 2024", "Every Night Fantasy 2025", "Festivals 2024", "Festivals 2025", "Premier concert solo"], "remix": true, "d": "01/07/2023"}, {"t": "Happier (Jungle Mood Remix)", "p": "https://omarrudbergmap.com/photos/PH_HAPPIER_REMIX.webp", "s": "", "n": 40, "pr": "17/02/2024 · Stockholm", "to": ["Every Night Fantasy 2024", "Every Night Fantasy 2025", "Festivals 2024", "Festivals 2025", "Premier concert solo"], "remix": true, "d": "01/07/2023"}, {"t": "Happier (Indiefeels Remix)", "p": "https://omarrudbergmap.com/photos/PH_HAPPIER_REMIX.webp", "s": "", "n": 40, "pr": "17/02/2024 · Stockholm", "to": ["Every Night Fantasy 2024", "Every Night Fantasy 2025", "Festivals 2024", "Festivals 2025", "Premier concert solo"], "remix": true, "d": "01/07/2023"}, {"t": "Happier (Move Your Body / Rhythm & Dance Remix)", "p": "https://omarrudbergmap.com/photos/PH_HAPPIER_REMIX.webp", "s": "", "n": 40, "pr": "17/02/2024 · Stockholm", "to": ["Every Night Fantasy 2024", "Every Night Fantasy 2025", "Festivals 2024", "Festivals 2025", "Premier concert solo"], "remix": true, "d": "01/07/2023"}, {"t": "Happier (Steerner Remix)", "p": "https://omarrudbergmap.com/photos/PH_HAPPIER_REMIX.webp", "s": "", "n": 40, "pr": "17/02/2024 · Stockholm", "to": ["Every Night Fantasy 2024", "Every Night Fantasy 2025", "Festivals 2024", "Festivals 2025", "Premier concert solo"], "remix": true, "d": "01/07/2023"}, {"t": "Happier (On The Beat Remix)", "p": "https://omarrudbergmap.com/photos/PH_HAPPIER_REMIX.webp", "s": "", "n": 40, "pr": "17/02/2024 · Stockholm", "to": ["Every Night Fantasy 2024", "Every Night Fantasy 2025", "Festivals 2024", "Festivals 2025", "Premier concert solo"], "remix": true, "d": "01/07/2023"}, {"t": "Happier (Floor Remix)", "p": "https://omarrudbergmap.com/photos/PH_HAPPIER_REMIX.webp", "s": "", "n": 40, "pr": "17/02/2024 · Stockholm", "to": ["Every Night Fantasy 2024", "Every Night Fantasy 2025", "Festivals 2024", "Festivals 2025", "Premier concert solo"], "remix": true, "d": "01/07/2023"}, {"t": "Happier (Just Dance Remix)", "p": "https://omarrudbergmap.com/photos/PH_HAPPIER_REMIX.webp", "s": "", "n": 40, "pr": "17/02/2024 · Stockholm", "to": ["Every Night Fantasy 2024", "Every Night Fantasy 2025", "Festivals 2024", "Festivals 2025", "Premier concert solo"], "remix": true, "d": "01/07/2023"}, {"t": "Happier (SlowNspeed Remix)", "p": "https://omarrudbergmap.com/photos/PH_HAPPIER_REMIX.webp", "s": "", "n": 40, "pr": "17/02/2024 · Stockholm", "to": ["Every Night Fantasy 2024", "Every Night Fantasy 2025", "Festivals 2024", "Festivals 2025", "Premier concert solo"], "remix": true, "d": "01/07/2023"}, {"t": "Happier (Either Way Remix)", "p": "https://omarrudbergmap.com/photos/PH_HAPPIER_REMIX.webp", "s": "", "n": 40, "pr": "17/02/2024 · Stockholm", "to": ["Every Night Fantasy 2024", "Every Night Fantasy 2025", "Festivals 2024", "Festivals 2025", "Premier concert solo"], "remix": true, "d": "01/07/2023"}, {"t": "Happier (Mystic Remix)", "p": "https://omarrudbergmap.com/photos/PH_HAPPIER_REMIX.webp", "s": "", "n": 40, "pr": "17/02/2024 · Stockholm", "to": ["Every Night Fantasy 2024", "Every Night Fantasy 2025", "Festivals 2024", "Festivals 2025", "Premier concert solo"], "remix": true, "d": "01/07/2023"}, {"t": "She Fell In Love In The Summer (radio edit · Benji of Sweden)", "p": "https://omarrudbergmap.com/photos/PH_SHEFELL.webp", "s": "", "n": 25, "pr": "21/10/2024 · London", "to": ["Every Night Fantasy 2024", "Every Night Fantasy 2025"], "remix": true, "d": "01/05/2023"}, {"t": "Coast Side (Carousel Remix)", "p": "https://omarrudbergmap.com/photos/PH_CAROUSEL.webp", "s": "", "n": 7, "pr": "17/02/2024 · Stockholm", "to": ["Festivals 2024", "Premier concert solo"], "remix": true, "d": "31/05/2022"}, {"t": "Dum (Singback version)", "p": "https://omarrudbergmap.com/photos/PH_DUM.webp", "s": "", "n": 39, "pr": "17/02/2024 · Stockholm", "to": ["Every Night Fantasy 2024", "Every Night Fantasy 2025", "Festivals 2024", "Festivals 2025", "Premier concert solo"], "remix": true, "d": "13/08/2021"}, {"t": "I'm So Excited (club version)", "p": "https://omarrudbergmap.com/photos/PH_EXCITED.webp", "s": "", "n": 0, "pr": "", "to": [], "remix": true}, {"t": "I'm So Excited (additional version)", "p": "https://omarrudbergmap.com/photos/PH_EXCITED.webp", "s": "", "n": 0, "pr": "", "to": [], "remix": true}];
-  const grille=document.getElementById("disques");
-  const lecteur=document.getElementById("lecteur");
-  let filtre="tous", recherche="";
-
-  function normalise(t){
-    return t.toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g,"");
-  }
-  function visible(c){
-    if(recherche && !normalise(c.t).includes(recherche)) return false;
-    if(filtre==="scene") return c.n>0;
-    if(filtre==="ecoute") return !!c.s;
-    if(filtre==="datees") return !!c.d;
-    if(filtre==="versions") return c.remix;
-    return true;
-  }
-  function dessine(){
-    grille.innerHTML="";
-    let n=0;
-    CH.forEach(function(c,i){
-      if(!visible(c)) return;
-      n++;
-      const b=document.createElement("button");
-      b.className="disque";
-      b.innerHTML='<div class="pochette" style="--i:'+(i%7)+'">'+
-        '<span class="vignette-titre">'+c.t.replace(/\s*\(.*$/,"")+'</span>'+
-        (c.n?'<span class="marque-scene">'+c.n+' concerts</span>':'')+'</div>'+
-        '<b>'+c.t+'</b>'+
-        '<small>'+(c.d? c.d.slice(6)+" · " : "")+
-          (c.n? "sur scène · "+c.to.length+" tournée"+(c.to.length>1?"s":"") : "studio")+'</small>';
-      b.addEventListener("click",function(){ouvre(i);});
-      grille.appendChild(b);
+  const HISTOIRES=[["Elisabeth, 56 ans", "France", "J'ai découvert Young Royals en août 2023, et je dois dire que j'ai regardé les saisons 1 et 2 sans y prêter vraiment attention, en survolant. Je l'ai …"], ["Caroline, 54 ans", "Australie", "J'ai découvert Young Royals à un moment très étrange et très difficile de ma vie. C'était en octobre 2022 : je venais de subir une opération urgente e…"], ["Méline, 16 ans", "France", "J'ai commencé Young Royals en août 2022, et je m'en souviendrai toute ma vie. J'ai regardé toute la saison 1 en une nuit, sous ma tente, en vacances. …"]];
+  const toile=document.getElementById("ciel");
+  if(!toile) return;
+  const x=toile.getContext("2d");
+  const bulle=document.getElementById("bulle-histoire");
+  let L=0,H=0,dpr=1,etoiles=[];
+  const COUL=["103,232,249","167,139,250","232,121,249","244,244,255"];
+  function dim(){
+    dpr=Math.min(window.devicePixelRatio||1,2);
+    L=toile.clientWidth;H=toile.clientHeight;
+    toile.width=L*dpr;toile.height=H*dpr;x.setTransform(dpr,0,0,dpr,0,0);
+    etoiles=HISTOIRES.map(function(h,i){
+      return {h:h, x:(0.08+0.84*((i*0.37+0.13)%1))*L, y:(0.14+0.72*((i*0.61+0.27)%1))*H,
+              r:3+Math.random()*2.5, ph:Math.random()*6.3, c:COUL[i%4]};
     });
-    document.getElementById("aucune").style.display=n?"none":"block";
+  }
+  function etoile(r){
+    x.beginPath();
+    for(let i=0;i<10;i++){
+      const a=-Math.PI/2+i*Math.PI/5, rr=i%2?r*.42:r;
+      i?x.lineTo(Math.cos(a)*rr,Math.sin(a)*rr):x.moveTo(Math.cos(a)*rr,Math.sin(a)*rr);
+    }
+    x.closePath();
+  }
+  function dessine(t){
+    x.clearRect(0,0,L,H);
+    x.globalCompositeOperation="lighter";
+    // liens entre étoiles proches
+    x.strokeStyle="rgba(150,190,255,.14)";x.lineWidth=1;
+    for(let i=0;i<etoiles.length;i++){
+      for(let j=i+1;j<etoiles.length;j++){
+        const a=etoiles[i],b=etoiles[j];
+        const d=Math.hypot(a.x-b.x,a.y-b.y);
+        if(d<L*0.16){ x.beginPath();x.moveTo(a.x,a.y);x.lineTo(b.x,b.y);x.stroke(); }
+      }
+    }
+    etoiles.forEach(function(e){
+      const al=.6+.4*(0.5+0.5*Math.sin(t*.0014+e.ph));
+      x.save();x.translate(e.x,e.y);
+      x.shadowColor="rgba("+e.c+",1)";x.shadowBlur=e.r*5;
+      x.fillStyle="rgba("+e.c+","+al.toFixed(2)+")";
+      etoile(e.r);x.fill();
+      x.fillStyle="rgba(255,255,255,"+(al*.9).toFixed(2)+")";
+      etoile(e.r*.45);x.fill();
+      x.restore();
+    });
+    x.globalCompositeOperation="source-over";
+    requestAnimationFrame(dessine);
+  }
+  toile.addEventListener("click",function(ev){
+    const r=toile.getBoundingClientRect();
+    const px=ev.clientX-r.left, py=ev.clientY-r.top;
+    let proche=null,dmin=28;
+    etoiles.forEach(function(e){
+      const d=Math.hypot(e.x-px,e.y-py);
+      if(d<dmin){dmin=d;proche=e;}
+    });
+    if(!proche){ bulle.classList.remove("visible"); return; }
+    document.getElementById("bh-nom").textContent=proche.h[0];
+    document.getElementById("bh-pays").textContent=proche.h[1].toUpperCase();
+    document.getElementById("bh-texte").textContent="« "+proche.h[2]+" »";
+    bulle.classList.add("visible");
+    const bx=Math.min(Math.max(proche.x-150,10),L-310);
+    const by=Math.min(Math.max(proche.y+18,10),H-160);
+    bulle.style.left=bx+"px";
+    bulle.style.top=by+"px";
+  });
+  window.addEventListener("resize",dim);
+  dim(); requestAnimationFrame(dessine);
+
+  // compteur de signes
+  const zone=document.querySelector("#ecrire textarea");
+  const compteur=document.getElementById("compteur-signes");
+  if(zone) zone.addEventListener("input",function(){
+    const n=zone.value.length;
+    compteur.textContent=n+(n>1?" signes":" signe");
+  });
+})();
+</script>
+
+
+<script>
+(function(){
+  const CHAP=["Chapitre I · Le commencement","Chapitre II · La musique","Chapitre III · Les moments",
+              "Chapitre IV · L'impact","Chapitre V · La communauté","Chapitre VI · Les concerts"];
+  const H=[{"nom": "Elisabeth, 56 ans", "pays": "France", "chap": 0, "origine": "fr", "textes": {"fr": "J'ai découvert Young Royals en août 2023, et je dois dire que j'ai regardé les saisons 1 et 2 sans y prêter vraiment attention, en survolant. Je l'ai sincèrement regretté plus tard.\n\nEn mars 2024, la saison 3 est sortie et je me suis dit : et si je reprenais tout depuis le début, puisque tout le monde en parle ? Je n'étais plus du tout dans le même état d'esprit qu'en 2023. J'avais perdu mon père quelques mois plus tôt et j'étais dans une immense tristesse. Je ne pouvais plus regarder de films ni de séries, sauf s'ils parlaient d'amour pur. Seul l'amour de ma famille et de mes proches me réconfortait à cette époque.\n\nAlors j'ai recommencé la saison 1. Et là, je ne sais pas ce qui s'est passé. Je regardais avec d'autres yeux, un autre cœur, et leur histoire m'a profondément touchée. J'avais besoin de ressentir un amour pur et vrai. Cela a apaisé mon âme. Mon cœur était blessé : j'aimais profondément mon père. Il était très âgé quand il est parti, mais quand on aime, l'âge ne compte pas face à la mort. C'était un amour inconditionnel.\n\nDans ma famille, nous sommes comme ça : nous nous aimons profondément, nous sommes toujours là quand quelqu'un en a besoin. Mais cette fois, c'était différent, car même l'amour de mes enfants ne me consolait pas. Et je ne voulais pas trop leur montrer ma tristesse, cela leur faisait trop de mal de me voir ainsi.\n\nEn regardant Young Royals, l'amour que ces deux adolescents se portaient m'a fait du bien. Cet amour inconditionnel, je l'ai retrouvé en eux. Même dans les difficultés, Simon et Wilhelm s'aimaient ; même quand Simon essayait de s'éloigner de Wille, il n'y arrivait pas, parce que Wilhelm était son âme sœur.\n\nJ'ai regardé ces trois saisons et j'ai mesuré tout le bien qu'elles m'ont fait. Sauf l'épisode 6 de la saison 3, quand ils sont au bord du lac. Ils se disent au revoir alors qu'ils s'aiment. Celui-là, je n'ai pas pu le regarder : il me rappelait mon père. Dire adieu à quelqu'un qu'on aime sans rien pouvoir faire, être obligé de le laisser partir, c'est horrible. Aujourd'hui encore, je ne peux pas voir cette partie de l'épisode, même en sachant que la fin est heureuse : je ressens leur tristesse trop fort. Et la chanson que Simon écrit pour Wille, je ne peux pas l'écouter sans pleurer. Pendant un temps, j'ai même arrêté de regarder la fin de la série, cela me faisait trop mal.\n\nJe dois avouer que depuis mars 2024, je regarde la série encore et encore. Je n'arrive plus à regarder autre chose : tout me paraît fade, lent, sans intérêt. Dans Young Royals, il se passe toujours quelque chose, à chaque seconde, on ne s'ennuie jamais.\n\nPourquoi cette histoire d'amour me touche-t-elle autant ? Deux jeunes hommes, ou deux jeunes femmes, qui tombent amoureux, cela doit être si compliqué dans la vraie vie. Encore aujourd'hui, même si les mentalités ont soi-disant évolué, il faut se cacher, affronter les regards, et bien plus encore. C'est pour cela que je trouve l'amour entre deux personnes du même sexe si beau : c'est un amour pur. On ne s'accroche pas, on ne se bat pas, si ce n'est pas sincère.\n\nSimon et Wilhelm sont si beaux, si tendres, dans leurs scènes, dans leur façon de se regarder, de se toucher, de se soutenir. Tout est beau dans cette série. Les scènes sont incroyablement bien filmées et jouées, on a vraiment l'impression d'y être. Tout y est exceptionnel. Il y avait longtemps que je n'avais pas vu quelque chose d'aussi fort à la télévision. Je crois sincèrement que Young Royals est entrée dans l'histoire, et ses acteurs avec elle.\n\nBeaucoup de scènes m'ont marquée, et chacune m'a apporté quelque chose de différent, parce que cette série aborde tant de sujets.\n\nIl y a d'abord la relation de Wilhelm avec sa famille. Une famille absente, pas proche du tout. J'ai la chance d'avoir une famille aimante, prête à tout les uns pour les autres, et cela aide vraiment dans la vie. Sa mère, elle, n'est pas là pour lui : elle le fait mentir, elle le trahit quand elle apprend que c'est August qui a publié la vidéo et qu'elle ne lui dit rien. Elle ne lui apporte aucun soutien après la mort de son frère, alors qu'il est si important de pouvoir compter sur quelqu'un dans ces moments-là. Ce soutien, Wilhelm l'a trouvé en Simon. Sa mère ne lui transmet aucune valeur, et son père est complètement absent, presque étranger à tout. Elle le rabaisse quand elle apprend son homosexualité, elle l'humilie même le jour de son anniversaire en ne parlant que d'Erik, comme s'il n'existait pas. Ce n'est pas une mère, c'est une supérieure. Wilhelm finit par lui dire qu'elle est pathétique dans les deux rôles. C'est un jeune homme plein de valeurs, et on se demande où il les a apprises.\n\nÀ l'inverse, il y a Simon, qui a une relation magnifique avec sa mère : elle le soutient, elle est toujours là pour ses enfants, elle les élève du mieux qu'elle peut, elle les protège. Simon a de si belles valeurs, un grand cœur ; il protège sa sœur, sa mère, il est l'homme de la maison. Malgré son jeune âge, il est prêt à tout affronter.\n\nEnsuite, j'ai voulu en savoir plus sur la série et sur ces deux jeunes acteurs suédois qui incarnaient si parfaitement leurs personnages. Ils sont tous les deux adorables et talentueux. J'ai découvert qu'Edvin Ryding avait commencé sa carrière très tôt, à 5 ans. Puis je me suis renseignée sur Omar Rudberg : c'était son premier rôle, et quel rôle. J'ai vu qu'il chantait depuis longtemps, qu'il avait même fait la première partie de One Direction. Cela a attiré mon attention : j'ai une page de fan pour Harry Styles depuis plus de trois ans, je suis sa carrière, je l'ai vu en concert au Stade de France.\n\nJe suis allée sur YouTube et le premier clip que j'ai vu, c'est « Moving Like That ». L'ambiance m'a fait me lever et danser dans mon salon, j'étais seule et je me suis amusée comme jamais. Sa façon de danser, cette voix incroyable, et disons-le, la beauté d'Omar. J'ai regardé les autres vidéos, et j'ai tout aimé, absolument tout.\n\nJ'ai commencé à regarder leurs interviews pour Young Royals et j'ai découvert tant de choses qu'on ne voit pas dans la série : leurs personnalités, leur naturel, leur spontanéité, leur humour, et l'affection qu'ils ont l'un pour l'autre. J'aime Young Royals encore davantage depuis. J'ai décidé de créer une page Instagram de fan pour Omar, parce qu'il y a toujours tant à montrer, et qu'il est très présent avec nous, entre ses directs et ses vidéos.\n\nSa carrière évolue très vite, et je crois sincèrement qu'il ira très loin, aussi loin qu'il le voudra. En tout cas, je suis devenue une immense fan de ce jeune homme très talentueux. J'admire ces jeunes qui se battent contre vents et marées et croient en leur destin, en leur capacité à réaliser leurs rêves.\n\nOmar sort régulièrement de nouvelles chansons, et elles sont toutes belles, autant par les paroles que par la musique, et si bien chantées avec cette voix que j'admire. Elles lui ressemblent, elles le représentent, et c'est ce que j'aime chez lui : il est authentique, naturel, il veut être aimé pour ce qu'il est, et il a bien raison. Tant de personnes célèbres ne sont pas ce qu'elles paraissent.\n\nPuis il y a eu les tournées : octobre 2024, que j'ai manquée faute de billets, tout étant parti en prévente, et février 2025, que je n'ai pas ratée. Je suis allée à trois de ses concerts, Paris, Barcelone et Milan, et j'ai voyagé seule à l'étranger, ce que je n'avais jamais fait.\n\nEn octobre, même sans y être, j'ai pu le découvrir à travers les directs partagés par d'autres, les vidéos, les photos. Cela a confirmé son talent indéniable. L'énergie qu'il donne est contagieuse, c'est une euphorie totale. Ce qui surprend aussi, c'est la diversité des âges et des personnes qu'il rassemble. Je ne l'explique pas, et c'est très bien ainsi.\n\nEn février 2025, quand je l'ai vu pour la première fois en vrai, en concert, j'étais si heureuse de le vivre pour de bon, de le voir de si près — pour l'instant, nous avons la chance qu'il joue dans de petites salles, mais on verra dans quelques années, quand il explosera.\n\nPour le concert de Paris au Bataclan, le 13 février 2025, j'ai voulu lui montrer tout l'amour qu'on lui porte : j'ai créé et organisé un TIFO géant, une vague de lumières avec les téléphones. Malheureusement, il n'y a pas eu autant de participants que je l'espérais. Mais j'ai adoré la réaction d'Omar : ému, étonné que des fans organisent un tel projet. J'espère que ce ne sera pas le dernier, j'ai déjà des idées pour le prochain. Je crois qu'il se disait « ça n'arrive qu'aux grands artistes ». Mais si, tu le mérites autant, sinon plus, parce que tu te bats depuis tout petit pour en arriver là.\n\nAutre chose s'est produite pendant cette tournée, et c'est incroyable pour moi : Omar a partagé sur son Instagram une de mes vidéos du concert de Barcelone, alors que j'étais à Milan. Il a regardé toutes mes stories et certaines de mes publications. L'effet sur mon compte @omarrudberg_world a été immense, et je n'y croyais pas, d'autant qu'il le fait rarement. J'étais honorée et bouleversée.\n\nMais le concert dont on se souviendra le plus, c'est celui de Londres. Vous savez pourquoi : Edvin est monté sur scène pour rejouer, presque à l'identique, une scène de Young Royals, en enlaçant Omar par la taille, comme dans la scène du poisson de l'épisode 5 de la saison 1. La salle était en état de choc, hystérique, émue, heureuse d'assister à cela, sur place ou derrière un écran. Voir Omar si heureux, si surpris qu'Edvin fasse cela en public, pendant « Simon's Song » qui compte tant pour lui, et chanter la fin avec lui : un moment inoubliable, dont beaucoup se souviendront.\n\nJ'attends avec impatience qu'il sorte les nouvelles chansons qu'il écrit, compose et enregistre en ce moment, pour qu'il revienne nous les interpréter et que je puisse le revoir.\n\nOMAR RUDBERG IRA JUSQU'AUX ÉTOILES.", "en": "I discovered Young Royals in August 2023 and I have to say that I watched seasons 1 and 2 without really paying attention, I skimmed through them. And I truly regretted it later.\n\nIn March 2024, season 3 was released and I thought: what if I watched everything again from the beginning, since people talk about it so much? I was not in the same state of mind at all as in 2023. I had lost my father a few months earlier and I was in deep sadness. I could no longer watch films or series unless they were about pure love. Only the love of my family and loved ones comforted me at that time.\n\nSo I started watching season 1 again. And then, I don't know what happened. I was watching with new eyes, a new heart, and their story deeply touched me. I needed to feel pure and real love. It soothed my soul. My heart was wounded: I loved my father deeply. He was very old when he passed away, but when you love, age does not matter in the face of death. It was unconditional love.\n\nIn my family, we are like that: we love each other deeply, we are always there when someone needs it. But this time it was different, because even with the love of my children, I could not find comfort. And I didn't want to show them too much of my sadness, because it hurt them too much to see me like that.\n\nBy watching Young Royals, the love these two teenagers had for each other made me feel better. That unconditional love, I found it in them. Even in difficulties, Simon and Wilhelm loved each other; even when Simon tried to distance himself from Wille, he couldn't, because Wilhelm was his soulmate.\n\nI watched these three seasons and I realised how much good they did me. Except episode 6 of season 3, when they are by the lake. They say goodbye even though they love each other. That one I couldn't watch, because it reminded me of my father. Saying goodbye to someone you love without being able to do anything, being forced to let them go, is horrible. Even now I cannot watch that part of the episode, even though I know the ending is happy: I feel their sadness too deeply. And the song Simon wrote for Wille, I can't listen to it without crying. For a while I even stopped watching the end of the series, it hurt me too much.\n\nI must admit that since March 2024 I have watched the series over and over again. I can't watch anything else any more: everything seems dull, slow, without interest. In Young Royals something is always happening, every second, you never get bored.\n\nWhy does this love story touch me so much? Two young men, or two young women, falling in love must be so complicated in real life. Even nowadays, even though attitudes have supposedly evolved, they have to hide, face people's stares, and much more. That is why I find love between two people of the same sex so beautiful: it is pure love. You don't hold on and fight if it isn't sincere.\n\nSimon and Wilhelm are so beautiful, so tender, in their scenes, in the way they look at each other, touch each other, support each other. Everything is beautiful in this series. The scenes are incredibly well filmed and acted; you truly feel like you are there. Everything is exceptional. It had been a long time since I had seen something so powerful on television. I truly believe Young Royals has become part of history, and its actors with it.\n\nMany scenes marked me, and each one brought me something different, because this series addresses so many topics.\n\nFirst there is Wilhelm's relationship with his family. An absent family, not close at all. I am lucky to have a loving family, ready to do anything for one another, and that really helps in life. His mother is not there for him: she makes him lie, she betrays him when she learns that August published the video and says nothing to him. She gives him no support after his brother's death, when it is so important to be able to rely on someone in those moments. Wilhelm found that support in Simon. His mother teaches him no real values, and his father is completely absent, almost oblivious. She belittles him when she learns he is gay, she even humiliates him on his birthday by talking only about Erik, as if he did not exist. She is not a mother but a superior. Wilhelm ends up telling her she is pathetic in both roles. He is a young man full of values, and we wonder where he learned them.\n\nOn the other hand there is Simon, who has a wonderful relationship with his mother: she supports him, she is always there for her children, she raises them as best she can, she protects them. Simon has such beautiful values, a big heart; he protects his sister, his mother, he is the man of the house. Despite his young age, he is ready to face anything.\n\nThen I wanted to know more about the series and about these two young Swedish actors who embodied their characters so perfectly. They are both adorable and talented. I discovered that Edvin Ryding started his career very young, at five. Then I looked into Omar Rudberg: it was his first acting role, and what a role. I saw that he had been singing for a long time, that he had even opened for One Direction. That caught my attention: I have run a Harry Styles fan page for more than three years, I follow his career, I saw him in concert at the Stade de France.\n\nI went on YouTube and the first music video I saw was “Moving Like That”. The vibe made me get up and dance in my living room; I was alone and I had so much fun. The way he danced, that incredible voice, and let's be honest, Omar's beauty. I watched the other videos and I loved everything, absolutely everything.\n\nI started watching their Young Royals interviews and discovered so many things you don't see in the series: their personalities, how natural, spontaneous and funny they are, and the affection they have for each other. I love Young Royals even more since then. I decided to create an Instagram fan page for Omar, because there is always so much to show, and because he is very present with us, between his lives and his videos.\n\nHis career is moving very fast, and I truly believe he will go far, as far as he wants. In any case, I have become a huge fan of this very talented young man. I admire these young people who fight against all odds and believe in their destiny, in their ability to achieve their dreams.\n\nOmar regularly releases new songs, and they are all beautiful, in the lyrics as much as in the music, and so well sung with that voice I admire. They look like him, they represent him, and that is what I love about him: he is authentic, natural, he wants to be loved for who he is, and he is absolutely right. So many famous people are not what they appear to be.\n\nThen came the tours: October 2024, which I missed because tickets sold out in presale, and February 2025, which I did not miss. I went to three of his concerts — Paris, Barcelona and Milan — and travelled abroad alone, something I had never done before.\n\nIn October, even without being there, I discovered him through the lives shared by others, the videos, the photos. It confirmed his undeniable talent. The energy he gives is contagious, it is total euphoria. What is also surprising is the diversity of ages and people he brings together. I can't explain it, and that is perfectly fine.\n\nIn February 2025, when I saw him live for the first time, I was so happy to experience it for real, to see him so close — for now we are lucky he performs in small venues, but we'll see in a few years, when he explodes.\n\nFor the Paris concert at the Bataclan, on 13 February 2025, I wanted to show him all the love we have for him: I created and organised a giant TIFO, a wave of light made with phones. Unfortunately, fewer people took part than I had hoped. But I loved Omar's reaction: moved, amazed that fans would organise such a project. I hope it won't be the last; I already have ideas for the next one. I think he was telling himself “this only happens to big artists”. But yes, you deserve it just as much, if not more, because you have been fighting since you were very young to get where you are.\n\nSomething else happened during that tour, and it is incredible to me: Omar shared one of my videos from the Barcelona concert on his Instagram while I was in Milan. He watched all my stories and some of my posts. The effect on my account @omarrudberg_world was overwhelming, and I couldn't believe it, especially since he rarely does that. I was honoured and thrilled.\n\nBut the concert we will remember most is the one in London. You know why: Edvin came on stage to recreate, almost exactly, a scene from Young Royals, hugging Omar around the waist, like in the fish scene in season 1 episode 5. The room was in shock, hysterical, moved, happy to witness it, there or through a screen. Seeing Omar so happy, so surprised that Edvin did that in public, during “Simon's Song” which means so much to him, and singing the end with him: an unforgettable moment that many will remember.\n\nI am eagerly waiting for him to release the new songs he is writing, composing and recording, so he can come back and perform them for us and I can see him again.\n\nOMAR RUDBERG WILL REACH THE STARS."}}, {"nom": "Caroline, 54 ans", "pays": "Australie", "chap": 3, "origine": "en", "textes": {"fr": "J'ai découvert Young Royals à un moment très étrange et très difficile de ma vie. C'était en octobre 2022 : je venais de subir une opération urgente et imprévue, qui m'avait fait manquer un voyage familial en Australie, mon pays d'adoption, alors que nous vivions au Canada.\n\nIl était prévu que mon mari et mon fils partent une semaine avant nous pour passer du temps entre père et fils à Perth, chez mes beaux-parents, et que la compagne de mon fils et moi les rejoignions la semaine suivante.\n\nTrois jours avant leur départ, j'ai été transportée à l'hôpital en urgence. L'opération tombait mal, mais elle était nécessaire. J'ai dit au revoir à mes hommes en sachant que j'allais rester confinée à la maison et affronter cette épreuve seule. Ils voulaient rester, j'ai insisté pour qu'ils partent : j'étais bien entourée par des amis et par la famille.\n\nCe qui m'a le plus manqué dans ce voyage, c'était ce temps en famille, notre fils ayant quitté la maison à 17 ans, et Melbourne, une ville que j'avais toujours rêvé de voir. Le trajet du Canada à l'Australie est long et coûteux : en vingt-neuf ans de mariage, nos rares voyages là-bas se limitaient à voir la famille à Perth.\n\nJ'ai commencé Young Royals le jour de mon retour de l'hôpital. Le titre avait attiré mon attention, par goût de tout ce qui touche à la royauté. Honnêtement, avec la douleur postopératoire, j'ai regardé les saisons 1 et 2 d'une oreille distraite. Mais bilingue, français et anglais, amoureuse des langues et du cinéma étranger, je n'ai pas mis longtemps à comprendre que cette série était très différente. Mon Netflix étant réglé en anglais, je n'ai d'abord pas songé à son origine.\n\nJ'ai aimé le réalisme des acteurs, la justesse du scénario et la beauté du décor. C'était brut, et c'est ce que j'ai le plus aimé. C'était ma toute première rencontre avec le cinéma suédois. Et c'est ainsi qu'est née une obsession totale pour la langue suédoise, son peuple et sa culture : d'abord par le regard et le talent de Lisa Ambjörn, puis par le talent indéniable de la distribution et, bien sûr, l'alchimie entre les deux personnages principaux.\n\nEt quelle histoire d'amour. Ayant beaucoup de proches dans la communauté LGBTQ+, cela m'a fait du bien de voir une série qui ne s'attarde pas sur les aspects négatifs si souvent montrés dans les histoires d'amour queer. J'ai particulièrement apprécié la façon dont elle représente les nombreuses difficultés que traversent les adolescents aujourd'hui.\n\nL'amour de Wilhelm et Simon m'a inspirée d'une façon étrange. Il m'a donné du courage. Quand mon mari est rentré de Melbourne, nous avons décidé de changer de vie et de rentrer en Australie.\n\nNous avons quitté nos emplois, vendu notre maison et presque tout ce que nous possédions. Nous avons dit au revoir à notre famille — notre fils nous a donné sa bénédiction mais n'a pas suivi — et à nos amis, et nous avons sauté le pas. À 53 et 58 ans, c'était un pari immense.\n\nQuand les choses devenaient un peu trop réelles et que les émotions partaient dans tous les sens, je retrouvais la paix en revoyant des épisodes, dans l'énergie de la série et dans le courage dont Wilmon fait preuve tout au long des saisons. Je me suis aussi intéressée aux parcours d'Edvin et d'Omar, fière de ce qu'ils avaient accompli et de leur résilience, si jeunes. Cela m'a donné de la force dans mes propres décisions.\n\nMelbourne a été notre première étape, et j'ai enfin vu cette ville incroyable. Nous nous étions donné six mois pour explorer ce pays à couper le souffle et trouver notre prochain chez-nous. Il y a eu des moments de peur et de doute. Certains jours, j'avais l'impression d'avoir perdu ma boussole et je me demandais si nous n'étions pas un peu fous. Dans ces moments de fragilité, je m'arrêtais et je me replongeais un peu en vous. Cette série savait calmer mes pensées vagabondes et me rappelait où j'allais. Parfois, vous étiez littéralement ma maison.\n\nNotre fils nous a d'ailleurs accueillis à Melbourne à notre arrivée : il voyageait alors en Australie avec un ami. Un mois plus tard, nous lui disions au revoir en espérant que sa compagne et lui nous rejoindraient bientôt. Nous ne nous sommes pas revus pendant quatorze mois, ce qui a failli me tuer. Le manque me submergeait souvent. Là encore, Young Royals apaisait la tempête dans ma tête et dans mon cœur.\n\nComme tous les fans dévoués, j'ai regardé tout ce qui touchait à la série, à Omar et à Edvin. Le compte à rebours jusqu'à la dernière saison, et l'attente insoutenable du tout dernier épisode.\n\nL'épisode 6 de la saison 3 était l'un des jours les plus attendus de mon année 2024. Comme tous les fans, je l'ai trouvé magistral : triste, beau, mais surtout plein d'espoir. À ma grande déception, je n'ai pas gagné de place pour la projection à Stockholm ; j'y serais allée sans hésiter. Mais je me suis levée à 2 heures du matin à Brisbane pour participer au direct TikTok. J'ai sangloté quand Edvin et Omar ont pleuré, avec tous les fans présents, surtout au moment où les acteurs ont dit au revoir au public pour la dernière fois.\n\nCe matin-là, le 19 mars 2024, Brisbane ayant dix heures d'avance sur la Suède, j'ai éteint la télévision avec un sentiment de vide et de perte. Je me demandais comment des personnages de fiction et la plus belle image que j'aie jamais vue pouvaient m'emmener à un tel endroit.\n\nQuelques minutes plus tard, mon fils m'a appelée. Il m'annonçait qu'avec sa compagne, ils avaient pris leurs billets aller simple et s'installaient en Australie. Les larmes se sont mises à couler. Comme si, à la fin du chapitre Young Royals, un nouveau chapitre de ma vie commençait. Et avec cette prise de conscience, l'évidence que la série m'avait portée jusque-là.\n\nEt comme s'il me fallait une preuve de l'espoir qui m'habitait à cet instant, le plus grand arc-en-ciel que j'aie jamais vu est apparu dans le ciel, sur la route du travail.", "en": "I discovered “Young Royals” at a very strange and difficult moment in my life. It was October 2022 and I had recently undergone an unexpected and urgent surgery, which caused me to miss a family trip to Australia, my adopted country, as we were living in Canada at the time.\n\nIt had been planned that my husband and son would leave a week earlier to spend some father-and-son time in Perth with my in-laws, and that my son's girlfriend and I would join them the following week.\n\nThree days before their scheduled departure, I was rushed to hospital. The surgery was untimely but urgent, so I said goodbye to my men knowing that I was going to stay confined at home and face this challenge by myself. They wanted to stay but I insisted they leave: I was in good hands with supportive friends and family.\n\nWhat I missed most about this trip was the essential family time, our son having moved out at 17, and visiting Melbourne, a city I had always dreamed of seeing. The trip from Canada to Australia is long and expensive, so during our 29 years of marriage our occasional trips there were only to visit family in Perth.\n\nI started watching “Young Royals” the day I returned from hospital. Having an interest in anything royalty-related, the title caught my attention. In all honesty, faced with post-operative pain, I watched seasons 1 and 2 somewhat distractedly. Being bilingual in French and English, loving languages and foreign cinema, it didn't take me long to realise that this series was very different; my Netflix was set to English, so I didn't question its origin at first.\n\nI loved the realism of the actors, the perfect script and the beauty of the setting. It was raw, and that's what I loved most about it. It was my very first encounter with Swedish cinema. And that is how a total obsession with the Swedish language, its people and its culture began: first through the eyes, the talent and the vision of Lisa Ambjörn, then witnessing the undeniable talent of the cast and, of course, the chemistry between the main characters.\n\nAnd what an incredible love story. Having many loved ones in the LGBTQ+ community, it was refreshing to see a show that did not dwell on the negative aspects often portrayed in queer love stories. I especially appreciated the representation of the many issues teenagers face today.\n\nWilhelm and Simon's love inspired me in a strange way. It gave me courage. When my husband returned from Melbourne, it was decided that we would change our lives and return to Australia.\n\nWe left our jobs, sold our house and all but a few of our worldly belongings. We said goodbye to family — our son gave us his blessing but did not follow — and to friends, and took the leap. Aged 53 and 58 respectively, this decision was a huge gamble.\n\nWhen things became a little too real and emotions flew left, right and centre, I found peace and comfort in rewatching episodes of YR, through the energy of the show and the courage Wilmon displayed throughout the seasons. I also looked deeper into the respective careers of Edvin and Omar, feeling proud of their achievements and resilience, especially at such a young age. It gave me strength in my own decisions and actions.\n\nWe made Melbourne our first stop, finally seeing this incredible city. We had decided to take six months to explore this breathtaking country and search for our next forever home. There were moments of fear and doubt. Some days I felt like I had lost my compass and wondered if we weren't a little crazy. In those moments of fragility, I would stop and sink into a little bit of you. This series had a way of calming my wandering thoughts and reminded me where I was going. Sometimes, you were literally my home.\n\nIn fact, our son welcomed us in Melbourne upon our arrival; he was temporarily travelling in Australia with a friend at the time. One month later we were saying goodbye, hoping that he and his girlfriend would join us soon. We did not see each other for 14 months, which nearly killed me. Naturally and often, longing overwhelmed me. Once again, watching YR calmed the storm in my head and in my heart.\n\nLike all devoted fans, I watched everything related to YR, Omar and Edvin. The countdown to the final season and the agonising wait to watch the very last episode of the series.\n\nSeason 3 episode 6 was one of my most anticipated days of 2024. As every fan will agree, it was a masterpiece. Sad, beautiful, but above all hopeful. To my great disappointment, I did not win tickets to attend the live screening of the final episode in Stockholm; I would have flown there in a heartbeat. But I woke up at 2 a.m. in Brisbane in time to take part in the TikTok live event. I sobbed when Edvin and Omar, and all the fans present, cried, especially when the actors said goodbye to the audience for the last time.\n\nThat early morning of 19 March 2024, Brisbane being ten hours ahead of Sweden, I turned off the television feeling a sense of emptiness and loss. I wondered how fictional characters and the best cinematography I had ever witnessed could take me to such a place.\n\nA few minutes later, I received a call from my son. He announced that he and his girlfriend had booked their one-way tickets and were moving to Australia. Tears began to flow. As if at the end of the Young Royals chapter, a new chapter of my life was beginning. And with that realisation came the fact that the show had carried me all the way to this next place.\n\nAnd as if I needed proof of the hope living inside me at that moment, the biggest rainbow appeared in the sky as I drove to work."}}, {"nom": "Méline, 16 ans", "pays": "France", "chap": 3, "origine": "fr", "textes": {"fr": "J'ai commencé Young Royals en août 2022, et je m'en souviendrai toute ma vie. J'ai regardé toute la saison 1 en une nuit, sous ma tente, en vacances.\n\nJ'ai adoré immédiatement et, comme chaque fois que j'aime une série, je l'ai revue un nombre incalculable de fois.\n\nJe me suis vraiment reconnue dans l'histoire de Wilhelm, parce que je souffre d'anxiété et de problèmes familiaux, et ce personnage m'a profondément touchée. Je veux remercier Edvin de l'avoir incarné si parfaitement, parce qu'il m'a énormément aidée.\n\nC'est vrai qu'à la maison, les choses étaient, et sont toujours, très difficiles. J'étais très jeune quand mes parents se sont séparés. Je n'ai pas vraiment compris ce qui se passait quand ma mère a commencé à dormir sur le canapé. Quand, du jour au lendemain, mon père est parti. Quand un autre homme l'a remplacé. Quand j'ai eu soudain un petit frère à la maison. Ma mère ne m'a jamais rien expliqué, ou si peu. À seulement 10 ans, j'ai dû tout deviner seule. J'étais exclue de tout. Ma mère ne s'occupait pas de moi et mon père n'était pas là pour me soutenir. Quant à mon beau-père, n'en parlons pas. J'avais ma grande sœur, mais elle est partie très vite, elle était déjà adulte. Je me sentais seule au milieu de tous ces gens. Je ressentais un vide immense autour de moi.\n\nAujourd'hui encore, je me sens seule, incomprise, distante. Je garde tout à l'intérieur. Même mes amis ne savent rien de ma situation ni de ce que je ressens chaque jour en dehors du lycée. On ne parle pas de ces choses-là. On ne parle pas de ce qu'on ressent vraiment, au fond. J'ai tant de choses à dire, à crier, mais je ne suis pas comme ça : je me tais et je souffre en silence. Je n'ai que 16 ans, mais la vie ne devrait pas être aussi dure.\n\nJe me suis aussi reconnue en Simon, parce que je pense toujours aux autres avant moi. Simon m'a beaucoup touchée lui aussi.\n\nPuis j'ai attendu la saison 3. C'était si long que j'ai trouvé du réconfort dans la musique d'Omar. Je l'avais déjà écouté avec ma cousine, mais cette fois c'était différent : j'y prêtais vraiment attention. J'ai cherché à en savoir plus, beaucoup, et j'ai découvert quelqu'un de magnifique, avec une histoire touchante. Il s'est retrouvé seul dans un pays qu'il ne connaissait pas, avec une autre langue. À l'école, il était exclu, insulté, méprisé. Heureusement, il avait l'amour inconditionnel de sa mère, qui est incroyable. Je rêve d'avoir une mère comme ça, quelqu'un qui me soutienne et soit là à chaque étape de la vie.\n\nEn attendant la saison 3, j'écoutais Omar sans arrêt. Cela me faisait un bien fou. Cela m'apportait tant de joie et de réconfort.\n\nPuis la saison 3 est sortie et je l'ai regardée. L'épisode 5 m'a bouleversée, je n'en revenais pas. Puis j'ai attendu l'épisode 6, et j'ai vu que l'amour gagne toujours, malgré les énormes difficultés que la vie peut apporter.\n\nYoung Royals m'a beaucoup aidée, mais maintenant je vais expliquer comment Omar m'aide chaque jour.\n\nJ'ai commencé à l'écouter en 2022 et je l'adorais déjà. Le temps est passé, il y a eu les périodes d'examens, les moments difficiles avec ma mère, alors je l'écoutais. Puis la rentrée 2024 est arrivée et ça a été la période la plus dure de ma vie. Je me suis littéralement accrochée à Omar. Je l'écoutais en boucle. J'ai même fait mon devoir d'anglais sur lui, ma professeure a adoré. Je continuais à apprendre un peu de suédois, mais ça ne suffisait plus.\n\nJe n'avais plus envie de vivre.\n\nEt puis, comme par magie, Omar a annoncé à ce moment précis, en octobre 2024, qu'il partait en tournée.\n\nJ'ai demandé à toute ma famille, personne ne pouvait m'emmener. C'était vraiment difficile, mais j'ai tenu jusqu'à l'annonce de la suite de la tournée Every Night Fantasy. J'étais tellement heureuse. Après négociation, ma grand-mère a enfin pu m'emmener.\n\nVous n'imaginez pas ma joie. Une fois les billets achetés, j'ai attendu avec impatience. La date du concert m'a maintenue en vie. Omar m'a maintenue en vie.\n\nPuis le 13 février 2025 est arrivé, et c'est devenu le plus beau jour de ma vie. J'ai rencontré des gens incroyables, je me suis fait plein d'amis. J'ai vécu le concert de ma vie. J'ai crié un peu trop fort, pardon aux voisins, mais Omar qui parle français, oh là là.\n\nEn rentrant, il m'a fallu longtemps pour m'en remettre. J'ai acheté INTRO et DUO pour me consoler, parce que la déprime d'après-concert fait vraiment mal. Et je ne me suis pas arrêtée là : j'ai acheté les huiles et tout ce qui touche à Omar. Mes amis entendent parler de lui tous les jours.\n\nVoilà mon histoire. Je sais que ce n'est que le début d'une très longue histoire, parce que je suis sûre que je n'arrêterai jamais d'aimer Omar.\n\nJ'ai l'impression que ce texte ne dit pas assez l'amour que j'ai pour lui, et que rien ne le dira jamais vraiment. Mais je veux le remercier, parce qu'il m'a sauvée de toutes les façons dont on peut sauver quelqu'un. J'espère qu'il sait à quel point il est aimé et à quel point il est incroyable. Ma personne préférée au monde.\n\nJ'espère qu'il ne cessera jamais de croire en ses rêves et qu'il ne doutera jamais de lui, parce que moi je crois en lui. Tout le monde croit en lui.\n\nJe suis tellement reconnaissante que nos chemins se soient croisés.\n\nTu m'as sauvé la vie, je t'aime.", "en": "I started watching Young Royals in August 2022, and I will remember it for the rest of my life. I watched the entire season 1 in one night inside my tent, as I was on holiday.\n\nI immediately loved it and, like every time I love a series, I watched it an uncountable number of times.\n\nI truly saw myself in Wilhelm's story because I struggle with anxiety and family issues, and this character touched me deeply. I want to thank Edvin for portraying him so perfectly, because he helped me so much.\n\nIt's true that at home things were, and still are, very difficult. I was very young when my parents separated. I didn't really understand what was happening when my mother started sleeping on the couch. When suddenly, from one day to the next, my father left. When another man replaced him. When I suddenly had a new little brother living with me. My mother never explained anything to me, or barely said anything. At only 10 years old, I had to guess everything on my own. I was excluded from all of it. My mother didn't take care of me and my father wasn't there to support me. As for my stepfather, let's not even talk about it. I had my older sister, but she left home very quickly since she was already an adult. I felt alone in the middle of all those people. I felt a huge emptiness around me.\n\nEven now, I still feel alone, misunderstood, distant. I keep everything inside. Even my friends know nothing about my situation or what I feel every day outside of high school. We don't talk about things like that. We don't talk about what we truly feel deep down. I have so many things I would like to say, to scream, but I'm not like that. I stay silent and suffer internally. I'm only 16 years old, but life shouldn't be this hard.\n\nI also recognised myself in Simon because I always think about others before myself. Simon touched me deeply too.\n\nThen I waited for season 3. It felt so long, so I found comfort in Omar's music. I had already listened to him before with my cousin, but this time it was different because I truly paid attention. I started researching Omar, a lot, and I discovered such a beautiful person with such a touching story. He found himself alone in a country he didn't know, with a language different from his own. At school, he was excluded, insulted, looked down on. Thankfully, he had the unconditional love of his mother, who is absolutely incredible. I dream of having a mother like that, someone who supports me and is there for me at every stage of life.\n\nWhile waiting for season 3, I listened to Omar nonstop. It made me feel so much better. It brought me so much joy and comfort.\n\nThen season 3 came out and I watched it. Episode 5 touched and shook me so deeply, I couldn't believe it. Then I waited for episode 6 and I saw that love always wins, despite the enormous difficulties life can bring.\n\nYoung Royals helped me a lot, but now I'm going to explain how Omar helps me every single day.\n\nI started listening to Omar in 2022 and I already adored him. Then time passed, I went through exam periods, difficult moments with my mother, so I listened to him. Then the start of the 2024 school year arrived and it became the hardest period of my life. I literally held onto Omar. I listened to him constantly. I even did my English homework about him; my teacher loved it. I kept learning a little Swedish, but it wasn't enough any more.\n\nI didn't want to live any more.\n\nAnd then, almost like magic, Omar announced during that exact period in October 2024 that he was going on tour.\n\nI asked my entire family, but nobody could take me. It was really difficult, but I managed to hold on until he announced the continuation of the Every Night Fantasy tour. I was so happy. After negotiating, my grandmother was finally able to take me.\n\nYou can't imagine how happy I was. Once the tickets were bought, I waited impatiently. The concert date kept me alive. Omar kept me alive.\n\nThen 13 February 2025 arrived and it became the best day of my life. I met incredible people and made so many friends. I experienced the concert of my life. I screamed a little too much, sorry to the people next to me, but Omar speaking French, oh my.\n\nWhen I came home, it took me a long time to recover from it. I bought INTRO and DUO to comfort myself, because post-concert depression really hurts. And I didn't stop there: I bought the oils and everything related to Omar. My friends hear about him every single day.\n\nThat's my story. I know it's only the beginning of a very long story, because I'm sure I will never stop loving Omar.\n\nI feel like this text still doesn't describe enough of the love I have for Omar, and nothing ever truly will. But I want to thank him, because he saved me in every possible way a person can be saved. I hope he knows how loved he is and how incredible he is. My favourite person in the world.\n\nI hope he never stops believing in his dreams and never doubts himself, because I believe in him. Everyone believes in him.\n\nI'm so grateful that our paths crossed.\n\nYou saved my life, I love you."}}];
+  const grille=document.getElementById("histoires-grille");
+  const filtres=document.getElementById("filtres-histoires");
+  const lecteur=document.getElementById("lecteur");
+  let courant=0;
+
+  function carte(h,i){
+    const b=document.createElement("button");
+    b.className="histoire";
+    b.dataset.chap=h.chap;
+    const t=texteDisponible(h);
+    b.innerHTML='<span class="chap">'+CHAP[h.chap].split(" · ")[0]+'</span>'+
+      '<b>'+h.nom+'</b><span class="pays">'+h.pays.toUpperCase()+'</span>'+
+      '<p>'+ (t.texte.replace(/\n+/g,' ').slice(0,190)+"…") +'</p>';
+    b.addEventListener("click",function(){ouvre(i);});
+    return b;
+  }
+  if(!H.length){
+    const vide=document.createElement("p");
+    vide.className="aucune-histoire";
+    vide.textContent="Le livre attend sa première page. Écrivez la vôtre juste en dessous : elle sera relue, publiée ici, et une étoile s'allumera dans la constellation.";
+    grille.appendChild(vide);
+  }
+  H.forEach(function(h,i){ grille.appendChild(carte(h,i)); });
+
+  const noms=["Tous les chapitres"].concat(CHAP);
+  noms.forEach(function(n,i){
+    const f=document.createElement("button");
+    f.className="filtre"+(i===0?" actif":"");
+    f.textContent=n;
+    f.addEventListener("click",function(){
+      filtres.querySelectorAll(".filtre").forEach(function(x){x.classList.toggle("actif",x===f);});
+      grille.querySelectorAll(".histoire").forEach(function(c){
+        c.style.display=(i===0||+c.dataset.chap===i-1)?"block":"none";
+      });
+    });
+    filtres.appendChild(f);
+  });
+
+  let montreOriginal=false;
+
+  function langueSite(){
+    return (document.documentElement.lang||"fr").slice(0,2);
+  }
+  function mot(cle){
+    const t=(typeof TEXTES!=="undefined" && TEXTES[langueSite()]) ? TEXTES[langueSite()] : null;
+    return (t && t[cle]) ? t[cle] : "";
+  }
+  function nomLangue(code){
+    const table={"fr": {"fr": "français", "en": "anglais", "es": "espagnol", "sv": "suédois", "de": "allemand", "pt": "portugais"}, "en": {"fr": "French", "en": "English", "es": "Spanish", "sv": "Swedish", "de": "German", "pt": "Portuguese"}, "es": {"fr": "francés", "en": "inglés", "es": "español", "sv": "sueco", "de": "alemán", "pt": "portugués"}, "sv": {"fr": "franska", "en": "engelska", "es": "spanska", "sv": "svenska", "de": "tyska", "pt": "portugisiska"}, "de": {"fr": "Französisch", "en": "Englisch", "es": "Spanisch", "sv": "Schwedisch", "de": "Deutsch", "pt": "Portugiesisch"}, "pt": {"fr": "francês", "en": "inglês", "es": "espanhol", "sv": "sueco", "de": "alemão", "pt": "português"}};
+    const l=table[langueSite()]||table.fr;
+    return l[code]||code;
+  }
+  // texte à afficher : la langue du site si elle existe, sinon la langue d'origine
+  function texteDisponible(h, forcerOriginal){
+    const site=langueSite();
+    if(!forcerOriginal && h.textes[site]) return {texte:h.textes[site], langue:site, traduit:site!==h.origine};
+    return {texte:h.textes[h.origine], langue:h.origine, traduit:false};
   }
 
-  function ouvre(i){
-    const c=CH[i];
-    document.getElementById("fc-titre").textContent=c.t;
-    const img=document.getElementById("fc-pochette");
-    img.style.display="none";
-    let info="";
-    if(c.d) info="Sortie le "+c.d+"<br>";
-    if(c.n){
-      info+="Jouée "+c.n+" fois en concert · première fois le "+c.pr+
-           "<br>Tournées : "+c.to.join(", ");
-    } else {
-      info+="Pas encore jouée sur scène, d'après nos archives.";
+  function ouvre(i, original){
+    courant=i;
+    montreOriginal=!!original;
+    const h=H[i];
+    const t=texteDisponible(h, montreOriginal);
+    document.getElementById("lec-chap").textContent=CHAP[h.chap];
+    document.getElementById("lec-nom").textContent=h.nom;
+    document.getElementById("lec-pays").textContent=h.pays.toUpperCase();
+    document.getElementById("lec-texte").innerHTML=t.texte.split("\n\n").map(function(p){return "<p>"+p+"</p>";}).join("");
+
+    // barre de langue
+    const barre=document.getElementById("lec-langue");
+    const site=langueSite();
+    let html='<span class="etiq-langue">'+mot("livre.ecriten")+" "+nomLangue(h.origine);
+    if(t.traduit) html+=' · '+mot("livre.traduitpar");
+    html+='</span>';
+    if(h.origine!==site){
+      if(h.textes[site]){
+        html+='<button class="btn btn--fin petit" id="bascule">'+
+          (montreOriginal?mot("livre.traduire"):mot("livre.original"))+'</button>';
+      } else {
+        html+='<span class="etiq-langue">'+mot("livre.pastraduit")+'</span>';
+      }
     }
-    document.getElementById("fc-info").innerHTML=info;
+    barre.innerHTML=html;
+    const bascule=document.getElementById("bascule");
+    if(bascule) bascule.addEventListener("click",function(){ ouvre(courant, !montreOriginal); });
 
-    // extrait de paroles, dans la langue d'origine, jamais traduit
-    const ex=(window.EXTRAITS||{})[c.t];
-    const zoneEx=document.getElementById("fc-extrait");
-    if(ex && ex.t){
-      zoneEx.hidden=false;
-      zoneEx.lang=ex.l||"en";
-      zoneEx.setAttribute("translate","no");
-      zoneEx.className="extrait-chanson notranslate";
-      zoneEx.innerHTML='<span class="langue-extrait">'+(ex.l||"").toUpperCase()+'</span>'+
-        ex.t.split("\n").map(function(l){return "<span>"+l.trim()+"</span>";}).join("");
-    } else {
-      zoneEx.hidden=true;
-    }
-
-    const zone=document.getElementById("fc-ecoute");
-    zone.innerHTML = c.s
-      ? '<iframe src="https://open.spotify.com/embed/track/'+c.s+'?theme=0" width="100%" height="152" frameborder="0" loading="lazy" allow="encrypted-media" style="border-radius:12px"></iframe>'
-      : '<p class="mention">Le lecteur officiel sera ajouté pour ce titre. En attendant, les liens ci-dessous ouvrent la chanson sur les plateformes.</p>';
-
-    const liens=document.getElementById("fc-liens");
-    const q=encodeURIComponent(c.t+" Omar Rudberg");
-    liens.innerHTML=
-      '<a class="btn btn--fin" target="_blank" rel="noopener" href="'+
-        (c.s?"https://open.spotify.com/track/"+c.s:"https://open.spotify.com/search/"+q)+'">Spotify</a>'+
-      '<a class="btn btn--fin" target="_blank" rel="noopener" href="https://www.youtube.com/results?search_query='+q+'">YouTube</a>'+
-      (c.n?'<a class="btn btn--fin" href="concerts.html">Voir les concerts</a>'+
-           '<a class="btn btn--fin" target="_blank" rel="noopener" href="https://omarrudbergmap.com/#concerts">Sur la carte</a>':'');
     lecteur.classList.add("ouvert");
   }
   function ferme(){ lecteur.classList.remove("ouvert"); }
   document.getElementById("fermer-lecteur").addEventListener("click",ferme);
   lecteur.addEventListener("click",function(e){ if(e.target===lecteur) ferme(); });
   document.addEventListener("keydown",function(e){ if(e.key==="Escape") ferme(); });
-
-  document.getElementById("recherche").addEventListener("input",function(e){
-    recherche=normalise(e.target.value.trim()); dessine();
+  document.getElementById("suivante").addEventListener("click",function(){ ouvre((courant+1)%H.length,false); });
+  document.getElementById("livre").addEventListener("click",function(){
+    if(!H.length){
+      document.getElementById("ecrire").scrollIntoView({behavior:"smooth",block:"start"});
+      return;
+    }
+    ouvre(Math.floor(Math.random()*H.length));
   });
-  document.querySelectorAll(".filtre").forEach(function(f){
-    f.addEventListener("click",function(){
-      document.querySelectorAll(".filtre").forEach(function(x){x.classList.toggle("actif",x===f);});
-      filtre=f.dataset.filtre; dessine();
-    });
-  });
-  dessine();
 })();
 </script>
 
 
 <script>
-/* =====================================================================
-   EXTRAITS DE CHANSONS
-   ---------------------------------------------------------------------
-   Écrivez ici l'extrait de votre choix pour chaque titre.
-   Format :   "Titre exact de la chanson": { l:"code langue", t:`extrait` }
-   Codes de langue : sv (suédois), en (anglais), es (espagnol), fr (français).
-   Les extraits ne sont jamais traduits : ils restent dans la langue
-   de la chanson, même quand le visiteur change la langue du site.
-   Laissez les accents graves ` ` autour du texte, et allez à la ligne
-   librement à l'intérieur.
-   ===================================================================== */
-window.EXTRAITS = {
+(function(){
+  const c=document.getElementById("mots");
+  if(!c) return;
+  const x=c.getContext("2d");
+  let L=0,H=0,dpr=1,part=[];
+  const GLYPHES=["♪","♫","♩","♬","♥","♥","♡","✦","✧","★","A","M","O","R"];
+  const MOTS=["love","music","thank you","forever","light","voice","heart","star","dream","magic","hope","always"];
+  const COUL=["103,232,249","167,139,250","232,121,249","244,244,255","91,141,255"];
+  const rnd=(a,b)=>a+Math.random()*(b-a);
 
-  // "Careless": { l:"en", t:`première ligne
-  // deuxième ligne
-  // troisième ligne` },
+  function dim(){
+    dpr=Math.min(window.devicePixelRatio||1,2);
+    L=c.clientWidth;H=c.clientHeight;
+    c.width=L*dpr;c.height=H*dpr;x.setTransform(dpr,0,0,dpr,0,0);
+  }
+  function naissance(){
+    const mot=Math.random()<0.22;
+    part.push({
+      x:L/2+rnd(-L*0.12,L*0.12),
+      y:H*0.60,
+      vx:rnd(-1.2,1.2),
+      vy:rnd(-4.6,-2.2),
+      a:rnd(-0.3,0.3),
+      va:rnd(-0.01,0.01),
+      t:0,
+      vie:rnd(3200,6200),
+      taille:mot?rnd(22,34):rnd(26,52),
+      texte:mot?MOTS[Math.floor(rnd(0,MOTS.length))]:GLYPHES[Math.floor(rnd(0,GLYPHES.length))],
+      police:mot?'"Caveat",cursive':'"Jost",sans-serif',
+      c:COUL[Math.floor(rnd(0,COUL.length))]
+    });
+  }
+  let precedent=0;
+  function boucle(ts){
+    const dt=Math.min(48,ts-precedent); precedent=ts;
+    x.clearRect(0,0,L,H);
+    x.globalCompositeOperation="lighter";
+    if(part.length<170){ naissance(); naissance(); if(Math.random()<0.7) naissance(); }
+    part=part.filter(function(p){
+      p.t+=dt;
+      p.x+=p.vx*dt*0.05+Math.sin(p.t*0.0016+p.x)*0.25;
+      p.y+=p.vy*dt*0.05;
+      p.vy*=0.9985;
+      p.a+=p.va;
+      const v=p.t/p.vie;
+      if(v>=1) return false;
+      const al=v<0.15 ? v/0.15 : (1-(v-0.15)/0.85);
+      x.save();
+      x.translate(p.x,p.y);
+      x.rotate(p.a);
+      x.font="500 "+p.taille+"px "+p.police;
+      x.textAlign="center";
+      x.shadowColor="rgba("+p.c+",1)";
+      x.shadowBlur=26;
+      x.fillStyle="rgba("+p.c+","+al.toFixed(2)+")";
+      x.fillText(p.texte,0,0);
+      x.restore();
+      return true;
+    });
+    x.globalCompositeOperation="source-over";
+    requestAnimationFrame(boucle);
+  }
+  window.addEventListener("resize",dim);
+  dim();
+  if(!window.matchMedia("(prefers-reduced-motion: reduce)").matches) requestAnimationFrame(boucle);
+})();
+</script>
 
-};
+
+<script>
+(function(){
+  const c=document.getElementById("envol");
+  if(!c) return;
+  const x=c.getContext("2d");
+  let L=0,H=0,dpr=1;
+  function dim(){
+    dpr=Math.min(window.devicePixelRatio||1,2);
+    L=c.clientWidth;H=c.clientHeight;
+    c.width=L*dpr;c.height=H*dpr;x.setTransform(dpr,0,0,dpr,0,0);
+  }
+  // pages lumineuses qui montent en spirale, puis deviennent des étoiles
+  const pages=[];
+  for(let i=0;i<18;i++){
+    pages.push({t:Math.random(),v:0.00006+Math.random()*0.00009,
+      ang:Math.random()*6.28,ray:0.06+Math.random()*0.17,
+      tour:1.2+Math.random()*1.6,taille:9+Math.random()*13,
+      c:["255,150,245","190,160,255","130,245,255","255,255,255"][i%4]});
+  }
+  function etoile(r){
+    x.beginPath();
+    for(let i=0;i<10;i++){
+      const a=-Math.PI/2+i*Math.PI/5, rr=i%2?r*.42:r;
+      i?x.lineTo(Math.cos(a)*rr,Math.sin(a)*rr):x.moveTo(Math.cos(a)*rr,Math.sin(a)*rr);
+    }
+    x.closePath();
+  }
+  let prec=0;
+  function boucle(ts){
+    const dt=Math.min(48,ts-prec); prec=ts;
+    x.clearRect(0,0,L,H);
+    x.globalCompositeOperation="lighter";
+
+    // faisceaux de lumière qui descendent du ciel, comme sur l'accueil
+    const SPOTS=[["190,160,255",-0.34],["255,140,255",-0.12],["130,245,255",0.12],["120,170,255",0.34]];
+    SPOTS.forEach(function(sp,i){
+      const bal=Math.sin(ts*0.00035*(1+i*0.25)+i)*L*0.06;
+      const hx=L/2+sp[1]*L*0.9+bal;        // départ en haut
+      const bx=L/2+sp[1]*L*0.16;           // arrivée sur le livre
+      const g=x.createLinearGradient(hx,0,bx,H*0.92);
+      g.addColorStop(0,"rgba("+sp[0]+",.34)");
+      g.addColorStop(.55,"rgba("+sp[0]+",.14)");
+      g.addColorStop(1,"rgba("+sp[0]+",0)");
+      x.fillStyle=g;
+      x.beginPath();
+      x.moveTo(hx-L*0.012,0);
+      x.lineTo(hx+L*0.012,0);
+      x.lineTo(bx+L*0.075,H*0.92);
+      x.lineTo(bx-L*0.075,H*0.92);
+      x.closePath();
+      x.fill();
+    });
+
+    // halo au creux du livre
+    const h0=x.createRadialGradient(L/2,H*0.9,0,L/2,H*0.9,L*0.22);
+    h0.addColorStop(0,"rgba(255,170,250,.5)");
+    h0.addColorStop(1,"rgba(255,170,250,0)");
+    x.fillStyle=h0;
+    x.beginPath();x.arc(L/2,H*0.9,L*0.22,0,6.3);x.fill();
+
+    // spirale de pages
+    pages.forEach(function(p){
+      p.t+=p.v*dt;
+      if(p.t>1) p.t-=1;
+      const h=1-p.t;                                   // 1 en bas, 0 en haut
+      const y=H*0.92-(H*0.78)*p.t;
+      const a=p.ang+p.t*Math.PI*2*p.tour;
+      const r=L*p.ray*(0.35+p.t*1.25);
+      const px=L/2+Math.cos(a)*r;
+      const ech=0.4+h*0.9;
+      const al=p.t<0.08 ? p.t/0.08 : (p.t>0.55 ? Math.max(0,(1-p.t)/0.45) : 1);
+      x.save();
+      x.translate(px,y);
+      x.rotate(Math.sin(a)*0.5);
+      x.shadowColor="rgba("+p.c+",1)";
+      if(p.t<0.62){                                     // une page
+        x.shadowBlur=16;
+        x.strokeStyle="rgba("+p.c+","+(al*0.9).toFixed(2)+")";
+        x.lineWidth=1.6;
+        x.fillStyle="rgba("+p.c+","+(al*0.10).toFixed(2)+")";
+        const w=p.taille*ech, hh=p.taille*1.35*ech;
+        x.beginPath();
+        x.moveTo(-w,-hh); x.quadraticCurveTo(0,-hh*0.7,w,-hh);
+        x.lineTo(w,hh);  x.quadraticCurveTo(0,hh*0.7,-w,hh);
+        x.closePath(); x.fill(); x.stroke();
+      } else {                                         // puis une étoile
+        x.shadowBlur=20;
+        x.fillStyle="rgba("+p.c+","+al.toFixed(2)+")";
+        etoile(p.taille*0.55*ech); x.fill();
+      }
+      x.restore();
+    });
+    x.globalCompositeOperation="source-over";
+    requestAnimationFrame(boucle);
+  }
+  window.addEventListener("resize",dim);
+  dim();
+  if(!window.matchMedia("(prefers-reduced-motion: reduce)").matches) requestAnimationFrame(boucle);
+})();
+</script>
+
+
+<script>
+(function(){
+  const b=document.getElementById("burger");
+  if(!b) return;
+  const menu=document.querySelector(".menu");
+  const entete=document.querySelector(".entete");
+  function bascule(ouvrir){
+    menu.classList.toggle("ouvert",ouvrir);
+    entete.classList.toggle("menu-ouvert",ouvrir);
+    b.setAttribute("aria-expanded",String(ouvrir));
+    document.body.style.overflow=ouvrir?"hidden":"";
+  }
+  b.addEventListener("click",function(e){
+    e.stopPropagation();
+    bascule(!menu.classList.contains("ouvert"));
+  });
+  menu.querySelectorAll("a").forEach(function(a){
+    a.addEventListener("click",function(){ bascule(false); });
+  });
+  document.addEventListener("keydown",function(e){ if(e.key==="Escape") bascule(false); });
+})();
 </script>
 
 </body>
