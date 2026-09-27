@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Mon univers O.R. · O.R. World Association</title>
-<!-- version : PASSEPORT-004 -->
+<!-- version : PASSEPORT-005 -->
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:opsz,wght@6..96,400;6..96,500&family=Caveat:wght@500;600&family=Jost:wght@200;300;400&display=swap" rel="stylesheet">
@@ -593,6 +593,16 @@ h2.titre2{font-family:var(--titre);font-size:clamp(1.8rem,3.4vw,2.8rem);margin:0
   .villes{gap:3mm!important}
   .ville{border-color:#7c3aed!important;color:#4c1d95!important;background:#fff!important;transform:none!important}
 }
+
+.etat-compte{display:flex;align-items:center;gap:1rem;max-width:760px;margin:1.4rem auto 0;
+  padding:1rem 1.3rem;border-radius:16px;border:1px solid rgba(232,121,249,.4);
+  background:rgba(232,121,249,.07);font-size:.92rem}
+.etat-compte.ok{border-color:rgba(103,232,249,.45);background:rgba(103,232,249,.07)}
+.etat-compte span:not(.pastille-etat){flex:1;color:#e6ecff;line-height:1.45}
+.pastille-etat{width:11px;height:11px;border-radius:50%;flex:none;background:var(--rose);
+  box-shadow:0 0 14px rgba(232,121,249,.9)}
+.etat-compte.ok .pastille-etat{background:var(--cyan);box-shadow:0 0 14px rgba(103,232,249,.9)}
+
 @media (prefers-reduced-motion:reduce){*{animation:none!important}}
 </style>
 </head>
@@ -700,6 +710,8 @@ window.EMBLEME = function(id, g){
   return E[id] || E.first;
 };
 </script>
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<script src="config.js"></script>
 <span id="haut"></span>
 <canvas id="bulles"></canvas>
 
@@ -742,6 +754,12 @@ window.EMBLEME = function(id, g){
       </div>
     </div>
 
+    
+<div class="etat-compte" id="etat-compte" hidden>
+  <span class="pastille-etat"></span>
+  <span id="etat-texte"></span>
+  <a class="btn btn--fin" id="etat-lien" href="connexion.html?retour=passeport.html"></a>
+</div>
     <div class="barre-boutons" style="justify-content:center;margin-top:1.4rem">
       <button class="btn" id="pp-imprimer" data-i18n="pp.imprimer"></button>
       <button class="btn btn--fin" id="pp-reinit" data-i18n="pp.reinit"></button>
@@ -857,7 +875,7 @@ window.EMBLEME = function(id, g){
     <div class="pied__bas">
       <span>© 2026 O.R. World Association</span>
       <span data-i18n="f.heberge"></span>
-      <span class="version">version : PASSEPORT-004</span>
+      <span class="version">version : PASSEPORT-005</span>
     </div>
   </div>
 </footer>
@@ -1119,6 +1137,97 @@ const CONTINENTS=[[[143.2,-12.0],[143.5,-13.1],[143.8,-14.3],[144.9,-14.7],[145.
   if(!etat.villes)  etat.villes  = [];
   if(!etat.profil)  etat.profil  = {};
 
+
+  /* ================= compte et synchronisation ================= */
+  let compte = null;          // le membre connecté, ou null
+  let enLigne = false;        // le passeport est-il relié à un compte ?
+
+  function bandeau(){
+    const l = lang(), b = document.getElementById("etat-compte");
+    const t = document.getElementById("etat-texte"), a = document.getElementById("etat-lien");
+    b.hidden = false;
+    if(enLigne){
+      b.classList.add("ok");
+      t.textContent = l==="en"
+        ? "Your passport is linked to your account: you will find it on any device."
+        : "Votre passeport est relié à votre compte : vous le retrouverez sur n'importe quel appareil.";
+      a.textContent = l==="en" ? "My member area" : "Mon espace membre";
+      a.href = "espace.html";
+    } else {
+      b.classList.remove("ok");
+      t.textContent = l==="en"
+        ? "Your passport is saved on this device only. Sign in to keep it on every device."
+        : "Votre passeport n'est enregistré que sur cet appareil. Connectez-vous pour le retrouver partout.";
+      a.textContent = l==="en" ? "Sign in" : "Se connecter";
+      a.href = "connexion.html?retour=passeport.html";
+    }
+  }
+
+  async function charger(){
+    if(!window.db){ bandeau(); return; }
+    try{
+      const { data } = await db.auth.getUser();
+      compte = data ? data.user : null;
+    }catch(e){ compte = null; }
+    if(!compte){ bandeau(); return; }
+
+    enLigne = true;
+    // la fiche du membre remplit l'identité
+    try{
+      const { data: m } = await db.from("asso_membres")
+        .select("prenom, nom, pays, instagram, numero").eq("id", compte.id).single();
+      if(m){
+        etat.profil.nom    = etat.profil.nom    || ((m.prenom||"")+" "+(m.nom||"")).trim();
+        etat.profil.pays   = etat.profil.pays   || (m.pays||"");
+        etat.profil.pseudo = etat.profil.pseudo || (m.instagram ? "@"+m.instagram : "");
+        ["nom","pseudo","pays"].forEach(function(c){
+          const el=document.getElementById("pp-"+c); if(el && !el.value) el.value = etat.profil[c]||"";
+        });
+      }
+      const { data: a } = await db.from("asso_adhesions")
+        .select("annee").eq("membre", compte.id).order("annee").limit(1);
+      if(a && a[0]){
+        const el=document.getElementById("pp-depuis"); if(el && !el.value) el.value = a[0].annee;
+      }
+    }catch(e){}
+
+    // les tampons et les villes viennent de la base
+    try{
+      const { data: t } = await db.from("asso_passeport").select("tampon, statut, obtenu_le").eq("membre", compte.id);
+      etat.tampons = {}; etat.dates = {};
+      (t||[]).forEach(function(x){
+        etat.tampons[x.tampon] = (x.statut==="valide") ? "oui" : "attente";
+        if(x.obtenu_le) etat.dates[x.tampon] = x.obtenu_le.split("-").reverse().join("/");
+      });
+      const { data: v } = await db.from("asso_passeport_villes").select("id, libelle").eq("membre", compte.id);
+      etat.villes = (v||[]).map(function(x){ return x.libelle; });
+      etat.idsVilles = (v||[]).map(function(x){ return x.id; });
+    }catch(e){}
+    bandeau(); tout();
+  }
+
+  async function poserTampon(id, validation){
+    if(!enLigne) return;
+    try{
+      await db.from("asso_passeport").insert({
+        membre: compte.id, tampon: id,
+        statut: validation ? "attente" : "valide"
+      });
+    }catch(e){}
+  }
+  async function retirerTampon(id){
+    if(!enLigne) return;
+    try{ await db.from("asso_passeport").delete().eq("membre", compte.id).eq("tampon", id); }catch(e){}
+  }
+  async function poserVille(libelle){
+    if(!enLigne) return;
+    try{ await db.from("asso_passeport_villes").insert({ membre: compte.id, libelle: libelle }); }catch(e){}
+  }
+  async function retirerVille(i){
+    if(!enLigne || !etat.idsVilles) return;
+    try{ await db.from("asso_passeport_villes").delete().eq("id", etat.idsVilles[i]); }catch(e){}
+  }
+
   /* ---------- identité ---------- */
   ["nom","pseudo","pays","depuis"].forEach(function(c){
     const el=document.getElementById("pp-"+c);
@@ -1161,8 +1270,8 @@ const CONTINENTS=[[[143.2,-12.0],[143.5,-13.1],[143.8,-14.3],[144.9,-14.7],[145.
 
   function basculer(t){
     const e=etat.tampons[t.id];
-    if(e==="oui"){ delete etat.tampons[t.id]; }
-    else { etat.tampons[t.id] = t.valide ? "attente" : "oui";
+    if(e){ delete etat.tampons[t.id]; retirerTampon(t.id); }
+    else { etat.tampons[t.id] = t.valide ? "attente" : "oui"; poserTampon(t.id, t.valide);
            if(!etat.dates) etat.dates={};
            etat.dates[t.id]=new Date().toLocaleDateString(lang()==="en"?"en-GB":"fr-FR"); }
     ecrire(etat); tout();
@@ -1220,13 +1329,13 @@ const CONTINENTS=[[[143.2,-12.0],[143.5,-13.1],[143.8,-14.3],[144.9,-14.7],[145.
       const non=document.createElement("button"); non.className="non"+(!e?" actif":"");
       non.textContent = l==="en" ? "Not yet" : "Pas encore";
       oui.addEventListener("click",function(){
-        if(!e){ etat.tampons[t.id]= t.valide?"attente":"oui";
+        if(!e){ etat.tampons[t.id]= t.valide?"attente":"oui"; poserTampon(t.id, t.valide);
           if(!etat.dates) etat.dates={};
           etat.dates[t.id]=new Date().toLocaleDateString(l==="en"?"en-GB":"fr-FR");
           ecrire(etat); tout(); }
       });
       non.addEventListener("click",function(){
-        if(e){ delete etat.tampons[t.id]; ecrire(etat); tout(); }
+        if(e){ delete etat.tampons[t.id]; retirerTampon(t.id); ecrire(etat); tout(); }
       });
       d.appendChild(oui); d.appendChild(non);
       zone.appendChild(d);
@@ -1240,13 +1349,15 @@ const CONTINENTS=[[[143.2,-12.0],[143.5,-13.1],[143.8,-14.3],[144.9,-14.7],[145.
       const d=document.createElement("div"); d.className="ville";
       d.innerHTML="<b>O.R. WORLD</b><br>"+v;
       d.title = lang()==="en" ? "Click to remove" : "Cliquer pour retirer";
-      d.addEventListener("click",function(){ etat.villes.splice(i,1); ecrire(etat); tout(); });
+      d.addEventListener("click",function(){ retirerVille(i); etat.villes.splice(i,1);
+        if(etat.idsVilles) etat.idsVilles.splice(i,1); ecrire(etat); tout(); });
       zone.appendChild(d);
     });
   }
   document.getElementById("pp-ajout-ville").addEventListener("click",function(){
     const c=document.getElementById("pp-ville");
-    if(c.value.trim()){ etat.villes.push(c.value.trim()); c.value=""; ecrire(etat); tout(); }
+    if(c.value.trim()){ const v=c.value.trim(); etat.villes.push(v); poserVille(v);
+      c.value=""; ecrire(etat); tout(); }
   });
 
   /* ---------- filtres, impression, remise à zéro ---------- */
@@ -1267,8 +1378,9 @@ const CONTINENTS=[[[143.2,-12.0],[143.5,-13.1],[143.8,-14.3],[144.9,-14.7],[145.
 
   function tout(){ dessineTampons(); dessineBadges(); dessineNiveau(); dessineQuestions(); dessineVilles(); }
   tout();
+  charger();
   document.querySelectorAll("#langue-liste button").forEach(function(b){
-    b.addEventListener("click",function(){ setTimeout(tout,80); });
+    b.addEventListener("click",function(){ setTimeout(function(){ tout(); bandeau(); },80); });
   });
 })();
 </script>
