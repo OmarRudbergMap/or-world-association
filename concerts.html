@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Concerts et archives · O.R. World Association</title>
-<!-- version : CONCERTS-025 -->
+<!-- version : CONCERTS-026 -->
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:opsz,wght@6..96,400;6..96,500&family=Caveat:wght@500;600&family=Jost:wght@200;300;400&display=swap" rel="stylesheet">
@@ -1004,7 +1004,7 @@ h2.titre2{font-family:var(--titre);font-size:clamp(1.8rem,3.4vw,2.8rem);margin:0
     <div class="pied__bas">
       <span>© 2026 O.R. World Association</span>
       <span data-i18n="f.heberge"></span>
-      <span class="version">version : CONCERTS-025</span>
+      <span class="version">version : CONCERTS-026</span>
     </div>
   </div>
 </footer>
@@ -1881,6 +1881,34 @@ const CONTINENTS=[[[143.2,-12.0],[143.5,-13.1],[143.8,-14.3],[144.9,-14.7],[145.
 };        // "cle|plateforme": [ {t:"titre", u:"adresse d'intégration"} ]
   const NOMS = {instagram:"Instagram", tiktok:"TikTok", youtube:"YouTube"};
 
+
+  // Instagram, TikTok et YouTube n'acceptent d'être affichés que sous leur forme « embed ».
+  function adresseIntegration(u, type){
+    try{
+      const url = new URL(u);
+      if(url.hostname.indexOf("instagram.com") >= 0){
+        let chemin = url.pathname.replace(/\/+$/,"");
+        if(chemin.indexOf("/embed") < 0) chemin += "/embed";
+        return "https://www.instagram.com" + chemin + "/captioned/";
+      }
+      if(url.hostname.indexOf("tiktok.com") >= 0){
+        const m = url.pathname.match(/\/video\/(\d+)/) || url.pathname.match(/\/(\d{8,})/);
+        if(m) return "https://www.tiktok.com/embed/v2/" + m[1];
+        return u;
+      }
+      if(url.hostname.indexOf("youtu") >= 0){
+        let id = url.searchParams.get("v");
+        if(!id && url.hostname.indexOf("youtu.be") >= 0) id = url.pathname.replace("/","");
+        if(!id){
+          const m = url.pathname.match(/\/(?:shorts|embed|live)\/([A-Za-z0-9_-]{6,})/);
+          if(m) id = m[1];
+        }
+        if(id) return "https://www.youtube-nocookie.com/embed/" + id;
+      }
+    }catch(e){}
+    return u;
+  }
+
   function bloc(titre, contenu){
     return '<p class="titre-bloc">'+titre+'</p>'+contenu;
   }
@@ -1939,8 +1967,10 @@ const CONTINENTS=[[[143.2,-12.0],[143.5,-13.1],[143.8,-14.3],[144.9,-14.7],[145.
             ev.stopPropagation();
             const i=document.createElement("iframe");
             i.loading="lazy"; i.referrerPolicy="strict-origin-when-cross-origin";
-            i.height = type==="youtube" ? "320" : "600"; i.style.width="100%"; i.style.border="0";
-            i.src=item.u;
+            i.height = type==="youtube" ? "380" : (type==="tiktok" ? "740" : "640"); i.style.width="100%"; i.style.border="0";
+            i.src=adresseIntegration(item.u, type);
+            i.allow="accelerometer; clipboard-write; encrypted-media; picture-in-picture; web-share";
+            i.allowFullscreen=true;
             c.innerHTML=""; c.appendChild(i);
           });
           g.appendChild(c);
