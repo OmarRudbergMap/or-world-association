@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Archive presse · O.R. World Association</title>
-<!-- version : PRESSE-006 -->
+<!-- version : PRESSE-007 -->
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:opsz,wght@6..96,400;6..96,500&family=Caveat:wght@500;600&family=Jost:wght@200;300;400&display=swap" rel="stylesheet">
@@ -1270,7 +1270,7 @@ h2.titre2{font-family:var(--titre);font-size:clamp(1.8rem,3.4vw,2.8rem);margin:0
     <div class="pied__bas">
       <span>© 2026 O.R. World Association</span>
       <span data-i18n="f.heberge"></span>
-      <span class="version">version : PRESSE-006</span>
+      <span class="version">version : PRESSE-007</span>
     </div>
   </div>
 </footer>
@@ -1609,7 +1609,7 @@ const CONTINENTS=[[[143.2,-12.0],[143.5,-13.1],[143.8,-14.3],[144.9,-14.7],[145.
         if(!l||!l.length){
           const c=document.createElement("div"); c.className="cadre-media";
           c.innerHTML="<div><p>Aucun contenu n'est encore relié à cet emplacement.</p>"+
-            '<p class="avertissement">Les articles seront intégrés depuis leur média d\'origine, sans être copiés.</p></div>';
+            '<p class="avertissement">Les articles s\'ouvrent sur le site du journal ; les publications s\'affichent ici même.</p></div>';
           zone.appendChild(c); return;
         }
         const g=document.createElement("div"); g.className="grille-medias";
@@ -1619,8 +1619,13 @@ const CONTINENTS=[[[143.2,-12.0],[143.5,-13.1],[143.8,-14.3],[144.9,-14.7],[145.
           let hote=""; try{ hote=new URL(item.u).hostname.replace(/^www\./,""); }catch(e){}
           c.innerHTML='<span class="ico-media">'+(ICONES[type]||"\u2630")+'</span>'+
             '<span class="texte-media"><b>'+(item.t||NOMS[type])+'</b>'+(hote?'<p>'+hote+'</p>':"")+'</span>'+
-            '<button class="btn btn--fin charger">Afficher</button>';
-          c.querySelector(".charger").addEventListener("click",function(ev){
+            (type==="article"
+              ? '<a class="btn btn--fin" target="_blank" rel="noopener" href="'+item.u+'">'+
+                ((localStorage.getItem("orw-langue")||"fr")==="en" ? "Read the article" : "Lire l\'article")+'</a>'
+              : '<button class="btn btn--fin charger">'+
+                ((localStorage.getItem("orw-langue")||"fr")==="en" ? "Show" : "Afficher")+'</button>');
+          const bouton=c.querySelector(".charger");
+          if(bouton) bouton.addEventListener("click",function(ev){
             ev.stopPropagation();
             const i=document.createElement("iframe");
             i.loading="lazy"; i.referrerPolicy="strict-origin-when-cross-origin";
