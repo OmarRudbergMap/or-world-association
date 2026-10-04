@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Outil · préparer le fichier des paroles</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600&family=Outfit:wght@300;400;500&display=swap');
+  *{margin:0;padding:0;box-sizing:border-box}
+  :root{--bleu:#050920;--violet:#7c3aed;--violet-clair:#a78bfa;--rose:#e879f9;
+    --cyan:#67e8f9;--blanc:#f4f6ff;--gris:#a8a3c4;--bord:rgba(140,150,235,.3)}
+  body{background:var(--bleu);color:var(--blanc);font-family:"Outfit",system-ui,sans-serif;
+    padding:3rem 1.5rem;line-height:1.6}
+  .page{max-width:920px;margin:0 auto}
+  h1{font-family:"Playfair Display",serif;font-size:2.2rem;font-weight:600;margin-bottom:.4rem}
+  p.intro{color:#dfe3ff;margin-bottom:1.6rem}
+  ol{margin:0 0 1.6rem 1.2rem;color:#cfd3f5}
+  ol li{margin-bottom:.5rem}
+  textarea{width:100%;height:320px;padding:1rem;border-radius:14px;border:1px solid var(--bord);
+    background:rgba(8,12,34,.7);color:#e6ecff;font-family:ui-monospace,monospace;font-size:.86rem;resize:vertical}
+  .barre{display:flex;gap:.7rem;flex-wrap:wrap;margin:1.1rem 0}
+  button{padding:.7rem 1.5rem;border-radius:999px;border:1px solid var(--bord);cursor:pointer;
+    background:rgba(10,14,40,.7);color:var(--blanc);font-family:inherit;font-size:.92rem}
+  button.fort{background:linear-gradient(120deg,var(--violet),var(--rose));border:0}
+  .resultat{margin-top:1.4rem;padding:1.1rem 1.3rem;border-radius:14px;border:1px solid var(--bord);
+    background:rgba(103,232,249,.07);display:none}
+  .resultat.vu{display:block}
+  .mention{font-size:.84rem;color:var(--gris);margin-top:1.2rem}
+  code{background:rgba(255,255,255,.08);padding:.1rem .4rem;border-radius:5px;font-size:.86rem}
+</style>
+</head>
+<body>
+<div class="page">
+  <h1>Préparer le fichier des paroles</h1>
+  <p class="intro">Cet outil tourne entièrement sur votre ordinateur. Rien n'est envoyé nulle part :
+  votre texte ne quitte jamais votre machine.</p>
+
+  <ol>
+    <li>Ouvrez votre tableau Excel, onglet <b>Paroles</b>.</li>
+    <li>Sélectionnez les deux colonnes, du haut en bas, puis copiez avec Ctrl + C.</li>
+    <li>Collez dans la grande case ci-dessous.</li>
+    <li>Cliquez sur <b>Préparer le fichier</b>, puis sur <b>Télécharger paroles.js</b>.</li>
+    <li>Déposez ce fichier sur GitHub, à côté des pages du site.</li>
+  </ol>
+
+  <textarea id="source" placeholder="Collez ici le contenu de l'onglet Paroles…"></textarea>
+
+  <div class="barre">
+    <button class="fort" id="preparer">Préparer le fichier</button>
+    <button id="telecharger">Télécharger paroles.js</button>
+    <button id="vider">Vider</button>
+  </div>
+
+  <div class="resultat" id="resultat"></div>
+
+  <p class="mention">Le fichier produit s'appelle <code>paroles.js</code>. Il remplace celui qui se trouve
+  déjà dans le dépôt. Les extraits s'affichent ensuite sous chaque chanson, dans leur langue d'origine,
+  et ne sont jamais traduits.</p>
+</div>
+
+<script>
+let fichier = "";
+
+document.getElementById("preparer").addEventListener("click", function(){
+  const brut = document.getElementById("source").value;
+  const lignes = brut.split(/\r?\n/);
+  const chansons = {};
+  let courante = null;
+
+  lignes.forEach(function(l){
+    if(!l.trim()) return;
+    const cols = l.split("\t");
+    const gauche = (cols[0]||"").trim();
+    const droite = (cols.length>1 ? cols.slice(1).join(" ") : "").trim();
+
+    // une ligne avec un titre à gauche ouvre une nouvelle chanson
+    if(gauche && !/^↓/.test(droite)){
+      courante = gauche; if(!chansons[courante]) chansons[courante] = [];
+      if(droite && !/^↓/.test(droite)) chansons[courante].push(droite);
+      return;
+    }
+    if(gauche && /^↓/.test(droite)){ courante = gauche; chansons[courante] = []; return; }
+    if(courante && droite) chansons[courante].push(droite);
+  });
+
+  const noms = Object.keys(chansons).filter(function(n){ return chansons[n].length; });
+  let txt = "/* Extraits de paroles — fichier produit par outil-paroles.html */\n\n";
+  txt += "window.PAROLES = {\n";
+  noms.forEach(function(n, i){
+    const corps = chansons[n].join("\n");
+    txt += '  ' + JSON.stringify(n) + ': `' + corps.replace(/`/g, "'") + '`' + (i < noms.length-1 ? ",":"") + "\n";
+  });
+  txt += "};\n";
+  fichier = txt;
+
+  const r = document.getElementById("resultat");
+  r.className = "resultat vu";
+  r.innerHTML = "<b>" + noms.length + " chansons reconnues.</b><br>" +
+    noms.slice(0,8).map(function(n){ return "· " + n + " (" + chansons[n].length + " lignes)"; }).join("<br>") +
+    (noms.length>8 ? "<br>…" : "");
+});
+
+document.getElementById("telecharger").addEventListener("click", function(){
+  if(!fichier){ alert("Cliquez d'abord sur « Préparer le fichier »."); return; }
+  const b = new Blob([fichier], {type:"text/javascript;charset=utf-8"});
+  const a = document.createElement("a");
+  a.href = URL.createObjectURL(b); a.download = "paroles.js"; a.click();
+  URL.revokeObjectURL(a.href);
+});
+
+document.getElementById("vider").addEventListener("click", function(){
+  document.getElementById("source").value = "";
+  document.getElementById("resultat").className = "resultat";
+  fichier = "";
+});
+</script>
+</body>
+</html>
