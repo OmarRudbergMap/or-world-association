@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>OMR Beauty · O.R. World Association</title>
-<!-- version : BEAUTY-009 -->
+<!-- version : BEAUTY-010 -->
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:opsz,wght@6..96,400;6..96,500&family=Caveat:wght@500;600&family=Jost:wght@200;300;400&display=swap" rel="stylesheet">
@@ -582,6 +582,45 @@ h2.titre2{font-family:var(--titre);font-size:clamp(1.8rem,3.4vw,2.8rem);margin:0
 
 @media (prefers-reduced-motion:reduce){*{animation:none!important}}
 </style>
+
+<style id="orw-medias-plein">
+/* ---------- médias intégrés : un par ligne, pleine largeur ---------- */
+.grille-medias{display:grid!important;grid-template-columns:1fr!important;gap:1.1rem!important}
+.cadre-media.plein{display:block!important;padding:0!important;min-height:0!important;
+  background:#02040f!important;overflow:hidden;text-align:left;place-items:stretch!important}
+.legende-media{display:flex;align-items:center;justify-content:space-between;gap:.8rem;
+  padding:.62rem .95rem;border-bottom:1px solid rgba(140,150,235,.18)}
+.legende-media b{font-weight:400;color:#e6ecff;font-size:.86rem;line-height:1.3;
+  overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.fermer-media{flex:none;background:none;border:1px solid rgba(140,150,235,.32);border-radius:999px;
+  color:#8d86ab;font-family:inherit;font-size:.7rem;letter-spacing:.08em;padding:.26rem .78rem;cursor:pointer}
+.fermer-media:hover{color:#fff;border-color:#c084fc;box-shadow:0 0 14px rgba(192,132,252,.3)}
+.cadre-video{position:relative;width:100%;aspect-ratio:16/9;background:#000}
+.cadre-video>iframe{position:absolute;inset:0;width:100%;height:100%;border:0}
+.zoom-media{position:relative;width:100%;overflow:hidden;background:#000}
+.zoom-media>iframe{border:0;display:block}
+.cadre-plat{width:100%;border:0;display:block}
+@media (max-width:760px){
+  .cadre-media.plein{margin-left:calc(50% - 50vw);margin-right:calc(50% - 50vw);
+    width:auto!important;max-width:none!important;border-radius:0;border-left:0;border-right:0}
+}
+</style>
+
+<style id="orw-omr-medias">
+.filtres-omr{display:flex;gap:.5rem;flex-wrap:wrap;margin:1rem 0 1.5rem}
+.bouton-omr{display:inline-flex;align-items:center;gap:.45rem;padding:.46rem 1rem;
+  border:1px solid var(--bord);border-radius:999px;background:rgba(8,12,34,.6);
+  color:var(--gris);font-family:var(--texte);font-size:.78rem;cursor:pointer}
+.bouton-omr i{font-style:normal;color:#8d86ab;font-size:.7rem}
+.bouton-omr:hover{color:#fff;border-color:var(--violet-clair)}
+.bouton-omr.actif{color:#fff;border-color:var(--cyan);box-shadow:0 0 16px rgba(103,232,249,.25)}
+.pastille-omr{min-width:17px;height:17px;padding:0 4px;border-radius:999px;display:inline-grid;place-items:center;
+  background:linear-gradient(135deg,#7c3aed,#ec4899);color:#fff;font-size:.62rem}
+#zone-omr .cadre-media{border:1px solid var(--bord);border-radius:14px;background:rgba(3,6,22,.6);
+  padding:1.2rem;text-align:center;display:grid;place-items:center;min-height:120px}
+#zone-omr .cadre-media p{color:var(--gris);font-size:.84rem;margin:0 0 .7rem}
+#zone-omr .cadre-media b{font-weight:400;color:#e6ecff;display:block;margin-bottom:.35rem}
+</style>
 </head>
 <body>
 
@@ -788,21 +827,9 @@ h2.titre2{font-family:var(--titre);font-size:clamp(1.8rem,3.4vw,2.8rem);margin:0
   <div class="contenu">
     <h2 class="titre2" style="font-size:1.8rem" data-i18n="be.an.t"></h2>
     <p class="intro2">Les publications d'OMR Beauty seront intégrées ici depuis le compte officiel de la marque, et ne se chargeront qu'après votre clic.</p>
-    <div class="emplacements">
-      <div class="emplacement"><b>Intro · 22/11/2023</b><span>emplacement d'intégration</span></div>
-      <div class="emplacement"><b>Duo · 23/05/2024</b><span>emplacement d'intégration</span></div>
-      <div class="emplacement"><b>Brunch · 24/10/2024</b><span>emplacement d'intégration</span></div>
-      <div class="emplacement"><b>Lunch et Dinner · 07/11/2024</b><span>emplacement d'intégration</span></div>
-      <div class="emplacement"><b>Restock Duo · 26/02/2025</b><span>emplacement d'intégration</span></div>
-      <div class="emplacement"><b>Huile Duo · 26/03/2025</b><span>emplacement d'intégration</span></div>
-      <div class="emplacement"><b>Fluid · 04/06/2025</b><span>emplacement d'intégration</span></div>
-      <div class="emplacement"><b>Huiles Intro et Fluid · 12/11/2025</b><span>emplacement d'intégration</span></div>
-      <div class="emplacement"><b>Bougie Copper</b><span>emplacement d'intégration</span></div>
-      <div class="emplacement"><b>Copper · 08/04/2026</b><span>emplacement d'intégration</span></div>
-      <div class="emplacement"><b>Sweatshirt</b><span>emplacement d'intégration</span></div>
-      <div class="emplacement"><b>Casquette</b><span>emplacement d'intégration</span></div>
-    </div>
-    <p class="mention">Contenus intégrés depuis les comptes officiels d'OMR Beauty. Tous droits réservés à leurs auteurs.</p>
+    <div class="filtres-omr"><button class="bouton-omr actif" data-i="0">Intro <i>22/11/2023</i> <span class="pastille-omr">1</span></button><button class="bouton-omr" data-i="1">Duo <i>23/05/2024</i> <span class="pastille-omr">2</span></button><button class="bouton-omr" data-i="2">Brunch <i>24/10/2024</i> <span class="pastille-omr">1</span></button><button class="bouton-omr" data-i="3">Lunch et Dinner <i>07/11/2024</i> <span class="pastille-omr">1</span></button><button class="bouton-omr" data-i="4">Huile Duo <i>26/03/2025</i> <span class="pastille-omr">2</span></button><button class="bouton-omr" data-i="5">Fluid <i>04/06/2025</i> <span class="pastille-omr">2</span></button><button class="bouton-omr" data-i="6">Huiles Intro et Fluid <i>12/11/2025</i> <span class="pastille-omr">1</span></button><button class="bouton-omr" data-i="7">Bougie Copper <i>17/12/2025</i></button><button class="bouton-omr" data-i="8">Copper <i>08/04/2026</i> <span class="pastille-omr">4</span></button><button class="bouton-omr" data-i="9">Sweatshirt <span class="pastille-omr">2</span></button><button class="bouton-omr" data-i="10">Casquette</button><button class="bouton-omr" data-i="11">Pop-up Berlin <i>01/11/2025</i> <span class="pastille-omr">1</span></button></div>
+    <div class="medias__zone" id="zone-omr"></div>
+<p class="mention">Contenus intégrés depuis les comptes officiels d'OMR Beauty. Tous droits réservés à leurs auteurs.</p>
   </div>
 </section>
 
@@ -866,14 +893,14 @@ h2.titre2{font-family:var(--titre);font-size:clamp(1.8rem,3.4vw,2.8rem);margin:0
     <div class="pied__bas">
       <span>© 2026 O.R. World Association</span>
       <span data-i18n="f.heberge"></span>
-      <span class="version">version : BEAUTY-009</span>
+      <span class="version">version : BEAUTY-010</span>
     </div>
   </div>
 </footer>
 
 <script>
 const LANGUES=[{"c": "fr", "n": "Français", "d": "🇫🇷"}, {"c": "en", "n": "English", "d": "🇬🇧"}, {"c": "es", "n": "Español", "d": "🇪🇸"}, {"c": "sv", "n": "Svenska", "d": "🇸🇪"}, {"c": "de", "n": "Deutsch", "d": "🇩🇪"}, {"c": "pt", "n": "Português", "d": "🇧🇷"}];
-const TEXTES={"fr": {"be.chapeau": "OMR BEAUTY", "be.h1": "La marque d'Omar", "be.intro": "Omar Rudberg a toujours aimé l'univers des cosmétiques et de la beauté, et c'est tout naturellement qu'il crée sa propre marque, unisexe et végane, OMR Beauty, en novembre 2023.", "be.b1": "La boutique officielle d'Omar", "be.b2": "Les pop-up stores", "be.hi.t": "L'histoire de la marque", "be.hi.p1": "Son premier produit est un parfum en édition limitée, Intro, sorti le 22 novembre 2023. Avec son partenaire de Young Royals, Edvin Ryding, ils décident ensuite de créer Duo, également en édition limitée, sorti le 23 mai 2024 et de retour en février 2025.", "be.hi.p2": "Suivent, le 24 octobre 2024, Brunch, une huile parfumée, puis, peu après, le 7 novembre, Lunch et Dinner, qui forment ensemble la collection Occasions. Devant le grand succès de ce format, Duo sort son huile parfumée le 26 mars 2025. Puis, le 4 juin 2025, c'est Fluid.", "be.hi.p3": "Le 1er novembre, alors qu'Omar est en tournée en première partie de Zara Larsson sur le Midnight Sun Tour, Edvin et lui décident d'ouvrir leur premier pop-up à Berlin. Des surprises y sont dévoilées, comme les versions en huile de Fluid et d'Intro.", "be.hi.p4": "Où s'arrêteront-ils ? Edvin Ryding, acteur et ami, a rejoint l'aventure très tôt, mais en 2026 il devient associé à part entière pour écrire le prochain chapitre d'OMR aux côtés d'Omar.", "be.co.t": "La collection", "be.cu.t": "Copper, en détail", "be.cu.1t": "L'eau de parfum · 50 ml", "be.cu.2t": "L'huile parfumée · 8 ml", "be.cu.3t": "La bougie", "be.no.t": "Les notes", "be.ve.t": "Les vêtements", "be.ve.i": "Au-delà des parfums, la maison propose aussi des pièces à porter.", "be.ve.1t": "Le sweatshirt", "be.ve.2t": "La casquette", "be.ve.b": "Commander sur la boutique officielle", "be.an.t": "Les annonces officielles", "m.titre": "Devenir membre", "m.sous": "Rejoignez la communauté et vivez l'aventure toute l'année, aux côtés de fans du monde entier.", "m.paran": "par an, soit 1 € par mois", "m.annee": "Adhésion valable pour l'année civile en cours.", "m.cta": "Je deviens membre", "m.don": "Faire un don", "m.carte": "MEMBRE", "m.depuis": "MEMBRE DEPUIS", "m.avtitre": "Ce que l'adhésion vous apporte", "m.a1": "Jeux concours", "m.a1t": "Des concours réservés aux membres, sans frais de participation.", "m.a2": "Votes", "m.a2t": "Choisissez les projets que l'association réalisera.", "m.a3": "Ateliers créatifs", "m.a3t": "Créez avec la communauté : design, bracelets, affiches, projets de concert.", "m.a4": "Carte de membre", "m.a4t": "Votre carte numérotée, à votre nom, valable pour l'année.", "m.a5": "Cadeau de bienvenue", "m.a5t": "Un petit objet créé par l'association, envoyé après l'adhésion.", "m.a6": "Éditions réservées", "m.a6t": "Des créations de la boutique proposées uniquement aux membres.", "m.cttitre": "Comment ça se passe", "m.e1": "Créez votre compte", "m.e1t": "Une adresse e-mail et un mot de passe suffisent.", "m.e2": "Réglez les 12 €", "m.e2t": "Par carte bancaire avec Stripe, ou avec PayPal. Paiement sécurisé.", "m.e3": "Recevez votre carte", "m.e3t": "Votre carte numérotée apparaît aussitôt dans votre espace.", "m.e4": "Participez", "m.e4t": "Concours, votes, ateliers, projets : tout s'ouvre à vous.", "m.mintitre": "Vous avez moins de 18 ans ?", "m.mintexte": "Vous êtes les bienvenus. Une autorisation d'un parent ou d'un responsable légal est demandée à l'adhésion, puis pour chaque participation : concours, ateliers, envoi de photos ou d'une histoire. Un parent peut à tout moment demander la suppression des données de son enfant.", "m.faq": "Questions fréquentes", "m.q1": "L'adhésion se renouvelle-t-elle toute seule ?", "m.r1": "Non. Elle couvre l'année civile et vous recevez un rappel avant la fin.", "m.q2": "À quoi servent les 12 € ?", "m.r2": "À financer les projets de la communauté, les créations et les envois. L'association est à but non lucratif.", "m.q3": "Puis-je adhérer depuis l'étranger ?", "m.r3": "Oui, depuis n'importe quel pays. Seuls les frais d'envoi du cadeau varient.", "m.q4": "Comment sont protégées mes données ?", "m.r4": "Elles servent uniquement à la vie de l'association, ne sont jamais vendues, et vous pouvez demander leur suppression à tout moment.", "nav.accueil": "Accueil", "nav.explorer": "OMAR INFOS", "nav.royals": "Young Royals", "nav.communaute": "Communauté", "nav.membres": "Membres", "nav.boutique": "Boutique", "nav.livre": "Livre collaboratif", "nav.journal": "Journal", "nav.association": "Association", "h.l1": "La musique.", "h.l2": "La créativité.", "h.l3": "Les valeurs d'Omar Rudberg.", "h.intro": "Bienvenue à la O.R. World Association, une association de fans qui célèbre son talent, son énergie et son message inspirant. Vous trouverez ici les actualités, les analyses, les projets de la communauté et les liens vers ses plateformes officielles.", "h.mention": "Association indépendante : nous ne représentons pas officiellement Omar ni son équipe. · Site disponible en 6 langues.", "h.btn1": "Entrer dans l'univers →", "h.btn2": "Devenir membre", "h.btn3": "Boutique", "marquee": "BIENVENUE À LA O.R. WORLD ASSOCIATION · LA MUSIQUE · LA COMMUNAUTÉ · LE VOYAGE ·", "c.membres": "MEMBRES", "c.pays": "PAYS", "c.projets": "PROJETS", "c.histoires": "HISTOIRES", "c.concours": "CONCOURS", "c.evenements": "ÉVÉNEMENTS", "c.note": "Ces chiffres se mettent à jour automatiquement. Le nouveau site vient d'ouvrir : tout commence à zéro.", "f.site": "SITE INTERNET", "f.boutique": "BOUTIQUE", "f.autres": "AUTRES", "f.contact": "CONTACT", "f.omar": "Omar Rudberg", "f.shoots": "Shoots", "f.beaute": "OMR Beauty", "f.evenements": "Événements", "f.adhesion": "Adhésion et dons", "f.documents": "Documents officiels", "f.contactlien": "Contact", "f.blog": "Blog", "f.magasin": "Magasin", "f.expedition": "Expédition et retours", "f.conditions": "Conditions générales", "f.politiqueboutique": "Politique de la boutique", "f.paiements": "Paiements", "f.faq": "FAQ", "f.rgpd": "Politique de confidentialité et RGPD", "f.cookies": "Politique de cookies", "f.mentions": "Mentions légales", "f.boutiqueomar": "Boutique officielle d'Omar", "f.mentionlegale": "Association de fans indépendante. Nous ne représentons pas officiellement Omar Rudberg ni son équipe. Les contenus intégrés proviennent des comptes officiels et restent la propriété de leurs auteurs.", "f.heberge": "Site hébergé par GitHub · Base de données Supabase"}, "en": {"be.chapeau": "OMR BEAUTY", "be.h1": "Omar's brand", "be.intro": "Omar Rudberg has always loved the world of cosmetics and beauty, and it was only natural that he created his own unisex, vegan brand, OMR Beauty, in November 2023.", "be.b1": "Omar's official shop", "be.b2": "The pop-up stores", "be.hi.t": "The story of the brand", "be.hi.p1": "Its first product was a limited-edition fragrance, Intro, released on 22 November 2023. With his Young Royals co-star Edvin Ryding, they then decided to create Duo, also a limited edition, released on 23 May 2024 and back in February 2025.", "be.hi.p2": "Then came Brunch, a scented oil, on 24 October 2024, and shortly after, on 7 November, Lunch and Dinner, which together form the Occasions collection. Given the great success of this format, Duo released its own scented oil on 26 March 2025. Then, on 4 June 2025, came Fluid.", "be.hi.p3": "On 1 November, while Omar was on tour opening for Zara Larsson on the Midnight Sun Tour, he and Edvin decided to open their first pop-up in Berlin. Surprises were revealed there, such as the oil versions of Fluid and Intro.", "be.hi.p4": "Where will they stop? Edvin Ryding, actor and friend, joined the adventure very early on, but in 2026 he became a full partner, writing the next chapter of OMR alongside Omar.", "be.co.t": "The collection", "be.cu.t": "Copper, in detail", "be.cu.1t": "The eau de parfum · 50 ml", "be.cu.2t": "The scented oil · 8 ml", "be.cu.3t": "The candle", "be.no.t": "The notes", "be.ve.t": "The clothing", "be.ve.i": "Beyond fragrances, the house also offers pieces to wear.", "be.ve.1t": "The sweatshirt", "be.ve.2t": "The cap", "be.ve.b": "Order from the official shop", "be.an.t": "Official announcements", "m.titre": "Become a member", "m.sous": "Join the community and live the adventure all year round, alongside fans from all over the world.", "m.paran": "a year, just €1 a month", "m.annee": "Membership valid for the current calendar year.", "m.cta": "I'm joining", "m.don": "Make a donation", "m.carte": "MEMBER", "m.depuis": "MEMBER SINCE", "m.avtitre": "What membership gives you", "m.a1": "Giveaways", "m.a1t": "Members-only giveaways, with no entry fee.", "m.a2": "Voting", "m.a2t": "Choose the projects the association will carry out.", "m.a3": "Creative workshops", "m.a3t": "Create with the community: design, bracelets, posters, concert projects.", "m.a4": "Membership card", "m.a4t": "Your numbered card, in your name, valid for the year.", "m.a5": "Welcome gift", "m.a5t": "A small item created by the association, sent after joining.", "m.a6": "Members-only editions", "m.a6t": "Shop creations offered to members only.", "m.cttitre": "How it works", "m.e1": "Create your account", "m.e1t": "An email address and a password are enough.", "m.e2": "Pay the €12", "m.e2t": "By card with Stripe, or with PayPal. Secure payment.", "m.e3": "Get your card", "m.e3t": "Your numbered card appears in your space straight away.", "m.e4": "Take part", "m.e4t": "Giveaways, votes, workshops, projects: everything opens up to you.", "m.mintitre": "Under 18?", "m.mintexte": "You are very welcome. Permission from a parent or legal guardian is required when joining, then for each activity: giveaways, workshops, sending photos or a story. A parent can ask for their child's data to be deleted at any time.", "m.faq": "Frequently asked questions", "m.q1": "Does membership renew automatically?", "m.r1": "No. It covers the calendar year and you receive a reminder before it ends.", "m.q2": "What are the €12 used for?", "m.r2": "To fund community projects, creations and shipping. The association is non-profit.", "m.q3": "Can I join from abroad?", "m.r3": "Yes, from any country. Only the shipping cost of the gift varies.", "m.q4": "How is my data protected?", "m.r4": "It is used only for the life of the association, never sold, and you can ask for it to be deleted at any time.", "nav.accueil": "Home", "nav.explorer": "OMAR INFOS", "nav.royals": "Young Royals", "nav.communaute": "Community", "nav.membres": "Members", "nav.boutique": "Shop", "nav.livre": "Collaborative book", "nav.journal": "Journal", "nav.association": "Association", "h.l1": "The music.", "h.l2": "The creativity.", "h.l3": "The values of Omar Rudberg.", "h.intro": "Welcome to the O.R. World Association, a fan association celebrating his talent, his energy and his inspiring message. Here you will find news, analyses, community projects and links to his official platforms.", "h.mention": "Independent association: we do not officially represent Omar or his team. · Site available in 6 languages.", "h.btn1": "Enter the world →", "h.btn2": "Become a member", "h.btn3": "Shop", "marquee": "WELCOME TO THE O.R. WORLD ASSOCIATION · THE MUSIC · THE COMMUNITY · THE JOURNEY ·", "c.membres": "MEMBERS", "c.pays": "COUNTRIES", "c.projets": "PROJECTS", "c.histoires": "STORIES", "c.concours": "GIVEAWAYS", "c.evenements": "EVENTS", "c.note": "These numbers update automatically. The new site has just opened: everything starts at zero.", "f.site": "THE SITE", "f.boutique": "SHOP", "f.autres": "OTHER", "f.contact": "CONTACT", "f.omar": "Omar Rudberg", "f.shoots": "Shoots", "f.beaute": "OMR Beauty", "f.evenements": "Events", "f.adhesion": "Membership and donations", "f.documents": "Official documents", "f.contactlien": "Contact", "f.blog": "Blog", "f.magasin": "Store", "f.expedition": "Shipping and returns", "f.conditions": "Terms and conditions", "f.politiqueboutique": "Store policy", "f.paiements": "Payments", "f.faq": "FAQ", "f.rgpd": "Privacy policy and GDPR", "f.cookies": "Cookie policy", "f.mentions": "Legal notices", "f.boutiqueomar": "Omar's official shop", "f.mentionlegale": "Independent fan association. We do not officially represent Omar Rudberg or his team. Embedded content comes from the official accounts and remains the property of its authors.", "f.heberge": "Hosted on GitHub · Database by Supabase"}, "es": {"m.titre": "Hazte socio", "m.sous": "Únete a la comunidad y vive la aventura todo el año, junto a fans de todo el mundo.", "m.paran": "al año, solo 1 € al mes", "m.annee": "Afiliación válida para el año natural en curso.", "m.cta": "Quiero ser socio", "m.don": "Hacer un donativo", "m.carte": "SOCIO", "m.depuis": "SOCIO DESDE", "m.avtitre": "Lo que te aporta la afiliación", "m.a1": "Sorteos", "m.a1t": "Sorteos solo para socios, sin coste de participación.", "m.a2": "Votaciones", "m.a2t": "Elige los proyectos que realizará la asociación.", "m.a3": "Talleres creativos", "m.a3t": "Crea con la comunidad: diseño, pulseras, carteles, proyectos de concierto.", "m.a4": "Tarjeta de socio", "m.a4t": "Tu tarjeta numerada, a tu nombre, válida para el año.", "m.a5": "Regalo de bienvenida", "m.a5t": "Un pequeño objeto creado por la asociación, enviado tras la afiliación.", "m.a6": "Ediciones exclusivas", "m.a6t": "Creaciones de la tienda solo para socios.", "m.cttitre": "Cómo funciona", "m.e1": "Crea tu cuenta", "m.e1t": "Basta un correo electrónico y una contraseña.", "m.e2": "Paga los 12 €", "m.e2t": "Con tarjeta mediante Stripe, o con PayPal. Pago seguro.", "m.e3": "Recibe tu tarjeta", "m.e3t": "Tu tarjeta numerada aparece enseguida en tu espacio.", "m.e4": "Participa", "m.e4t": "Sorteos, votaciones, talleres, proyectos: todo se abre para ti.", "m.mintitre": "¿Tienes menos de 18 años?", "m.mintexte": "Eres bienvenido. Se pide la autorización de un padre o tutor legal al afiliarse, y luego para cada participación: sorteos, talleres, envío de fotos o de una historia. Un padre puede pedir en cualquier momento la supresión de los datos de su hijo.", "m.faq": "Preguntas frecuentes", "m.q1": "¿La afiliación se renueva sola?", "m.r1": "No. Cubre el año natural y recibirás un recordatorio antes de que termine.", "m.q2": "¿Para qué sirven los 12 €?", "m.r2": "A financiar los proyectos de la comunidad, las creaciones y los envíos. La asociación es sin ánimo de lucro.", "m.q3": "¿Puedo asociarme desde el extranjero?", "m.r3": "Sí, desde cualquier país. Solo varían los gastos de envío del regalo.", "m.q4": "¿Cómo se protegen mis datos?", "m.r4": "Solo se usan para la vida de la asociación, nunca se venden, y puedes pedir su supresión en cualquier momento.", "nav.accueil": "Inicio", "nav.explorer": "OMAR INFOS", "nav.royals": "Young Royals", "nav.communaute": "Comunidad", "nav.membres": "Socios", "nav.boutique": "Tienda", "nav.livre": "Libro colaborativo", "nav.journal": "Diario", "nav.association": "Asociación", "h.l1": "La música.", "h.l2": "La creatividad.", "h.l3": "Los valores de Omar Rudberg.", "h.intro": "Bienvenida a la O.R. World Association, una asociación de fans que celebra su talento, su energía y su mensaje inspirador. Aquí encontrarás noticias, análisis, proyectos de la comunidad y enlaces a sus plataformas oficiales.", "h.mention": "Asociación independiente: no representamos oficialmente a Omar ni a su equipo. · Sitio disponible en 6 idiomas.", "h.btn1": "Entrar en el universo →", "h.btn2": "Hazte socio", "h.btn3": "Tienda", "marquee": "BIENVENIDA A LA O.R. WORLD ASSOCIATION · LA MÚSICA · LA COMUNIDAD · EL VIAJE ·", "c.membres": "SOCIOS", "c.pays": "PAÍSES", "c.projets": "PROYECTOS", "c.histoires": "HISTORIAS", "c.concours": "SORTEOS", "c.evenements": "EVENTOS", "c.note": "Estas cifras se actualizan solas. El nuevo sitio acaba de abrir: todo empieza desde cero.", "f.site": "EL SITIO", "f.boutique": "TIENDA", "f.autres": "OTROS", "f.contact": "CONTACTO", "f.omar": "Omar Rudberg", "f.shoots": "Sesiones de prensa", "f.beaute": "OMR Beauty", "f.evenements": "Eventos", "f.adhesion": "Afiliación y donativos", "f.documents": "Documentos oficiales", "f.contactlien": "Contacto", "f.blog": "Blog", "f.magasin": "Tienda", "f.expedition": "Envíos y devoluciones", "f.conditions": "Condiciones generales", "f.politiqueboutique": "Política de la tienda", "f.paiements": "Pagos", "f.faq": "Preguntas frecuentes", "f.rgpd": "Política de privacidad y RGPD", "f.cookies": "Política de cookies", "f.mentions": "Aviso legal", "f.boutiqueomar": "Tienda oficial de Omar", "f.mentionlegale": "Asociación de fans independiente. No representamos oficialmente a Omar Rudberg ni a su equipo. Los contenidos integrados proceden de las cuentas oficiales y pertenecen a sus autores.", "f.heberge": "Sitio alojado en GitHub · Base de datos Supabase"}, "sv": {"m.titre": "Bli medlem", "m.sous": "Gå med i gemenskapen och var med hela året, tillsammans med fans från hela världen.", "m.paran": "per år, bara 1 € i månaden", "m.annee": "Medlemskapet gäller innevarande kalenderår.", "m.cta": "Jag blir medlem", "m.don": "Ge en gåva", "m.carte": "MEDLEM", "m.depuis": "MEDLEM SEDAN", "m.avtitre": "Vad medlemskapet ger dig", "m.a1": "Tävlingar", "m.a1t": "Tävlingar endast för medlemmar, utan deltagaravgift.", "m.a2": "Omröstningar", "m.a2t": "Välj vilka projekt föreningen ska genomföra.", "m.a3": "Kreativa workshops", "m.a3t": "Skapa med gemenskapen: design, armband, affischer, konsertprojekt.", "m.a4": "Medlemskort", "m.a4t": "Ditt numrerade kort, i ditt namn, giltigt för året.", "m.a5": "Välkomstgåva", "m.a5t": "Ett litet föremål skapat av föreningen, skickas efter att du blivit medlem.", "m.a6": "Utgåvor för medlemmar", "m.a6t": "Skapelser i butiken endast för medlemmar.", "m.cttitre": "Så går det till", "m.e1": "Skapa ditt konto", "m.e1t": "Det räcker med en e-postadress och ett lösenord.", "m.e2": "Betala 12 €", "m.e2t": "Med kort via Stripe eller med PayPal. Säker betalning.", "m.e3": "Få ditt kort", "m.e3t": "Ditt numrerade kort visas direkt på din sida.", "m.e4": "Delta", "m.e4t": "Tävlingar, omröstningar, workshops, projekt: allt öppnar sig.", "m.mintitre": "Under 18 år?", "m.mintexte": "Du är välkommen. Tillstånd från en förälder eller vårdnadshavare krävs vid medlemskapet och sedan vid varje deltagande: tävlingar, workshops, foton eller berättelser. En förälder kan när som helst begära att barnets uppgifter raderas.", "m.faq": "Vanliga frågor", "m.q1": "Förnyas medlemskapet automatiskt?", "m.r1": "Nej. Det gäller kalenderåret och du får en påminnelse innan det tar slut.", "m.q2": "Vad används de 12 € till?", "m.r2": "Till gemenskapens projekt, skapelser och frakt. Föreningen är ideell.", "m.q3": "Kan jag bli medlem från utlandet?", "m.r3": "Ja, från vilket land som helst. Bara fraktkostnaden för gåvan varierar.", "m.q4": "Hur skyddas mina uppgifter?", "m.r4": "De används bara för föreningens verksamhet, säljs aldrig, och du kan begära radering när som helst.", "nav.accueil": "Hem", "nav.explorer": "OMAR INFOS", "nav.royals": "Young Royals", "nav.communaute": "Gemenskap", "nav.membres": "Medlemmar", "nav.boutique": "Butik", "nav.livre": "Gemensam bok", "nav.journal": "Journal", "nav.association": "Föreningen", "h.l1": "Musiken.", "h.l2": "Kreativiteten.", "h.l3": "Omar Rudbergs värderingar.", "h.intro": "Välkommen till O.R. World Association, en fanförening som hyllar hans talang, hans energi och hans inspirerande budskap. Här hittar du nyheter, analyser, gemenskapens projekt och länkar till hans officiella plattformar.", "h.mention": "Fristående förening: vi företräder inte officiellt Omar eller hans team. · Sajten finns på 6 språk.", "h.btn1": "Gå in i världen →", "h.btn2": "Bli medlem", "h.btn3": "Butik", "marquee": "VÄLKOMMEN TILL O.R. WORLD ASSOCIATION · MUSIKEN · GEMENSKAPEN · RESAN ·", "c.membres": "MEDLEMMAR", "c.pays": "LÄNDER", "c.projets": "PROJEKT", "c.histoires": "BERÄTTELSER", "c.concours": "TÄVLINGAR", "c.evenements": "EVENEMANG", "c.note": "Siffrorna uppdateras automatiskt. Den nya sajten har just öppnat: allt börjar på noll.", "f.site": "SAJTEN", "f.boutique": "BUTIK", "f.autres": "ÖVRIGT", "f.contact": "KONTAKT", "f.omar": "Omar Rudberg", "f.shoots": "Pressbilder", "f.beaute": "OMR Beauty", "f.evenements": "Evenemang", "f.adhesion": "Medlemskap och gåvor", "f.documents": "Officiella dokument", "f.contactlien": "Kontakt", "f.blog": "Blogg", "f.magasin": "Butik", "f.expedition": "Frakt och retur", "f.conditions": "Allmänna villkor", "f.politiqueboutique": "Butikspolicy", "f.paiements": "Betalningar", "f.faq": "Vanliga frågor", "f.rgpd": "Integritetspolicy och GDPR", "f.cookies": "Cookiepolicy", "f.mentions": "Juridisk information", "f.boutiqueomar": "Omars officiella butik", "f.mentionlegale": "Fristående fanförening. Vi företräder inte officiellt Omar Rudberg eller hans team. Inbäddat innehåll kommer från de officiella kontona och tillhör sina upphovspersoner.", "f.heberge": "Sajten drivs på GitHub · Databas hos Supabase"}, "de": {"m.titre": "Mitglied werden", "m.sous": "Werde Teil der Gemeinschaft und erlebe das ganze Jahr über das Abenteuer, gemeinsam mit Fans aus aller Welt.", "m.paran": "pro Jahr, nur 1 € im Monat", "m.annee": "Mitgliedschaft gilt für das laufende Kalenderjahr.", "m.cta": "Ich werde Mitglied", "m.don": "Spenden", "m.carte": "MITGLIED", "m.depuis": "MITGLIED SEIT", "m.avtitre": "Was dir die Mitgliedschaft bringt", "m.a1": "Gewinnspiele", "m.a1t": "Gewinnspiele nur für Mitglieder, ohne Teilnahmegebühr.", "m.a2": "Abstimmungen", "m.a2t": "Wähle die Projekte, die der Verein umsetzt.", "m.a3": "Kreativworkshops", "m.a3t": "Gestalte mit der Gemeinschaft: Design, Armbänder, Poster, Konzertprojekte.", "m.a4": "Mitgliedskarte", "m.a4t": "Deine nummerierte Karte auf deinen Namen, gültig für das Jahr.", "m.a5": "Willkommensgeschenk", "m.a5t": "Ein kleines, vom Verein gestaltetes Objekt, nach dem Beitritt verschickt.", "m.a6": "Editionen für Mitglieder", "m.a6t": "Kreationen aus dem Shop nur für Mitglieder.", "m.cttitre": "So läuft es ab", "m.e1": "Erstelle dein Konto", "m.e1t": "Eine E-Mail-Adresse und ein Passwort genügen.", "m.e2": "Zahle die 12 €", "m.e2t": "Per Karte über Stripe oder mit PayPal. Sichere Zahlung.", "m.e3": "Erhalte deine Karte", "m.e3t": "Deine nummerierte Karte erscheint sofort in deinem Bereich.", "m.e4": "Mach mit", "m.e4t": "Gewinnspiele, Abstimmungen, Workshops, Projekte: alles steht dir offen.", "m.mintitre": "Unter 18 Jahren?", "m.mintexte": "Du bist willkommen. Beim Beitritt und danach bei jeder Teilnahme ist die Zustimmung eines Elternteils oder Erziehungsberechtigten nötig: Gewinnspiele, Workshops, Fotos oder Geschichten. Eltern können jederzeit die Löschung der Daten ihres Kindes verlangen.", "m.faq": "Häufige Fragen", "m.q1": "Verlängert sich die Mitgliedschaft automatisch?", "m.r1": "Nein. Sie gilt für das Kalenderjahr, und du erhältst vorher eine Erinnerung.", "m.q2": "Wofür werden die 12 € verwendet?", "m.r2": "Für die Projekte der Gemeinschaft, Kreationen und den Versand. Der Verein ist gemeinnützig.", "m.q3": "Kann ich aus dem Ausland beitreten?", "m.r3": "Ja, aus jedem Land. Nur die Versandkosten für das Geschenk unterscheiden sich.", "m.q4": "Wie werden meine Daten geschützt?", "m.r4": "Sie dienen nur dem Vereinsleben, werden nie verkauft, und du kannst jederzeit die Löschung verlangen.", "nav.accueil": "Startseite", "nav.explorer": "OMAR INFOS", "nav.royals": "Young Royals", "nav.communaute": "Gemeinschaft", "nav.membres": "Mitglieder", "nav.boutique": "Shop", "nav.livre": "Gemeinsames Buch", "nav.journal": "Journal", "nav.association": "Verein", "h.l1": "Die Musik.", "h.l2": "Die Kreativität.", "h.l3": "Die Werte von Omar Rudberg.", "h.intro": "Willkommen bei der O.R. World Association, einem Fanverein, der sein Talent, seine Energie und seine inspirierende Botschaft feiert. Hier findest du Neuigkeiten, Analysen, Projekte der Gemeinschaft und Links zu seinen offiziellen Plattformen.", "h.mention": "Unabhängiger Verein: wir vertreten Omar und sein Team nicht offiziell. · Seite in 6 Sprachen verfügbar.", "h.btn1": "Die Welt betreten →", "h.btn2": "Mitglied werden", "h.btn3": "Shop", "marquee": "WILLKOMMEN BEI DER O.R. WORLD ASSOCIATION · DIE MUSIK · DIE GEMEINSCHAFT · DIE REISE ·", "c.membres": "MITGLIEDER", "c.pays": "LÄNDER", "c.projets": "PROJEKTE", "c.histoires": "GESCHICHTEN", "c.concours": "GEWINNSPIELE", "c.evenements": "VERANSTALTUNGEN", "c.note": "Diese Zahlen aktualisieren sich automatisch. Die neue Seite ist gerade gestartet: alles beginnt bei null.", "f.site": "DIE SEITE", "f.boutique": "SHOP", "f.autres": "WEITERES", "f.contact": "KONTAKT", "f.omar": "Omar Rudberg", "f.shoots": "Pressefotos", "f.beaute": "OMR Beauty", "f.evenements": "Veranstaltungen", "f.adhesion": "Mitgliedschaft und Spenden", "f.documents": "Offizielle Dokumente", "f.contactlien": "Kontakt", "f.blog": "Blog", "f.magasin": "Shop", "f.expedition": "Versand und Rückgabe", "f.conditions": "Allgemeine Geschäftsbedingungen", "f.politiqueboutique": "Shop-Richtlinie", "f.paiements": "Zahlungen", "f.faq": "Häufige Fragen", "f.rgpd": "Datenschutz und DSGVO", "f.cookies": "Cookie-Richtlinie", "f.mentions": "Impressum", "f.boutiqueomar": "Omars offizieller Shop", "f.mentionlegale": "Unabhängiger Fanverein. Wir vertreten Omar Rudberg und sein Team nicht offiziell. Eingebettete Inhalte stammen von den offiziellen Konten und gehören ihren Urhebern.", "f.heberge": "Gehostet bei GitHub · Datenbank bei Supabase"}, "pt": {"m.titre": "Tornar-me membro", "m.sous": "Junta-te à comunidade e vive a aventura durante todo o ano, ao lado de fãs do mundo inteiro.", "m.paran": "por ano, apenas 1 € por mês", "m.annee": "Adesão válida para o ano civil em curso.", "m.cta": "Quero ser membro", "m.don": "Fazer um donativo", "m.carte": "MEMBRO", "m.depuis": "MEMBRO DESDE", "m.avtitre": "O que a adesão te traz", "m.a1": "Passatempos", "m.a1t": "Passatempos só para membros, sem custo de participação.", "m.a2": "Votações", "m.a2t": "Escolhe os projetos que a associação vai realizar.", "m.a3": "Ateliês criativos", "m.a3t": "Cria com a comunidade: design, pulseiras, cartazes, projetos de concerto.", "m.a4": "Cartão de membro", "m.a4t": "O teu cartão numerado, em teu nome, válido para o ano.", "m.a5": "Prenda de boas-vindas", "m.a5t": "Um pequeno objeto criado pela associação, enviado após a adesão.", "m.a6": "Edições reservadas", "m.a6t": "Criações da loja apenas para membros.", "m.cttitre": "Como funciona", "m.e1": "Cria a tua conta", "m.e1t": "Basta um e-mail e uma palavra-passe.", "m.e2": "Paga os 12 €", "m.e2t": "Com cartão através da Stripe, ou com PayPal. Pagamento seguro.", "m.e3": "Recebe o teu cartão", "m.e3t": "O teu cartão numerado aparece logo no teu espaço.", "m.e4": "Participa", "m.e4t": "Passatempos, votações, ateliês, projetos: tudo se abre para ti.", "m.mintitre": "Tens menos de 18 anos?", "m.mintexte": "És bem-vindo. É pedida a autorização de um dos pais ou do responsável legal na adesão e depois em cada participação: passatempos, ateliês, envio de fotos ou de uma história. Um dos pais pode pedir a qualquer momento a eliminação dos dados do seu filho.", "m.faq": "Perguntas frequentes", "m.q1": "A adesão renova-se sozinha?", "m.r1": "Não. Cobre o ano civil e recebes um lembrete antes do fim.", "m.q2": "Para que servem os 12 €?", "m.r2": "Para financiar os projetos da comunidade, as criações e os envios. A associação não tem fins lucrativos.", "m.q3": "Posso aderir do estrangeiro?", "m.r3": "Sim, a partir de qualquer país. Só variam os custos de envio da prenda.", "m.q4": "Como são protegidos os meus dados?", "m.r4": "São usados apenas para a vida da associação, nunca são vendidos, e podes pedir a eliminação a qualquer momento.", "nav.accueil": "Início", "nav.explorer": "OMAR INFOS", "nav.royals": "Young Royals", "nav.communaute": "Comunidade", "nav.membres": "Membros", "nav.boutique": "Loja", "nav.livre": "Livro colaborativo", "nav.journal": "Jornal", "nav.association": "Associação", "h.l1": "A música.", "h.l2": "A criatividade.", "h.l3": "Os valores de Omar Rudberg.", "h.intro": "Bem-vinda à O.R. World Association, uma associação de fãs que celebra o seu talento, a sua energia e a sua mensagem inspiradora. Aqui encontras notícias, análises, projetos da comunidade e ligações para as suas plataformas oficiais.", "h.mention": "Associação independente: não representamos oficialmente Omar nem a sua equipa. · Site disponível em 6 línguas.", "h.btn1": "Entrar no universo →", "h.btn2": "Tornar-me membro", "h.btn3": "Loja", "marquee": "BEM-VINDA À O.R. WORLD ASSOCIATION · A MÚSICA · A COMUNIDADE · A VIAGEM ·", "c.membres": "MEMBROS", "c.pays": "PAÍSES", "c.projets": "PROJETOS", "c.histoires": "HISTÓRIAS", "c.concours": "PASSATEMPOS", "c.evenements": "EVENTOS", "c.note": "Estes números atualizam-se sozinhos. O novo site acaba de abrir: tudo começa do zero.", "f.site": "O SITE", "f.boutique": "LOJA", "f.autres": "OUTROS", "f.contact": "CONTACTO", "f.omar": "Omar Rudberg", "f.shoots": "Sessões de imprensa", "f.beaute": "OMR Beauty", "f.evenements": "Eventos", "f.adhesion": "Adesão e donativos", "f.documents": "Documentos oficiais", "f.contactlien": "Contacto", "f.blog": "Blog", "f.magasin": "Loja", "f.expedition": "Envios e devoluções", "f.conditions": "Condições gerais", "f.politiqueboutique": "Política da loja", "f.paiements": "Pagamentos", "f.faq": "Perguntas frequentes", "f.rgpd": "Política de privacidade e RGPD", "f.cookies": "Política de cookies", "f.mentions": "Informações legais", "f.boutiqueomar": "Loja oficial de Omar", "f.mentionlegale": "Associação de fãs independente. Não representamos oficialmente Omar Rudberg nem a sua equipa. Os conteúdos integrados vêm das contas oficiais e pertencem aos seus autores.", "f.heberge": "Site alojado no GitHub · Base de dados Supabase"}};
+const TEXTES={"fr": {"be.chapeau": "OMR BEAUTY", "be.h1": "La marque d'Omar", "be.intro": "Omar Rudberg a toujours aimé l'univers des cosmétiques et de la beauté, et c'est tout naturellement qu'il crée sa propre marque, unisexe et végane, OMR Beauty, en novembre 2023.", "be.b1": "La boutique officielle d'Omar", "be.b2": "Les pop-up stores", "be.hi.t": "L'histoire de la marque", "be.hi.p1": "Son premier produit est un parfum en édition limitée, Intro, sorti le 22 novembre 2023. Avec son partenaire de Young Royals, Edvin Ryding, ils décident ensuite de créer Duo, également en édition limitée, sorti le 23 mai 2024 et de retour en février 2025.", "be.hi.p2": "Suivent, le 24 octobre 2024, Brunch, une huile parfumée, puis, peu après, le 7 novembre, Lunch et Dinner, qui forment ensemble la collection Occasions. Devant le grand succès de ce format, Duo sort son huile parfumée le 26 mars 2025. Puis, le 4 juin 2025, c'est Fluid.", "be.hi.p3": "Le 1er novembre, alors qu'Omar est en tournée en première partie de Zara Larsson sur le Midnight Sun Tour, Edvin et lui décident d'ouvrir leur premier pop-up à Berlin. Des surprises y sont dévoilées, comme les versions en huile de Fluid et d'Intro.", "be.hi.p4": "Où s'arrêteront-ils ? Edvin Ryding, acteur et ami, a rejoint l'aventure très tôt, mais en 2026 il devient associé à part entière pour écrire le prochain chapitre d'OMR aux côtés d'Omar.", "be.co.t": "La collection", "be.cu.t": "Copper, en détail", "be.cu.1t": "L'eau de parfum · 50 ml", "be.cu.2t": "L'huile parfumée · 8 ml", "be.cu.3t": "La bougie", "be.no.t": "Les notes", "be.ve.t": "Les vêtements", "be.ve.i": "Au-delà des parfums, la maison propose aussi des pièces à porter.", "be.ve.1t": "Le sweatshirt", "be.ve.2t": "La casquette", "be.ve.b": "Commander sur la boutique officielle", "be.an.t": "Les annonces officielles", "m.titre": "Devenir membre", "m.sous": "Rejoignez la communauté et vivez l'aventure toute l'année, aux côtés de fans du monde entier.", "m.paran": "par an, soit 1 € par mois", "m.annee": "Adhésion valable pour l'année civile en cours.", "m.cta": "Je deviens membre", "m.don": "Faire un don", "m.carte": "MEMBRE", "m.depuis": "MEMBRE DEPUIS", "m.avtitre": "Ce que l'adhésion vous apporte", "m.a1": "Jeux concours", "m.a1t": "Des concours réservés aux membres, sans frais de participation.", "m.a2": "Votes", "m.a2t": "Choisissez les projets que l'association réalisera.", "m.a3": "Ateliers créatifs", "m.a3t": "Créez avec la communauté : design, bracelets, affiches, projets de concert.", "m.a4": "Carte de membre", "m.a4t": "Votre carte numérotée, à votre nom, valable pour l'année.", "m.a5": "Cadeau de bienvenue", "m.a5t": "Un petit objet créé par l'association, envoyé après l'adhésion.", "m.a6": "Éditions réservées", "m.a6t": "Des créations de la boutique proposées uniquement aux membres.", "m.cttitre": "Comment ça se passe", "m.e1": "Créez votre compte", "m.e1t": "Une adresse e-mail et un mot de passe suffisent.", "m.e2": "Réglez les 12 €", "m.e2t": "Par carte bancaire avec Stripe, ou avec PayPal. Paiement sécurisé.", "m.e3": "Recevez votre carte", "m.e3t": "Votre carte numérotée apparaît aussitôt dans votre espace.", "m.e4": "Participez", "m.e4t": "Concours, votes, ateliers, projets : tout s'ouvre à vous.", "m.mintitre": "Vous avez moins de 18 ans ?", "m.mintexte": "Vous êtes les bienvenus. Une autorisation d'un parent ou d'un responsable légal est demandée à l'adhésion, puis pour chaque participation : concours, ateliers, envoi de photos ou d'une histoire. Un parent peut à tout moment demander la suppression des données de son enfant.", "m.faq": "Questions fréquentes", "m.q1": "L'adhésion se renouvelle-t-elle toute seule ?", "m.r1": "Non. Elle couvre l'année civile et vous recevez un rappel avant la fin.", "m.q2": "À quoi servent les 12 € ?", "m.r2": "À financer les projets de la communauté, les créations et les envois. L'association est à but non lucratif.", "m.q3": "Puis-je adhérer depuis l'étranger ?", "m.r3": "Oui, depuis n'importe quel pays. Seuls les frais d'envoi du cadeau varient.", "m.q4": "Comment sont protégées mes données ?", "m.r4": "Elles servent uniquement à la vie de l'association, ne sont jamais vendues, et vous pouvez demander leur suppression à tout moment.", "nav.accueil": "Accueil", "nav.explorer": "OMAR INFOS", "nav.royals": "Young Royals", "nav.communaute": "Communauté", "nav.membres": "Membres", "nav.boutique": "Boutique", "nav.livre": "Livre collaboratif", "nav.journal": "Journal", "nav.association": "Association", "h.l1": "La musique.", "h.l2": "La créativité.", "h.l3": "Les valeurs d'Omar Rudberg.", "h.intro": "Bienvenue à la O.R. World Association, une association de fans qui célèbre son talent, son énergie et son message inspirant. Vous trouverez ici les actualités, les analyses, les projets de la communauté et les liens vers ses plateformes officielles.", "h.mention": "Association indépendante : nous ne représentons pas officiellement Omar ni son équipe. · Site disponible en 6 langues.", "h.btn1": "Entrer dans l'univers →", "h.btn2": "Devenir membre", "h.btn3": "Boutique", "marquee": "BIENVENUE À LA O.R. WORLD ASSOCIATION · LA MUSIQUE · LA COMMUNAUTÉ · LE VOYAGE ·", "c.membres": "MEMBRES", "c.pays": "PAYS", "c.projets": "PROJETS", "c.histoires": "HISTOIRES", "c.concours": "CONCOURS", "c.evenements": "ÉVÉNEMENTS", "c.note": "Ces chiffres se mettent à jour automatiquement. Le nouveau site vient d'ouvrir : tout commence à zéro.", "f.site": "SITE INTERNET", "f.boutique": "BOUTIQUE", "f.autres": "AUTRES", "f.contact": "CONTACT", "f.omar": "Omar Rudberg", "f.shoots": "Shoots", "f.beaute": "OMR Beauty", "f.evenements": "Événements", "f.adhesion": "Adhésion et dons", "f.documents": "Documents officiels", "f.contactlien": "Contact", "f.blog": "Blog", "f.magasin": "Magasin", "f.expedition": "Expédition et retours", "f.conditions": "Conditions générales", "f.politiqueboutique": "Politique de la boutique", "f.paiements": "Paiements", "f.faq": "FAQ", "f.rgpd": "Politique de confidentialité et RGPD", "f.cookies": "Politique de cookies", "f.mentions": "Mentions légales", "f.boutiqueomar": "Boutique officielle d'Omar", "f.mentionlegale": "Association de fans indépendante. Nous ne représentons pas officiellement Omar Rudberg ni son équipe. Les contenus intégrés proviennent des comptes officiels et restent la propriété de leurs auteurs.", "f.heberge": "Site hébergé par GitHub · Base de données Supabase"}, "en": {"be.chapeau": "OMR BEAUTY", "be.h1": "Omar's brand", "be.intro": "Omar Rudberg has always loved the world of cosmetics and beauty, and it was only natural that he created his own unisex, vegan brand, OMR Beauty, in November 2023.", "be.b1": "Omar's official shop", "be.b2": "The pop-up stores", "be.hi.t": "The story of the brand", "be.hi.p1": "Its first product was a limited-edition fragrance, Intro, released on 22 November 2023. With his Young Royals co-star Edvin Ryding, they then decided to create Duo, also a limited edition, released on 23 May 2024 and back in February 2025.", "be.hi.p2": "Then came Brunch, a scented oil, on 24 October 2024, and shortly after, on 7 November, Lunch and Dinner, which together form the Occasions collection. Given the great success of this format, Duo released its own scented oil on 26 March 2025. Then, on 4 June 2025, came Fluid.", "be.hi.p3": "On 1 November, while Omar was on tour opening for Zara Larsson on the Midnight Sun Tour, he and Edvin decided to open their first pop-up in Berlin. Surprises were revealed there, such as the oil versions of Fluid and Intro.", "be.hi.p4": "Where will they stop? Edvin Ryding, actor and friend, joined the adventure very early on, but in 2026 he became a full partner, writing the next chapter of OMR alongside Omar.", "be.co.t": "The collection", "be.cu.t": "Copper, in detail", "be.cu.1t": "The eau de parfum · 50 ml", "be.cu.2t": "The scented oil · 8 ml", "be.cu.3t": "The candle", "be.no.t": "The notes", "be.ve.t": "The clothing", "be.ve.i": "Beyond fragrances, the house also offers pieces to wear.", "be.ve.1t": "The sweatshirt", "be.ve.2t": "The cap", "be.ve.b": "Order from the official shop", "be.an.t": "Official announcements", "m.titre": "Become a member", "m.sous": "Join the community and live the adventure all year round, alongside fans from all over the world.", "m.paran": "a year, just €1 a month", "m.annee": "Membership valid for the current calendar year.", "m.cta": "I'm joining", "m.don": "Make a donation", "m.carte": "MEMBER", "m.depuis": "MEMBER SINCE", "m.avtitre": "What membership gives you", "m.a1": "Giveaways", "m.a1t": "Members-only giveaways, with no entry fee.", "m.a2": "Voting", "m.a2t": "Choose the projects the association will carry out.", "m.a3": "Creative workshops", "m.a3t": "Create with the community: design, bracelets, posters, concert projects.", "m.a4": "Membership card", "m.a4t": "Your numbered card, in your name, valid for the year.", "m.a5": "Welcome gift", "m.a5t": "A small item created by the association, sent after joining.", "m.a6": "Members-only editions", "m.a6t": "Shop creations offered to members only.", "m.cttitre": "How it works", "m.e1": "Create your account", "m.e1t": "An email address and a password are enough.", "m.e2": "Pay the €12", "m.e2t": "By card with Stripe, or with PayPal. Secure payment.", "m.e3": "Get your card", "m.e3t": "Your numbered card appears in your space straight away.", "m.e4": "Take part", "m.e4t": "Giveaways, votes, workshops, projects: everything opens up to you.", "m.mintitre": "Under 18?", "m.mintexte": "You are very welcome. Permission from a parent or legal guardian is required when joining, then for each activity: giveaways, workshops, sending photos or a story. A parent can ask for their child's data to be deleted at any time.", "m.faq": "Frequently asked questions", "m.q1": "Does membership renew automatically?", "m.r1": "No. It covers the calendar year and you receive a reminder before it ends.", "m.q2": "What are the €12 used for?", "m.r2": "To fund community projects, creations and shipping. The association is non-profit.", "m.q3": "Can I join from abroad?", "m.r3": "Yes, from any country. Only the shipping cost of the gift varies.", "m.q4": "How is my data protected?", "m.r4": "It is used only for the life of the association, never sold, and you can ask for it to be deleted at any time.", "nav.accueil": "Home", "nav.explorer": "OMAR INFOS", "nav.royals": "Young Royals", "nav.communaute": "Community", "nav.membres": "Members", "nav.boutique": "Shop", "nav.livre": "Collaborative book", "nav.journal": "Journal", "nav.association": "Association", "h.l1": "The music.", "h.l2": "The creativity.", "h.l3": "The values of Omar Rudberg.", "h.intro": "Welcome to the O.R. World Association, a fan association celebrating his talent, his energy and his inspiring message. Here you will find news, analyses, community projects and links to his official platforms.", "h.mention": "Independent association: we do not officially represent Omar or his team. · Site available in 6 languages.", "h.btn1": "Enter the world →", "h.btn2": "Become a member", "h.btn3": "Shop", "marquee": "WELCOME TO THE O.R. WORLD ASSOCIATION · THE MUSIC · THE COMMUNITY · THE JOURNEY ·", "c.membres": "MEMBERS", "c.pays": "COUNTRIES", "c.projets": "PROJECTS", "c.histoires": "STORIES", "c.concours": "GIVEAWAYS", "c.evenements": "EVENTS", "c.note": "These numbers update automatically. The new site has just opened: everything starts at zero.", "f.site": "THE SITE", "f.boutique": "SHOP", "f.autres": "OTHER", "f.contact": "CONTACT", "f.omar": "Omar Rudberg", "f.shoots": "Shoots", "f.beaute": "OMR Beauty", "f.evenements": "Events", "f.adhesion": "Membership and donations", "f.documents": "Official documents", "f.contactlien": "Contact", "f.blog": "Blog", "f.magasin": "Store", "f.expedition": "Shipping and returns", "f.conditions": "Terms and conditions", "f.politiqueboutique": "Store policy", "f.paiements": "Payments", "f.faq": "FAQ", "f.rgpd": "Privacy policy and GDPR", "f.cookies": "Cookie policy", "f.mentions": "Legal notices", "f.boutiqueomar": "Omar's official shop", "f.mentionlegale": "Independent fan association. We do not officially represent Omar Rudberg or his team. Embedded content comes from the official accounts and remains the property of its authors.", "f.heberge": "Hosted on GitHub · Database by Supabase"}, "es": {"m.titre": "Hazte socio", "m.sous": "Únete a la comunidad y vive la aventura todo el año, junto a fans de todo el mundo.", "m.paran": "al año, solo 1 € al mes", "m.annee": "Afiliación válida para el año natural en curso.", "m.cta": "Quiero ser socio", "m.don": "Hacer un donativo", "m.carte": "SOCIO", "m.depuis": "SOCIO DESDE", "m.avtitre": "Lo que te aporta la afiliación", "m.a1": "Sorteos", "m.a1t": "Sorteos solo para socios, sin coste de participación.", "m.a2": "Votaciones", "m.a2t": "Elige los proyectos que realizará la asociación.", "m.a3": "Talleres creativos", "m.a3t": "Crea con la comunidad: diseño, pulseras, carteles, proyectos de concierto.", "m.a4": "Tarjeta de socio", "m.a4t": "Tu tarjeta numerada, a tu nombre, válida para el año.", "m.a5": "Regalo de bienvenida", "m.a5t": "Un pequeño objeto creado por la asociación, enviado tras la afiliación.", "m.a6": "Ediciones exclusivas", "m.a6t": "Creaciones de la tienda solo para socios.", "m.cttitre": "Cómo funciona", "m.e1": "Crea tu cuenta", "m.e1t": "Basta un correo electrónico y una contraseña.", "m.e2": "Paga los 12 €", "m.e2t": "Con tarjeta mediante Stripe, o con PayPal. Pago seguro.", "m.e3": "Recibe tu tarjeta", "m.e3t": "Tu tarjeta numerada aparece enseguida en tu espacio.", "m.e4": "Participa", "m.e4t": "Sorteos, votaciones, talleres, proyectos: todo se abre para ti.", "m.mintitre": "¿Tienes menos de 18 años?", "m.mintexte": "Eres bienvenido. Se pide la autorización de un padre o tutor legal al afiliarse, y luego para cada participación: sorteos, talleres, envío de fotos o de una historia. Un padre puede pedir en cualquier momento la supresión de los datos de su hijo.", "m.faq": "Preguntas frecuentes", "m.q1": "¿La afiliación se renueva sola?", "m.r1": "No. Cubre el año natural y recibirás un recordatorio antes de que termine.", "m.q2": "¿Para qué sirven los 12 €?", "m.r2": "A financiar los proyectos de la comunidad, las creaciones y los envíos. La asociación es sin ánimo de lucro.", "m.q3": "¿Puedo asociarme desde el extranjero?", "m.r3": "Sí, desde cualquier país. Solo varían los gastos de envío del regalo.", "m.q4": "¿Cómo se protegen mis datos?", "m.r4": "Solo se usan para la vida de la asociación, nunca se venden, y puedes pedir su supresión en cualquier momento.", "nav.accueil": "Inicio", "nav.explorer": "OMAR INFOS", "nav.royals": "Young Royals", "nav.communaute": "Comunidad", "nav.membres": "Socios", "nav.boutique": "Tienda", "nav.livre": "Libro colaborativo", "nav.journal": "Diario", "nav.association": "Asociación", "h.l1": "La música.", "h.l2": "La creatividad.", "h.l3": "Los valores de Omar Rudberg.", "h.intro": "Bienvenida a la O.R. World Association, una asociación de fans que celebra su talento, su energía y su mensaje inspirador. Aquí encontrarás noticias, análisis, proyectos de la comunidad y enlaces a sus plataformas oficiales.", "h.mention": "Asociación independiente: no representamos oficialmente a Omar ni a su equipo. · Sitio disponible en 6 idiomas.", "h.btn1": "Entrar en el universo →", "h.btn2": "Hazte socio", "h.btn3": "Tienda", "marquee": "BIENVENIDA A LA O.R. WORLD ASSOCIATION · LA MÚSICA · LA COMUNIDAD · EL VIAJE ·", "c.membres": "SOCIOS", "c.pays": "PAÍSES", "c.projets": "PROYECTOS", "c.histoires": "HISTORIAS", "c.concours": "SORTEOS", "c.evenements": "EVENTOS", "c.note": "Estas cifras se actualizan solas. El nuevo sitio acaba de abrir: todo empieza desde cero.", "f.site": "EL SITIO", "f.boutique": "TIENDA", "f.autres": "OTROS", "f.contact": "CONTACTO", "f.omar": "Omar Rudberg", "f.shoots": "Shoots", "f.beaute": "OMR Beauty", "f.evenements": "Eventos", "f.adhesion": "Afiliación y donativos", "f.documents": "Documentos oficiales", "f.contactlien": "Contacto", "f.blog": "Blog", "f.magasin": "Tienda", "f.expedition": "Envíos y devoluciones", "f.conditions": "Condiciones generales", "f.politiqueboutique": "Política de la tienda", "f.paiements": "Pagos", "f.faq": "Preguntas frecuentes", "f.rgpd": "Política de privacidad y RGPD", "f.cookies": "Política de cookies", "f.mentions": "Aviso legal", "f.boutiqueomar": "Tienda oficial de Omar", "f.mentionlegale": "Asociación de fans independiente. No representamos oficialmente a Omar Rudberg ni a su equipo. Los contenidos integrados proceden de las cuentas oficiales y pertenecen a sus autores.", "f.heberge": "Sitio alojado en GitHub · Base de datos Supabase"}, "sv": {"m.titre": "Bli medlem", "m.sous": "Gå med i gemenskapen och var med hela året, tillsammans med fans från hela världen.", "m.paran": "per år, bara 1 € i månaden", "m.annee": "Medlemskapet gäller innevarande kalenderår.", "m.cta": "Jag blir medlem", "m.don": "Ge en gåva", "m.carte": "MEDLEM", "m.depuis": "MEDLEM SEDAN", "m.avtitre": "Vad medlemskapet ger dig", "m.a1": "Tävlingar", "m.a1t": "Tävlingar endast för medlemmar, utan deltagaravgift.", "m.a2": "Omröstningar", "m.a2t": "Välj vilka projekt föreningen ska genomföra.", "m.a3": "Kreativa workshops", "m.a3t": "Skapa med gemenskapen: design, armband, affischer, konsertprojekt.", "m.a4": "Medlemskort", "m.a4t": "Ditt numrerade kort, i ditt namn, giltigt för året.", "m.a5": "Välkomstgåva", "m.a5t": "Ett litet föremål skapat av föreningen, skickas efter att du blivit medlem.", "m.a6": "Utgåvor för medlemmar", "m.a6t": "Skapelser i butiken endast för medlemmar.", "m.cttitre": "Så går det till", "m.e1": "Skapa ditt konto", "m.e1t": "Det räcker med en e-postadress och ett lösenord.", "m.e2": "Betala 12 €", "m.e2t": "Med kort via Stripe eller med PayPal. Säker betalning.", "m.e3": "Få ditt kort", "m.e3t": "Ditt numrerade kort visas direkt på din sida.", "m.e4": "Delta", "m.e4t": "Tävlingar, omröstningar, workshops, projekt: allt öppnar sig.", "m.mintitre": "Under 18 år?", "m.mintexte": "Du är välkommen. Tillstånd från en förälder eller vårdnadshavare krävs vid medlemskapet och sedan vid varje deltagande: tävlingar, workshops, foton eller berättelser. En förälder kan när som helst begära att barnets uppgifter raderas.", "m.faq": "Vanliga frågor", "m.q1": "Förnyas medlemskapet automatiskt?", "m.r1": "Nej. Det gäller kalenderåret och du får en påminnelse innan det tar slut.", "m.q2": "Vad används de 12 € till?", "m.r2": "Till gemenskapens projekt, skapelser och frakt. Föreningen är ideell.", "m.q3": "Kan jag bli medlem från utlandet?", "m.r3": "Ja, från vilket land som helst. Bara fraktkostnaden för gåvan varierar.", "m.q4": "Hur skyddas mina uppgifter?", "m.r4": "De används bara för föreningens verksamhet, säljs aldrig, och du kan begära radering när som helst.", "nav.accueil": "Hem", "nav.explorer": "OMAR INFOS", "nav.royals": "Young Royals", "nav.communaute": "Gemenskap", "nav.membres": "Medlemmar", "nav.boutique": "Butik", "nav.livre": "Gemensam bok", "nav.journal": "Journal", "nav.association": "Föreningen", "h.l1": "Musiken.", "h.l2": "Kreativiteten.", "h.l3": "Omar Rudbergs värderingar.", "h.intro": "Välkommen till O.R. World Association, en fanförening som hyllar hans talang, hans energi och hans inspirerande budskap. Här hittar du nyheter, analyser, gemenskapens projekt och länkar till hans officiella plattformar.", "h.mention": "Fristående förening: vi företräder inte officiellt Omar eller hans team. · Sajten finns på 6 språk.", "h.btn1": "Gå in i världen →", "h.btn2": "Bli medlem", "h.btn3": "Butik", "marquee": "VÄLKOMMEN TILL O.R. WORLD ASSOCIATION · MUSIKEN · GEMENSKAPEN · RESAN ·", "c.membres": "MEDLEMMAR", "c.pays": "LÄNDER", "c.projets": "PROJEKT", "c.histoires": "BERÄTTELSER", "c.concours": "TÄVLINGAR", "c.evenements": "EVENEMANG", "c.note": "Siffrorna uppdateras automatiskt. Den nya sajten har just öppnat: allt börjar på noll.", "f.site": "SAJTEN", "f.boutique": "BUTIK", "f.autres": "ÖVRIGT", "f.contact": "KONTAKT", "f.omar": "Omar Rudberg", "f.shoots": "Shoots", "f.beaute": "OMR Beauty", "f.evenements": "Evenemang", "f.adhesion": "Medlemskap och gåvor", "f.documents": "Officiella dokument", "f.contactlien": "Kontakt", "f.blog": "Blogg", "f.magasin": "Butik", "f.expedition": "Frakt och retur", "f.conditions": "Allmänna villkor", "f.politiqueboutique": "Butikspolicy", "f.paiements": "Betalningar", "f.faq": "Vanliga frågor", "f.rgpd": "Integritetspolicy och GDPR", "f.cookies": "Cookiepolicy", "f.mentions": "Juridisk information", "f.boutiqueomar": "Omars officiella butik", "f.mentionlegale": "Fristående fanförening. Vi företräder inte officiellt Omar Rudberg eller hans team. Inbäddat innehåll kommer från de officiella kontona och tillhör sina upphovspersoner.", "f.heberge": "Sajten drivs på GitHub · Databas hos Supabase"}, "de": {"m.titre": "Mitglied werden", "m.sous": "Werde Teil der Gemeinschaft und erlebe das ganze Jahr über das Abenteuer, gemeinsam mit Fans aus aller Welt.", "m.paran": "pro Jahr, nur 1 € im Monat", "m.annee": "Mitgliedschaft gilt für das laufende Kalenderjahr.", "m.cta": "Ich werde Mitglied", "m.don": "Spenden", "m.carte": "MITGLIED", "m.depuis": "MITGLIED SEIT", "m.avtitre": "Was dir die Mitgliedschaft bringt", "m.a1": "Gewinnspiele", "m.a1t": "Gewinnspiele nur für Mitglieder, ohne Teilnahmegebühr.", "m.a2": "Abstimmungen", "m.a2t": "Wähle die Projekte, die der Verein umsetzt.", "m.a3": "Kreativworkshops", "m.a3t": "Gestalte mit der Gemeinschaft: Design, Armbänder, Poster, Konzertprojekte.", "m.a4": "Mitgliedskarte", "m.a4t": "Deine nummerierte Karte auf deinen Namen, gültig für das Jahr.", "m.a5": "Willkommensgeschenk", "m.a5t": "Ein kleines, vom Verein gestaltetes Objekt, nach dem Beitritt verschickt.", "m.a6": "Editionen für Mitglieder", "m.a6t": "Kreationen aus dem Shop nur für Mitglieder.", "m.cttitre": "So läuft es ab", "m.e1": "Erstelle dein Konto", "m.e1t": "Eine E-Mail-Adresse und ein Passwort genügen.", "m.e2": "Zahle die 12 €", "m.e2t": "Per Karte über Stripe oder mit PayPal. Sichere Zahlung.", "m.e3": "Erhalte deine Karte", "m.e3t": "Deine nummerierte Karte erscheint sofort in deinem Bereich.", "m.e4": "Mach mit", "m.e4t": "Gewinnspiele, Abstimmungen, Workshops, Projekte: alles steht dir offen.", "m.mintitre": "Unter 18 Jahren?", "m.mintexte": "Du bist willkommen. Beim Beitritt und danach bei jeder Teilnahme ist die Zustimmung eines Elternteils oder Erziehungsberechtigten nötig: Gewinnspiele, Workshops, Fotos oder Geschichten. Eltern können jederzeit die Löschung der Daten ihres Kindes verlangen.", "m.faq": "Häufige Fragen", "m.q1": "Verlängert sich die Mitgliedschaft automatisch?", "m.r1": "Nein. Sie gilt für das Kalenderjahr, und du erhältst vorher eine Erinnerung.", "m.q2": "Wofür werden die 12 € verwendet?", "m.r2": "Für die Projekte der Gemeinschaft, Kreationen und den Versand. Der Verein ist gemeinnützig.", "m.q3": "Kann ich aus dem Ausland beitreten?", "m.r3": "Ja, aus jedem Land. Nur die Versandkosten für das Geschenk unterscheiden sich.", "m.q4": "Wie werden meine Daten geschützt?", "m.r4": "Sie dienen nur dem Vereinsleben, werden nie verkauft, und du kannst jederzeit die Löschung verlangen.", "nav.accueil": "Startseite", "nav.explorer": "OMAR INFOS", "nav.royals": "Young Royals", "nav.communaute": "Gemeinschaft", "nav.membres": "Mitglieder", "nav.boutique": "Shop", "nav.livre": "Gemeinsames Buch", "nav.journal": "Journal", "nav.association": "Verein", "h.l1": "Die Musik.", "h.l2": "Die Kreativität.", "h.l3": "Die Werte von Omar Rudberg.", "h.intro": "Willkommen bei der O.R. World Association, einem Fanverein, der sein Talent, seine Energie und seine inspirierende Botschaft feiert. Hier findest du Neuigkeiten, Analysen, Projekte der Gemeinschaft und Links zu seinen offiziellen Plattformen.", "h.mention": "Unabhängiger Verein: wir vertreten Omar und sein Team nicht offiziell. · Seite in 6 Sprachen verfügbar.", "h.btn1": "Die Welt betreten →", "h.btn2": "Mitglied werden", "h.btn3": "Shop", "marquee": "WILLKOMMEN BEI DER O.R. WORLD ASSOCIATION · DIE MUSIK · DIE GEMEINSCHAFT · DIE REISE ·", "c.membres": "MITGLIEDER", "c.pays": "LÄNDER", "c.projets": "PROJEKTE", "c.histoires": "GESCHICHTEN", "c.concours": "GEWINNSPIELE", "c.evenements": "VERANSTALTUNGEN", "c.note": "Diese Zahlen aktualisieren sich automatisch. Die neue Seite ist gerade gestartet: alles beginnt bei null.", "f.site": "DIE SEITE", "f.boutique": "SHOP", "f.autres": "WEITERES", "f.contact": "KONTAKT", "f.omar": "Omar Rudberg", "f.shoots": "Shoots", "f.beaute": "OMR Beauty", "f.evenements": "Veranstaltungen", "f.adhesion": "Mitgliedschaft und Spenden", "f.documents": "Offizielle Dokumente", "f.contactlien": "Kontakt", "f.blog": "Blog", "f.magasin": "Shop", "f.expedition": "Versand und Rückgabe", "f.conditions": "Allgemeine Geschäftsbedingungen", "f.politiqueboutique": "Shop-Richtlinie", "f.paiements": "Zahlungen", "f.faq": "Häufige Fragen", "f.rgpd": "Datenschutz und DSGVO", "f.cookies": "Cookie-Richtlinie", "f.mentions": "Impressum", "f.boutiqueomar": "Omars offizieller Shop", "f.mentionlegale": "Unabhängiger Fanverein. Wir vertreten Omar Rudberg und sein Team nicht offiziell. Eingebettete Inhalte stammen von den offiziellen Konten und gehören ihren Urhebern.", "f.heberge": "Gehostet bei GitHub · Datenbank bei Supabase"}, "pt": {"m.titre": "Tornar-me membro", "m.sous": "Junta-te à comunidade e vive a aventura durante todo o ano, ao lado de fãs do mundo inteiro.", "m.paran": "por ano, apenas 1 € por mês", "m.annee": "Adesão válida para o ano civil em curso.", "m.cta": "Quero ser membro", "m.don": "Fazer um donativo", "m.carte": "MEMBRO", "m.depuis": "MEMBRO DESDE", "m.avtitre": "O que a adesão te traz", "m.a1": "Passatempos", "m.a1t": "Passatempos só para membros, sem custo de participação.", "m.a2": "Votações", "m.a2t": "Escolhe os projetos que a associação vai realizar.", "m.a3": "Ateliês criativos", "m.a3t": "Cria com a comunidade: design, pulseiras, cartazes, projetos de concerto.", "m.a4": "Cartão de membro", "m.a4t": "O teu cartão numerado, em teu nome, válido para o ano.", "m.a5": "Prenda de boas-vindas", "m.a5t": "Um pequeno objeto criado pela associação, enviado após a adesão.", "m.a6": "Edições reservadas", "m.a6t": "Criações da loja apenas para membros.", "m.cttitre": "Como funciona", "m.e1": "Cria a tua conta", "m.e1t": "Basta um e-mail e uma palavra-passe.", "m.e2": "Paga os 12 €", "m.e2t": "Com cartão através da Stripe, ou com PayPal. Pagamento seguro.", "m.e3": "Recebe o teu cartão", "m.e3t": "O teu cartão numerado aparece logo no teu espaço.", "m.e4": "Participa", "m.e4t": "Passatempos, votações, ateliês, projetos: tudo se abre para ti.", "m.mintitre": "Tens menos de 18 anos?", "m.mintexte": "És bem-vindo. É pedida a autorização de um dos pais ou do responsável legal na adesão e depois em cada participação: passatempos, ateliês, envio de fotos ou de uma história. Um dos pais pode pedir a qualquer momento a eliminação dos dados do seu filho.", "m.faq": "Perguntas frequentes", "m.q1": "A adesão renova-se sozinha?", "m.r1": "Não. Cobre o ano civil e recebes um lembrete antes do fim.", "m.q2": "Para que servem os 12 €?", "m.r2": "Para financiar os projetos da comunidade, as criações e os envios. A associação não tem fins lucrativos.", "m.q3": "Posso aderir do estrangeiro?", "m.r3": "Sim, a partir de qualquer país. Só variam os custos de envio da prenda.", "m.q4": "Como são protegidos os meus dados?", "m.r4": "São usados apenas para a vida da associação, nunca são vendidos, e podes pedir a eliminação a qualquer momento.", "nav.accueil": "Início", "nav.explorer": "OMAR INFOS", "nav.royals": "Young Royals", "nav.communaute": "Comunidade", "nav.membres": "Membros", "nav.boutique": "Loja", "nav.livre": "Livro colaborativo", "nav.journal": "Jornal", "nav.association": "Associação", "h.l1": "A música.", "h.l2": "A criatividade.", "h.l3": "Os valores de Omar Rudberg.", "h.intro": "Bem-vinda à O.R. World Association, uma associação de fãs que celebra o seu talento, a sua energia e a sua mensagem inspiradora. Aqui encontras notícias, análises, projetos da comunidade e ligações para as suas plataformas oficiais.", "h.mention": "Associação independente: não representamos oficialmente Omar nem a sua equipa. · Site disponível em 6 línguas.", "h.btn1": "Entrar no universo →", "h.btn2": "Tornar-me membro", "h.btn3": "Loja", "marquee": "BEM-VINDA À O.R. WORLD ASSOCIATION · A MÚSICA · A COMUNIDADE · A VIAGEM ·", "c.membres": "MEMBROS", "c.pays": "PAÍSES", "c.projets": "PROJETOS", "c.histoires": "HISTÓRIAS", "c.concours": "PASSATEMPOS", "c.evenements": "EVENTOS", "c.note": "Estes números atualizam-se sozinhos. O novo site acaba de abrir: tudo começa do zero.", "f.site": "O SITE", "f.boutique": "LOJA", "f.autres": "OUTROS", "f.contact": "CONTACTO", "f.omar": "Omar Rudberg", "f.shoots": "Shoots", "f.beaute": "OMR Beauty", "f.evenements": "Eventos", "f.adhesion": "Adesão e donativos", "f.documents": "Documentos oficiais", "f.contactlien": "Contacto", "f.blog": "Blog", "f.magasin": "Loja", "f.expedition": "Envios e devoluções", "f.conditions": "Condições gerais", "f.politiqueboutique": "Política da loja", "f.paiements": "Pagamentos", "f.faq": "Perguntas frequentes", "f.rgpd": "Política de privacidade e RGPD", "f.cookies": "Política de cookies", "f.mentions": "Informações legais", "f.boutiqueomar": "Loja oficial de Omar", "f.mentionlegale": "Associação de fãs independente. Não representamos oficialmente Omar Rudberg nem a sua equipa. Os conteúdos integrados vêm das contas oficiais e pertencem aos seus autores.", "f.heberge": "Site alojado no GitHub · Base de dados Supabase"}};
 
 (function(){
   const liste=document.getElementById("langue-liste");
@@ -1123,6 +1150,308 @@ const CONTINENTS=[[[143.2,-12.0],[143.5,-13.1],[143.8,-14.3],[144.9,-14.7],[145.
     a.addEventListener("click",function(){ bascule(false); });
   });
   document.addEventListener("keydown",function(e){ if(e.key==="Escape") bascule(false); });
+})();
+</script>
+
+<script>
+/* ============================================================
+   O.R. WORLD ASSOCIATION — médias intégrés en pleine largeur
+   Un contenu par ligne. Instagram et TikTok sont mis à l'échelle
+   de la place disponible ; YouTube occupe toute la largeur en 16/9.
+   ============================================================ */
+(function(){
+  function langue(){ try{ return localStorage.getItem("orw-langue")||"fr"; }catch(e){ return "fr"; } }
+
+  function mesurer(z){
+    var i=z.querySelector("iframe"); if(!i) return;
+    var nw=parseFloat(z.getAttribute("data-nw"))||600;
+    var nh=parseFloat(z.getAttribute("data-nh"))||790;
+    var dispo=z.clientWidth; if(!dispo) return;
+    var k=dispo/nw; if(k>2.2) k=2.2;
+    i.style.width=nw+"px"; i.style.height=nh+"px";
+    i.style.transformOrigin="top left"; i.style.transform="scale("+k+")";
+    z.style.height=Math.round(nh*k)+"px";
+  }
+  window.ORW_zoomMedias=function(){
+    var l=document.querySelectorAll(".zoom-media");
+    for(var n=0;n<l.length;n++) mesurer(l[n]);
+  };
+  var minuteur;
+  window.addEventListener("resize",function(){
+    clearTimeout(minuteur); minuteur=setTimeout(window.ORW_zoomMedias,120);
+  });
+
+  /* Transforme une adresse publique en adresse intégrable. */
+  window.ORW_adresse=function(u){
+    u=String(u||"").trim();
+    try{
+      var url=new URL(u), h=url.hostname;
+      if(h.indexOf("instagram.com")>=0){
+        var c=url.pathname.replace(/\/+$/,"").replace("/reels/","/reel/");
+        if(c.indexOf("/embed")<0) c+="/embed";
+        return {src:"https://www.instagram.com"+c+"/captioned/", famille:"instagram"};
+      }
+      if(h.indexOf("tiktok.com")>=0){
+        var m=url.pathname.match(/\/video\/(\d+)/)||url.pathname.match(/\/(\d{8,})/);
+        if(m) return {src:"https://www.tiktok.com/embed/v2/"+m[1], famille:"tiktok"};
+        return {src:u, famille:"tiktok"};
+      }
+      if(h.indexOf("youtu")>=0){
+        var id=url.searchParams.get("v");
+        if(!id && h.indexOf("youtu.be")>=0) id=url.pathname.replace("/","");
+        if(!id){ var y=url.pathname.match(/\/(?:shorts|embed|live)\/([A-Za-z0-9_-]{6,})/); if(y) id=y[1]; }
+        if(id) return {src:"https://www.youtube-nocookie.com/embed/"+id, famille:"youtube"};
+      }
+      if(h.indexOf("spotify.com")>=0){
+        var s=url.pathname.match(/\/(track|album|playlist|episode|artist)\/([A-Za-z0-9]+)/);
+        if(s) return {src:"https://open.spotify.com/embed/"+s[1]+"/"+s[2], famille:"spotify"};
+      }
+      if(h.indexOf("facebook.com")>=0 || h.indexOf("x.com")>=0 || h.indexOf("twitter.com")>=0){
+        return {src:u, famille:"lien"};
+      }
+    }catch(e){}
+    return {src:u, famille:"lien"};
+  };
+
+  var NOMS={instagram:"Instagram",tiktok:"TikTok",youtube:"YouTube",spotify:"Spotify",lien:"Le contenu"};
+
+  function poser(carte, url, indice, titre, origine){
+    var a=window.ORW_adresse(url);
+    var fam=(a.famille!=="lien") ? a.famille : (indice||"lien");
+    if(fam==="video") fam="youtube";
+    if(fam==="lien"){ window.open(url,"_blank","noopener"); return; }
+
+    var h='<div class="legende-media"><b>'+(titre||NOMS[fam]||"")+'</b>'+
+          '<button class="fermer-media" type="button">'+(langue()==="en"?"Close":"Fermer")+'</button></div>';
+    var commun='loading="lazy" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen '+
+               'allow="accelerometer; autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share"';
+    if(fam==="youtube"){
+      h+='<div class="cadre-video"><iframe '+commun+' src="'+a.src+'"></iframe></div>';
+    }else if(fam==="spotify"){
+      h+='<iframe class="cadre-plat" style="height:352px" loading="lazy" allow="encrypted-media" src="'+a.src+'"></iframe>';
+    }else{
+      var nw=(fam==="tiktok")?605:600, nh=(fam==="tiktok")?760:800;
+      h+='<div class="zoom-media" data-nw="'+nw+'" data-nh="'+nh+'">'+
+         '<iframe scrolling="no" '+commun+' src="'+a.src+'"></iframe></div>';
+    }
+    carte.classList.add("plein");
+    carte.innerHTML=h;
+    var f=carte.querySelector(".fermer-media");
+    if(f) f.addEventListener("click",function(ev){
+      ev.stopPropagation();
+      carte.classList.remove("plein");
+      carte.innerHTML=origine;
+      brancher(carte, url, indice, titre, origine);
+    });
+    window.ORW_zoomMedias();
+  }
+
+  function brancher(carte, url, indice, titre, origine){
+    var b=carte.querySelector(".charger");
+    if(!b) return;
+    b.addEventListener("click",function(ev){
+      ev.stopPropagation();
+      poser(carte, url, indice, titre, origine);
+    });
+  }
+
+  /* Point d'entrée des pages : remplace l'ancien chargement d'iframe. */
+  window.ORW_brancheMedia=function(carte, url, indice, titre){
+    brancher(carte, url, indice, titre, carte.innerHTML);
+  };
+})();
+</script>
+
+<script>
+/* --------- OMR Beauty : les publications, un contenu par ligne --------- */
+(function(){
+  const PRODUITS = [
+ {
+  "n": "Intro",
+  "d": "22/11/2023",
+  "l": [
+   {
+    "u": "https://www.instagram.com/reels/Cz3vRNdtrJv/",
+    "f": "instagram"
+   }
+  ]
+ },
+ {
+  "n": "Duo",
+  "d": "23/05/2024",
+  "l": [
+   {
+    "u": "https://www.instagram.com/reels/C8GzWBXNaa0/",
+    "f": "instagram"
+   },
+   {
+    "u": "https://www.youtube.com/watch?v=3BYI569MqQM&time_continue=38&source_ve_path=MjM4NTE&embeds_referring_euri=https%3A%2F%2Fwww.orworldassociation.com%2F&embeds_referring_origin=https%3A%2F%2Fwww.orworldassociation.com",
+    "f": "youtube"
+   }
+  ]
+ },
+ {
+  "n": "Brunch",
+  "d": "24/10/2024",
+  "l": [
+   {
+    "u": "https://www.instagram.com/reels/DBbqetxNnmT/",
+    "f": "instagram"
+   }
+  ]
+ },
+ {
+  "n": "Lunch et Dinner",
+  "d": "07/11/2024",
+  "l": [
+   {
+    "u": "https://www.instagram.com/reels/DCRh2u5sjP9/",
+    "f": "instagram"
+   }
+  ]
+ },
+ {
+  "n": "Huile Duo",
+  "d": "26/03/2025",
+  "l": [
+   {
+    "u": "https://www.youtube.com/watch?v=3BYI569MqQM",
+    "f": "youtube"
+   },
+   {
+    "u": "https://www.youtube.com/watch?v=75oNsDwlehA",
+    "f": "youtube"
+   }
+  ]
+ },
+ {
+  "n": "Fluid",
+  "d": "04/06/2025",
+  "l": [
+   {
+    "u": "https://www.instagram.com/p/DKhwTHMOtW6/?utm_source=ig_embed&ig_rid=AhxRx23V7iVPYLilG4OZPL_",
+    "f": "instagram"
+   },
+   {
+    "u": "https://www.youtube.com/watch?v=4DeImrJnl6I&source_ve_path=MjM4NTE&embeds_referring_euri=https%3A%2F%2Fwww.orworldassociation.com%2F&embeds_referring_origin=https%3A%2F%2Fwww.orworldassociation.com",
+    "f": "youtube"
+   }
+  ]
+ },
+ {
+  "n": "Huiles Intro et Fluid",
+  "d": "12/11/2025",
+  "l": [
+   {
+    "u": "https://www.instagram.com/reels/DQRUyONCHL0/",
+    "f": "instagram"
+   }
+  ]
+ },
+ {
+  "n": "Bougie Copper",
+  "d": "17/12/2025",
+  "l": []
+ },
+ {
+  "n": "Copper",
+  "d": "08/04/2026",
+  "l": [
+   {
+    "u": "https://www.instagram.com/reels/DW3W1C2iAz1/",
+    "f": "instagram"
+   },
+   {
+    "u": "https://www.instagram.com/reels/DWTY2ndiO1v/",
+    "f": "instagram"
+   },
+   {
+    "u": "https://www.instagram.com/reels/DW1O6DmiCh9/",
+    "f": "instagram"
+   },
+   {
+    "u": "https://www.instagram.com/reels/DSVQHX5CKsh/",
+    "f": "instagram"
+   }
+  ]
+ },
+ {
+  "n": "Sweatshirt",
+  "d": "",
+  "l": [
+   {
+    "u": "https://www.tiktok.com/@omrbeauty/video/7616770152792820994?embed_source=121374463%2C121468991%2C121439635%2C121749182%2C121433650%2C121404358%2C122775750%2C121497414%2C122349556%2C122221973%2C122122240%2C121351166%2C121811500%2C121960941%2C122774852%2C122122244%2C122774848%2C122122243%2C122122242%2C121487028%2C122258714%2C121331973%2C120811592%2C120810756%2C121885509%3Bnull%3Bembed_masking&refer=embed&referer_url=www-orworldassociation-com.filesusr.com%2Fhtml%2F50d2e7_b0e0d9837578641bb2468449bf1d0ca6.html&referer_video_id=7616770152792820994",
+    "f": "tiktok"
+   },
+   {
+    "u": "https://www.tiktok.com/@omrbeauty/video/7617885398806629654?embed_source=121374463%2C121468991%2C121439635%2C121749182%2C121433650%2C121404358%2C122775750%2C121497414%2C122349556%2C122221973%2C122122240%2C121351166%2C121811500%2C121960941%2C122774852%2C122122244%2C122774848%2C122122243%2C122122242%2C121487028%2C122258714%2C121331973%2C120811592%2C120810756%2C121885509%3Bnull%3Bembed_masking&refer=embed&referer_url=www-orworldassociation-com.filesusr.com%2Fhtml%2F50d2e7_b0e0d9837578641bb2468449bf1d0ca6.html&referer_video_id=7616770152792820994",
+    "f": "tiktok"
+   }
+  ]
+ },
+ {
+  "n": "Casquette",
+  "d": "",
+  "l": []
+ },
+ {
+  "n": "Pop-up Berlin",
+  "d": "01/11/2025",
+  "l": [
+   {
+    "u": "https://www.instagram.com/p/DQjG4R2DGIM/?utm_source=ig_embed&ig_rid=Ah7OsV3WX5vZb9EFPgiq06w",
+    "f": "instagram"
+   }
+  ]
+ }
+];
+  const zone=document.getElementById("zone-omr");
+  if(!zone) return;
+  function lg(){ try{ return localStorage.getItem("orw-langue")||"fr"; }catch(e){ return "fr"; } }
+  const MOTS={
+    fr:{afficher:"Afficher",
+        consent:"En l'affichant, vous acceptez que la plateforme dépose ses traceurs.",
+        vide:"Les publications de ce produit seront reliées ici dès qu'elles seront disponibles."},
+    en:{afficher:"Show",
+        consent:"By showing it, you accept that the platform sets its trackers.",
+        vide:"The posts for this product will be linked here as soon as they are available."}
+  };
+  function mot(c){ const m=MOTS[lg()]||MOTS.en; return m[c]||MOTS.fr[c]; }
+
+  function dessine(i){
+    const p=PRODUITS[i]; zone.innerHTML="";
+    if(!p) return;
+    if(!p.l.length){
+      const v=document.createElement("div"); v.className="cadre-media";
+      v.innerHTML="<p>"+mot("vide")+"</p>"; zone.appendChild(v); return;
+    }
+    const g=document.createElement("div"); g.className="grille-medias";
+    p.l.forEach(function(item,n){
+      const c=document.createElement("div"); c.className="cadre-media";
+      const titre=p.n+(p.l.length>1?" · "+(n+1):"");
+      c.innerHTML='<div><b>'+titre+'</b><p>'+mot("consent")+'</p>'+
+        '<button class="btn btn--fin charger">'+mot("afficher")+'</button></div>';
+      g.appendChild(c);
+      ORW_brancheMedia(c, item.u, item.f, titre);
+    });
+    zone.appendChild(g);
+  }
+  const btns=document.querySelectorAll(".bouton-omr");
+  btns.forEach(function(b){
+    b.addEventListener("click",function(){
+      btns.forEach(function(x){ x.classList.toggle("actif", x===b); });
+      dessine(parseInt(b.dataset.i,10));
+    });
+  });
+  if(btns.length) dessine(0);
+  document.querySelectorAll("#langue-liste button").forEach(function(b){
+    b.addEventListener("click",function(){
+      setTimeout(function(){
+        const a=document.querySelector(".bouton-omr.actif");
+        if(a) dessine(parseInt(a.dataset.i,10));
+      },90);
+    });
+  });
 })();
 </script>
 </body>
