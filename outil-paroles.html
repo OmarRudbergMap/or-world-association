@@ -1,117 +1,341 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="fr">
 <head>
 <meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Outil · préparer le fichier des paroles</title>
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Préparer le fichier des paroles · O.R. World Association</title>
 <style>
-  @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600&family=Outfit:wght@300;400;500&display=swap');
-  *{margin:0;padding:0;box-sizing:border-box}
-  :root{--bleu:#050920;--violet:#7c3aed;--violet-clair:#a78bfa;--rose:#e879f9;
-    --cyan:#67e8f9;--blanc:#f4f6ff;--gris:#a8a3c4;--bord:rgba(140,150,235,.3)}
-  body{background:var(--bleu);color:var(--blanc);font-family:"Outfit",system-ui,sans-serif;
-    padding:3rem 1.5rem;line-height:1.6}
-  .page{max-width:920px;margin:0 auto}
-  h1{font-family:"Playfair Display",serif;font-size:2.2rem;font-weight:600;margin-bottom:.4rem}
-  p.intro{color:#dfe3ff;margin-bottom:1.6rem}
-  ol{margin:0 0 1.6rem 1.2rem;color:#cfd3f5}
-  ol li{margin-bottom:.5rem}
-  textarea{width:100%;height:320px;padding:1rem;border-radius:14px;border:1px solid var(--bord);
-    background:rgba(8,12,34,.7);color:#e6ecff;font-family:ui-monospace,monospace;font-size:.86rem;resize:vertical}
-  .barre{display:flex;gap:.7rem;flex-wrap:wrap;margin:1.1rem 0}
-  button{padding:.7rem 1.5rem;border-radius:999px;border:1px solid var(--bord);cursor:pointer;
-    background:rgba(10,14,40,.7);color:var(--blanc);font-family:inherit;font-size:.92rem}
-  button.fort{background:linear-gradient(120deg,var(--violet),var(--rose));border:0}
-  .resultat{margin-top:1.4rem;padding:1.1rem 1.3rem;border-radius:14px;border:1px solid var(--bord);
-    background:rgba(103,232,249,.07);display:none}
-  .resultat.vu{display:block}
-  .mention{font-size:.84rem;color:var(--gris);margin-top:1.2rem}
-  code{background:rgba(255,255,255,.08);padding:.1rem .4rem;border-radius:5px;font-size:.86rem}
+:root{--bord:rgba(140,150,235,.22);--gris:#b9c0e0;--cyan:#67e8f9;--rose:#ec4899;--violet:#7c3aed}
+*{box-sizing:border-box}
+body{margin:0;background:#04061a;color:#e6ecff;font-family:system-ui,"Segoe UI",sans-serif;
+  padding:2.5rem 1.2rem 5rem;line-height:1.6}
+.boite{width:min(100% - 1rem,760px);margin:0 auto}
+h1{font-family:Georgia,"Times New Roman",serif;font-size:clamp(1.7rem,4vw,2.4rem);margin:0 0 .4rem;font-weight:500;
+  background:linear-gradient(100deg,#fff,#a8c8ff 45%,var(--rose));-webkit-background-clip:text;background-clip:text;color:transparent}
+.chapeau{font-size:.68rem;letter-spacing:.3em;color:var(--cyan);margin:0 0 .8rem}
+p{color:var(--gris)}
+ol{color:var(--gris);padding-left:1.2rem}
+ol li{margin-bottom:.5rem}
+.depot{display:block;cursor:pointer;margin:1.6rem 0;padding:2.4rem 1.4rem;border:2px dashed var(--bord);border-radius:18px;
+  text-align:center;background:rgba(8,12,34,.5);transition:border-color .25s,background .25s}
+.depot.survol{border-color:var(--cyan);background:rgba(103,232,249,.07)}
+.depot b{display:block;font-weight:400;font-size:1.1rem;margin-bottom:.4rem}
+.depot span{font-size:.84rem;color:#8d86ab}
+input[type=file]{display:none}
+.btn{display:inline-block;margin:.9rem .4rem 0;padding:.72rem 1.5rem;border-radius:999px;border:1px solid var(--bord);
+  background:rgba(8,12,34,.7);color:#e6ecff;font-family:inherit;font-size:.9rem;cursor:pointer;text-decoration:none}
+.btn:hover{border-color:var(--violet);color:#fff}
+.btn--fort{background:linear-gradient(120deg,var(--violet),var(--rose));border:none;color:#fff}
+.btn[disabled]{opacity:.4;cursor:not-allowed}
+.resultat{display:none;margin-top:1.6rem;padding:1.3rem 1.5rem;border:1px solid var(--bord);
+  border-radius:16px;background:rgba(8,12,34,.6);font-size:.92rem}
+.resultat.vu{display:block}
+.resultat b{color:#fff;font-weight:500}
+.ok{color:#6ee7b7}.alerte{color:#fbbf24}
+.liste{margin:.7rem 0 0;max-height:220px;overflow:auto;font-size:.84rem;color:var(--gris)}
+.liste div{padding:.12rem 0}
+details{margin-top:1.8rem;border-top:1px solid var(--bord);padding-top:1.2rem}
+summary{cursor:pointer;color:var(--cyan);font-size:.9rem}
+textarea{width:100%;height:220px;margin-top:.9rem;padding:.9rem;border:1px solid var(--bord);border-radius:12px;
+  background:rgba(2,4,16,.8);color:#e6ecff;font-family:ui-monospace,monospace;font-size:.8rem;resize:vertical}
+.mention{font-size:.78rem;color:#8d86ab;margin-top:2rem}
+code{background:rgba(124,58,237,.18);padding:.1rem .4rem;border-radius:5px;font-size:.86em}
 </style>
 </head>
 <body>
-<div class="page">
+<div class="boite">
+  <p class="chapeau">OUTIL HORS LIGNE</p>
   <h1>Préparer le fichier des paroles</h1>
-  <p class="intro">Cet outil tourne entièrement sur votre ordinateur. Rien n'est envoyé nulle part :
-  votre texte ne quitte jamais votre machine.</p>
+  <p>Déposez ici votre tableau <code>tableau-liens-orworld_4.xlsx</code>. Cette page lit l'onglet
+  <b>Paroles</b> directement sur votre ordinateur et fabrique le fichier <code>paroles.js</code>.
+  Rien n'est envoyé nulle part : tout se passe dans votre navigateur.</p>
 
-  <ol>
-    <li>Ouvrez votre tableau Excel, onglet <b>Paroles</b>.</li>
-    <li>Sélectionnez les deux colonnes, du haut en bas, puis copiez avec Ctrl + C.</li>
-    <li>Collez dans la grande case ci-dessous.</li>
-    <li>Cliquez sur <b>Préparer le fichier</b>, puis sur <b>Télécharger paroles.js</b>.</li>
-    <li>Déposez ce fichier sur GitHub, à côté des pages du site.</li>
-  </ol>
-
-  <textarea id="source" placeholder="Collez ici le contenu de l'onglet Paroles…"></textarea>
-
-  <div class="barre">
-    <button class="fort" id="preparer">Préparer le fichier</button>
-    <button id="telecharger">Télécharger paroles.js</button>
-    <button id="vider">Vider</button>
-  </div>
+  <label class="depot" id="depot">
+    <input type="file" id="fichier" accept=".xlsx,.xlsm">
+    <b>Déposez le tableau ici</b>
+    <span>ou cliquez pour le choisir · fichier .xlsx</span>
+  </label>
 
   <div class="resultat" id="resultat"></div>
 
-  <p class="mention">Le fichier produit s'appelle <code>paroles.js</code>. Il remplace celui qui se trouve
-  déjà dans le dépôt. Les extraits s'affichent ensuite sous chaque chanson, dans leur langue d'origine,
-  et ne sont jamais traduits.</p>
+  <div style="text-align:center">
+    <button class="btn btn--fort" id="telecharger" disabled>Télécharger paroles.js</button>
+  </div>
+
+  <details>
+    <summary>Si le dépôt du fichier ne marche pas : la méthode par copier-coller</summary>
+    <p>Dans l'onglet <b>Paroles</b> du tableau, sélectionnez les colonnes A et B en entier
+    (cliquez sur la lettre A, puis Maj + clic sur la lettre B), faites Ctrl + C,
+    et collez dans le cadre ci-dessous.</p>
+    <textarea id="source" placeholder="Collez ici les colonnes A et B de l'onglet Paroles…"></textarea>
+    <div style="text-align:center"><button class="btn" id="lire-colle">Lire ce qui est collé</button></div>
+  </details>
+
+  <ol style="margin-top:2.2rem">
+    <li>Téléchargez <code>paroles.js</code> avec le bouton ci-dessus.</li>
+    <li>Ouvrez votre dossier <code>D:\SITE OR WORLD ASSOCIATION</code>.</li>
+    <li>Collez-y le fichier et <b>remplacez</b> le <code>paroles.js</code> qui s'y trouve déjà.
+    Il doit être à la racine, à côté de <code>musique.html</code>, pas dans un sous-dossier.</li>
+    <li>Dans GitHub Desktop, <code>paroles.js</code> doit apparaître dans la liste des modifications.
+    <b>S'il n'apparaît pas, c'est qu'il n'est pas au bon endroit.</b></li>
+    <li>Commit, puis Push. Attendez deux minutes, puis rechargez la page Musique du site.</li>
+  </ol>
+
+  <p class="mention">Les paroles sont affichées dans leur langue d'origine et ne sont jamais traduites.
+  Ce sont des extraits : le site n'affiche jamais une chanson entière.</p>
 </div>
 
 <script>
-let fichier = "";
+/* ============================================================
+   Lecteur de fichier .xlsx entièrement autonome.
+   Aucune bibliothèque, aucune connexion : un .xlsx est une archive ZIP,
+   et le navigateur sait décompresser tout seul (DecompressionStream).
+   ============================================================ */
+const LecteurXLSX = (function(){
 
-document.getElementById("preparer").addEventListener("click", function(){
-  const brut = document.getElementById("source").value;
-  const lignes = brut.split(/\r?\n/);
+  function u16(v,p){ return v.getUint16(p,true); }
+  function u32(v,p){ return v.getUint32(p,true); }
+
+  async function inflate(octets, methode){
+    if(methode === 0) return octets;
+    if(typeof DecompressionStream === "undefined")
+      throw new Error("ce navigateur ne sait pas décompresser les fichiers .xlsx");
+    const flux = new Blob([octets]).stream().pipeThrough(new DecompressionStream("deflate-raw"));
+    return new Uint8Array(await new Response(flux).arrayBuffer());
+  }
+
+  /* --- ouvre l'archive et rend un dictionnaire { nom : Uint8Array } --- */
+  async function ouvreZip(tampon, veut){
+    const octets = new Uint8Array(tampon);
+    const vue = new DataView(tampon);
+
+    // fin du répertoire central
+    let fin = -1;
+    for(let i = octets.length - 22; i >= 0 && i > octets.length - 65558; i--){
+      if(u32(vue,i) === 0x06054b50){ fin = i; break; }
+    }
+    if(fin < 0) throw new Error("ce fichier n'est pas un .xlsx valide");
+
+    const nombre = u16(vue, fin + 10);
+    let p = u32(vue, fin + 16);
+    const dec = new TextDecoder("utf-8");
+    const sortie = {};
+
+    for(let n = 0; n < nombre; n++){
+      if(u32(vue,p) !== 0x02014b50) break;
+      const methode = u16(vue, p + 10);
+      const taille  = u32(vue, p + 20);
+      const lnom    = u16(vue, p + 28);
+      const lextra  = u16(vue, p + 30);
+      const lcom    = u16(vue, p + 32);
+      const debut   = u32(vue, p + 42);
+      const nom     = dec.decode(octets.subarray(p + 46, p + 46 + lnom));
+      p += 46 + lnom + lextra + lcom;
+
+      if(!veut(nom)) continue;
+      if(u32(vue, debut) !== 0x04034b50) continue;
+      const ln2 = u16(vue, debut + 26), le2 = u16(vue, debut + 28);
+      const d = debut + 30 + ln2 + le2;
+      sortie[nom] = await inflate(octets.subarray(d, d + taille), methode);
+    }
+    return sortie;
+  }
+
+  function texte(octets){ return new TextDecoder("utf-8").decode(octets); }
+  function xml(s){ return new DOMParser().parseFromString(s, "application/xml"); }
+
+  function colonne(ref){
+    let n = 0;
+    for(let i = 0; i < ref.length; i++){
+      const c = ref.charCodeAt(i);
+      if(c < 65 || c > 90) break;
+      n = n * 26 + (c - 64);
+    }
+    return n - 1;
+  }
+
+  /* --- rend les lignes d'un onglet, sous forme de tableau de tableaux --- */
+  async function lignes(tampon, nomOnglet){
+    const voulu = function(n){
+      return n === "xl/workbook.xml" || n === "xl/_rels/workbook.xml.rels" ||
+             n === "xl/sharedStrings.xml" || /^xl\/worksheets\/sheet\d+\.xml$/.test(n);
+    };
+    const fichiers = await ouvreZip(tampon, voulu);
+    if(!fichiers["xl/workbook.xml"]) throw new Error("archive .xlsx incomplète");
+
+    const livre = xml(texte(fichiers["xl/workbook.xml"]));
+    const onglets = [...livre.getElementsByTagName("sheet")].map(function(s){
+      return { nom: s.getAttribute("name") || "",
+               rid: s.getAttribute("r:id") || s.getAttributeNS("http://schemas.openxmlformats.org/officeDocument/2006/relationships","id") };
+    });
+
+    const choisi = onglets.filter(function(o){ return nomOnglet.test(o.nom); })[0];
+    if(!choisi) return { onglets: onglets.map(function(o){ return o.nom; }), lignes: null };
+
+    let cible = null;
+    if(fichiers["xl/_rels/workbook.xml.rels"]){
+      const rels = xml(texte(fichiers["xl/_rels/workbook.xml.rels"]));
+      [...rels.getElementsByTagName("Relationship")].forEach(function(r){
+        if(r.getAttribute("Id") === choisi.rid){
+          cible = "xl/" + r.getAttribute("Target").replace(/^\/?xl\//,"").replace(/^\//,"");
+        }
+      });
+    }
+    if(!cible || !fichiers[cible]){
+      const rang = onglets.indexOf(choisi) + 1;
+      cible = "xl/worksheets/sheet" + rang + ".xml";
+    }
+    if(!fichiers[cible]) throw new Error("onglet introuvable dans l'archive");
+
+    // chaînes partagées
+    let partagees = [];
+    if(fichiers["xl/sharedStrings.xml"]){
+      const ss = xml(texte(fichiers["xl/sharedStrings.xml"]));
+      partagees = [...ss.getElementsByTagName("si")].map(function(si){
+        return [...si.getElementsByTagName("t")].map(function(t){ return t.textContent; }).join("");
+      });
+    }
+
+    const feuille = xml(texte(fichiers[cible]));
+    const sortie = [];
+    [...feuille.getElementsByTagName("row")].forEach(function(r){
+      const ligne = [];
+      [...r.getElementsByTagName("c")].forEach(function(c){
+        const ref = c.getAttribute("r") || "";
+        const i = ref ? colonne(ref) : ligne.length;
+        const type = c.getAttribute("t");
+        let v = "";
+        if(type === "inlineStr"){
+          v = [...c.getElementsByTagName("t")].map(function(t){ return t.textContent; }).join("");
+        }else{
+          const noeud = c.getElementsByTagName("v")[0];
+          const brut = noeud ? noeud.textContent : "";
+          v = (type === "s") ? (partagees[parseInt(brut,10)] || "") : brut;
+        }
+        while(ligne.length < i) ligne.push("");
+        ligne[i] = v;
+      });
+      sortie.push(ligne);
+    });
+    return { onglets: onglets.map(function(o){ return o.nom; }), lignes: sortie };
+  }
+
+  return { lignes: lignes };
+})();
+
+</script>
+
+<script>
+const TITRES_DU_SITE = ["Careless", "Siren (feat. Felix Jaehn)", "A World Like This", "Gabriela (Spotify Singles)", "Bebezinho (feat. Omar Rudberg)", "Malandro", "Dying", "Bye Bye", "Girlfriend", "Lose Me", "Wrong", "Sabotage", "Talk", "Sorry (reprise de Madonna)", "Red Light", "Min Första (I Will Always Be Your Soldier)", "Om du inte fanns (Don't Wait)", "Höj ett glas (Fanfar)", "Off My Mind (feat. Jubël)", "Happier", "All In My Head (feat. Omar Rudberg)", "Call Me By Your Name", "She Fell In Love In The Summer (acoustic)", "She Fell In Love In The Summer", "La Incondicional (live from Benjamin's)", "La Incondicional", "Todo De Ti (All That She Wants)", "Nakna", "In The Sunrise", "Breathe", "Como Ayer", "Mi Casa Su Casa", "Pull Up", "Que Puedo Hacer?", "Coast Side", "Mama", "Läppar", "Moving Like That", "Dum", "Yo Dije OUFF", "It Takes A Fool To Remain Sane", "Remember", "Symphony", "Jag e nån annan", "Dale Bye", "Om om och om igen", "La Mesa (feat. Elias Hurtig)", "Que Pasa (feat. Lamix)", "Alla Ba OUFF", "I'm Not a Boy", "I'm So Excited (Live at QX Gala)", "Luz Roja (Bonus)", "No Soy un Hombre", "På min telephone toda la noche", "Simon's Song", "Happier (After Midnight xxx / In The Club Remix)", "Happier (House/Club Remix)", "Happier (Jungle Mood Remix)", "Happier (Indiefeels Remix)", "Happier (Move Your Body / Rhythm & Dance Remix)", "Happier (Steerner Remix)", "Happier (On The Beat Remix)", "Happier (Floor Remix)", "Happier (Just Dance Remix)", "Happier (SlowNspeed Remix)", "Happier (Either Way Remix)", "Happier (Mystic Remix)", "She Fell In Love In The Summer (radio edit · Benji of Sweden)", "Coast Side (Carousel Remix)", "Dum (Singback version)", "I'm So Excited (club version)", "I'm So Excited (additional version)"];
+
+let fichier = "";
+const resultat = document.getElementById("resultat");
+const bouton = document.getElementById("telecharger");
+
+/* ---------- lecture des lignes (titre à gauche, parole à droite) ---------- */
+function construire(lignes){
   const chansons = {};
   let courante = null;
-
   lignes.forEach(function(l){
-    if(!l.trim()) return;
-    const cols = l.split("\t");
-    const gauche = (cols[0]||"").trim();
-    const droite = (cols.length>1 ? cols.slice(1).join(" ") : "").trim();
-
-    // une ligne avec un titre à gauche ouvre une nouvelle chanson
-    if(gauche && !/^↓/.test(droite)){
-      courante = gauche; if(!chansons[courante]) chansons[courante] = [];
-      if(droite && !/^↓/.test(droite)) chansons[courante].push(droite);
+    const gauche = (l[0] || "").toString().trim();
+    const droite = (l.length > 1 ? l.slice(1).filter(Boolean).join(" ") : "").toString().trim();
+    if(!gauche && !droite) return;
+    if(gauche && /^↓/.test(droite)){ courante = gauche; chansons[courante] = []; return; }
+    if(gauche){
+      courante = gauche;
+      if(!chansons[courante]) chansons[courante] = [];
+      if(droite) chansons[courante].push(droite);
       return;
     }
-    if(gauche && /^↓/.test(droite)){ courante = gauche; chansons[courante] = []; return; }
     if(courante && droite) chansons[courante].push(droite);
   });
+  return chansons;
+}
 
+function fabrique(chansons){
   const noms = Object.keys(chansons).filter(function(n){ return chansons[n].length; });
-  let txt = "/* Extraits de paroles — fichier produit par outil-paroles.html */\n\n";
+  const connus = noms.filter(function(n){ return TITRES_DU_SITE.indexOf(n) >= 0; });
+  const inconnus = noms.filter(function(n){ return TITRES_DU_SITE.indexOf(n) < 0; });
+
+  let txt = "/* Extraits de paroles — fichier produit par outil-paroles.html */\n";
+  txt += "/* " + noms.length + " chansons · " + new Date().toLocaleDateString("fr-FR") + " */\n\n";
   txt += "window.PAROLES = {\n";
   noms.forEach(function(n, i){
-    const corps = chansons[n].join("\n");
-    txt += '  ' + JSON.stringify(n) + ': `' + corps.replace(/`/g, "'") + '`' + (i < noms.length-1 ? ",":"") + "\n";
+    txt += "  " + JSON.stringify(n) + ": " + JSON.stringify(chansons[n].join("\n")) +
+           (i < noms.length - 1 ? "," : "") + "\n";
   });
   txt += "};\n";
   fichier = txt;
 
-  const r = document.getElementById("resultat");
-  r.className = "resultat vu";
-  r.innerHTML = "<b>" + noms.length + " chansons reconnues.</b><br>" +
-    noms.slice(0,8).map(function(n){ return "· " + n + " (" + chansons[n].length + " lignes)"; }).join("<br>") +
-    (noms.length>8 ? "<br>…" : "");
+  let h = "<b>" + noms.length + " chansons reconnues</b> dans le tableau.<br>";
+  h += '<span class="ok">' + connus.length + " correspondent exactement à une chanson du site : " +
+       "elles s'afficheront.</span>";
+  if(inconnus.length){
+    h += '<br><span class="alerte">' + inconnus.length + " ne correspondent à aucun titre du site " +
+         "et ne s'afficheront pas. Vérifiez l'orthographe du titre dans la colonne A :</span>" +
+         '<div class="liste">' + inconnus.map(function(n){ return "<div>· " + n + "</div>"; }).join("") + "</div>";
+  }
+  const sans = TITRES_DU_SITE.filter(function(t){ return noms.indexOf(t) < 0; });
+  h += '<div class="liste" style="margin-top:.8rem;color:#8d86ab">' +
+       sans.length + " chansons du site restent sans extrait (remix et versions, le plus souvent)." +
+       "</div>";
+  resultat.className = "resultat vu";
+  resultat.innerHTML = h;
+  bouton.disabled = (noms.length === 0);
+}
+
+/* ---------- dépôt du fichier .xlsx ---------- */
+const depot = document.getElementById("depot");
+const champ = document.getElementById("fichier");
+
+["dragenter","dragover"].forEach(function(e){
+  depot.addEventListener(e, function(ev){ ev.preventDefault(); depot.classList.add("survol"); });
+});
+["dragleave","drop"].forEach(function(e){
+  depot.addEventListener(e, function(ev){ ev.preventDefault(); depot.classList.remove("survol"); });
+});
+depot.addEventListener("drop", function(ev){
+  if(ev.dataTransfer.files && ev.dataTransfer.files[0]) lit(ev.dataTransfer.files[0]);
+});
+champ.addEventListener("change", function(){ if(champ.files[0]) lit(champ.files[0]); });
+
+function lit(f){
+  resultat.className = "resultat vu";
+  resultat.innerHTML = "Lecture de « " + f.name + " »…";
+  const lecteur = new FileReader();
+  lecteur.onload = async function(e){
+    try{
+      const r = await LecteurXLSX.lignes(e.target.result, /parole/i);
+      if(!r.lignes){
+        resultat.innerHTML = '<span class="alerte">Ce fichier ne contient pas d\'onglet « Paroles ». ' +
+          "Onglets trouvés : " + r.onglets.join(", ") + "</span>";
+        return;
+      }
+      fabrique(construire(r.lignes));
+    }catch(err){
+      resultat.innerHTML = '<span class="alerte">Le fichier n\'a pas pu être lu : ' + err.message +
+        ". Utilisez la méthode par copier-coller plus bas.</span>";
+    }
+  };
+  lecteur.readAsArrayBuffer(f);
+}
+
+/* ---------- méthode par copier-coller ---------- */
+document.getElementById("lire-colle").addEventListener("click", function(){
+  const brut = document.getElementById("source").value;
+  const lignes = brut.split(/\r?\n/).map(function(l){ return l.split("\t"); });
+  fabrique(construire(lignes));
 });
 
-document.getElementById("telecharger").addEventListener("click", function(){
-  if(!fichier){ alert("Cliquez d'abord sur « Préparer le fichier »."); return; }
+/* ---------- téléchargement ---------- */
+bouton.addEventListener("click", function(){
+  if(!fichier) return;
   const b = new Blob([fichier], {type:"text/javascript;charset=utf-8"});
   const a = document.createElement("a");
-  a.href = URL.createObjectURL(b); a.download = "paroles.js"; a.click();
-  URL.revokeObjectURL(a.href);
-});
-
-document.getElementById("vider").addEventListener("click", function(){
-  document.getElementById("source").value = "";
-  document.getElementById("resultat").className = "resultat";
-  fichier = "";
+  a.href = URL.createObjectURL(b);
+  a.download = "paroles.js";
+  document.body.appendChild(a); a.click(); a.remove();
+  setTimeout(function(){ URL.revokeObjectURL(a.href); }, 1000);
 });
 </script>
 </body>

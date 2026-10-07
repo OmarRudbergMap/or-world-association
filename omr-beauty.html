@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>OMR Beauty · O.R. World Association</title>
-<!-- version : BEAUTY-010 -->
+<!-- version : BEAUTY-011 -->
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:opsz,wght@6..96,400;6..96,500&family=Caveat:wght@500;600&family=Jost:wght@200;300;400&display=swap" rel="stylesheet">
@@ -893,7 +893,7 @@ h2.titre2{font-family:var(--titre);font-size:clamp(1.8rem,3.4vw,2.8rem);margin:0
     <div class="pied__bas">
       <span>© 2026 O.R. World Association</span>
       <span data-i18n="f.heberge"></span>
-      <span class="version">version : BEAUTY-010</span>
+      <span class="version">version : BEAUTY-011</span>
     </div>
   </div>
 </footer>
@@ -1184,6 +1184,8 @@ const CONTINENTS=[[[143.2,-12.0],[143.5,-13.1],[143.8,-14.3],[144.9,-14.7],[145.
   /* Transforme une adresse publique en adresse intégrable. */
   window.ORW_adresse=function(u){
     u=String(u||"").trim();
+    /* une adresse collée sans « https:// » reste utilisable */
+    if(u && !/^https?:\/\//i.test(u)) u="https://"+u.replace(/^\/+/,"");
     try{
       var url=new URL(u), h=url.hostname;
       if(h.indexOf("instagram.com")>=0){
