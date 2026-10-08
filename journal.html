@@ -691,12 +691,7 @@ const TEXTES={"fr": {"jo.h1": "Les mots de la communauté", "jo.une": "À LA UNE
     const t=TEXTES[code]||TEXTES.fr;
     document.documentElement.lang=code;
     document.querySelectorAll("[data-i18n]").forEach(function(el){
-      const k=el.getAttribute("data-i18n");
-      /* si la traduction manque, on reprend l'anglais, puis le français :
-         un texte dans une autre langue vaut mieux qu'un blanc */
-      let v=t[k];
-      if(v===undefined && TEXTES.en) v=TEXTES.en[k];
-      if(v===undefined && TEXTES.fr) v=TEXTES.fr[k];
+      const v=t[el.getAttribute("data-i18n")];
       if(v!==undefined){ if(v.indexOf("<")>=0) el.innerHTML=v; else el.textContent=v; }
     });
     const info=LANGUES.find(function(l){return l.c===code;});

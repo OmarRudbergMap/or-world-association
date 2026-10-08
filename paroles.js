@@ -1,24 +1,57 @@
-/* =====================================================================
-   VOS EXTRAITS DE PAROLES
-   ---------------------------------------------------------------------
-   Ce fichier n'est rempli que par vous. Rien n'est traduit : le texte
-   s'affiche exactement tel que vous l'écrivez, dans la langue de la
-   chanson, quelle que soit la langue choisie par le visiteur.
-
-   Pour ajouter un extrait, copiez une ligne du modèle ci-dessous,
-   remplacez le titre et collez votre texte entre les accents graves.
-   Allez à la ligne normalement : les retours sont conservés.
-
-   Exemple :
-   "Malandro": `première ligne
-   deuxième ligne
-   troisième ligne`,
-
-   L'outil « outil-paroles.html » fait ce travail à votre place à partir
-   du tableau Excel : ouvrez-le, collez le tableau, téléchargez le
-   fichier qu'il vous donne, et remplacez celui-ci.
-   ===================================================================== */
+/* Extraits de paroles — fichier produit par outil-paroles.html */
+/* 52 chansons · 08/10/2026 */
 
 window.PAROLES = {
-
+  "Careless": "Omar, please don't do it, don't be careless\nWhen I make out with my friends they call\nme careless\nThey say, \"Honey, there's no reason to be jealous\nI don't care if they care that I don't care\nI only care about you, you",
+  "Siren (feat. Felix Jaehn)": "First i'm lost in your eyes\nAnd that ain't safe for me\nI try to run, try to hide\nBut that ain't meant to be\n​\nTemps me, you tease me\nSo selfish\nTrap me, release me\nAs you wish\nGot me sweating, got me begging\nOn my knees for it\n'Cause you poison is toying with my mind",
+  "A World Like This": "I was born in Venezuela, I was a happy kid\nBut then my mother and I moved to another country\nShe got a man, she did it all for me\nSo I helped my mother write her emails in Swedish",
+  "Gabriela (Spotify Singles)": "Me quiere a mi y no importan las demas",
+  "Bebezinho (feat. Omar Rudberg)": "Two twenty-five and we're messed up\nHow do we end up here?\nen el Taj Mahal\nWithout a sense of fear\nTu y yo claramente\nLo tenemos que hacer, porque necesita, vuelvo a ver\nIt's a dangerous game, playboy, I like what I feel (I swear I feel)\nWe've been up in a dream, but I swear it all seems surreal\nI'd be jumping from heights, swear, I'd be falling for you\nNothing I wouldn't do",
+  "Malandro": "Malandro, me robaste el corazon\nTighten the binds 'cause i like when you are holding me hostage",
+  "Dying": "I swallowed up my feelings, I'm a shipwreck in a bottle\nI swore I wouldn't say it but I'm breaking every promise\nNow I'm drownin' without you",
+  "Bye Bye": "Don't you come back\nKnocking on my door (My door)\nCause I know I'm going to leave you wanting more like that",
+  "Girlfriend": "Didn't take you long to decide\nYou got dirty thoughts in your mind\nMaybe we can make 'em real life\nBoy, quit playin",
+  "Lose Me": "You are losing me\nUnintentionally, you are setting me free\nSo thank you, baby",
+  "Wrong": "Now when I swear blind that I couldn't love you more\nYou got a habit of provin' me wrong",
+  "Sabotage": "If I die in your arms\nWouldn't care 'bout heaven at all\nUntil my time's up\nI swear I'll try my best to not sabotage this",
+  "Talk": "Your body language is speaking right to my heart",
+  "Sorry (reprise de Madonna)": "You're not half the man you think you are\nSave your words because you've gone too far\nI've listened to your lies and all your stories (Listen to your stories)\nYou're not half the man you'd like to be",
+  "Red Light": "So take me slowly\nTo the red light\nGet me caught up\nBy this dream",
+  "Min Första (I Will Always Be Your Soldier)": "När du aldrig varit kär\nAldrig känt nånting sådär\nOch ingen har berättat hur det är\nNär allting bara smäller\nDu undrar vad som hände\nHur fan ska man då...",
+  "Om du inte fanns (Don't Wait)": "För du gör mig stark\nNär jag är svag, stöd mig genom alla prövningar",
+  "Höj ett glas (Fanfar)": "Det här är en sång, till en blomma\nTill dom som känner sig tomma\nDom som inte hittar grunden till smärtan\nInte ser lyckan i det dom har nära\nIbland kan vi låtsas att allting är så bra\nFast än de gör ont i varje andetag",
+  "Off My Mind (feat. Jubël)": "And every time you leave\nIt's getting harder and harder to breathe\nI know I can't make you mine\nBut all of this passion is making me blind",
+  "Happier": "Too much possession (ey-ey)\nTrop de possession (ey-ey)\nToo many confessions (ey)\nTrop d'aveux (ey)\nI can′t stop to think about you",
+  "All In My Head (feat. Omar Rudberg)": "Starry eyes, blinding lights\nSummer nights\nYou and I, on a high\nHypnotized\nYeah, my heart wants to beat to your melody\nAnd your hands split the waves on the ocean\nSend your love, watch the light when I′m lost at sea",
+  "Call Me By Your Name": "I just wanna feel it all over, something that I've never known\nLove me 'til I break my cover, I just wanna let it go",
+  "She Fell In Love In The Summer (acoustic)": "She fell in love in the summer\n'Cause life was just a dance and she believed\nNo one loved her",
+  "She Fell In Love In The Summer": "She fell in love in the summer\n'Cause life was just a dance and she believed\nNo one loved her",
+  "La Incondicional (live from Benjamin's)": "Tú, la misma siempre tú\nAmistad, ternura ¿Qué sé yo?\nTú, mi sombra has sido tú\nLa historia de un amor\nQue no fue nada",
+  "La Incondicional": "Tú, la misma siempre tú\nAmistad, ternura ¿Qué sé yo?\nTú, mi sombra has sido tú\nLa historia de un amor\nQue no fue nada",
+  "Todo De Ti (All That She Wants)": "Lo que tú me haces sentir\nPor dentro y yo me derrito como nieve",
+  "Nakna": "Hvorfor skal vi prate Du sier allting uten ord Og hele kroppen min pulserer Jeg glemmer helt bort hvor jeg er",
+  "In The Sunrise": "Ooh, in the sunrise\nEverything is over, morning's getting closer\nI know it's the last time",
+  "Breathe": "It's gotta be that you remind me of\nEvery single song on the radio\nYou're the type of melody I can't live without",
+  "Como Ayer": "Ya ni siquiera hacemos el amor\nEs como si no nos conociéramos\n¿Dónde se fue la pasión? Yeah-yeah\nYa no tenemos temas para hablar\nEsta canción ya no es para bailar\nAunque la quieras borrar",
+  "Mi Casa Su Casa": "Mi casa, su casa (Woo)\nI've been watching you all night\nOver on the dance floor\nMovin' how I like, yeah",
+  "Pull Up": "Pull up\nLet me rewind it, rеwind it\nLet me rewind, another dance\nSo, pull up\nLet me rewind it, rewind it\nI really love the way you whine it",
+  "Que Puedo Hacer?": "¿Qué puedo hacer si a ti te gusta él?\nYo sé que él es lindo pero contrólate\n¿Qué puedo hacer si con él tú quiere' ser infiel?\nYo voy a seguir cantando hasta el amanecer",
+  "Coast Side": "Helpless\nLife's a maze and we've been looking for something to do\nOh, I just wanna waste my time with you\nYeah, you\nJust tell me you want to (Just tell me you want to)",
+  "Mama": "That I wanna give you everything\nThe way I know that you gave me everything\nMama I wanna tell you\nAll the little things a little more",
+  "Läppar": "Saknar hur du rör\nSaknar hur du rör vid mina läppar\nMinns de som de va igår\nHur vi gömde oss för dina föräldrar\nBara du bara jag förstår",
+  "Moving Like That": "Making me go crazy for your love\nWhen you moving like that\nOh, when you moving like that",
+  "Dum": "Varför vill jag ha det som jag aldrig kan få ?\nJag borde släppa taget, men det blir aldrig så\nJag säger ingenting för du kanner nog inte samma sak\nDet är kanske lika bra\nJag är trött på att vilja ha någon som inte vill ha mig tillbaks",
+  "Yo Dije OUFF": "Yo dije OUFF\nCuando la vi\nVenezolana Mariana es para mi\nYo dije OUFF\nCuando la vi\nMariana yo me enamore de ti",
+  "It Takes A Fool To Remain Sane": "Give me the chance to break down the walls of attitude\nI ask nothing of you\nNot even your gratitude",
+  "Remember": "So sing me words that no one′s heard\nSplit me an ocean\nMake my mountain move\nOh, baby, I'll remember you\nOh, baby, I'll remember you, ah",
+  "Symphony": "I′ve been hearin' symphonies\nBefore all I heard was silence\nA rhapsody for you and me\nAnd every melody is timeless\nLife was stringing me along",
+  "Jag e nån annan": "Ingen har nånsin fått mig känna det såhär\nVi börja prata sen fanns ingen annan där\nDet brukar inte gå så lätt för mig, jag svär\nHur fan hamnade du här?",
+  "Dale Bye": "Yeah\nMina vänner försöker hålla mig\nFör jag beter mig som jag e besatt av dig, yeah\nHelt ärligt, vem fan kan blamea mig",
+  "Om om och om igen": "Men en ros behöver ljus\nInnan den falnar och dör",
+  "La Mesa (feat. Elias Hurtig)": "Tú dejas a ese, y yo dejo a esa\nY nos miramos por debajo de la mesa\nDile que te vas, que te duele la cabeza\nMientras yo pido tres botellas pa la mesa",
+  "Que Pasa (feat. Lamix)": "Tu calor, me arrebata,\nTu sabor, oh me mata (me mata)\nMe seduce me locese\nQuiero sentir todo tu sabor\nAhora no perdamos mas el tiempo que se leva el color,",
+  "I'm Not a Boy": "My mama didn't make me basic\nSorry to tell you but I am a freak",
+  "I'm So Excited (Live at QX Gala)": "Tonight's the night we're gonna make it happen\nTonight, we'll put all other things aside\nGive in this time and show me some affection\nWe're going for those pleasures in the night",
+  "På min telephone toda la noche": "Jag vill ha dig på min telephone toda la noche (Yeah, yeah)\nVet du sa du måste lägga på, baby, förlåt mig (Yeah, yeah)\nHur du rör dig, hur du rör mig",
+  "Simon's Song": "Om du såg mig här i dag\nSåg hur längtan gör mig svag\nOch de minnen som finns kvar inom mig\nJa, om jag såg dig här i dag\nJag skulle fråga hur det var\nOch om minnena finns kvar inom dig"
 };
