@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Young Royals · O.R. World Association</title>
-<!-- version : ROYALS-014 -->
+<!-- version : ROYALS-015 -->
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:opsz,wght@6..96,400;6..96,500&family=Caveat:wght@500;600&family=Jost:wght@200;300;400&display=swap" rel="stylesheet">
@@ -797,7 +797,7 @@ h2.titre2{font-family:var(--titre);font-size:clamp(1.8rem,3.4vw,2.8rem);margin:0
     <p class="chapeau" data-i18n="yr.vid.c"></p>
     <h2 class="titre2" style="font-size:1.8rem" data-i18n="yr.vid.t"></h2>
     <p class="intro2" data-i18n="yr.vid.i"></p>
-    <div class="filtres-vid"><button class="bouton-vid actif" data-grp="s1" data-i18n="yr.g.s1"></button><button class="bouton-vid" data-grp="s2" data-i18n="yr.g.s2"></button><button class="bouton-vid" data-grp="s3" data-i18n="yr.g.s3"></button><button class="bouton-vid" data-grp="itw" data-i18n="yr.g.itw"></button><button class="bouton-vid" data-grp="autres" data-i18n="yr.g.autres"></button></div>
+    <div class="filtres-vid"><button class="bouton-vid actif" data-grp="s1" data-i18n="yr.g.s1"></button><button class="bouton-vid" data-grp="s2" data-i18n="yr.g.s2"></button><button class="bouton-vid" data-grp="s3" data-i18n="yr.g.s3"></button><button class="bouton-vid" data-grp="itw" data-i18n="yr.g.itw"></button></div>
     <div class="medias__zone" id="zone-videos-serie"></div>
     <p class="mention" data-i18n="yr.vid.m"></p>
   </div>
@@ -1137,7 +1137,7 @@ h2.titre2{font-family:var(--titre);font-size:clamp(1.8rem,3.4vw,2.8rem);margin:0
     <div class="pied__bas">
       <span>© 2026 O.R. World Association</span>
       <span data-i18n="f.heberge"></span>
-      <span class="version">version : ROYALS-014</span>
+      <span class="version">version : ROYALS-015</span>
     </div>
   </div>
 </footer>
@@ -1154,7 +1154,12 @@ const TEXTES={"fr": {"yr.vid.c": "VIDÉOS ET INTERVIEWS", "yr.vid.t": "Les vidé
     const t=TEXTES[code]||TEXTES.fr;
     document.documentElement.lang=code;
     document.querySelectorAll("[data-i18n]").forEach(function(el){
-      const v=t[el.getAttribute("data-i18n")];
+      const k=el.getAttribute("data-i18n");
+      /* si la traduction manque, on reprend l'anglais, puis le français :
+         un texte dans une autre langue vaut mieux qu'un blanc */
+      let v=t[k];
+      if(v===undefined && TEXTES.en) v=TEXTES.en[k];
+      if(v===undefined && TEXTES.fr) v=TEXTES.fr[k];
       if(v!==undefined){ if(v.indexOf("<")>=0) el.innerHTML=v; else el.textContent=v; }
     });
     const info=LANGUES.find(function(l){return l.c===code;});
@@ -1901,18 +1906,6 @@ const CONTINENTS=[[[143.2,-12.0],[143.5,-13.1],[143.8,-14.3],[144.9,-14.7],[145.
    "t": "",
    "u": "https://www.youtube.com/watch?v=Xm49TbGieo8&source_ve_path=MjM4NTE&embeds_referring_euri=https%3A%2F%2Fwww.orworldassociation.com%2F&embeds_referring_origin=https%3A%2F%2Fwww.orworldassociation.com",
    "f": "youtube"
-  }
- ],
- "autres": [
-  {
-   "t": "que pasa 2018",
-   "u": "https://www.instagram.com/p/Bfiew8nhy22/?utm_source=ig_embed&ig_rid=AOChut2qZ49Hlz88DtJC7gm",
-   "f": "instagram"
-  },
-  {
-   "t": "karusell",
-   "u": "https://www.instagram.com/reels/CwzujQtt5Dp/",
-   "f": "instagram"
   }
  ]
 };
