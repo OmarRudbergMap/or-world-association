@@ -42,6 +42,113 @@ textarea{width:100%;height:220px;margin-top:.9rem;padding:.9rem;border:1px solid
 .mention{font-size:.78rem;color:#8d86ab;margin-top:2rem}
 code{background:rgba(124,58,237,.18);padding:.1rem .4rem;border-radius:5px;font-size:.86em}
 </style>
+
+
+
+<style id="orw-boutons">
+/* ============================================================
+   LES BOUTONS DU SITE
+   Une seule famille de couleurs : le violet de l'association,
+   du plus discret au plus lumineux. Tous s'illuminent au survol.
+   ============================================================ */
+:root{
+  --bt-fond:      linear-gradient(120deg,rgba(124,58,237,.38),rgba(232,121,249,.30));
+  --bt-fond-fort: linear-gradient(120deg,rgba(124,58,237,.72),rgba(232,121,249,.56));
+  --bt-bord:      rgba(167,139,250,.52);
+  --bt-bord-vif:  #c084fc;
+  --bt-halo:      0 0 26px rgba(167,139,250,.55);
+  --bt-halo-fort: 0 0 34px rgba(192,132,252,.72);
+}
+
+.btn, .btn--fin, .media-btn, .filtre, .mini-btn,
+.bouton-omr, .bouton-vid, .fermer-media, .charger{
+  background: var(--bt-fond);
+  border: 1px solid var(--bt-bord);
+  color: #f1ecff;
+  transition: background .25s ease, border-color .25s ease,
+              box-shadow .3s ease, transform .25s ease, color .25s ease;
+}
+
+/* le bouton principal est le plus lumineux des trois niveaux */
+.btn:not(.btn--fin){
+  background: var(--bt-fond-fort);
+  border-color: rgba(192,132,252,.72);
+  color: #fff;
+}
+
+/* au survol et au clavier, tout s'allume */
+.btn:hover, .btn--fin:hover, .media-btn:hover, .filtre:hover, .mini-btn:hover,
+.bouton-omr:hover, .bouton-vid:hover, .fermer-media:hover, .charger:hover,
+.btn:focus-visible, .btn--fin:focus-visible, .media-btn:focus-visible,
+.filtre:focus-visible, .mini-btn:focus-visible, .bouton-omr:focus-visible,
+.bouton-vid:focus-visible, .fermer-media:focus-visible, .charger:focus-visible{
+  background: var(--bt-fond-fort);
+  border-color: var(--bt-bord-vif);
+  color: #fff;
+  box-shadow: var(--bt-halo);
+  transform: translateY(-2px);
+}
+.btn:not(.btn--fin):hover, .btn:not(.btn--fin):focus-visible{ box-shadow: var(--bt-halo-fort) }
+
+/* le filtre ou l'onglet choisi reste allumé */
+.filtre.actif, .media-btn.actif, .bouton-vid.actif, .bouton-omr.actif{
+  background: var(--bt-fond-fort);
+  border-color: var(--bt-bord-vif);
+  color: #fff;
+  box-shadow: 0 0 20px rgba(167,139,250,.45);
+}
+
+/* les petites commandes de l'en-tête s'illuminent aussi */
+.rond:hover, .langues__bouton:hover, .burger:hover,
+.rond:focus-visible, .langues__bouton:focus-visible, .burger:focus-visible{
+  border-color: var(--bt-bord-vif);
+  color: #fff;
+  box-shadow: 0 0 18px rgba(167,139,250,.45);
+}
+
+/* un bouton désactivé ne s'allume pas */
+.btn[disabled], .btn--fin[disabled], button[disabled]{
+  opacity:.45; box-shadow:none; transform:none; cursor:not-allowed;
+}
+.btn[disabled]:hover, .btn--fin[disabled]:hover, button[disabled]:hover{
+  box-shadow:none; transform:none;
+}
+
+
+/* le petit compteur sur les boutons médias doit rester lisible sur le violet */
+.pastille-media{
+  background:#f3ecff !important;
+  color:#4c1d95 !important;
+  font-weight:600;
+  min-width:18px; height:18px; padding:0 5px;
+  border-radius:999px; display:inline-grid; place-items:center;
+  font-size:.64rem; line-height:1; margin-left:.45rem;
+  box-shadow:0 0 10px rgba(243,236,255,.45);
+}
+.pastille-omr{
+  background:#f3ecff !important;
+  color:#4c1d95 !important;
+  font-weight:600;
+}
+
+
+/* à l'impression (le passeport), les boutons restent sobres */
+@media print{
+  .btn, .btn--fin, .media-btn, .filtre, .mini-btn,
+  .bouton-omr, .bouton-vid, .fermer-media, .charger{
+    background:none!important; box-shadow:none!important;
+    color:#222!important; border-color:#999!important;
+  }
+  .pastille-media, .pastille-omr{ background:#eee!important; color:#333!important; box-shadow:none!important }
+}
+
+@media (prefers-reduced-motion:reduce){
+  .btn, .btn--fin, .media-btn, .filtre, .mini-btn,
+  .bouton-omr, .bouton-vid, .fermer-media, .charger{ transition:none }
+  .btn:hover, .btn--fin:hover, .media-btn:hover, .filtre:hover, .mini-btn:hover,
+  .bouton-omr:hover, .bouton-vid:hover, .fermer-media:hover, .charger:hover{ transform:none }
+}
+</style>
 </head>
 <body>
 <div class="boite">
