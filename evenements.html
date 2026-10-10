@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Les événements · O.R. World Association</title>
-<!-- version : EVENEMENTS-004 -->
+<!-- version : EVENEMENTS-005 -->
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:opsz,wght@6..96,400;6..96,500&family=Caveat:wght@500;600&family=Jost:wght@200;300;400&display=swap" rel="stylesheet">
@@ -719,7 +719,9 @@ h2.titre2{font-family:var(--titre);font-size:clamp(1.8rem,3.4vw,2.8rem);margin:0
 /* ---------- les affiches des opérations ---------- */
 .titre-affiches{font-family:var(--titre);font-size:1.05rem;font-weight:500;color:var(--cyan);
   margin:1.4rem 0 .6rem}
-.affiches{display:grid;grid-template-columns:repeat(auto-fit,minmax(190px,1fr));gap:.8rem}
+/* des vignettes d'affiche de taille raisonnable : le clic les montre en grand */
+.affiches{display:grid;grid-template-columns:repeat(auto-fill,minmax(190px,250px));
+  gap:.8rem;justify-content:start}
 .affiche{padding:0;border:1px solid rgba(167,139,250,.35);border-radius:14px;overflow:hidden;
   background:#02040f;cursor:zoom-in;display:block;line-height:0;
   transition:transform .3s,border-color .3s,box-shadow .3s}
@@ -968,7 +970,7 @@ h2.titre2{font-family:var(--titre);font-size:clamp(1.8rem,3.4vw,2.8rem);margin:0
     <div class="pied__bas">
       <span>© 2026 O.R. World Association</span>
       <span data-i18n="f.heberge"></span>
-      <span class="version">version : EVENEMENTS-004</span>
+      <span class="version">version : EVENEMENTS-005</span>
     </div>
   </div>
 </footer>
