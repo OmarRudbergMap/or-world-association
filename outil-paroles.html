@@ -34,8 +34,9 @@ input[type=file]{display:none}
 .ok{color:#6ee7b7}.alerte{color:#fbbf24}
 .liste{margin:.7rem 0 0;max-height:220px;overflow:auto;font-size:.84rem;color:var(--gris)}
 .liste div{padding:.12rem 0}
-details{margin-top:1.8rem;border-top:1px solid var(--bord);padding-top:1.2rem}
-summary{cursor:pointer;color:var(--cyan);font-size:.9rem}
+.coller{margin-top:2rem;border-top:1px solid var(--bord);padding-top:1.4rem}
+.coller h2{font-family:Georgia,serif;font-size:1.25rem;font-weight:400;color:#e6ecff;margin:0 0 .5rem}
+
 textarea{width:100%;height:220px;margin-top:.9rem;padding:.9rem;border:1px solid var(--bord);border-radius:12px;
   background:rgba(2,4,16,.8);color:#e6ecff;font-family:ui-monospace,monospace;font-size:.8rem;resize:vertical}
 .mention{font-size:.78rem;color:#8d86ab;margin-top:2rem}
@@ -46,7 +47,7 @@ code{background:rgba(124,58,237,.18);padding:.1rem .4rem;border-radius:5px;font-
 <div class="boite">
   <p class="chapeau">OUTIL HORS LIGNE</p>
   <h1>Préparer le fichier des paroles</h1>
-  <p>Déposez ici votre tableau <code>tableau-liens-orworld_4.xlsx</code>. Cette page lit l'onglet
+  <p>Déposez ici votre tableau <code>tableau-liens-orworld_5.xlsx</code>. Cette page lit l'onglet
   <b>Paroles</b> directement sur votre ordinateur et fabrique le fichier <code>paroles.js</code>.
   Rien n'est envoyé nulle part : tout se passe dans votre navigateur.</p>
 
@@ -62,14 +63,14 @@ code{background:rgba(124,58,237,.18);padding:.1rem .4rem;border-radius:5px;font-
     <button class="btn btn--fort" id="telecharger" disabled>Télécharger paroles.js</button>
   </div>
 
-  <details>
-    <summary>Si le dépôt du fichier ne marche pas : la méthode par copier-coller</summary>
+  <section class="coller">
+    <h2>Ou bien : coller les colonnes</h2>
     <p>Dans l'onglet <b>Paroles</b> du tableau, sélectionnez les colonnes A et B en entier
     (cliquez sur la lettre A, puis Maj + clic sur la lettre B), faites Ctrl + C,
     et collez dans le cadre ci-dessous.</p>
     <textarea id="source" placeholder="Collez ici les colonnes A et B de l'onglet Paroles…"></textarea>
     <div style="text-align:center"><button class="btn" id="lire-colle">Lire ce qui est collé</button></div>
-  </details>
+  </section>
 
   <ol style="margin-top:2.2rem">
     <li>Téléchargez <code>paroles.js</code> avec le bouton ci-dessus.</li>
@@ -228,6 +229,11 @@ const LecteurXLSX = (function(){
 <script>
 const TITRES_DU_SITE = ["Careless", "Siren (feat. Felix Jaehn)", "A World Like This", "Gabriela (Spotify Singles)", "Bebezinho (feat. Omar Rudberg)", "Malandro", "Dying", "Bye Bye", "Girlfriend", "Lose Me", "Wrong", "Sabotage", "Talk", "Sorry (reprise de Madonna)", "Red Light", "Min Första (I Will Always Be Your Soldier)", "Om du inte fanns (Don't Wait)", "Höj ett glas (Fanfar)", "Off My Mind (feat. Jubël)", "Happier", "All In My Head (feat. Omar Rudberg)", "Call Me By Your Name", "She Fell In Love In The Summer (acoustic)", "She Fell In Love In The Summer", "La Incondicional (live from Benjamin's)", "La Incondicional", "Todo De Ti (All That She Wants)", "Nakna", "In The Sunrise", "Breathe", "Como Ayer", "Mi Casa Su Casa", "Pull Up", "Que Puedo Hacer?", "Coast Side", "Mama", "Läppar", "Moving Like That", "Dum", "Yo Dije OUFF", "It Takes A Fool To Remain Sane", "Remember", "Symphony", "Jag e nån annan", "Dale Bye", "Om om och om igen", "La Mesa (feat. Elias Hurtig)", "Que Pasa (feat. Lamix)", "Alla Ba OUFF", "I'm Not a Boy", "I'm So Excited (Live at QX Gala)", "Luz Roja (Bonus)", "No Soy un Hombre", "På min telephone toda la noche", "Simon's Song", "Happier (After Midnight xxx / In The Club Remix)", "Happier (House/Club Remix)", "Happier (Jungle Mood Remix)", "Happier (Indiefeels Remix)", "Happier (Move Your Body / Rhythm & Dance Remix)", "Happier (Steerner Remix)", "Happier (On The Beat Remix)", "Happier (Floor Remix)", "Happier (Just Dance Remix)", "Happier (SlowNspeed Remix)", "Happier (Either Way Remix)", "Happier (Mystic Remix)", "She Fell In Love In The Summer (radio edit · Benji of Sweden)", "Coast Side (Carousel Remix)", "Dum (Singback version)", "I'm So Excited (club version)", "I'm So Excited (additional version)"];
 
+const AIDE_COLLER = '<div style="margin-top:.9rem;padding-top:.8rem;border-top:1px solid var(--bord)">' +
+  "<b>La méthode sûre :</b> ouvrez le tableau dans Excel, allez sur l'onglet <b>Paroles</b>, " +
+  "cliquez sur la lettre <b>A</b> puis Maj + clic sur la lettre <b>B</b>, faites Ctrl + C, " +
+  "et collez dans le cadre « Coller les colonnes » juste en dessous.</div>";
+
 let fichier = "";
 const resultat = document.getElementById("resultat");
 const bouton = document.getElementById("telecharger");
@@ -252,7 +258,7 @@ function construire(lignes){
   return chansons;
 }
 
-function fabrique(chansons){
+function fabrique(chansons, entete){
   const noms = Object.keys(chansons).filter(function(n){ return chansons[n].length; });
   const connus = noms.filter(function(n){ return TITRES_DU_SITE.indexOf(n) >= 0; });
   const inconnus = noms.filter(function(n){ return TITRES_DU_SITE.indexOf(n) < 0; });
@@ -267,7 +273,7 @@ function fabrique(chansons){
   txt += "};\n";
   fichier = txt;
 
-  let h = "<b>" + noms.length + " chansons reconnues</b> dans le tableau.<br>";
+  let h = (entete||"") + "<b>" + noms.length + " chansons reconnues</b> dans le tableau.<br>";
   h += '<span class="ok">' + connus.length + " correspondent exactement à une chanson du site : " +
        "elles s'afficheront.</span>";
   if(inconnus.length){
@@ -299,22 +305,59 @@ depot.addEventListener("drop", function(ev){
 });
 champ.addEventListener("change", function(){ if(champ.files[0]) lit(champ.files[0]); });
 
+function signature(octets){
+  const h = [...octets.slice(0,8)].map(function(b){ return b.toString(16).padStart(2,"0"); }).join("");
+  if(h.startsWith("504b0304") || h.startsWith("504b0506")) return "zip";
+  if(h.startsWith("d0cf11e0")) return "xls";          // ancien format Excel 97-2003
+  if(h.startsWith("7b5c7274")) return "rtf";
+  if(h.startsWith("25504446")) return "pdf";
+  if(h.startsWith("3c3f786d") || h.startsWith("efbbbf")) return "texte";
+  return "inconnu:" + h;
+}
+
 function lit(f){
   resultat.className = "resultat vu";
   resultat.innerHTML = "Lecture de « " + f.name + " »…";
   const lecteur = new FileReader();
+  lecteur.onerror = function(){
+    resultat.innerHTML = '<span class="alerte">Windows n\'a pas laissé lire ce fichier. ' +
+      "Fermez-le dans Excel, puis redéposez-le.</span>" + AIDE_COLLER;
+  };
   lecteur.onload = async function(e){
+    const octets = new Uint8Array(e.target.result);
+    const taille = octets.length;
+    const sig = signature(octets);
+    const entete = '<div class="liste" style="margin:.5rem 0 .9rem;color:#8d86ab">Fichier reçu : <b>' +
+       f.name + "</b> · " + taille.toLocaleString("fr-FR") + " octets · type détecté : " + sig + "</div>";
+
+    if(taille === 0){
+      resultat.innerHTML = entete + '<span class="alerte">Ce fichier fait <b>zéro octet</b> sur cet ordinateur. ' +
+        "C'est le cas des fichiers OneDrive ou iCloud qui ne sont pas encore téléchargés : " +
+        "ouvrez-le une fois dans Excel, enregistrez-le, puis redéposez-le.</span>" + AIDE_COLLER;
+      return;
+    }
+    if(sig === "xls"){
+      resultat.innerHTML = entete + '<span class="alerte">C\'est un classeur à l\'<b>ancien format Excel</b> (.xls). ' +
+        "Dans Excel : Fichier → Enregistrer sous → <b>Classeur Excel (*.xlsx)</b>, puis redéposez-le.</span>" + AIDE_COLLER;
+      return;
+    }
+    if(sig !== "zip"){
+      resultat.innerHTML = entete + '<span class="alerte">Ce n\'est pas un classeur Excel. ' +
+        "Vérifiez que vous déposez bien <b>tableau-liens-orworld_5.xlsx</b>, et non un raccourci " +
+        "ou un autre fichier.</span>" + AIDE_COLLER;
+      return;
+    }
     try{
       const r = await LecteurXLSX.lignes(e.target.result, /parole/i);
       if(!r.lignes){
-        resultat.innerHTML = '<span class="alerte">Ce fichier ne contient pas d\'onglet « Paroles ». ' +
-          "Onglets trouvés : " + r.onglets.join(", ") + "</span>";
+        resultat.innerHTML = entete + '<span class="alerte">Ce classeur ne contient pas d\'onglet « Paroles ». ' +
+          "Onglets trouvés : " + r.onglets.join(", ") + "</span>" + AIDE_COLLER;
         return;
       }
-      fabrique(construire(r.lignes));
+      fabrique(construire(r.lignes), entete);
     }catch(err){
-      resultat.innerHTML = '<span class="alerte">Le fichier n\'a pas pu être lu : ' + err.message +
-        ". Utilisez la méthode par copier-coller plus bas.</span>";
+      resultat.innerHTML = entete + '<span class="alerte">Le classeur n\'a pas pu être ouvert : ' +
+        err.message + "</span>" + AIDE_COLLER;
     }
   };
   lecteur.readAsArrayBuffer(f);
