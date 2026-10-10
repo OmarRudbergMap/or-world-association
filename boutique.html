@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>La boutique · O.R. World Association</title>
-<!-- version : BOUTIQUE-003 -->
+<!-- version : BOUTIQUE-004 -->
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:opsz,wght@6..96,400;6..96,500&family=Caveat:wght@500;600&family=Jost:wght@200;300;400&display=swap" rel="stylesheet">
@@ -413,10 +413,12 @@ h2.titre2{font-family:var(--titre);font-size:clamp(1.8rem,3.4vw,2.8rem);margin:0
 .pseudo:focus-within{border-color:var(--violet-clair);box-shadow:0 0 20px rgba(167,139,250,.35)}
 
 
-.scene-haut{position:relative;overflow:hidden;min-height:clamp(420px,58vh,600px);
+.scene-haut{position:relative;overflow:hidden;min-height:clamp(660px,82vh,820px);
   display:flex;align-items:flex-start;padding-top:clamp(7rem,13vh,9rem)}
-.scene-haut #carte-scene{position:absolute;inset:auto 0 0 0;width:100%;height:60%;display:block;z-index:0;
-  pointer-events:none}
+/* la Terre reste collée en bas, avec une hauteur fixe :
+   le texte garde ainsi toute sa place au-dessus, quelle que soit la langue */
+.scene-haut #carte-scene{position:absolute;inset:auto 0 0 0;width:100%;
+  height:clamp(200px,30vh,280px);display:block;z-index:0;pointer-events:none}
 .scene-haut__texte{position:relative;z-index:2;text-align:center;max-width:1000px}
 .texte-clair{color:#dfe7ff;text-shadow:0 2px 18px rgba(3,6,22,.95)}
 
@@ -924,7 +926,7 @@ h2.titre2{font-family:var(--titre);font-size:clamp(1.8rem,3.4vw,2.8rem);margin:0
     <div class="pied__bas">
       <span>© 2026 O.R. World Association</span>
       <span data-i18n="f.heberge"></span>
-      <span class="version">version : BOUTIQUE-003</span>
+      <span class="version">version : BOUTIQUE-004</span>
     </div>
   </div>
 </footer>
