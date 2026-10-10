@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>La musique · O.R. World Association</title>
-<!-- version : MUSIQUE-010 -->
+<!-- version : MUSIQUE-013 -->
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:opsz,wght@6..96,400;6..96,500&family=Caveat:wght@500;600&family=Jost:wght@200;300;400&display=swap" rel="stylesheet">
@@ -549,7 +549,6 @@ h2.titre2{font-family:var(--titre);font-size:clamp(1.8rem,3.4vw,2.8rem);margin:0
 .lecteur__boite{position:relative;max-width:620px;width:100%;padding:2.2rem;border:1px solid var(--bord);
   border-radius:20px;background:linear-gradient(160deg,rgba(18,14,52,.98),rgba(4,6,22,.99));
   box-shadow:0 30px 80px rgba(0,0,0,.7)}
-.retour-liste{margin-bottom:1.3rem;align-self:flex-start}
 .fermer{position:absolute;top:1rem;right:1rem;width:34px;height:34px;border:1px solid var(--bord);
   border-radius:50%;background:none;color:#fff;font-size:1.2rem;cursor:pointer}
 .aucune{padding:1.6rem;border:1.5px dashed var(--bord);border-radius:14px;color:var(--gris);text-align:center}
@@ -708,6 +707,26 @@ h2.titre2{font-family:var(--titre);font-size:clamp(1.8rem,3.4vw,2.8rem);margin:0
   .bouton-omr:hover, .bouton-vid:hover, .fermer-media:hover, .charger:hover{ transform:none }
 }
 </style>
+
+<style id="orw-fiche-chanson">
+/* la fiche défile si les paroles dépassent la hauteur de l'écran */
+.lecteur{padding-top:6rem}
+.lecteur__boite{max-height:calc(100dvh - 7.5rem);overflow-y:auto;overscroll-behavior:contain}
+@media (max-width:700px){.lecteur{padding-top:5rem}.lecteur__boite{max-height:calc(100dvh - 6.2rem)}}
+.lecteur__boite::-webkit-scrollbar{width:9px}
+.lecteur__boite::-webkit-scrollbar-thumb{background:rgba(167,139,250,.45);border-radius:9px}
+
+/* le retour est un petit lien, pas un gros bouton */
+.retour-liste{display:inline-block;margin:1.1rem 0 0;padding:.3rem .8rem;font-size:.74rem;
+  letter-spacing:.04em;border-radius:999px}
+
+/* dans la fiche, les boutons restent discrets */
+.lecteur .btn, .lecteur .btn--fin{padding:.4rem .9rem;font-size:.76rem;letter-spacing:.02em;
+  align-self:flex-start;flex:0 0 auto}
+/* les paroles ne sont pas un bouton : elles prennent toute la largeur, au-dessus */
+.lecteur .barre-boutons{display:flex;flex-wrap:wrap;align-items:flex-start;gap:.45rem}
+.lecteur .extrait{flex:1 0 100%;order:-1;margin:.2rem 0 1.1rem}
+</style>
 </head>
 <body>
 
@@ -801,7 +820,6 @@ h2.titre2{font-family:var(--titre);font-size:clamp(1.8rem,3.4vw,2.8rem);margin:0
 <div class="lecteur" id="lecteur">
   <div class="lecteur__boite">
     <button class="fermer" id="fermer-lecteur" aria-label="Fermer">×</button>
-      <button class="btn btn--fin retour-liste" id="retour-liste" data-i18n="mu.retour"></button>
     <div class="fiche-chanson">
       <img id="fc-pochette" alt="" loading="lazy">
       <div>
@@ -811,6 +829,7 @@ h2.titre2{font-family:var(--titre);font-size:clamp(1.8rem,3.4vw,2.8rem);margin:0
         <div id="fc-ecoute"></div>
         <div id="fc-clip"></div>
         <div class="barre-boutons" id="fc-liens"></div>
+        <button class="btn btn--fin retour-liste" id="retour-liste" data-i18n="mu.retour"></button>
       </div>
     </div>
   </div>
@@ -876,7 +895,7 @@ h2.titre2{font-family:var(--titre);font-size:clamp(1.8rem,3.4vw,2.8rem);margin:0
     <div class="pied__bas">
       <span>© 2026 O.R. World Association</span>
       <span data-i18n="f.heberge"></span>
-      <span class="version">version : MUSIQUE-010</span>
+      <span class="version">version : MUSIQUE-013</span>
     </div>
   </div>
 </footer>
