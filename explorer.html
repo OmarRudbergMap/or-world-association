@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Explorer · O.R. World Association</title>
-<!-- version : EXPLORER-008 -->
+<!-- version : EXPLORER-009 -->
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:opsz,wght@6..96,400;6..96,500&family=Caveat:wght@500;600&family=Jost:wght@200;300;400&display=swap" rel="stylesheet">
@@ -505,11 +505,20 @@ h2.titre2{font-family:var(--titre);font-size:clamp(1.8rem,3.4vw,2.8rem);margin:0
 </style>
 
 <style id="orw-karusell">
+.frise-vie{display:grid;gap:1.1rem;margin-top:1.4rem;position:relative}
+.etape-vie{position:relative;padding:1.6rem 1.6rem 1.7rem 2.4rem;border:1px solid var(--bord);
+  border-radius:16px;background:linear-gradient(160deg,rgba(16,20,56,.72),rgba(4,7,24,.9))}
+.etape-vie::before{content:"";position:absolute;left:1rem;top:1.9rem;width:9px;height:9px;border-radius:50%;
+  background:linear-gradient(120deg,var(--cyan),var(--rose));box-shadow:0 0 16px rgba(167,139,250,.9)}
+.annees{display:block;font-size:.66rem;letter-spacing:.2em;color:var(--cyan);
+  text-shadow:0 0 12px rgba(103,232,249,.5)}
+.etape-vie h3{font-family:var(--titre);font-size:1.35rem;font-weight:500;margin:.35rem 0 .7rem}
+.etape-vie p{color:var(--gris);line-height:1.8;margin:0 0 .9rem;max-width:80ch}
+.etape-vie .btn{margin-top:.2rem}
 .etape-vie .grille-medias .cadre-media{border:1px solid var(--bord);border-radius:14px;
   background:rgba(3,6,22,.6);padding:1.1rem 1.2rem;text-align:left}
 .etape-vie .grille-medias .cadre-media b{display:block;font-weight:400;color:#e6ecff;margin-bottom:.3rem}
 .etape-vie .grille-medias .cadre-media p{color:var(--gris);font-size:.82rem;margin:0 0 .7rem}
-.etape-vie a.btn{margin-top:.9rem}
 </style>
 
 
@@ -874,7 +883,7 @@ h2.titre2{font-family:var(--titre);font-size:clamp(1.8rem,3.4vw,2.8rem);margin:0
     <div class="pied__bas">
       <span>© 2026 O.R. World Association</span>
       <span data-i18n="f.heberge"></span>
-      <span class="version">version : EXPLORER-008</span>
+      <span class="version">version : EXPLORER-009</span>
     </div>
   </div>
 </footer>
