@@ -640,6 +640,14 @@ const TEXTES={"fr": {"g.btn.cacher": "Masquer le mode d'emploi", "g.btn.voir": "
   function applique(code){
     const t=TEXTES[code]||TEXTES.fr;
     document.documentElement.lang=code;
+    /* pour les textes construits par script : ORW_T("cle") rend la bonne langue */
+    window.ORW_LANGUE=code;
+    window.ORW_T=function(k){
+      let v=t[k];
+      if(v===undefined && TEXTES.en) v=TEXTES.en[k];
+      if(v===undefined && TEXTES.fr) v=TEXTES.fr[k];
+      return v===undefined ? k : v;
+    };
     document.querySelectorAll("[data-i18n]").forEach(function(el){
       const k=el.getAttribute("data-i18n");
       /* si la traduction manque, on reprend l'anglais, puis le français :
