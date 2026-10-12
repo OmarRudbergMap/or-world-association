@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>La musique · O.R. World Association</title>
-<!-- version : MUSIQUE-018 -->
+<!-- version : MUSIQUE-019 -->
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:opsz,wght@6..96,400;6..96,500&family=Caveat:wght@500;600&family=Jost:wght@200;300;400&display=swap" rel="stylesheet">
@@ -122,7 +122,7 @@ h2.titre2{font-family:var(--titre);font-size:clamp(1.8rem,3.4vw,2.8rem);margin:0
   background:linear-gradient(100deg,#fff,#a8c8ff 40%,var(--rose));-webkit-background-clip:text;background-clip:text;color:transparent}
 .intro2{color:var(--gris);max-width:58ch;margin:0 0 2rem}
 
-.compteurs{display:grid;grid-template-columns:repeat(6,1fr);gap:1px;border:1px solid var(--bord);
+.compteurs{display:grid;grid-template-columns:repeat(5,1fr);gap:1px;border:1px solid var(--bord);
   border-radius:16px;overflow:hidden;background:var(--bord)}
 .compteur{background:rgba(6,10,32,.82);padding:1.5rem .8rem;text-align:center;backdrop-filter:blur(6px)}
 .compteur b{display:block;font-family:var(--titre);font-size:clamp(1.6rem,3vw,2.4rem);font-weight:500;
@@ -212,6 +212,7 @@ h2.titre2{font-family:var(--titre);font-size:clamp(1.8rem,3.4vw,2.8rem);margin:0
 
 @media (max-width:1000px){
   .compteurs{grid-template-columns:repeat(3,1fr)}
+  .compteurs .compteur:nth-child(4){grid-column:span 2}
   .trio,.articles{grid-template-columns:1fr}
   .produits{grid-template-columns:repeat(2,1fr)}
   .deux{grid-template-columns:1fr}
@@ -219,6 +220,8 @@ h2.titre2{font-family:var(--titre);font-size:clamp(1.8rem,3.4vw,2.8rem);margin:0
 }
 @media (max-width:620px){
   .compteurs{grid-template-columns:repeat(2,1fr)}
+  .compteurs .compteur:nth-child(4){grid-column:span 1}
+  .compteurs .compteur:last-child{grid-column:span 2}
   .pied__grille{grid-template-columns:1fr}
 }
 
@@ -782,7 +785,6 @@ h2.titre2{font-family:var(--titre);font-size:clamp(1.8rem,3.4vw,2.8rem);margin:0
       <div class="compteur"><b>63</b><span data-i18n="mu.c3"></span></div>
       <div class="compteur"><b>7</b><span data-i18n="mu.c4"></span></div>
       <div class="compteur"><b>0</b><span data-i18n="mu.c5"></span></div>
-      <div class="compteur"><b>0</b><span data-i18n="mu.c6"></span></div>
     </div>
   </div>
 </section>
@@ -903,7 +905,7 @@ h2.titre2{font-family:var(--titre);font-size:clamp(1.8rem,3.4vw,2.8rem);margin:0
     <div class="pied__bas">
       <span>© 2026 O.R. World Association</span>
       <span data-i18n="f.heberge"></span>
-      <span class="version">version : MUSIQUE-018</span>
+      <span class="version">version : MUSIQUE-019</span>
     </div>
   </div>
 </footer>
