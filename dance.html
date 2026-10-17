@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Flashmob mondial · O.R. World Association</title>
-<!-- version : DANCE-010 -->
+<!-- version : DANCE-011 -->
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:opsz,wght@6..96,400;6..96,500&family=Caveat:wght@500;600&family=Jost:wght@200;300;400&display=swap" rel="stylesheet">
@@ -862,7 +862,7 @@ body.fm-bloque{overflow:hidden}
   <div class="fm-rdvs" id="fmRdv"></div>
   <div id="fmRdvForm"></div>
 
-  <h3 data-i18n="f2.c.t"></h3><div class="fm-zones"><button class="fm-zone actif" type="button" data-z="monde" data-i18n="f2.c.monde"></button><button class="fm-zone" type="button" data-z="europe" data-i18n="f2.e6.eu"></button><button class="fm-zone" type="button" data-z="ameriques" data-i18n="f2.e6.am"></button></div><div class="fm-carte-boite"><canvas id="fmCarte"></canvas><p class="fm-carte-msg" id="fmCarteMsg" data-i18n="f2.c.att"></p></div><p class="fm-carte-aide" data-i18n="f2.c.loupe"></p><p class="fm-sst" data-i18n="f2.c.leg"></p>
+  <h3 data-i18n="f2.c.t"></h3><div class="fm-zones"><button class="fm-zone actif" type="button" data-z="europe" data-i18n="f2.e6.eu"></button><button class="fm-zone" type="button" data-z="ameriques" data-i18n="f2.e6.am"></button><button class="fm-zone" type="button" data-z="monde" data-i18n="f2.c.monde"></button></div><div class="fm-carte-boite"><canvas id="fmCarte"></canvas><p class="fm-carte-msg" id="fmCarteMsg" data-i18n="f2.c.att"></p></div><p class="fm-carte-aide" data-i18n="f2.c.loupe"></p><p class="fm-sst" data-i18n="f2.c.leg"></p>
   <p class="fm-sst" data-i18n="f2.e6.eu"></p>
   <ul class="fm-pays"><li><img src="https://flagcdn.com/48x36/se.png" alt="" loading="lazy"><span><b>Sverige</b><i>Stockholm, Gävle, Söderhamn, Kristianstad, Göteborg, Malmö</i></span></li><li><img src="https://flagcdn.com/48x36/de.png" alt="" loading="lazy"><span><b>Deutschland</b><i>Soltau, Köln, München, Hamburg, Berlin, Düsseldorf</i></span></li><li><img src="https://flagcdn.com/48x36/gb.png" alt="" loading="lazy"><span><b>United Kingdom</b><i>London, Glasgow, Manchester, Birmingham, Bristol</i></span></li><li><img src="https://flagcdn.com/48x36/nl.png" alt="" loading="lazy"><span><b>Nederland</b><i>Amsterdam, Landgraaf</i></span></li><li><img src="https://flagcdn.com/48x36/fr.png" alt="" loading="lazy"><span><b>France</b><i>Paris</i></span></li><li><img src="https://flagcdn.com/48x36/no.png" alt="" loading="lazy"><span><b>Norge</b><i>Oslo, Bergen</i></span></li><li><img src="https://flagcdn.com/48x36/dk.png" alt="" loading="lazy"><span><b>Danmark</b><i>København, Odense</i></span></li><li><img src="https://flagcdn.com/48x36/be.png" alt="" loading="lazy"><span><b>Belgique</b><i>Antwerpen</i></span></li><li><img src="https://flagcdn.com/48x36/es.png" alt="" loading="lazy"><span><b>España</b><i>Madrid, Barcelona</i></span></li><li><img src="https://flagcdn.com/48x36/fi.png" alt="" loading="lazy"><span><b>Suomi</b><i>Turku, Helsinki</i></span></li><li><img src="https://flagcdn.com/48x36/it.png" alt="" loading="lazy"><span><b>Italia</b><i>Milano</i></span></li><li><img src="https://flagcdn.com/48x36/pl.png" alt="" loading="lazy"><span><b>Polska</b><i>Warszawa</i></span></li><li><img src="https://flagcdn.com/48x36/at.png" alt="" loading="lazy"><span><b>Österreich</b><i>Wien</i></span></li><li><img src="https://flagcdn.com/48x36/ie.png" alt="" loading="lazy"><span><b>Ireland</b><i>Dublin</i></span></li><li><img src="https://flagcdn.com/48x36/lv.png" alt="" loading="lazy"><span><b>Latvija</b><i>Riga</i></span></li></ul>
   <p class="fm-sst" data-i18n="f2.e6.am"></p>
@@ -938,7 +938,7 @@ body.fm-bloque{overflow:hidden}
     <div class="pied__bas">
       <span>© 2026 O.R. World Association</span>
       <span data-i18n="f.heberge"></span>
-      <span class="version">version : DANCE-010</span>
+      <span class="version">version : DANCE-011</span>
     </div>
   </div>
 </footer>
@@ -1902,7 +1902,7 @@ if(doux)dessiner(0,16);else requestAnimationFrame(boucle);
     europe:    [ -10,  28,  38, 63],
     ameriques: [-126, -66,  24, 50]
   };
-  var zone = ZONES.monde.slice(), zoneNom = "monde", CAD = null;
+  var zone = ZONES.europe.slice(), zoneNom = "europe", CAD = null;
   var GEO = null, GEO50 = null, charge50 = false, enCours = false;
   var fond = null, anim = 0, bouge = false;
 
@@ -2115,6 +2115,7 @@ if(doux)dessiner(0,16);else requestAnimationFrame(boucle);
           GEO = topojson.feature(topo, topo.objects.countries);
           if(msg) msg.hidden = true;
           bouge = !window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+          if(zoneNom !== "monde") charger50();
           dessinerCarte(true);
           if(bouge) anim = requestAnimationFrame(boucleCarte);
         })
