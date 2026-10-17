@@ -11,10 +11,11 @@
 
 -- ============================================================
 --  1. LE VOTE DES CHANSONS
---     Trois choix par personne, pas un de plus.
+--     Trois choix par personne. Table separee de asso_votes,
+--     qui sert deja aux votes des projets de l'association., pas un de plus.
 -- ============================================================
 
-create table if not exists public.asso_votes (
+create table if not exists public.asso_votes_chansons (
   id       uuid primary key default gen_random_uuid(),
   user_id  uuid not null references auth.users(id) on delete cascade,
   chanson  text not null,
@@ -22,53 +23,53 @@ create table if not exists public.asso_votes (
   unique (user_id, chanson)
 );
 
-create index if not exists asso_votes_chanson_idx on public.asso_votes (chanson);
+create index if not exists asso_votes_chansons_idx on public.asso_votes_chansons (chanson);
 
 -- la limite de trois choix, tenue par la base elle meme
-create or replace function public.asso_votes_trois_max()
+create or replace function public.asso_votes_chansons_trois_max()
 returns trigger language plpgsql as $$
 begin
-  if (select count(*) from public.asso_votes where user_id = new.user_id) >= 3 then
+  if (select count(*) from public.asso_votes_chansons where user_id = new.user_id) >= 3 then
     raise exception 'Trois chansons au maximum.';
   end if;
   return new;
 end $$;
 
-drop trigger if exists asso_votes_trois_max_trg on public.asso_votes;
-create trigger asso_votes_trois_max_trg
-  before insert on public.asso_votes
-  for each row execute function public.asso_votes_trois_max();
+drop trigger if exists asso_votes_chansons_trois_max_trg on public.asso_votes_chansons;
+create trigger asso_votes_chansons_trois_max_trg
+  before insert on public.asso_votes_chansons
+  for each row execute function public.asso_votes_chansons_trois_max();
 
-alter table public.asso_votes enable row level security;
+alter table public.asso_votes_chansons enable row level security;
 
-drop policy if exists "un fan lit ses votes" on public.asso_votes;
+drop policy if exists "un fan lit ses votes" on public.asso_votes_chansons;
 create policy "un fan lit ses votes"
-  on public.asso_votes for select
+  on public.asso_votes_chansons for select
   using (auth.uid() = user_id);
 
-drop policy if exists "un fan vote" on public.asso_votes;
+drop policy if exists "un fan vote" on public.asso_votes_chansons;
 create policy "un fan vote"
-  on public.asso_votes for insert
+  on public.asso_votes_chansons for insert
   with check (auth.uid() = user_id);
 
-drop policy if exists "un fan retire son vote" on public.asso_votes;
+drop policy if exists "un fan retire son vote" on public.asso_votes_chansons;
 create policy "un fan retire son vote"
-  on public.asso_votes for delete
+  on public.asso_votes_chansons for delete
   using (auth.uid() = user_id);
 
-drop policy if exists "la moderatrice voit les votes" on public.asso_votes;
+drop policy if exists "la moderatrice voit les votes" on public.asso_votes_chansons;
 create policy "la moderatrice voit les votes"
-  on public.asso_votes for all
+  on public.asso_votes_chansons for all
   using ((auth.jwt() ->> 'email') = 'elisabeth.sikora@orange.fr')
   with check ((auth.jwt() ->> 'email') = 'elisabeth.sikora@orange.fr');
 
 -- les totaux, visibles de tous, sans jamais dire qui a vote quoi
-create or replace view public.asso_votes_totaux as
+create or replace view public.asso_votes_chansons_totaux as
   select chanson, count(*)::int as total
-  from public.asso_votes
+  from public.asso_votes_chansons
   group by chanson;
 
-grant select on public.asso_votes_totaux to anon, authenticated;
+grant select on public.asso_votes_chansons_totaux to anon, authenticated;
 
 
 -- ============================================================
@@ -142,5 +143,5 @@ grant select on public.asso_videos_publiques to anon, authenticated;
 --  update public.asso_videos set statut = 'refuse' where id = '...';
 --
 --  Pour suivre le vote :
---  select * from public.asso_votes_totaux order by total desc;
+--  select * from public.asso_votes_chansons_totaux order by total desc;
 -- ============================================================
