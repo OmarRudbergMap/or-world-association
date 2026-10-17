@@ -965,9 +965,9 @@ const TEXTES={"fr": {"m.titre": "Devenir membre", "m.sous": "Rejoignez la commun
     l=window.innerWidth;h=window.innerHeight;
     c.width=l*d;c.height=h*d;g.setTransform(d,0,0,d,0,0);
     bulles=[];
-    const n=Math.min(90,Math.round(l*h/16000));
+    const n=Math.min(150,Math.round(l*h/11000));
     for(let i=0;i<n;i++){
-      bulles.push({x:Math.random()*l,y:Math.random()*h,r:.6+Math.random()*2.4,
+      bulles.push({x:Math.random()*l,y:Math.random()*h,r:1.1+Math.random()*3.2,
         v:6+Math.random()*22,ph:Math.random()*6.3,
         c:["103,232,249","167,139,250","232,121,249","210,225,255"][Math.floor(Math.random()*4)]});
     }
@@ -980,7 +980,7 @@ const TEXTES={"fr": {"m.titre": "Devenir membre", "m.sous": "Rejoignez la commun
     bulles.forEach(function(b){
       b.y-=b.v*dt*.001;
       if(b.y<-10){b.y=h+10;b.x=Math.random()*l;}
-      const a=.18+.4*(0.5+0.5*Math.sin(ts*.0012+b.ph));
+      const a=.3+.5*(0.5+0.5*Math.sin(ts*.0012+b.ph));
       g.fillStyle="rgba("+b.c+","+a.toFixed(2)+")";
       g.beginPath();g.arc(b.x+Math.sin(ts*.0004+b.ph)*12,b.y,b.r,0,6.3);g.fill();
     });
