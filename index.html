@@ -866,7 +866,10 @@ function projette(lat,lon,cx,cy,R,rotation){
 }
 
 function terre(t){
-  const cy=H*1.11, R=H*.44;
+  /* sur telephone, la Terre prend exactement la meme taille que sur
+     les autres onglets ; sur ordinateur, la scene reste inchangee */
+  const petit = L < 860;
+  const cy = H*(petit ? 1.16 : 1.11), R = H*(petit ? .62 : .44);
   const rotation=-12+t*.0022;   // on démarre sur l'Europe
 
   // halo
