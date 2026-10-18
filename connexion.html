@@ -1383,17 +1383,24 @@ const CONTINENTS=[[[143.2,-12.0],[143.5,-13.1],[143.8,-14.3],[144.9,-14.7],[145.
 
     // la fiche membre, créée si la session est déjà ouverte
     if(data.user && data.session){
-      await db.from("asso_membres").insert({
-        id: data.user.id, prenom: prenom, nom: nom, mineur: mineur, rgpd: true, reglement: true
+      await db.from("asso_membres").upsert({
+        id: data.user.id, email: email.toLowerCase(), prenom: prenom, nom: nom,
+        mineur: mineur, rgpd: true, reglement: true
       });
     }
 
     b.disabled = false; b.textContent = "Créer mon compte";
     document.getElementById("f-titre").textContent = "Votre compte est créé";
-    document.getElementById("f-texte").innerHTML =
-      "Un message vient de partir vers <b>" + email + "</b>. Ouvrez-le et cliquez sur le lien " +
-      "pour confirmer votre adresse, puis revenez vous connecter.<br><br>" +
-      "Pensez à regarder dans vos courriers indésirables : les premiers messages y atterrissent souvent.";
+    if(data.session){
+      // la confirmation par e-mail n'est pas demandée : la personne est déjà connectée
+      document.getElementById("f-texte").innerHTML =
+        "Bienvenue <b>" + prenom + "</b> ! Vous êtes connecté, votre espace membre vous attend.";
+    } else {
+      document.getElementById("f-texte").innerHTML =
+        "Un message vient de partir vers <b>" + email + "</b>. Ouvrez-le et cliquez sur le lien " +
+        "pour confirmer votre adresse, puis revenez vous connecter.<br><br>" +
+        "Pensez à regarder dans vos courriers indésirables : les premiers messages y atterrissent souvent.";
+    }
     montrer("fait");
   });
 

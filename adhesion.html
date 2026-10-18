@@ -612,7 +612,7 @@ h2.titre2{font-family:var(--titre);font-size:clamp(1.8rem,3.4vw,2.8rem);margin:0
     <!-- 1 : compte -->
     <div class="panneau visible" data-panneau="1">
       <div class="grille2">
-        <label class="champ"><span data-i18n="ad.c4"></span><input required type="email" placeholder="prenom@email.com"></label>
+        <label class="champ"><span data-i18n="ad.c4"></span><input required type="email" id="f-email" autocomplete="email" placeholder="prenom@email.com"></label>
         <div class="champ">
           <span data-i18n="z014">Mot de passe *</span>
           <div class="secret">
@@ -644,13 +644,13 @@ h2.titre2{font-family:var(--titre);font-size:clamp(1.8rem,3.4vw,2.8rem);margin:0
     <!-- 2 : identité -->
     <div class="panneau" data-panneau="2">
       <div class="grille2">
-        <label class="champ"><span data-i18n="ad.c2"></span><input required type="text"></label>
-        <label class="champ"><span data-i18n="ad.c1"></span><input required type="text"></label>
-        <label class="champ"><span data-i18n="ad.c3"></span><input required type="date"></label>
+        <label class="champ"><span data-i18n="ad.c2"></span><input required type="text" id="f-nom" autocomplete="family-name"></label>
+        <label class="champ"><span data-i18n="ad.c1"></span><input required type="text" id="f-prenom" autocomplete="given-name"></label>
+        <label class="champ"><span data-i18n="ad.c3"></span><input required type="date" id="f-naissance"></label>
         <div class="champ">
           <span>Téléphone *</span>
           <div class="tel">
-            <select required aria-label="Indicatif du pays">
+            <select required id="f-indicatif" aria-label="Indicatif du pays">
               <option value="">Indicatif *</option>
               <option value="+33">🇫🇷 France +33</option>
               <option value="+32">🇧🇪 Belgique +32</option>
@@ -686,7 +686,7 @@ h2.titre2{font-family:var(--titre);font-size:clamp(1.8rem,3.4vw,2.8rem);margin:0
               <option value="+213" data-i18n="z026">🇩🇿 Algérie +213</option>
               <option value="autre">Autre indicatif</option>
             </select>
-            <input type="tel" required placeholder="6 00 00 00 00" inputmode="tel">
+            <input type="tel" required id="f-telephone" placeholder="6 00 00 00 00" inputmode="tel">
           </div>
           <small class="aide">Indiquez l'indicatif de votre pays, puis votre numéro sans le premier zéro.</small>
         </div>
@@ -697,43 +697,39 @@ h2.titre2{font-family:var(--titre);font-size:clamp(1.8rem,3.4vw,2.8rem);margin:0
       <div class="grille2">
         <div class="champ">
           <span data-i18n="ad.c10"></span>
-          <input required type="text" list="liste-pays" placeholder="Tapez la première lettre…" autocomplete="country-name">
+          <input required type="text" id="f-pays" list="liste-pays" placeholder="Tapez la première lettre…" autocomplete="country-name">
           <datalist id="liste-pays"><option value="Afrique du Sud"></option><option value="Allemagne"></option><option value="Argentine"></option><option value="Australie"></option><option value="Autriche"></option><option value="Belgique"></option><option value="Brésil"></option><option value="Bulgarie"></option><option value="Canada"></option><option value="Chili"></option><option value="Chypre"></option><option value="Colombie"></option><option value="Corée du Sud"></option><option value="Costa Rica"></option><option value="Croatie"></option><option value="Danemark"></option><option value="Équateur"></option><option value="Espagne"></option><option value="Estonie"></option><option value="États-Unis"></option><option value="Finlande"></option><option value="France"></option><option value="Grèce"></option><option value="Hongrie"></option><option value="Irlande"></option><option value="Islande"></option><option value="Israël"></option><option value="Italie"></option><option value="Japon"></option><option value="Lettonie"></option><option value="Lituanie"></option><option value="Luxembourg"></option><option value="Malte"></option><option value="Maroc"></option><option value="Mexique"></option><option value="Norvège"></option><option value="Nouvelle-Zélande"></option><option value="Pays-Bas"></option><option value="Pérou"></option><option value="Philippines"></option><option value="Pologne"></option><option value="Portugal"></option><option value="République tchèque"></option><option value="Roumanie"></option><option value="Royaume-Uni"></option><option value="Slovaquie"></option><option value="Slovénie"></option><option value="Suède"></option><option value="Suisse"></option><option value="Thaïlande"></option><option value="Tunisie"></option><option value="Turquie"></option><option value="Uruguay"></option><option value="Venezuela"></option><option value="Autre pays"></option></datalist>
           <small class="aide">Commencez à taper, la liste s'affiche toute seule.</small>
         </div>
-        <label class="champ"><span data-i18n="ad.c9"></span><input required type="text"></label>
+        <label class="champ"><span data-i18n="ad.c9"></span><input required type="text" id="f-ville" autocomplete="address-level2"></label>
       </div>
-      <label class="champ"><span data-i18n="ad.c6"></span><input required type="text"></label>
+      <label class="champ"><span data-i18n="ad.c6"></span><input required type="text" id="f-adresse" autocomplete="address-line1"></label>
       <div class="grille2">
-        <label class="champ"><span>Adresse – ligne 2</span><input type="text"></label>
-        <label class="champ"><span data-i18n="ad.c8"></span><input required type="text"></label>
+        <label class="champ"><span>Adresse – ligne 2</span><input type="text" id="f-adresse2" autocomplete="address-line2"></label>
+        <label class="champ"><span data-i18n="ad.c8"></span><input required type="text" id="f-cp" autocomplete="postal-code"></label>
       </div>
 
       <p class="chapeau" style="margin-top:1.4rem">RÉSEAUX SOCIAUX</p>
       <div class="grille2">
         <div class="champ">
           <span>Instagram * — nécessaire pour participer aux jeux concours</span>
-          <div class="pseudo"><i>instagram.com/</i><input required type="text" data-reseau="https://instagram.com/" placeholder="votrecompte"></div>
+          <div class="pseudo"><i>instagram.com/</i><input required type="text" id="f-instagram" data-reseau="https://instagram.com/" placeholder="votrecompte"></div>
         </div>
         <div class="champ">
           <span data-i18n="ad.c12"></span>
-          <div class="pseudo"><i>tiktok.com/@</i><input type="text" data-reseau="https://tiktok.com/@" placeholder="votrecompte"></div>
+          <div class="pseudo"><i>tiktok.com/@</i><input type="text" id="f-tiktok" data-reseau="https://tiktok.com/@" placeholder="votrecompte"></div>
         </div>
         <div class="champ">
           <span>X</span>
-          <div class="pseudo"><i>x.com/</i><input type="text" data-reseau="https://x.com/" placeholder="votrecompte"></div>
+          <div class="pseudo"><i>x.com/</i><input type="text" id="f-x" data-reseau="https://x.com/" placeholder="votrecompte"></div>
         </div>
         <div class="champ">
           <span>Facebook</span>
-          <div class="pseudo"><i>facebook.com/</i><input type="text" data-reseau="https://facebook.com/" placeholder="votrecompte"></div>
+          <div class="pseudo"><i>facebook.com/</i><input type="text" id="f-facebook" data-reseau="https://facebook.com/" placeholder="votrecompte"></div>
         </div>
         <small class="aide">Écrivez seulement le nom de votre compte : l'adresse complète est ajoutée automatiquement.</small>
       </div>
 
-      <p class="alerte">Merci de remplir tous les champs marqués d'une étoile avant de continuer.</p>
-      <p class="alerte">Merci de remplir tous les champs marqués d'une étoile avant de continuer.</p>
-      <p class="alerte">Merci de remplir tous les champs marqués d'une étoile avant de continuer.</p>
-      <p class="alerte">Merci de remplir tous les champs marqués d'une étoile avant de continuer.</p>
       <p class="alerte">Merci de remplir tous les champs marqués d'une étoile avant de continuer.</p>
       <div class="barre-boutons">
         <button class="btn btn--fin" data-precedent>Retour</button>
@@ -753,14 +749,14 @@ h2.titre2{font-family:var(--titre);font-size:clamp(1.8rem,3.4vw,2.8rem);margin:0
         <p class="chapeau">AUTORISATION PARENTALE — OBLIGATOIRE</p>
         <p class="mention">Téléchargez le document « Autorisation parentale », faites-le remplir et signer par votre parent ou responsable légal, puis importez-le ici. Aucune inscription ne sera validée sans ce document.</p>
         <div class="grille2">
-          <label class="champ"><span>Nom du parent ou responsable légal *</span><input required type="text"></label>
-          <label class="champ"><span>E-mail du parent *</span><input required type="email"></label>
+          <label class="champ"><span>Nom du parent ou responsable légal *</span><input required type="text" id="f-parent-nom"></label>
+          <label class="champ"><span>E-mail du parent *</span><input required type="email" id="f-parent-email"></label>
         </div>
         <div class="barre-boutons" style="margin-bottom:1rem">
           <a class="btn btn--fin" href="autorisation-parentale-fr.pdf" target="_blank" rel="noopener">Télécharger l'autorisation parentale</a>
         </div>
         <label class="depot">
-          <input type="file" data-doc accept=".pdf,.jpg,.jpeg,.png">
+          <input type="file" id="f-doc-parent" required data-doc accept=".pdf,.jpg,.jpeg,.png">
           <b>Importer l'autorisation parentale signée</b>
           <span>PDF, JPG ou PNG · 10 Mo maximum</span>
         </label>
@@ -769,28 +765,24 @@ h2.titre2{font-family:var(--titre);font-size:clamp(1.8rem,3.4vw,2.8rem);margin:0
       <p class="chapeau" style="margin-top:1.6rem">DROIT À L'IMAGE</p>
       <p class="mention">J'autorise la diffusion de mon image dans le cadre des activités de l'association.</p>
       <div class="choix-ligne">
-        <label class="puce"><input type="radio" name="image" checked><span>J'autorise</span></label>
-        <label class="puce"><input type="radio" name="image"><span>Je n'autorise pas</span></label>
+        <label class="puce"><input type="radio" name="image" id="f-image-oui" value="oui" checked><span>J'autorise</span></label>
+        <label class="puce"><input type="radio" name="image" value="non"><span>Je n'autorise pas</span></label>
       </div>
       <p class="mention">Téléchargez le document « Autorisation de captation et d'utilisation commerciale de l'image », complétez-le, puis importez-le ici.</p>
       <div class="barre-boutons" style="margin-bottom:1rem">
         <a class="btn btn--fin" href="autorisation-image-fr.pdf" target="_blank" rel="noopener">Télécharger l'autorisation de droit à l'image</a>
       </div>
       <label class="depot">
-        <input type="file" data-doc accept=".pdf,.jpg,.jpeg,.png">
+        <input type="file" id="f-doc-image" data-doc accept=".pdf,.jpg,.jpeg,.png">
         <b>Importer l'autorisation de droit à l'image signée</b>
         <span>PDF, JPG ou PNG · 10 Mo maximum</span>
       </label>
 
       <p class="chapeau" style="margin-top:1.6rem">ENGAGEMENTS</p>
-      <label class="case"><input type="checkbox" required><span><b>Protection des données *</b> — J'accepte que mes informations soient utilisées uniquement dans le cadre du fonctionnement de l'association, conformément au RGPD.</span></label>
-      <label class="case"><input type="checkbox" required><span><b>Règlement intérieur *</b> — Je certifie avoir lu et approuvé le <a href="reglement-interieur-fr.pdf" target="_blank" rel="noopener" style="color:var(--cyan)">règlement intérieur</a> de l'association.</span></label>
-      <label class="case"><input type="checkbox" required><span><b>Statuts et conditions *</b> — J'accepte les <a href="statuts-fr.pdf" target="_blank" rel="noopener" style="color:var(--cyan)">statuts</a>, les <a href="conditions.html" style="color:var(--cyan)">conditions d'adhésion</a> et la <a href="confidentialite.html" style="color:var(--cyan)">politique de confidentialité</a>.</span></label>
+      <label class="case"><input type="checkbox" required id="f-rgpd"><span><b>Protection des données *</b> — J'accepte que mes informations soient utilisées uniquement dans le cadre du fonctionnement de l'association, conformément au RGPD.</span></label>
+      <label class="case"><input type="checkbox" required id="f-reglement"><span><b>Règlement intérieur *</b> — Je certifie avoir lu et approuvé le <a href="reglement-interieur-fr.pdf" target="_blank" rel="noopener" style="color:var(--cyan)">règlement intérieur</a> de l'association.</span></label>
+      <label class="case"><input type="checkbox" required id="f-statuts"><span><b>Statuts et conditions *</b> — J'accepte les <a href="statuts-fr.pdf" target="_blank" rel="noopener" style="color:var(--cyan)">statuts</a>, les <a href="conditions.html" style="color:var(--cyan)">conditions d'adhésion</a> et la <a href="confidentialite.html" style="color:var(--cyan)">politique de confidentialité</a>.</span></label>
 
-      <p class="alerte">Merci de remplir tous les champs marqués d'une étoile avant de continuer.</p>
-      <p class="alerte">Merci de remplir tous les champs marqués d'une étoile avant de continuer.</p>
-      <p class="alerte">Merci de remplir tous les champs marqués d'une étoile avant de continuer.</p>
-      <p class="alerte">Merci de remplir tous les champs marqués d'une étoile avant de continuer.</p>
       <p class="alerte">Merci de remplir tous les champs marqués d'une étoile avant de continuer.</p>
       <div class="barre-boutons">
         <button class="btn btn--fin" data-precedent>Retour</button>
@@ -876,7 +868,7 @@ h2.titre2{font-family:var(--titre);font-size:clamp(1.8rem,3.4vw,2.8rem);margin:0
           </div>
         </div>
       </div>
-      <label class="champ"><span>Autre compétence</span><input type="text"></label>
+      <label class="champ"><span>Autre compétence</span><input type="text" id="f-autre-comp"></label>
 
       <p class="chapeau" style="margin-top:1.6rem">LES ACTIVITÉS QUI VOUS TENTENT</p>
       <p class="mention" style="margin-bottom:1rem">Même principe : Oui, Peut-être ou Non pour chaque activité.</p>
@@ -946,12 +938,8 @@ h2.titre2{font-family:var(--titre);font-size:clamp(1.8rem,3.4vw,2.8rem);margin:0
           </div>
         </div>
       </div>
-      <label class="champ"><span>Autre activité</span><input type="text"></label>
+      <label class="champ"><span>Autre activité</span><input type="text" id="f-autre-act"></label>
 
-      <p class="alerte">Merci de remplir tous les champs marqués d'une étoile avant de continuer.</p>
-      <p class="alerte">Merci de remplir tous les champs marqués d'une étoile avant de continuer.</p>
-      <p class="alerte">Merci de remplir tous les champs marqués d'une étoile avant de continuer.</p>
-      <p class="alerte">Merci de remplir tous les champs marqués d'une étoile avant de continuer.</p>
       <p class="alerte">Merci de remplir tous les champs marqués d'une étoile avant de continuer.</p>
       <div class="barre-boutons">
         <button class="btn btn--fin" data-precedent>Retour</button>
@@ -998,7 +986,6 @@ h2.titre2{font-family:var(--titre);font-size:clamp(1.8rem,3.4vw,2.8rem);margin:0
           <p class="intro2" data-i18n="p.bienv"></p>
           <div class="barre-boutons">
             <a class="btn" href="connexion.html?retour=espace.html">Aller dans mon espace</a>
-            <a class="btn btn--fin" href="#">Télécharger mon reçu</a>
           </div>
         </div>
 
@@ -1008,23 +995,20 @@ h2.titre2{font-family:var(--titre);font-size:clamp(1.8rem,3.4vw,2.8rem);margin:0
               <canvas id="carte-scene" aria-hidden="true"></canvas>
               <div class="marque2">O.R. WORLD ASSOCIATION</div>
               <div>
-                <p class="nom-membre">ELISABETH MARTIN</p>
-                <p class="info-membre"><span class="drapeau">🇫🇷</span> France · née le 12 · 04 · 1978</p>
-                <p class="num" style="margin:.3rem 0 0">N° 0001</p>
+                <p class="nom-membre" id="b-nom"></p>
+                <p class="info-membre" id="b-info"></p>
+                <p class="num" id="b-numero" style="margin:.3rem 0 0"></p>
               </div>
               <div class="pied2">
-                <span>MEMBRE DEPUIS 2026</span>
-                <span class="badge badge--bronze">BRONZE · 1<sup>re</sup> année</span>
+                <span id="b-depuis"></span>
+                <span class="badge badge--bronze" id="b-badge">BRONZE</span>
               </div>
             </div>
 
             <div class="face verso">
               <p class="chapeau" style="margin-bottom:.8rem">SUIVI DES ADHÉSIONS</p>
-              <ul class="suivi">
-                <li><b>2026</b><span>Adhésion initiale · 18 septembre 2026</span><i class="actif">En cours</i></li>
-                <li><b>2027</b><span>Renouvellement à venir</span><i>Le 1er janvier</i></li>
-              </ul>
-              <p class="valide">Valable jusqu'au 31 décembre 2026</p>
+              <ul class="suivi" id="b-suivi"></ul>
+              <p class="valide" id="b-valide"></p>
               <div class="qr" aria-hidden="true"></div>
               <p class="mention" style="margin:.6rem 0 0">Carte personnelle et non cessible. Le code permet de vérifier l'adhésion lors des événements.</p>
             </div>
@@ -1037,8 +1021,7 @@ h2.titre2{font-family:var(--titre);font-size:clamp(1.8rem,3.4vw,2.8rem);margin:0
       </div>
     </div>
 
-    <p class="mention demo" data-i18n="z027">Démonstration : aucun paiement réel n'est effectué et aucune donnée n'est enregistrée pour l'instant.</p>
-  </div>
+      </div>
 </section>
 </div>
 
@@ -1340,7 +1323,7 @@ const CONTINENTS=[[[143.2,-12.0],[143.5,-13.1],[143.8,-14.3],[144.9,-14.7],[145.
     window.scrollTo({top:c.getBoundingClientRect().top+window.scrollY-110,behavior:"smooth"});
     setTimeout(function(){window.dispatchEvent(new Event("resize"));},60);
   }
-  const MODE_DEMO=true;   // passera à false quand le site sera relié à Supabase
+  const MODE_DEMO=false;  // le site est relié à la base
   function verifie(){
     if(MODE_DEMO){
       const p=document.querySelector('.panneau[data-panneau="'+n+'"]');
@@ -1393,7 +1376,14 @@ const CONTINENTS=[[[143.2,-12.0],[143.5,-13.1],[143.8,-14.3],[144.9,-14.7],[145.
     return ok;
   }
   document.querySelectorAll("[data-suivant]").forEach(function(b){
-    b.addEventListener("click",function(){ if(verifie()) montre(n+1); });
+    b.addEventListener("click",async function(){
+      if(!verifie()) return;
+      if(window.ORW_ENREGISTRE){
+        const ok = await window.ORW_ENREGISTRE(n, b);
+        if(!ok) return;
+      }
+      montre(n+1);
+    });
   });
   document.querySelectorAll("[data-precedent]").forEach(function(b){b.addEventListener("click",function(){montre(n-1);});});
 
@@ -1471,6 +1461,300 @@ const CONTINENTS=[[[143.2,-12.0],[143.5,-13.1],[143.8,-14.3],[144.9,-14.7],[145.
   var bloc = document.getElementById("bloc-don");
   var lien = document.getElementById("lien-don");
   if(LIEN_DON && bloc && lien){ lien.href = LIEN_DON; bloc.hidden = false; }
+})();
+</script>
+
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<script src="config.js"></script>
+<script>
+/* =====================================================================
+   L'ADHESION S'ENREGISTRE VRAIMENT
+   ---------------------------------------------------------------------
+   Panneau 1 : on cree le compte.
+   Panneaux 2, 3 et 4 : on envoie la fiche complete a chaque fois, donc
+   une personne qui s'arrete en route laisse quand meme une trace.
+   Panneau 3 : les documents signes partent dans le dossier prive.
+   Panneau 5 : le lien Stripe emporte l'adresse pour que le paiement
+   retrouve la bonne personne.
+   ===================================================================== */
+(function(){
+  "use strict";
+
+  var LIEN_ADHESION = "https://buy.stripe.com/28E7sE9LQd6tcRD7EFbMQ00";
+
+  var etat = { id:null, email:null, session:false, envoyes:{} };
+
+  function el(id){ return document.getElementById(id); }
+  function v(id){ var e = el(id); return e ? String(e.value || "").trim() : ""; }
+  function coche(id){ var e = el(id); return !!(e && e.checked); }
+  function radio(nom){
+    var e = document.querySelector('input[name="' + nom + '"]:checked');
+    return e ? e.value : null;
+  }
+  function langue(){
+    return (document.documentElement.getAttribute("lang") || "fr").slice(0,2);
+  }
+
+  /* le message rouge en bas du panneau */
+  function dis(texte){
+    var p = document.querySelector('.panneau.visible .alerte');
+    if(!p) return;
+    p.textContent = texte;
+    p.classList.toggle("visible", !!texte);
+    if(texte) window.scrollTo({ top: p.getBoundingClientRect().top + window.scrollY - 160,
+                                behavior:"smooth" });
+  }
+  function patiente(b, oui){
+    if(!b) return;
+    if(oui){ b.dataset.texte = b.textContent; b.textContent = "Un instant…"; b.disabled = true; }
+    else   { b.disabled = false; if(b.dataset.texte) b.textContent = b.dataset.texte; }
+  }
+
+  /* ------------------------------------------------------------------
+     Ce qu'on envoie a la base
+     ------------------------------------------------------------------ */
+  function fiche(){
+    return {
+      prenom: v("f-prenom"), nom: v("f-nom"),
+      pays: v("f-pays"), langue: langue(),
+      date_naissance: v("f-naissance"),
+      indicatif: v("f-indicatif"), telephone: v("f-telephone"),
+      adresse: v("f-adresse"), adresse2: v("f-adresse2"),
+      ville: v("f-ville"), code_postal: v("f-cp"),
+      instagram: v("f-instagram"), tiktok: v("f-tiktok"),
+      x: v("f-x"), facebook: v("f-facebook"),
+      mineur: radio("mineur") === "oui",
+      parent_nom: v("f-parent-nom"), parent_email: v("f-parent-email"),
+      droit_image: radio("image") !== "non",
+      rgpd: coche("f-rgpd"), reglement: coche("f-reglement"), statuts: coche("f-statuts")
+    };
+  }
+
+  var COMP = ["chanter","danser","dessiner","graphisme","photo",
+              "video","instrument","ecrire","couture"];
+  var ACT  = ["act_shooting","act_concerts","act_logistique","act_stands",
+              "act_ateliers","act_organisation","act_accueil","act_communication"];
+
+  function benevolat(){
+    var b = { autre_competence: v("f-autre-comp"), autre_activite: v("f-autre-act") };
+    var engage = false;
+    COMP.forEach(function(nom, i){
+      b[nom] = radio("comp" + i) || "non";
+      if(b[nom] !== "non") engage = true;
+    });
+    ACT.forEach(function(nom, i){
+      b[nom] = radio("act" + i) || "non";
+      if(b[nom] !== "non") engage = true;
+    });
+    if(b.autre_competence || b.autre_activite) engage = true;
+    b.benevole = engage;
+    return b;
+  }
+
+  /* ------------------------------------------------------------------
+     Panneau 1 : le compte
+     ------------------------------------------------------------------ */
+  async function creeLeCompte(){
+    var email = v("f-email").toLowerCase();
+    var mdp   = (el("mdp1") || {}).value || "";
+
+    if(etat.id && etat.email === email) return true;   // deja fait
+
+    if(mdp.length < 8){
+      dis("Votre mot de passe doit faire au moins 8 caractères.");
+      return false;
+    }
+
+    var r = await db.auth.signUp({ email: email, password: mdp });
+
+    /* l'adresse est deja prise : Supabase renvoie un compte sans identite */
+    var dejaPris = !r.error && r.data && r.data.user &&
+                   Array.isArray(r.data.user.identities) &&
+                   r.data.user.identities.length === 0;
+
+    if((r.error && /already|registered|exist/i.test(r.error.message)) || dejaPris){
+      var s = await db.auth.signInWithPassword({ email: email, password: mdp });
+      if(s.error || !s.data.session){
+        dis("Cette adresse a déjà un compte. Utilisez le lien « J'ai déjà un compte », " +
+            "ou saisissez le mot de passe de ce compte.");
+        return false;
+      }
+      etat.id = s.data.user.id; etat.session = true; etat.email = email;
+      return true;
+    }
+
+    if(r.error){ dis(r.error.message); return false; }
+
+    etat.id      = r.data.user ? r.data.user.id : null;
+    etat.session = !!r.data.session;
+    etat.email   = email;
+
+    /* si la confirmation par e-mail est demandee, signUp n'ouvre pas de
+       session : on tente quand meme, au cas ou elle serait desactivee */
+    if(!etat.session){
+      var s2 = await db.auth.signInWithPassword({ email: email, password: mdp });
+      if(!s2.error && s2.data.session){ etat.session = true; etat.id = s2.data.user.id; }
+    }
+
+    if(!etat.id){
+      dis("Le compte n'a pas pu être créé. Réessayez dans un instant.");
+      return false;
+    }
+    return true;
+  }
+
+  /* ------------------------------------------------------------------
+     Panneaux 2, 3 et 4 : la fiche
+     ------------------------------------------------------------------ */
+  async function enregistreLaFiche(){
+    if(!etat.id) return true;          // rien a rattacher, on laisse passer
+    var r = await db.rpc("asso_inscription", {
+      p_id: etat.id, p_email: etat.email,
+      p_fiche: fiche(), p_benevolat: benevolat()
+    });
+    if(r.error){
+      console.warn("inscription :", r.error);
+      dis("Vos réponses n'ont pas pu être enregistrées : " + r.error.message);
+      return false;
+    }
+    return true;
+  }
+
+  /* ------------------------------------------------------------------
+     Panneau 3 : les documents signes
+     ------------------------------------------------------------------ */
+  async function envoieLesDocuments(){
+    if(!etat.id || !etat.session) return true;   // sans session, on verra plus tard
+    var aFaire = [ { champ:"f-doc-parent", type:"autorisation-parentale" },
+                   { champ:"f-doc-image",  type:"droit-image" } ];
+    for(var i = 0; i < aFaire.length; i++){
+      var d = aFaire[i];
+      var c = el(d.champ);
+      if(!c || !c.files || !c.files.length) continue;
+      var f = c.files[0];
+      if(etat.envoyes[d.type] === f.name + f.size) continue;
+      var ext = (f.name.split(".").pop() || "pdf").toLowerCase();
+      var chemin = etat.id + "/" + d.type + "-" + Date.now() + "." + ext;
+      var up = await db.storage.from("documents").upload(chemin, f, { upsert:false });
+      if(up.error){
+        dis("Le document n'a pas pu être envoyé : " + up.error.message);
+        return false;
+      }
+      await db.from("asso_documents").insert({ membre: etat.id, type: d.type, fichier: chemin });
+      etat.envoyes[d.type] = f.name + f.size;
+    }
+    return true;
+  }
+
+  /* ------------------------------------------------------------------
+     Panneau 5 : le lien de paiement emporte l'adresse
+     ------------------------------------------------------------------ */
+  function prepareLePaiement(){
+    var a = document.querySelector('.panneau[data-panneau="5"] a[href*="buy.stripe.com"]');
+    if(!a || !etat.email) return;
+    var u = new URL(LIEN_ADHESION);
+    u.searchParams.set("prefilled_email", etat.email);
+    if(etat.id) u.searchParams.set("client_reference_id", etat.id);
+    a.href = u.toString();
+  }
+
+  /* ------------------------------------------------------------------
+     Panneau 6 : la carte, remplie depuis la base
+     ------------------------------------------------------------------ */
+  function jjmmaaaa(d){
+    if(!d) return "";
+    var p = String(d).split("-");
+    return p.length === 3 ? p[2] + "/" + p[1] + "/" + p[0] : String(d);
+  }
+  function met(id, texte){ var e = el(id); if(e) e.textContent = texte; }
+
+  async function remplitLaCarte(){
+    var f = fiche();
+    var nomComplet = (f.prenom + " " + f.nom).trim();
+    met("b-nom", nomComplet.toUpperCase());
+    met("b-info", [f.pays, f.date_naissance ? "né(e) le " + jjmmaaaa(f.date_naissance) : ""]
+                    .filter(Boolean).join("  ·  "));
+
+    if(!etat.id) return;
+
+    var num = null, liste = [];
+    try{
+      var m = await db.from("asso_membres").select("numero").eq("id", etat.id).single();
+      if(m.data) num = m.data.numero;
+      var a = await db.from("asso_adhesions").select("*").eq("membre", etat.id)
+                      .order("date_debut", { ascending:false });
+      if(a.data) liste = a.data;
+    }catch(e){}
+
+    if(!num && liste.length) num = liste[0].numero_membre;
+    met("b-numero", num ? ("N° " + String(num).padStart(4, "0")) : "");
+
+    var jour = new Date().toISOString().slice(0,10);
+    var active = liste.filter(function(x){ return x.date_fin && x.date_fin >= jour; })[0];
+
+    if(active){
+      met("b-depuis", "MEMBRE DEPUIS " + String(active.date_debut || "").slice(0,4));
+      met("b-valide", "Valable jusqu'au " + jjmmaaaa(active.date_fin));
+    } else {
+      met("b-depuis", "ADHÉSION EN COURS");
+      met("b-valide", "Votre paiement est en cours de vérification. La carte se complète " +
+                      "toute seule dans les minutes qui suivent.");
+    }
+
+    var ul = el("b-suivi");
+    if(ul){
+      ul.innerHTML = "";
+      liste.forEach(function(x){
+        var li = document.createElement("li");
+        var b  = document.createElement("b");
+        b.textContent = String(x.date_debut || "").slice(0,4);
+        var sp = document.createElement("span");
+        sp.textContent = jjmmaaaa(x.date_debut) + "  ·  " + jjmmaaaa(x.date_fin) +
+                         (x.numero_recu ? ("  ·  " + x.numero_recu) : "");
+        li.appendChild(b); li.appendChild(sp);
+        if(active && x.id === active.id){
+          var ic = document.createElement("i");
+          ic.className = "actif"; ic.textContent = "En cours";
+          li.appendChild(ic);
+        }
+        ul.appendChild(li);
+      });
+    }
+  }
+
+  /* ------------------------------------------------------------------
+     Appele par le bouton Continuer, avant de changer de panneau
+     ------------------------------------------------------------------ */
+  window.ORW_ENREGISTRE = async function(panneau, bouton){
+    if(!window.db){
+      dis("La connexion à la base n'a pas pu s'établir. Vérifiez votre connexion internet.");
+      return false;
+    }
+    patiente(bouton, true);
+    var ok = true;
+    try{
+      if(panneau === 1){
+        ok = await creeLeCompte();
+      } else if(panneau === 2){
+        ok = await enregistreLaFiche();
+      } else if(panneau === 3){
+        ok = await enregistreLaFiche();
+        if(ok) ok = await envoieLesDocuments();
+      } else if(panneau === 4){
+        ok = await enregistreLaFiche();
+        if(ok) prepareLePaiement();
+      } else if(panneau === 5){
+        await remplitLaCarte();
+      }
+      if(ok) dis("");
+    }catch(e){
+      console.warn("adhésion :", e);
+      dis("Quelque chose s'est mal passé. Réessayez dans un instant.");
+      ok = false;
+    }
+    patiente(bouton, false);
+    return ok;
+  };
 })();
 </script>
 </body>
