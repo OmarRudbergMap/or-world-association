@@ -47,15 +47,25 @@ async function mesAdhesions(){
     .from("asso_adhesions")
     .select("*")
     .eq("membre", compte.id)
-    .order("annee", { ascending:false });
+    .order("date_debut", { ascending:false });
   return data || [];
 }
 
-// Adhésion à jour pour l'année en cours ?
+// Adhésion encore valable aujourd'hui ?
+// Une adhésion court un an à partir du jour du paiement, on regarde donc
+// la date de fin et non l'année civile.
 async function adhesionAJour(){
   const liste = await mesAdhesions();
-  const annee = new Date().getFullYear();
-  return liste.some(function(a){ return a.annee === annee && a.statut === "payee"; });
+  const jour = new Date().toISOString().slice(0,10);
+  return liste.some(function(a){ return a.date_fin && a.date_fin >= jour; });
+}
+
+// L'adhésion en cours, ou null.
+async function adhesionEnCours(){
+  const liste = await mesAdhesions();
+  const jour = new Date().toISOString().slice(0,10);
+  return liste.filter(function(a){ return a.date_fin && a.date_fin >= jour; })
+              .sort(function(x,y){ return x.date_fin < y.date_fin ? 1 : -1; })[0] || null;
 }
 
 // Protéger une page : renvoie vers la connexion si personne n'est connecté.
