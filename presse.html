@@ -838,6 +838,9 @@ h2.titre2{font-family:var(--titre);font-size:clamp(1.8rem,3.4vw,2.8rem);margin:0
       <ul class="langues__liste" id="langue-liste"></ul>
     </div>
     <button class="burger" id="burger" aria-label="Menu" aria-expanded="false"><span></span><span></span><span></span></button>
+    <a class="rond" href="espace.html" aria-label="Mon espace" title="Mon espace">
+      <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="12" cy="8" r="4"/><path d="M4 21a8 8 0 0 1 16 0"/></svg>
+    </a>
     <button class="rond" aria-label="Rechercher">
       <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg>
     </button>
@@ -1584,11 +1587,12 @@ h2.titre2{font-family:var(--titre);font-size:clamp(1.8rem,3.4vw,2.8rem);margin:0
       <h3 data-i18n="pr.tr.t"></h3>
       <p class="mention" data-i18n="z058">Un magazine de votre pays a parlé d'Omar ou de Young Royals ? Envoyez-nous le lien : nous l'ajouterons à l'archive, avec le nom du média et la date.</p>
       <div class="grille2">
-        <label class="champ"><span data-i18n="z059">Média et pays</span><input type="text" placeholder="Vogue Scandinavia, Suède"></label>
-        <label class="champ"><span data-i18n="pr.c2"></span><input type="text" placeholder="12 novembre 2025"></label>
+        <label class="champ"><span data-i18n="z059">Média et pays</span><input type="text" id="a-media" maxlength="160" placeholder="Vogue Scandinavia, Suède"></label>
+        <label class="champ"><span data-i18n="pr.c2"></span><input type="text" id="a-date" maxlength="60" placeholder="12 novembre 2025"></label>
       </div>
-      <label class="champ"><span data-i18n="pr.c3"></span><input type="url" placeholder="https://…"></label>
-      <button class="btn btn--fin">Envoyer</button>
+      <label class="champ"><span data-i18n="pr.c3"></span><input type="url" id="a-lien" maxlength="500" placeholder="https://…"></label>
+      <button class="btn btn--fin" id="a-envoyer">Envoyer</button>
+      <p class="mention" id="a-message" style="margin-top:.8rem"></p>
     </div>
 
     <div class="infolettre">
@@ -2338,6 +2342,80 @@ const CONTINENTS=[[[143.2,-12.0],[143.5,-13.1],[143.8,-14.3],[144.9,-14.7],[145.
   window.ORW_brancheMedia=function(carte, url, indice, titre){
     brancher(carte, url, indice, titre, carte.innerHTML);
   };
+})();
+</script>
+
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<script src="config.js"></script>
+<script>
+/* ===== Vous avez trouve un article ? Le lien part en attente de relecture ===== */
+(function(){
+  "use strict";
+  var MOTS = {
+    fr:{manque:"Merci d'indiquer au moins le média et le lien.",
+        lien:"Le lien doit commencer par https://",
+        souci:"L'envoi n'a pas pu se faire. Réessayez dans un instant.",
+        merci:"Merci ! Nous allons regarder l'article et l'ajouter à l'archive."},
+    en:{manque:"Please give at least the outlet and the link.",
+        lien:"The link must start with https://",
+        souci:"It could not be sent. Please try again in a moment.",
+        merci:"Thank you! We will look at the article and add it to the archive."},
+    es:{manque:"Indica al menos el medio y el enlace.",
+        lien:"El enlace debe empezar por https://",
+        souci:"No se ha podido enviar. Inténtalo de nuevo en un momento.",
+        merci:"¡Gracias! Miraremos el artículo y lo añadiremos al archivo."},
+    sv:{manque:"Ange minst tidningen och länken.",
+        lien:"Länken måste börja med https://",
+        souci:"Det gick inte att skicka. Försök igen om en stund.",
+        merci:"Tack! Vi tittar på artikeln och lägger till den i arkivet."},
+    de:{manque:"Bitte gebt mindestens das Medium und den Link an.",
+        lien:"Der Link muss mit https:// beginnen",
+        souci:"Das Senden hat nicht geklappt. Versucht es gleich noch einmal.",
+        merci:"Danke! Wir schauen uns den Artikel an und nehmen ihn ins Archiv auf."},
+    pt:{manque:"Informe pelo menos o veículo e o link.",
+        lien:"O link deve começar com https://",
+        souci:"Não foi possível enviar. Tente de novo daqui a pouco.",
+        merci:"Obrigada! Vamos ver o artigo e adicioná-lo ao arquivo."}
+  };
+  function langue(){ return (document.documentElement.getAttribute("lang") || "fr").slice(0,2); }
+  function mot(k){ var m = MOTS[langue()] || MOTS.fr; return m[k] || MOTS.fr[k]; }
+  function el(id){ return document.getElementById(id); }
+  function val(id){ var e = el(id); return e ? String(e.value || "").trim() : ""; }
+  function dire(texte, bon){
+    var m = el("a-message");
+    if(!m) return;
+    m.textContent = texte;
+    m.style.color = bon ? "var(--cyan, #67e8f9)" : "var(--rose, #f0a4c8)";
+  }
+
+  var b = el("a-envoyer");
+  if(!b) return;
+  b.addEventListener("click", async function(e){
+    e.preventDefault();
+    if(!window.db){ dire(mot("souci"), false); return; }
+    var media = val("a-media"), date = val("a-date"), lien = val("a-lien");
+    if(!media || !lien){ dire(mot("manque"), false); return; }
+    if(!/^https?:\/\//i.test(lien)){ dire(mot("lien"), false); return; }
+
+    b.disabled = true;
+    var ancien = b.textContent;
+    b.textContent = "…";
+    try{
+      var compte = null;
+      try{ var u = await db.auth.getUser(); compte = u.data ? u.data.user : null; }catch(x){}
+      var r = await db.from("asso_articles").insert({
+        membre: compte ? compte.id : null,
+        media: media, date_parution: date || null, lien: lien,
+        langue: langue(), statut: "en attente"
+      });
+      if(r.error){ console.warn("article :", r.error); dire(mot("souci"), false); }
+      else{
+        dire(mot("merci"), true);
+        el("a-media").value = ""; el("a-date").value = ""; el("a-lien").value = "";
+      }
+    }catch(x){ console.warn("article :", x); dire(mot("souci"), false); }
+    b.disabled = false; b.textContent = ancien;
+  });
 })();
 </script>
 </body>

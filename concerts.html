@@ -648,6 +648,9 @@ h2.titre2{font-family:var(--titre);font-size:clamp(1.8rem,3.4vw,2.8rem);margin:0
       <ul class="langues__liste" id="langue-liste"></ul>
     </div>
     <button class="burger" id="burger" aria-label="Menu" aria-expanded="false"><span></span><span></span><span></span></button>
+    <a class="rond" href="espace.html" aria-label="Mon espace" title="Mon espace">
+      <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="12" cy="8" r="4"/><path d="M4 21a8 8 0 0 1 16 0"/></svg>
+    </a>
     <button class="rond" aria-label="Rechercher">
       <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg>
     </button>
@@ -1062,11 +1065,12 @@ h2.titre2{font-family:var(--titre);font-size:clamp(1.8rem,3.4vw,2.8rem);margin:0
       <h3 data-i18n="cc.vy.t"></h3>
       <p class="mention" data-i18n="cc.vy.p"></p>
       <div class="grille2">
-        <label class="champ"><span data-i18n="cc.c1"></span><input type="text" placeholder="Camille, France"></label>
-        <label class="champ"><span data-i18n="cc.c2"></span><input type="text" placeholder="Paris · 03/11/2025"></label>
+        <label class="champ"><span data-i18n="cc.c1"></span><input type="text" id="r-signature" maxlength="120" placeholder="Camille, France"></label>
+        <label class="champ"><span data-i18n="cc.c2"></span><input type="text" id="r-concert" maxlength="120" placeholder="Paris · 03/11/2025"></label>
       </div>
-      <label class="champ"><span data-i18n="cc.c3"></span><textarea rows="5" placeholder="Ce soir-là…"></textarea></label>
-      <button class="btn btn--fin" data-i18n="cc.c4"></button>
+      <label class="champ"><span data-i18n="cc.c3"></span><textarea rows="5" id="r-recit" maxlength="4000" placeholder="Ce soir-là…"></textarea></label>
+      <button class="btn btn--fin" id="r-envoyer" data-i18n="cc.c4"></button>
+      <p class="mention" id="r-message" style="margin-top:.8rem"></p>
     </div>
 
     <div class="infolettre">
@@ -1947,6 +1951,80 @@ const CONTINENTS=[[[143.2,-12.0],[143.5,-13.1],[143.8,-14.3],[144.9,-14.7],[145.
   window.ORW_brancheMedia=function(carte, url, indice, titre){
     brancher(carte, url, indice, titre, carte.innerHTML);
   };
+})();
+</script>
+
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<script src="config.js"></script>
+<script>
+/* ===== Vous y etiez ? Le recit part dans la base, en attente de relecture ===== */
+(function(){
+  "use strict";
+  var MOTS = {
+    fr:{court:"Votre récit est un peu court : racontez nous au moins quelques lignes.",
+        manque:"Merci de remplir les trois champs.",
+        souci:"Votre récit n'a pas pu partir. Réessayez dans un instant.",
+        merci:"Merci ! Votre récit est bien arrivé. Il sera relu, puis ajouté à la date du concert."},
+    en:{court:"Your story is a little short: tell us at least a few lines.",
+        manque:"Please fill in all three fields.",
+        souci:"Your story could not be sent. Please try again in a moment.",
+        merci:"Thank you! Your story has arrived. It will be read, then added to the concert date."},
+    es:{court:"Tu relato es un poco corto: cuéntanos al menos unas líneas.",
+        manque:"Rellena los tres campos, por favor.",
+        souci:"Tu relato no se ha podido enviar. Inténtalo de nuevo en un momento.",
+        merci:"¡Gracias! Tu relato ha llegado. Lo leeremos y lo añadiremos a la fecha del concierto."},
+    sv:{court:"Din berättelse är lite kort: berätta minst några rader.",
+        manque:"Fyll i alla tre fälten.",
+        souci:"Din berättelse kunde inte skickas. Försök igen om en stund.",
+        merci:"Tack! Din berättelse har kommit fram. Den läses och läggs sedan till konsertdatumet."},
+    de:{court:"Euer Bericht ist etwas kurz: schreibt uns mindestens ein paar Zeilen.",
+        manque:"Bitte füllt alle drei Felder aus.",
+        souci:"Euer Bericht konnte nicht gesendet werden. Versucht es gleich noch einmal.",
+        merci:"Danke! Euer Bericht ist angekommen. Er wird gelesen und dann zum Konzertdatum hinzugefügt."},
+    pt:{court:"Seu relato está um pouco curto: conte pelo menos algumas linhas.",
+        manque:"Preencha os três campos, por favor.",
+        souci:"Seu relato não pôde ser enviado. Tente de novo daqui a pouco.",
+        merci:"Obrigada! Seu relato chegou. Ele será lido e depois adicionado à data do show."}
+  };
+  function langue(){ return (document.documentElement.getAttribute("lang") || "fr").slice(0,2); }
+  function mot(k){ var m = MOTS[langue()] || MOTS.fr; return m[k] || MOTS.fr[k]; }
+  function el(id){ return document.getElementById(id); }
+  function val(id){ var e = el(id); return e ? String(e.value || "").trim() : ""; }
+  function dire(texte, bon){
+    var m = el("r-message");
+    if(!m) return;
+    m.textContent = texte;
+    m.style.color = bon ? "var(--cyan, #67e8f9)" : "var(--rose, #f0a4c8)";
+  }
+
+  var b = el("r-envoyer");
+  if(!b) return;
+  b.addEventListener("click", async function(e){
+    e.preventDefault();
+    if(!window.db){ dire(mot("souci"), false); return; }
+    var signature = val("r-signature"), concert = val("r-concert"), recit = val("r-recit");
+    if(!signature || !concert || !recit){ dire(mot("manque"), false); return; }
+    if(recit.length < 20){ dire(mot("court"), false); return; }
+
+    b.disabled = true;
+    var ancien = b.textContent;
+    b.textContent = "…";
+    try{
+      var compte = null;
+      try{ var u = await db.auth.getUser(); compte = u.data ? u.data.user : null; }catch(x){}
+      var r = await db.from("asso_recits").insert({
+        membre: compte ? compte.id : null,
+        signature: signature, concert: concert, recit: recit,
+        langue: langue(), statut: "en attente"
+      });
+      if(r.error){ console.warn("récit :", r.error); dire(mot("souci"), false); }
+      else{
+        dire(mot("merci"), true);
+        el("r-signature").value = ""; el("r-concert").value = ""; el("r-recit").value = "";
+      }
+    }catch(x){ console.warn("récit :", x); dire(mot("souci"), false); }
+    b.disabled = false; b.textContent = ancien;
+  });
 })();
 </script>
 </body>
