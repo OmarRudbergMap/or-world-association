@@ -906,11 +906,11 @@ h2.titre2{font-family:var(--titre);font-size:clamp(1.8rem,3.4vw,2.8rem);margin:0
 
     <div class="panneau visible">
       <div class="grille2">
-        <label class="champ"><span data-i18n="z027">Prénom ou pseudo *</span><input type="text"></label>
-        <label class="champ"><span>Pays *</span><input type="text" list="liste-pays" placeholder="Tapez la première lettre…"></label>
+        <label class="champ"><span data-i18n="z027">Prénom ou pseudo *</span><input type="text" id="h-nom" maxlength="80"></label>
+        <label class="champ"><span>Pays *</span><input type="text" id="h-pays" list="liste-pays" maxlength="60" placeholder="Tapez la première lettre…"></label>
       </div>
       <label class="champ"><span>Chapitre *</span>
-        <select>
+        <select id="h-chapitre">
           <option data-i18n="z028">Chapitre I · Le commencement</option>
           <option data-i18n="z029">Chapitre II · La musique</option>
           <option data-i18n="z030">Chapitre III · Les moments</option>
@@ -920,18 +920,19 @@ h2.titre2{font-family:var(--titre);font-size:clamp(1.8rem,3.4vw,2.8rem);margin:0
         </select>
       </label>
       <label class="champ"><span data-i18n="z033">Votre histoire *</span>
-        <textarea rows="9" placeholder="Racontez…"></textarea>
+        <textarea rows="9" id="h-texte" maxlength="20000" placeholder="Racontez…"></textarea>
       </label>
       <p class="mention" id="compteur-signes">0 signe</p>
 
-      <label class="case"><input type="checkbox"><span><b>Publication *</b><span data-i18n="z043">, J'accepte que mon texte soit publié dans le livre et sur le site, sous mon prénom ou mon pseudo et mon pays.</span></span></label>
-      <label class="case"><input type="checkbox"><span><b>Relecture</b><span data-i18n="z044">, J'accepte qu'il soit légèrement corrigé ou traduit pour être lu par toute la communauté.</span></span></label>
-      <label class="case"><input type="checkbox"><span><b>Mineurs</b><span data-i18n="z045">, Si j'ai moins de 18 ans, j'ai l'autorisation de mon parent ou responsable légal.</span></span></label>
+      <label class="case"><input type="checkbox" id="h-publication"><span><b>Publication *</b><span data-i18n="z043">, J'accepte que mon texte soit publié dans le livre et sur le site, sous mon prénom ou mon pseudo et mon pays.</span></span></label>
+      <label class="case"><input type="checkbox" id="h-relecture"><span><b>Relecture</b><span data-i18n="z044">, J'accepte qu'il soit légèrement corrigé ou traduit pour être lu par toute la communauté.</span></span></label>
+      <label class="case"><input type="checkbox" id="h-mineur"><span><b>Mineurs</b><span data-i18n="z045">, Si j'ai moins de 18 ans, j'ai l'autorisation de mon parent ou responsable légal.</span></span></label>
 
       <div class="barre-boutons">
-        <button class="btn">Envoyer mon histoire</button>
+        <button class="btn" id="h-envoyer">Envoyer mon histoire</button>
         <button class="btn btn--fin" data-i18n="z034">Enregistrer un brouillon</button>
       </div>
+      <p class="mention" id="h-message" style="margin-top:.8rem"></p>
       <p class="mention demo" data-i18n="z035">Chaque histoire est relue avant publication. Les textes blessants ou hors sujet ne sont pas publiés.</p>
     </div>
   </div>
@@ -1345,13 +1346,19 @@ const CONTINENTS=[[[143.2,-12.0],[143.5,-13.1],[143.8,-14.3],[144.9,-14.7],[145.
     b.addEventListener("click",function(){ouvre(i);});
     return b;
   }
-  if(!H.length){
-    const vide=document.createElement("p");
-    vide.className="aucune-histoire";
-    vide.textContent="Le livre attend sa première page. Écrivez la vôtre juste en dessous : elle sera relue, publiée ici, et une étoile s'allumera dans la constellation.";
-    grille.appendChild(vide);
+  function rendreGrille(){
+    grille.innerHTML="";
+    if(!H.length){
+      const vide=document.createElement("p");
+      vide.className="aucune-histoire";
+      vide.textContent="Le livre attend sa première page. Écrivez la vôtre juste en dessous : elle sera relue, publiée ici, et une étoile s'allumera dans la constellation.";
+      grille.appendChild(vide);
+    }
+    H.forEach(function(h,i){ grille.appendChild(carte(h,i)); });
   }
-  H.forEach(function(h,i){ grille.appendChild(carte(h,i)); });
+  rendreGrille();
+  /* les histoires venues de la base viennent s'ajouter ici */
+  window.ORW_LIVRE={ liste:H, rendre:rendreGrille };
 
   const noms=[ORW_T("z052")].concat(CHAP);
   noms.forEach(function(n,i){
@@ -1629,5 +1636,133 @@ const CONTINENTS=[[[143.2,-12.0],[143.5,-13.1],[143.8,-14.3],[144.9,-14.7],[145.
 })();
 </script>
 
+
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<script src="config.js"></script>
+<script>
+/* =====================================================================
+   LE LIVRE COLLABORATIF
+   ---------------------------------------------------------------------
+   Les histoires publiees viennent s'ajouter aux trois deja ecrites dans
+   la page. Le formulaire depose les nouvelles en attente de relecture.
+   ===================================================================== */
+(function(){
+  "use strict";
+  var MOTS = {
+    fr:{manque:"Merci de remplir votre prénom, votre pays et votre histoire.",
+        court:"Votre histoire est un peu courte : racontez nous quelques lignes de plus.",
+        accord:"Pour que votre page entre dans le livre, il faut accepter sa publication.",
+        souci:"Votre histoire n'a pas pu partir. Réessayez dans un instant.",
+        merci:"Merci ! Votre page est arrivée. Elle sera relue, puis publiée dans le livre."},
+    en:{manque:"Please give your first name, your country and your story.",
+        court:"Your story is a little short: tell us a few more lines.",
+        accord:"For your page to enter the book, you need to agree to it being published.",
+        souci:"Your story could not be sent. Please try again in a moment.",
+        merci:"Thank you! Your page has arrived. It will be read, then published in the book."},
+    es:{manque:"Indica tu nombre, tu país y tu historia.",
+        court:"Tu historia es un poco corta: cuéntanos algunas líneas más.",
+        accord:"Para que tu página entre en el libro, hay que aceptar su publicación.",
+        souci:"Tu historia no se ha podido enviar. Inténtalo de nuevo en un momento.",
+        merci:"¡Gracias! Tu página ha llegado. La leeremos y la publicaremos en el libro."},
+    sv:{manque:"Fyll i ditt förnamn, ditt land och din berättelse.",
+        court:"Din berättelse är lite kort: skriv några rader till.",
+        accord:"För att din sida ska komma med i boken behöver du godkänna att den publiceras.",
+        souci:"Din berättelse kunde inte skickas. Försök igen om en stund.",
+        merci:"Tack! Din sida har kommit fram. Den läses och publiceras sedan i boken."},
+    de:{manque:"Bitte gebt euren Vornamen, euer Land und eure Geschichte an.",
+        court:"Eure Geschichte ist etwas kurz: schreibt noch ein paar Zeilen.",
+        accord:"Damit eure Seite ins Buch kommt, müsst ihr der Veröffentlichung zustimmen.",
+        souci:"Eure Geschichte konnte nicht gesendet werden. Versucht es gleich noch einmal.",
+        merci:"Danke! Eure Seite ist angekommen. Sie wird gelesen und dann im Buch veröffentlicht."},
+    pt:{manque:"Informe seu nome, seu país e sua história.",
+        court:"Sua história está um pouco curta: conte mais algumas linhas.",
+        accord:"Para a sua página entrar no livro, é preciso aceitar que ela seja publicada.",
+        souci:"Sua história não pôde ser enviada. Tente de novo daqui a pouco.",
+        merci:"Obrigada! Sua página chegou. Ela será lida e depois publicada no livro."}
+  };
+  function langue(){ return (document.documentElement.getAttribute("lang") || "fr").slice(0,2); }
+  function mot(k){ var m = MOTS[langue()] || MOTS.fr; return m[k] || MOTS.fr[k]; }
+  function el(id){ return document.getElementById(id); }
+  function val(id){ var e = el(id); return e ? String(e.value || "").trim() : ""; }
+  function coche(id){ var e = el(id); return !!(e && e.checked); }
+  function dire(texte, bon){
+    var m = el("h-message");
+    if(!m) return;
+    m.textContent = texte;
+    m.style.color = bon ? "var(--cyan, #67e8f9)" : "var(--rose, #f0a4c8)";
+  }
+
+  /* ---- les histoires deja publiees viennent s'ajouter a la page ---- */
+  async function charger(){
+    if(!window.db || !window.ORW_LIVRE) return;
+    try{
+      var r = await db.from("asso_histoires")
+        .select("signature, pays, chapitre, langue, texte, traductions, cree_le")
+        .eq("statut", "publie")
+        .order("cree_le", { ascending:true });
+      if(r.error || !r.data || !r.data.length) return;
+      r.data.forEach(function(x){
+        var textes = {};
+        if(x.traductions && typeof x.traductions === "object") textes = x.traductions;
+        textes[x.langue || "fr"] = x.texte;
+        ORW_LIVRE.liste.push({
+          nom: x.signature || "",
+          pays: x.pays || "",
+          chap: Number(x.chapitre) || 0,
+          origine: x.langue || "fr",
+          textes: textes
+        });
+      });
+      ORW_LIVRE.rendre();
+    }catch(e){ console.warn("livre :", e); }
+  }
+
+  /* ---- l'envoi d'une nouvelle page ---- */
+  function brancher(){
+    var b = el("h-envoyer");
+    if(!b) return;
+    b.addEventListener("click", async function(e){
+      e.preventDefault();
+      if(!window.db){ dire(mot("souci"), false); return; }
+      var nom = val("h-nom"), pays = val("h-pays"), texte = val("h-texte");
+      var sel = el("h-chapitre");
+      var chap = sel ? sel.selectedIndex : 0;
+      if(!nom || !pays || !texte){ dire(mot("manque"), false); return; }
+      if(texte.length < 150){ dire(mot("court"), false); return; }
+      if(!coche("h-publication")){ dire(mot("accord"), false); return; }
+
+      b.disabled = true;
+      var ancien = b.textContent;
+      b.textContent = "…";
+      try{
+        var compte = null;
+        try{ var u = await db.auth.getUser(); compte = u.data ? u.data.user : null; }catch(x){}
+        var r = await db.from("asso_histoires").insert({
+          membre: compte ? compte.id : null,
+          signature: nom, pays: pays, chapitre: chap,
+          langue: langue(), texte: texte,
+          relecture: coche("h-relecture"), mineur_ok: coche("h-mineur"),
+          statut: "en attente"
+        });
+        if(r.error){ console.warn("histoire :", r.error); dire(mot("souci"), false); }
+        else{
+          dire(mot("merci"), true);
+          el("h-nom").value = ""; el("h-pays").value = ""; el("h-texte").value = "";
+          ["h-publication","h-relecture","h-mineur"].forEach(function(i){
+            var c = el(i); if(c) c.checked = false;
+          });
+          var cs = el("compteur-signes"); if(cs) cs.textContent = "0 signe";
+        }
+      }catch(x){ console.warn("histoire :", x); dire(mot("souci"), false); }
+      b.disabled = false; b.textContent = ancien;
+    });
+  }
+
+  function lancer(){ brancher(); charger(); }
+  if(document.readyState === "loading")
+    document.addEventListener("DOMContentLoaded", lancer);
+  else lancer();
+})();
+</script>
 </body>
 </html>
