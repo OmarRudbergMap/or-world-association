@@ -1697,7 +1697,7 @@ const CONTINENTS=[[[143.2,-12.0],[143.5,-13.1],[143.8,-14.3],[144.9,-14.7],[145.
     if(!window.db || !window.ORW_LIVRE) return;
     try{
       var r = await db.from("asso_histoires")
-        .select("signature, pays, chapitre, langue, texte, traductions, cree_le")
+        .select("signature, pseudo, age, pays, chapitre, langue, texte, traductions, cree_le")
         .eq("statut", "publie")
         .order("cree_le", { ascending:true });
       if(r.error || !r.data || !r.data.length) return;
@@ -1706,7 +1706,7 @@ const CONTINENTS=[[[143.2,-12.0],[143.5,-13.1],[143.8,-14.3],[144.9,-14.7],[145.
         if(x.traductions && typeof x.traductions === "object") textes = x.traductions;
         textes[x.langue || "fr"] = x.texte;
         ORW_LIVRE.liste.push({
-          nom: x.signature || "",
+          nom: x.signature || (x.pseudo ? (x.pseudo + (x.age ? ", " + x.age + " ans" : "")) : ""),
           pays: x.pays || "",
           chap: Number(x.chapitre) || 0,
           origine: x.langue || "fr",
@@ -1739,7 +1739,7 @@ const CONTINENTS=[[[143.2,-12.0],[143.5,-13.1],[143.8,-14.3],[144.9,-14.7],[145.
         try{ var u = await db.auth.getUser(); compte = u.data ? u.data.user : null; }catch(x){}
         var r = await db.from("asso_histoires").insert({
           membre: compte ? compte.id : null,
-          signature: nom, pays: pays, chapitre: chap,
+          pseudo: nom, signature: nom, pays: pays, chapitre: chap,
           langue: langue(), texte: texte,
           relecture: coche("h-relecture"), mineur_ok: coche("h-mineur"),
           statut: "en attente"
