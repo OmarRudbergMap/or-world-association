@@ -544,12 +544,12 @@ ol.guide__liste li::marker{color:var(--cyan);font-weight:600}
 <section class="section">
   <div class="contenu">
     <div class="compteurs">
-      <div class="compteur"><b>11</b><span data-i18n="c.membres"></span></div>
-      <div class="compteur"><b>8</b><span data-i18n="c.pays"></span></div>
-      <div class="compteur"><b>3</b><span data-i18n="c.projets"></span></div>
-      <div class="compteur"><b>3</b><span data-i18n="c.histoires"></span></div>
-      <div class="compteur"><b>1</b><span data-i18n="c.concours"></span></div>
-      <div class="compteur"><b>0</b><span data-i18n="c.evenements"></span></div>
+      <div class="compteur"><b data-compteur="membres">11</b><span data-i18n="c.membres"></span></div>
+      <div class="compteur"><b data-compteur="pays">8</b><span data-i18n="c.pays"></span></div>
+      <div class="compteur"><b data-compteur="projets">3</b><span data-i18n="c.projets"></span></div>
+      <div class="compteur"><b data-compteur="histoires">3</b><span data-i18n="c.histoires"></span></div>
+      <div class="compteur"><b data-compteur="concours">1</b><span data-i18n="c.concours"></span></div>
+      <div class="compteur"><b data-compteur="evenements">0</b><span data-i18n="c.evenements"></span></div>
     </div>
     <p class="mention" style="margin-top:1rem" data-i18n="c.note"></p>
   </div>
@@ -1154,6 +1154,32 @@ if(doux)dessiner(0,16);else requestAnimationFrame(boucle);
     document.body.classList.toggle("guide-ouvert",ouvert);
     if(!ouvert) document.getElementById("mode-emploi").scrollIntoView({block:"start"});
   });
+})();
+</script>
+
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<script src="config.js"></script>
+<script>
+/* ===== Les compteurs vont chercher leurs chiffres dans la base ===== */
+(function(){
+  "use strict";
+  async function remplir(){
+    if(!window.db) return;
+    var cases = document.querySelectorAll("[data-compteur]");
+    if(!cases.length) return;
+    try{
+      var r = await db.from("asso_compteurs").select("*").single();
+      if(r.error || !r.data) return;          // on garde le chiffre ecrit dans la page
+      cases.forEach(function(e){
+        var v = r.data[e.getAttribute("data-compteur")];
+        if(v === null || v === undefined) return;
+        e.textContent = String(v);
+      });
+    }catch(e){ console.warn("compteurs :", e); }
+  }
+  if(document.readyState === "loading")
+    document.addEventListener("DOMContentLoaded", remplir);
+  else remplir();
 })();
 </script>
 </body>
