@@ -2403,7 +2403,7 @@ const CONTINENTS=[[[143.2,-12.0],[143.5,-13.1],[143.8,-14.3],[144.9,-14.7],[145.
     try{
       var compte = null;
       try{ var u = await db.auth.getUser(); compte = u.data ? u.data.user : null; }catch(x){}
-      var r = await db.from("asso_articles").insert({
+      var r = await db.from("asso_presse_signalee").insert({
         membre: compte ? compte.id : null,
         media: media, date_parution: date || null, lien: lien,
         langue: langue(), statut: "en attente"
