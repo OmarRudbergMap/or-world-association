@@ -683,12 +683,12 @@ h2.titre2{font-family:var(--titre);font-size:clamp(1.8rem,3.4vw,2.8rem);margin:0
   <div class="contenu">
     <h2 class="titre2" style="font-size:1.8rem">Ma participation</h2>
     <div class="compteurs" style="margin-top:1.2rem">
-      <div class="compteur"><b>0</b><span>CONCOURS</span></div>
-      <div class="compteur"><b>0</b><span>VOTES</span></div>
-      <div class="compteur"><b>0</b><span>PROJETS</span></div>
+      <div class="compteur"><b id="p-concours">0</b><span>CONCOURS</span></div>
+      <div class="compteur"><b id="p-votes">0</b><span>VOTES</span></div>
+      <div class="compteur"><b id="p-projets">0</b><span>PROJETS</span></div>
       <div class="compteur"><b id="jours-membre">0</b><span data-i18n="z004">JOURS DE MEMBRE</span></div>
-      <div class="compteur"><b>0</b><span>ATELIERS</span></div>
-      <div class="compteur"><b>0</b><span>COMMANDES</span></div>
+      <div class="compteur"><b id="p-ateliers">0</b><span>ATELIERS</span></div>
+      <div class="compteur"><b id="p-commandes">0</b><span>COMMANDES</span></div>
     </div>
   </div>
 </section>
@@ -712,7 +712,7 @@ h2.titre2{font-family:var(--titre);font-size:clamp(1.8rem,3.4vw,2.8rem);margin:0
       <article class="vignette">
         <h3 data-i18n="z013">COMPLÉTER MON PROFIL</h3>
         <p data-i18n="z014">Ajoutez vos réseaux et vos compétences pour être invitée aux ateliers.</p>
-        <a class="btn btn--fin" href="#" data-i18n="z015">Compléter</a>
+        <a class="btn btn--fin" href="#profil" data-i18n="z015">Compléter</a>
       </article>
     </div>
   </div>
@@ -734,33 +734,77 @@ h2.titre2{font-family:var(--titre);font-size:clamp(1.8rem,3.4vw,2.8rem);margin:0
   </div>
 </section>
 
+
+<style>
+#profil input[type="text"], #co-form input{background:rgba(8,12,34,.6);border:1px solid var(--bord);border-radius:12px;padding:.72rem .9rem;color:inherit;font:inherit;width:100%}
+#profil input[type="text"]::placeholder, #co-form input::placeholder{color:#7d87ad}
+#profil fieldset legend{font-size:.82rem;letter-spacing:.08em;text-transform:uppercase;color:#9aa6cf}
+</style>
+<!-- mon profil : competences et disponibilites -->
+<section class="section" id="profil" style="padding-top:1rem">
+  <div class="contenu">
+    <h2 class="titre2" style="font-size:1.8rem">Mon profil</h2>
+    <p class="intro2">Vos envies et vos compétences. Elles servent à vous proposer les ateliers et les projets qui vous ressemblent. Tout est facultatif, et modifiable quand vous voulez.</p>
+    <form id="profil-form" style="display:grid;gap:1.1rem;max-width:760px;margin-top:1.4rem">
+      <label style="display:flex;gap:.7rem;align-items:flex-start">
+        <input type="checkbox" id="pf-benevole" style="margin-top:.3rem">
+        <span>Je suis prête à donner un coup de main à l'association.</span>
+      </label>
+      <fieldset style="border:1px solid var(--bord);border-radius:14px;padding:1rem 1.1rem">
+        <legend style="padding:0 .5rem">Ce que je sais faire</legend>
+        <div id="pf-competences" style="display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:.5rem"></div>
+      </fieldset>
+      <fieldset style="border:1px solid var(--bord);border-radius:14px;padding:1rem 1.1rem">
+        <legend style="padding:0 .5rem">Ce à quoi je veux participer</legend>
+        <div id="pf-activites" style="display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:.5rem"></div>
+      </fieldset>
+      <input id="pf-autre-competence" type="text" placeholder="Autre chose que vous savez faire">
+      <input id="pf-autre-activite" type="text" placeholder="Autre chose à laquelle vous voulez participer">
+      <div style="display:flex;gap:.6rem;align-items:center">
+        <button class="btn" type="submit">Enregistrer mon profil</button>
+        <span class="mention" id="pf-message"></span>
+      </div>
+    </form>
+  </div>
+</section>
 <!-- documents et commandes -->
 <section class="section" style="padding-top:1rem">
   <div class="contenu deux" style="align-items:start">
     <div>
       <h2 class="titre2" style="font-size:1.8rem">Mes documents</h2>
-      <ul class="liste-doc">
-        <li><span class="etat ok" data-i18n="z023">Reçu</span><div><b data-i18n="z024">Autorisation de droit à l'image</b><small data-i18n="z025">Envoyée le 18 sept. 2026</small></div><a href="#">Voir</a></li>
-        <li><span class="etat attente" data-i18n="z026">En attente</span><div><b data-i18n="z027">Règlement intérieur signé</b><small data-i18n="z028">À renvoyer signé</small></div><a href="#">Importer</a></li>
-        <li><span class="etat ok" data-i18n="z023">Reçu</span><div><b>Facture 2026-0001</b><small data-i18n="z029">Adhésion 12,00 € · 18 sept. 2026</small></div><a href="#" data-i18n="z030">Télécharger</a></li>
-      </ul>
+      <ul class="liste-doc" id="doc-liste"></ul>
+          <p class="mention" id="doc-vide" hidden>Aucun document pour le moment. Ceux que vous enverrez à l'association apparaîtront ici.</p>
       <a class="btn btn--fin" href="documents.html" style="margin-top:1rem" data-i18n="z031">Documents officiels de l'association</a>
     </div>
 
     <div>
       <h2 class="titre2" style="font-size:1.8rem">Mes commandes</h2>
-      <div class="vide">
-        <p data-i18n="z032">Aucune commande pour l'instant.</p>
-        <a class="btn" href="boutique.html" data-i18n="z033">Découvrir la boutique</a>
-      </div>
+      <ul class="liste-doc" id="cmd-liste" hidden></ul>
+          <div class="vide" id="cmd-vide">
+            <p data-i18n="z032">Aucune commande pour l'instant.</p>
+            <a class="btn" href="boutique.html" data-i18n="z033">Découvrir la boutique</a>
+          </div>
 
       <h2 class="titre2" style="font-size:1.8rem;margin-top:2.4rem" data-i18n="z034">Mes coordonnées</h2>
-      <div class="coordonnees">
-        <p><b>Elisabeth Martin</b><br>elisabeth@exemple.fr · +33 6 00 00 00 00</p>
-        <p>114 avenue de Verdun<br>77610 Fontenay-Trésigny · France</p>
-        <p class="mention">Instagram : elisabeth_or</p>
-        <a class="btn btn--fin" href="#">Modifier mes informations</a>
-      </div>
+      <div class="coordonnees" id="coord">
+            <p><b id="co-nom"></b><br><span id="co-contact"></span></p>
+            <p id="co-adresse"></p>
+            <p class="mention" id="co-insta"></p>
+            <button class="btn btn--fin" type="button" id="co-modifier">Modifier mes informations</button>
+            <form id="co-form" hidden style="margin-top:1rem;display:grid;gap:.6rem">
+              <input id="co-f-tel" type="tel" placeholder="Téléphone">
+              <input id="co-f-adresse" type="text" placeholder="Adresse">
+              <input id="co-f-cp" type="text" placeholder="Code postal">
+              <input id="co-f-ville" type="text" placeholder="Ville">
+              <input id="co-f-pays" type="text" placeholder="Pays">
+              <input id="co-f-insta" type="text" placeholder="Instagram, sans l'arobase">
+              <div style="display:flex;gap:.6rem">
+                <button class="btn" type="submit">Enregistrer</button>
+                <button class="btn btn--fin" type="button" id="co-annuler">Annuler</button>
+              </div>
+              <p class="mention" id="co-message"></p>
+            </form>
+          </div>
     </div>
   </div>
 </section>
@@ -1162,6 +1206,22 @@ const CONTINENTS=[[[143.2,-12.0],[143.5,-13.1],[143.8,-14.3],[144.9,-14.7],[145.
     met("c-depuis", debuts.length ? debuts[0].slice(0, 4) : "");
 
     /* le badge de fondatrice porte la date de la premiere adhesion */
+    /* les six chiffres de Ma participation, calcules par la base */
+    try{
+      var rp = await db.rpc("asso_ma_participation");
+      var part = rp && rp.data;
+      if(part){
+        met("p-concours",  String(part.concours  || 0));
+        met("p-votes",     String(part.votes     || 0));
+        met("p-projets",   String(part.projets   || 0));
+        met("p-ateliers",  String(part.ateliers  || 0));
+        met("p-commandes", String(part.commandes || 0));
+        if(part.jours !== null && part.jours !== undefined){
+          met("jours-membre", String(part.jours));
+        }
+      }
+    }catch(e){}
+
     var bf = document.getElementById("b-fondatrice");
     if(bf){ bf.textContent = debuts.length
             ? (T("z017") + " " + jjmmaaaa(debuts[0])).trim()
@@ -1266,6 +1326,224 @@ const CONTINENTS=[[[143.2,-12.0],[143.5,-13.1],[143.8,-14.3],[144.9,-14.7],[145.
       set: function(f){ _t = f; setTimeout(lancer, 0); }
     });
   }catch(e){}
+})();
+</script>
+
+<script>
+/* ===== La fin de l'espace membre, remplie depuis la base ===== */
+(function(){
+  "use strict";
+
+  var COMPETENCES = [
+    ["chanter","Chanter"], ["danser","Danser"], ["dessiner","Dessiner"],
+    ["graphisme","Graphisme"], ["photo","Photo"], ["video","Vidéo"],
+    ["instrument","Jouer d'un instrument"], ["ecrire","Écrire"],
+    ["couture","Couture"]
+  ];
+  var ACTIVITES = [
+    ["act_shooting","Shootings"], ["act_concerts","Concerts"],
+    ["act_logistique","Logistique"], ["act_stands","Stands"],
+    ["act_ateliers","Ateliers"], ["act_organisation","Organisation"],
+    ["act_accueil","Accueil"], ["act_communication","Communication"]
+  ];
+
+  function jjmmaaaa(d){
+    if(!d) return "";
+    var p = String(d).split("-");
+    return p.length === 3 ? p[2] + "/" + p[1] + "/" + p[0] : String(d);
+  }
+  function el(id){ return document.getElementById(id); }
+
+  function cases(zone, liste, prefixe){
+    var z = el(zone); if(!z) return;
+    z.innerHTML = "";
+    liste.forEach(function(c){
+      var l = document.createElement("label");
+      l.style.cssText = "display:flex;gap:.5rem;align-items:center";
+      var i = document.createElement("input");
+      i.type = "checkbox"; i.id = prefixe + c[0];
+      var s = document.createElement("span"); s.textContent = c[1];
+      l.appendChild(i); l.appendChild(s); z.appendChild(l);
+    });
+  }
+
+  async function remplirDocuments(compte){
+    var ul = el("doc-liste"); if(!ul) return;
+    var lignes = [];
+    try{
+      var r = await db.from("asso_documents")
+        .select("titre, detail, lien, statut, le_jour")
+        .eq("membre", compte.id).order("le_jour", { ascending:false });
+      lignes = r.data || [];
+    }catch(e){ lignes = []; }
+    ul.innerHTML = "";
+    if(!lignes.length){ var v = el("doc-vide"); if(v) v.hidden = false; return; }
+    lignes.forEach(function(d){
+      var li = document.createElement("li");
+      var et = document.createElement("span");
+      et.className = "etat " + (d.statut === "recu" ? "ok" : "attente");
+      et.textContent = d.statut === "recu" ? "Reçu" : "En attente";
+      var bloc = document.createElement("div");
+      var b = document.createElement("b"); b.textContent = d.titre || "";
+      var p = document.createElement("small");
+      p.textContent = (d.detail ? d.detail + "  ·  " : "") + jjmmaaaa(d.le_jour);
+      bloc.appendChild(b); bloc.appendChild(p);
+      li.appendChild(et); li.appendChild(bloc);
+      var a = document.createElement("a");
+      if(d.lien){ a.href = d.lien; a.target = "_blank"; a.rel = "noopener";
+                  a.textContent = "Voir"; }
+      else { a.href = "mailto:orworldassociation@gmail.com?subject=" +
+                      encodeURIComponent(d.titre || "Document");
+             a.textContent = "Envoyer"; }
+      li.appendChild(a);
+      ul.appendChild(li);
+    });
+  }
+
+  async function remplirCommandes(compte){
+    var ul = el("cmd-liste"), vide = el("cmd-vide");
+    if(!ul) return;
+    var lignes = [];
+    try{
+      var r = await db.from("asso_commandes")
+        .select("numero, somme, le_jour, statut")
+        .eq("membre", compte.id).order("le_jour", { ascending:false });
+      lignes = r.data || [];
+    }catch(e){ lignes = []; }
+    if(!lignes.length) return;
+    if(vide) vide.hidden = true;
+    ul.hidden = false; ul.innerHTML = "";
+    lignes.forEach(function(c){
+      var li = document.createElement("li");
+      var et = document.createElement("span");
+      et.className = "etat ok"; et.textContent = c.statut || "";
+      var bloc = document.createElement("div");
+      var b = document.createElement("b"); b.textContent = c.numero || "";
+      var p = document.createElement("small");
+      p.textContent = (c.somme != null ? c.somme + " €  ·  " : "") + jjmmaaaa(c.le_jour);
+      bloc.appendChild(b); bloc.appendChild(p);
+      li.appendChild(et); li.appendChild(bloc);
+      ul.appendChild(li);
+    });
+  }
+
+  async function remplirCoordonnees(compte){
+    var fiche = null;
+    try{ fiche = await ficheMembre(); }catch(e){}
+    var liste = [];
+    try{ liste = await mesAdhesions(); }catch(e){}
+    var a = liste[0] || {};
+    var f = fiche || {};
+    var prenom = f.prenom || a.prenom || "";
+    var nom    = f.nom    || a.nom    || "";
+    var mail   = f.email  || a.email  || (compte && compte.email) || "";
+    var tel    = f.telephone || a.telephone || "";
+    var adr    = f.adresse || a.adresse || "";
+    var cp     = f.code_postal || a.code_postal || "";
+    var ville  = f.ville || a.ville || "";
+    var pays   = f.pays  || a.pays  || "";
+    var insta  = f.instagram || a.instagram || "";
+
+    if(el("co-nom"))     el("co-nom").textContent = (prenom + " " + nom).trim();
+    if(el("co-contact")) el("co-contact").textContent =
+      [mail, tel].filter(Boolean).join("  ·  ");
+    if(el("co-adresse")) el("co-adresse").innerHTML = "";
+    if(el("co-adresse") && (adr || ville)){
+      var t1 = document.createTextNode(adr || "");
+      el("co-adresse").appendChild(t1);
+      el("co-adresse").appendChild(document.createElement("br"));
+      el("co-adresse").appendChild(document.createTextNode(
+        [cp, ville].filter(Boolean).join(" ") + (pays ? "  ·  " + pays : "")));
+    }
+    if(el("co-insta")) el("co-insta").textContent = insta ? ("Instagram : " + insta) : "";
+
+    var form = el("co-form"), bouton = el("co-modifier");
+    if(form && bouton){
+      el("co-f-tel").value     = tel;
+      el("co-f-adresse").value = adr;
+      el("co-f-cp").value      = cp;
+      el("co-f-ville").value   = ville;
+      el("co-f-pays").value    = pays;
+      el("co-f-insta").value   = insta;
+      bouton.addEventListener("click", function(){
+        form.hidden = !form.hidden;
+      });
+      var annuler = el("co-annuler");
+      if(annuler) annuler.addEventListener("click", function(){ form.hidden = true; });
+      form.addEventListener("submit", async function(e){
+        e.preventDefault();
+        var msg = el("co-message");
+        try{
+          await db.from("asso_membres").update({
+            telephone:   el("co-f-tel").value.trim(),
+            adresse:     el("co-f-adresse").value.trim(),
+            code_postal: el("co-f-cp").value.trim(),
+            ville:       el("co-f-ville").value.trim(),
+            pays:        el("co-f-pays").value.trim(),
+            instagram:   el("co-f-insta").value.trim().replace(/^@/, "")
+          }).eq("id", compte.id);
+          if(msg) msg.textContent = "Enregistré.";
+          form.hidden = true;
+          remplirCoordonnees(compte);
+        }catch(err){
+          if(msg) msg.textContent = "Impossible d'enregistrer pour le moment.";
+        }
+      });
+    }
+  }
+
+  async function remplirProfil(compte){
+    var form = el("profil-form"); if(!form) return;
+    var fiche = null;
+    try{
+      var r = await db.from("asso_benevolat").select("*").eq("membre", compte.id).single();
+      fiche = r.data;
+    }catch(e){ fiche = null; }
+    if(fiche){
+      if(el("pf-benevole")) el("pf-benevole").checked = !!fiche.benevole;
+      COMPETENCES.concat(ACTIVITES).forEach(function(c){
+        var i = el("pf-" + c[0]); if(i) i.checked = !!fiche[c[0]];
+      });
+      if(el("pf-autre-competence")) el("pf-autre-competence").value = fiche.autre_competence || "";
+      if(el("pf-autre-activite"))   el("pf-autre-activite").value   = fiche.autre_activite || "";
+    }
+    form.addEventListener("submit", async function(e){
+      e.preventDefault();
+      var msg = el("pf-message");
+      var ligne = { membre: compte.id, email: compte.email,
+                    benevole: !!(el("pf-benevole") && el("pf-benevole").checked),
+                    autre_competence: el("pf-autre-competence").value.trim(),
+                    autre_activite:   el("pf-autre-activite").value.trim(),
+                    modifie_le: new Date().toISOString() };
+      COMPETENCES.concat(ACTIVITES).forEach(function(c){
+        var i = el("pf-" + c[0]);
+        ligne[c[0]] = (i && i.checked) ? "oui" : null;
+      });
+      try{
+        await db.from("asso_benevolat").upsert(ligne, { onConflict: "membre" });
+        if(msg) msg.textContent = "Profil enregistré, merci.";
+      }catch(err){
+        if(msg) msg.textContent = "Impossible d'enregistrer pour le moment.";
+      }
+    });
+  }
+
+  async function demarrer(){
+    cases("pf-competences", COMPETENCES, "pf-");
+    cases("pf-activites",   ACTIVITES,   "pf-");
+    if(!window.db) return;
+    var compte = null;
+    try{ compte = await compteActuel(); }catch(e){}
+    if(!compte) return;
+    remplirDocuments(compte);
+    remplirCommandes(compte);
+    remplirCoordonnees(compte);
+    remplirProfil(compte);
+  }
+
+  if(document.readyState === "loading"){
+    document.addEventListener("DOMContentLoaded", demarrer);
+  } else { demarrer(); }
 })();
 </script>
 </body>
