@@ -649,6 +649,13 @@ h2.titre2{font-family:var(--titre);font-size:clamp(1.8rem,3.4vw,2.8rem);margin:0
 <style id="orw-pied-onglets">
 .trait-pied{height:1px;margin:.7rem 0;background:linear-gradient(90deg,rgba(167,139,250,.45),transparent);list-style:none}
 </style>
+<style>
+/* la citation ne doit plus chevaucher les faisceaux du livre */
+.bloc-livre .citation{margin-top:.2rem;margin-bottom:0;
+  background:rgba(26,10,38,.62);backdrop-filter:blur(3px);position:relative;z-index:3}
+.bloc-livre .livre-scene{margin-top:3.2rem}
+@media (max-width:760px){.bloc-livre .livre-scene{margin-top:2.2rem}}
+</style>
 </head>
 <body>
 

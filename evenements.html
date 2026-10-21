@@ -813,7 +813,7 @@ h2.titre2{font-family:var(--titre);font-size:clamp(1.8rem,3.4vw,2.8rem);margin:0
     </div>
 
     <div class="evenements-liste">
-      <article class="ev" data-etat="venir">
+      <article class="ev" data-date="2026-11-12" data-etat="venir">
         <div class="ev__tete">
           <span class="etat-ev etat-venir" data-i18n="ev.et1"></span>
           <h2 data-i18n="ev.e4t"></h2>
@@ -840,7 +840,7 @@ h2.titre2{font-family:var(--titre);font-size:clamp(1.8rem,3.4vw,2.8rem);margin:0
         </div>
         <p data-i18n="ev.e5p"></p>
       </article>
-      <article class="ev" data-etat="passe">
+      <article class="ev" data-date="2026-05-01" data-etat="passe">
         <div class="ev__tete">
           <span class="etat-ev etat-passe" data-i18n="ev.et2"></span>
           <h2 data-i18n="ev.e2t"></h2>
@@ -863,7 +863,7 @@ h2.titre2{font-family:var(--titre);font-size:clamp(1.8rem,3.4vw,2.8rem);margin:0
           </button>
         </div>
       </article>
-      <article class="ev" data-etat="passe">
+      <article class="ev" data-date="2026-03-01" data-etat="passe">
         <div class="ev__tete">
           <span class="etat-ev etat-passe" data-i18n="ev.et2"></span>
           <h2 data-i18n="ev.e3t"></h2>
@@ -1301,6 +1301,38 @@ const CONTINENTS=[[[143.2,-12.0],[143.5,-13.1],[143.8,-14.3],[144.9,-14.7],[145.
   document.getElementById("vis-fermer").addEventListener("click", ferme);
   vue.addEventListener("click", function(e){ if(e.target === vue) ferme(); });
   document.addEventListener("keydown", function(e){ if(e.key === "Escape" && !vue.hidden) ferme(); });
+})();
+</script>
+
+<script>
+/* ===== Les evenements se rangent du plus ancien au plus recent ===== */
+(function(){
+  "use strict";
+  var liste = document.querySelector(".evenements-liste");
+  if(!liste) return;
+  var jour = new Date().toISOString().slice(0,10);
+
+  var tous = Array.prototype.slice.call(liste.querySelectorAll(".ev"));
+  tous.forEach(function(e){
+    var d = e.dataset.date;
+    if(!d) return;
+    var passe = d < jour;
+    e.dataset.etat = passe ? "passe" : "venir";
+    var et = e.querySelector(".etat-ev");
+    if(et){
+      et.classList.toggle("etat-passe", passe);
+      et.classList.toggle("etat-venir", !passe);
+      et.setAttribute("data-i18n", passe ? "ev.et2" : "ev.et1");
+      if(window.ORW_T) et.textContent = window.ORW_T(passe ? "ev.et2" : "ev.et1") || et.textContent;
+    }
+  });
+
+  tous.sort(function(a,b){
+    var da = a.dataset.date || "9999-12-31";
+    var db = b.dataset.date || "9999-12-31";
+    if(da === db) return 0;
+    return da < db ? -1 : 1;
+  }).forEach(function(e){ liste.appendChild(e); });
 })();
 </script>
 </body>

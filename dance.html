@@ -1075,7 +1075,7 @@ body.fm-bloque{overflow:hidden}
   <p data-i18n="f2.e2.p1"></p>
   <p data-i18n="f2.e2.p2"></p>
   <p data-i18n="f2.v.aide"></p>
-  <div class="fm-vote" id="fmVote"><button class="fm-chanson" type="button" data-c="QUE PASA"><span class="fm-an">2018</span><b>QUE PASA</b><span class="fm-nb"><i>0</i> <span data-i18n="f2.v.total"></span></span></button><button class="fm-chanson" type="button" data-c="MI CASA SU CASA"><span class="fm-an">2022</span><b>MI CASA SU CASA</b><span class="fm-nb"><i>0</i> <span data-i18n="f2.v.total"></span></span></button><button class="fm-chanson" type="button" data-c="MOVING LIKE THAT"><span class="fm-an">2022</span><b>MOVING LIKE THAT</b><span class="fm-nb"><i>0</i> <span data-i18n="f2.v.total"></span></span></button><button class="fm-chanson" type="button" data-c="PULL UP"><span class="fm-an">2022</span><b>PULL UP</b><span class="fm-nb"><i>0</i> <span data-i18n="f2.v.total"></span></span></button><button class="fm-chanson" type="button" data-c="HAPPIER"><span class="fm-an">2023</span><b>HAPPIER</b><span class="fm-nb"><i>0</i> <span data-i18n="f2.v.total"></span></span></button><button class="fm-chanson" type="button" data-c="BYE BYE"><span class="fm-an">2024</span><b>BYE BYE</b><span class="fm-nb"><i>0</i> <span data-i18n="f2.v.total"></span></span></button><button class="fm-chanson" type="button" data-c="TALK"><span class="fm-an">2024</span><b>TALK</b><span class="fm-nb"><i>0</i> <span data-i18n="f2.v.total"></span></span></button><button class="fm-chanson" type="button" data-c="SABOTAGE"><span class="fm-an">2024</span><b>SABOTAGE</b><span class="fm-nb"><i>0</i> <span data-i18n="f2.v.total"></span></span></button><button class="fm-chanson" type="button" data-c="GIRLFRIEND"><span class="fm-an">2024</span><b>GIRLFRIEND</b><span class="fm-nb"><i>0</i> <span data-i18n="f2.v.total"></span></span></button><button class="fm-chanson" type="button" data-c="MALANDRO"><span class="fm-an">2025</span><b>MALANDRO</b><span class="fm-nb"><i>0</i> <span data-i18n="f2.v.total"></span></span></button><button class="fm-chanson" type="button" data-c="CARELESS"><span class="fm-an">2026</span><b>CARELESS</b><span class="fm-nb"><i>0</i> <span data-i18n="f2.v.total"></span></span></button></div>
+  <div class="fm-vote" id="fmVote"><button class="fm-chanson" type="button" data-c="QUE PASA"><span class="fm-an">2018</span><b>QUE PASA</b><span class="fm-nb"><i>0</i> <span data-i18n="f2.v.total"></span></span></button><button class="fm-chanson" type="button" data-c="MI CASA SU CASA"><span class="fm-an">2022</span><b>MI CASA SU CASA</b><span class="fm-nb"><i>0</i> <span data-i18n="f2.v.total"></span></span></button><button class="fm-chanson" type="button" data-c="MOVING LIKE THAT"><span class="fm-an">2022</span><b>MOVING LIKE THAT</b><span class="fm-nb"><i>0</i> <span data-i18n="f2.v.total"></span></span></button><button class="fm-chanson" type="button" data-c="PULL UP"><span class="fm-an">2022</span><b>PULL UP</b><span class="fm-nb"><i>0</i> <span data-i18n="f2.v.total"></span></span></button><button class="fm-chanson" type="button" data-c="HAPPIER"><span class="fm-an">2023</span><b>HAPPIER</b><span class="fm-nb"><i>0</i> <span data-i18n="f2.v.total"></span></span></button><button class="fm-chanson" type="button" data-c="BYE BYE"><span class="fm-an">2024</span><b>BYE BYE</b><span class="fm-nb"><i>0</i> <span data-i18n="f2.v.total"></span></span></button><button class="fm-chanson" type="button" data-c="TALK"><span class="fm-an">2024</span><b>TALK</b><span class="fm-nb"><i>0</i> <span data-i18n="f2.v.total"></span></span></button><button class="fm-chanson" type="button" data-c="GIRLFRIEND"><span class="fm-an">2024</span><b>GIRLFRIEND</b><span class="fm-nb"><i>0</i> <span data-i18n="f2.v.total"></span></span></button><button class="fm-chanson" type="button" data-c="MALANDRO"><span class="fm-an">2025</span><b>MALANDRO</b><span class="fm-nb"><i>0</i> <span data-i18n="f2.v.total"></span></span></button><button class="fm-chanson" type="button" data-c="CARELESS"><span class="fm-an">2026</span><b>CARELESS</b><span class="fm-nb"><i>0</i> <span data-i18n="f2.v.total"></span></span></button></div>
   <p class="fm-vote-etat" id="fmVoteEtat"></p>
   <p data-i18n="f2.v.transparent"></p>
   <p data-i18n="f2.e2.p3"></p>
@@ -2603,6 +2603,14 @@ if(SCENE){
      suite jusqu'a 4. Puis 5 avec la choregraphie complete.
      ---------------------------------------------------------------- */
   var CHORES_PRETES = 0;
+/* le bureau change ce chiffre dans asso_chiffres, cle « chores_pretes » */
+async function lireChoresPretes(){
+  if(!window.db) return;
+  try{
+    var r = await db.from("asso_chiffres").select("valeur").eq("cle","chores_pretes").single();
+    if(r && r.data && typeof r.data.valeur === "number") CHORES_PRETES = r.data.valeur;
+  }catch(e){}
+}
 
   function unChiffre(n, cle, vedette){
     return '<div class="fm-chiffre'+(vedette?' vedette':'')+'">'+
@@ -2628,6 +2636,7 @@ if(SCENE){
   }
 
   async function rendreChiffres(){
+  await lireChoresPretes();
     var z = document.getElementById("fmChiffres");
     if(!z) return;
     var amb = [], vid = [], rdv = [], votes = 0;
