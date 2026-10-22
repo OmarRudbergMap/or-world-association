@@ -1319,7 +1319,15 @@ const CONTINENTS=[[[143.2,-12.0],[143.5,-13.1],[143.8,-14.3],[144.9,-14.7],[145.
     if(m.includes("already registered")) return "Un compte existe déjà avec cette adresse.";
     if(m.includes("password should be")) return "Le mot de passe doit contenir au moins 8 caractères.";
     if(m.includes("rate limit")) return "Trop de tentatives. Réessayez dans quelques minutes.";
-    return "Une erreur est survenue. Réessayez, ou écrivez-nous.";
+    if(m.includes("database error")) return "La base a refusé la création du compte. Prévenez le bureau de l'association.";
+    if(m.includes("signups not allowed") || m.includes("signup is disabled"))
+      return "Les inscriptions sont fermées pour le moment.";
+    if(m.includes("invalid email") || m.includes("email address"))
+      return "Cette adresse e-mail n'est pas acceptée.";
+    /* Pour tout le reste, on montre aussi le message d'origine : sans
+       lui, impossible de savoir ce qui s'est passé. */
+    window.ORW_DERNIERE_ERREUR = message;
+    return "Une erreur est survenue. Réessayez, ou écrivez-nous. (" + (message || "sans détail") + ")";
   }
 
   // œil : afficher ou masquer le mot de passe
@@ -1351,7 +1359,7 @@ const CONTINENTS=[[[143.2,-12.0],[143.5,-13.1],[143.8,-14.3],[144.9,-14.7],[145.
     b.disabled = true; b.textContent = "Connexion…";
     const { error } = await db.auth.signInWithPassword({ email: email, password: mdp });
     b.disabled = false; b.textContent = "Se connecter";
-    if(error){ dire("c-erreur", traduire(error.message)); return; }
+    if(error){ console.warn("orw-cause connexion :", error); dire("c-erreur", traduire(error.message)); return; }
     window.location.href = destination();
   });
 
@@ -1379,6 +1387,7 @@ const CONTINENTS=[[[143.2,-12.0],[143.5,-13.1],[143.8,-14.3],[144.9,-14.7],[145.
       options: { data: { prenom: prenom, nom: nom } }
     });
     if(error){
+      console.warn("orw-cause inscription :", error);
       b.disabled = false; b.textContent = "Créer mon compte";
       dire("i-erreur", traduire(error.message)); return;
     }

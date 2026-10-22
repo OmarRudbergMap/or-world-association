@@ -115,22 +115,29 @@ async function enregistrer(p: Paiement): Promise<unknown> {
   try { return JSON.parse(texte); } catch { return texte; }
 }
 
-// Un identifiant peut arriver sous la forme "adhesion:uuid" ou "don:uuid".
-function lireReference(valeur: string | null | undefined):
+// La reference que le site glisse dans le paiement dit de quoi il s'agit.
+// Elle peut s'ecrire "adh", "don", "adh-<uuid>", "don-<uuid>", et aussi
+// avec « _ » ou « : » comme separateur. Un identifiant seul reste accepte.
+// Stripe n'accepte que des lettres, des chiffres, « - » et « _ » dans
+// client_reference_id : c'est pourquoi le tiret est la forme retenue.
+export function lireReference(valeur: string | null | undefined):
   { genre: string | null; membre: string | null } {
   if (!valeur) return { genre: null, membre: null };
   const v = String(valeur).trim();
-  const coupe = v.indexOf(":");
   const uuid = /^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$/i;
-  if (coupe > 0) {
-    const g = v.slice(0, coupe).toLowerCase();
-    const m = v.slice(coupe + 1).trim();
-    return {
-      genre: (g === "adhesion" || g === "don") ? g : null,
-      membre: uuid.test(m) ? m : null,
-    };
-  }
-  return { genre: null, membre: uuid.test(v) ? v : null };
+
+  // un identifiant de membre tout seul
+  if (uuid.test(v)) return { genre: null, membre: v };
+
+  const m = v.match(/^(adhesion|adh|don)([:_-](.*))?$/i);
+  if (!m) return { genre: null, membre: null };
+
+  const g = m[1].toLowerCase();
+  const reste = (m[3] ?? "").trim();
+  return {
+    genre: g === "don" ? "don" : "adhesion",
+    membre: uuid.test(reste) ? reste : null,
+  };
 }
 
 function coupeNom(complet: string | null | undefined):
@@ -281,24 +288,46 @@ async function payeurPaypal(res: Record<string, unknown>):
   let pays: string | null = p.address?.country_code ?? null;
   let custom: string | null = (res.custom_id as string) ?? null;
 
-  if (email) return { email, prenom, nom, pays, custom };
+  // l'ancienne forme (« sale ») range la reference sous « custom »
+  if (!custom && typeof res.custom === "string") custom = res.custom;
 
-  const lies = (res.supplementary_data as any)?.related_ids ?? {};
-  const commande = lies.order_id;
-  if (!commande) return { email, prenom, nom, pays, custom };
+  if (email) return { email, prenom, nom, pays, custom };
 
   try {
     const jeton = await jetonPaypal();
-    const r = await fetch(`${PAYPAL_RACINE}/v2/checkout/orders/${commande}`, {
-      headers: { "Authorization": `Bearer ${jeton}` },
-    });
-    if (!r.ok) return { email, prenom, nom, pays, custom };
-    const c = await r.json();
-    email  = c.payer?.email_address ?? email;
-    prenom = c.payer?.name?.given_name ?? prenom;
-    nom    = c.payer?.name?.surname ?? nom;
-    pays   = c.payer?.address?.country_code ?? pays;
-    custom = c.purchase_units?.[0]?.custom_id ?? custom;
+
+    // forme actuelle : la capture renvoie a une commande
+    const lies = (res.supplementary_data as any)?.related_ids ?? {};
+    if (lies.order_id) {
+      const r = await fetch(`${PAYPAL_RACINE}/v2/checkout/orders/${lies.order_id}`, {
+        headers: { "Authorization": `Bearer ${jeton}` },
+      });
+      if (r.ok) {
+        const c = await r.json();
+        email  = c.payer?.email_address ?? email;
+        prenom = c.payer?.name?.given_name ?? prenom;
+        nom    = c.payer?.name?.surname ?? nom;
+        pays   = c.payer?.address?.country_code ?? pays;
+        custom = c.purchase_units?.[0]?.custom_id ?? custom;
+        return { email, prenom, nom, pays, custom };
+      }
+    }
+
+    // ancienne forme : la vente renvoie a un paiement
+    if (typeof res.parent_payment === "string") {
+      const r = await fetch(`${PAYPAL_RACINE}/v1/payments/payment/${res.parent_payment}`, {
+        headers: { "Authorization": `Bearer ${jeton}` },
+      });
+      if (r.ok) {
+        const p = await r.json();
+        const info = p.payer?.payer_info ?? {};
+        email  = info.email ?? email;
+        prenom = info.first_name ?? prenom;
+        nom    = info.last_name ?? nom;
+        pays   = info.country_code ?? info.shipping_address?.country_code ?? pays;
+        custom = p.transactions?.[0]?.custom ?? custom;
+      }
+    }
   } catch (_e) { /* on garde ce qu'on a */ }
 
   return { email, prenom, nom, pays, custom };
@@ -312,12 +341,17 @@ async function traitePaypal(req: Request): Promise<Response> {
   }
 
   const evenement = JSON.parse(corps);
-  if (evenement.event_type !== "PAYMENT.CAPTURE.COMPLETED") {
+
+  // PayPal possede deux generations d'avis. Les liens de paiement
+  // emettent l'une ou l'autre selon leur age : on accepte les deux.
+  const ATTENDUS = ["PAYMENT.CAPTURE.COMPLETED", "PAYMENT.SALE.COMPLETED"];
+  if (!ATTENDUS.includes(evenement.event_type)) {
     return reponse(200, { ignore: evenement.event_type });
   }
 
   const res = evenement.resource ?? {};
-  const montant = Number(res.amount?.value ?? 0);
+  // « value » dans la forme actuelle, « total » dans l'ancienne
+  const montant = Number(res.amount?.value ?? res.amount?.total ?? 0);
   const payeur = await payeurPaypal(res);
   const ref = lireReference(payeur.custom);
 
