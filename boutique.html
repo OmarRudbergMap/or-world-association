@@ -611,6 +611,18 @@ h2.titre2{font-family:var(--titre);font-size:clamp(1.8rem,3.4vw,2.8rem);margin:0
 <style id="orw-pied-onglets">
 .trait-pied{height:1px;margin:.7rem 0;background:linear-gradient(90deg,rgba(167,139,250,.45),transparent);list-style:none}
 </style>
+<style>
+/* ---------- la Terre, a la taille de l'onglet OMAR INFOS ----------
+   meme Terre que l'onglet OMAR INFOS : la toile fait 135 % de la
+   hauteur de reference et descend de 6 %, exactement comme la-bas.
+   Sur telephone, on garde la Terre entiere posee en bas.           */
+@media (min-width:861px){
+  .scene-haut #carte-scene{
+    height:calc(1.35 * clamp(300px, 42vh, 460px));
+    inset:auto 0 calc(-0.06 * clamp(300px, 42vh, 460px)) 0;
+  }
+}
+</style>
 </head>
 <body>
 
@@ -932,7 +944,6 @@ h2.titre2{font-family:var(--titre);font-size:clamp(1.8rem,3.4vw,2.8rem);margin:0
           <li><a href="conditions.html" data-i18n="f.conditions"></a></li>
           <li><a href="conditions.html#commandes" data-i18n="f.politiqueboutique"></a></li>
           <li><a href="conditions.html#commandes" data-i18n="f.paiements"></a></li>
-          <li><a href="https://d11cc9-16.myshopify.com" target="_blank" rel="noopener" data-i18n="f.boutiqueomar"></a></li>
         </ul>
       </div>
       <div>
@@ -1290,5 +1301,6 @@ var BOUTIQUE_OUVERTE = false;
   else applique();
 })();
 </script>
+<script src="compte.js" defer></script>
 </body>
 </html>

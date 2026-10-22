@@ -12,6 +12,10 @@ const SUPABASE_CLE = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZ
 let db = null;
 if (window.supabase && window.supabase.createClient) {
   db = window.supabase.createClient(SUPABASE_URL, SUPABASE_CLE);
+  // Indispensable : « let » ne pose pas la variable sur window, et
+  // plusieurs pages verifient « window.db » avant de travailler.
+  // Sans cette ligne, elles croient toutes que la base est injoignable.
+  window.db = db;
 } else {
   console.warn("La bibliothèque Supabase n'a pas pu se charger.");
 }
@@ -39,10 +43,37 @@ async function ficheMembre(){
   return data;
 }
 
+// ---------------------------------------------------------------------
+//  Rattacher les adhesions payees avant la creation du compte.
+//  Une personne peut avoir regle sa cotisation, puis creer son compte
+//  plus tard, ou venir de l'ancien site. La base retrouve alors ses
+//  adhesions grace a son adresse e-mail et les accroche a son compte.
+//  L'operation ne fait que remplir une case vide, elle ne cree et ne
+//  supprime rien.
+// ---------------------------------------------------------------------
+let ORW_rattachementFait = false;
+
+async function rattacheMesAdhesions(){
+  if(ORW_rattachementFait || !db) return;
+  ORW_rattachementFait = true;
+  try{ await db.rpc("asso_rattacher_mes_adhesions"); }catch(e){}
+}
+
+// a la connexion, et a la creation du compte
+if(db && db.auth && db.auth.onAuthStateChange){
+  db.auth.onAuthStateChange(function(evenement){
+    if(evenement === "SIGNED_IN" || evenement === "USER_UPDATED"){
+      ORW_rattachementFait = false;
+      rattacheMesAdhesions();
+    }
+  });
+}
+
 // Les adhésions du membre connecté, de la plus récente à la plus ancienne.
 async function mesAdhesions(){
   const compte = await compteActuel();
   if(!compte) return [];
+  await rattacheMesAdhesions();
   const { data } = await db
     .from("asso_adhesions")
     .select("*")

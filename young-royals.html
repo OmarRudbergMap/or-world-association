@@ -708,6 +708,40 @@ html{scroll-behavior:smooth}
 <style id="orw-pied-onglets">
 .trait-pied{height:1px;margin:.7rem 0;background:linear-gradient(90deg,rgba(167,139,250,.45),transparent);list-style:none}
 </style>
+<style>
+/* ---------- Presse de la serie : une couleur par ligne ----------
+   le magazine et la date en turquoise, le titre en blanc,
+   le lien en rose, et le violet sur le filet et la bordure.      */
+#presse .art-yr{position:relative;overflow:hidden;padding-left:1.5rem;
+  border-color:rgba(167,139,250,.38);
+  background:linear-gradient(158deg,rgba(42,25,92,.5),rgba(8,9,32,.93))}
+
+/* le filet vertical, violet vers rose */
+#presse .art-yr::before{content:"";position:absolute;left:0;top:0;bottom:0;width:3px;
+  background:linear-gradient(180deg,#a78bfa,#e879f9)}
+
+/* un halo violet discret dans le coin */
+#presse .art-yr::after{content:"";position:absolute;right:-34px;top:-44px;
+  width:130px;height:130px;border-radius:50%;pointer-events:none;
+  background:radial-gradient(circle,rgba(167,139,250,.18),transparent 70%)}
+
+/* 1. le magazine et la date : turquoise */
+#presse .art-yr .src{color:#67e8f9}
+
+/* 2. le titre de l'article : blanc, avec une lueur violette */
+#presse .art-yr b{color:#ffffff;text-shadow:0 0 18px rgba(167,139,250,.5)}
+
+/* 3. le lien : rose */
+#presse .art-yr .lire{color:#e879f9}
+
+#presse .art-yr:hover{border-color:#a78bfa;
+  box-shadow:0 16px 36px rgba(124,58,237,.4),0 0 24px rgba(232,121,249,.28)}
+#presse .art-yr:hover .src{color:#9ff2ff}
+#presse .art-yr:hover .lire{color:#f7b5ff}
+
+/* les titres de saison, en violet clair */
+#presse .titre-ep{color:#c4b5fd}
+</style>
 </head>
 <body>
 
@@ -1414,7 +1448,6 @@ html{scroll-behavior:smooth}
           <li><a href="conditions.html" data-i18n="f.conditions"></a></li>
           <li><a href="conditions.html#commandes" data-i18n="f.politiqueboutique"></a></li>
           <li><a href="conditions.html#commandes" data-i18n="f.paiements"></a></li>
-          <li><a href="https://d11cc9-16.myshopify.com" target="_blank" rel="noopener" data-i18n="f.boutiqueomar"></a></li>
         </ul>
       </div>
       <div>
@@ -2316,5 +2349,6 @@ const CONTINENTS=[[[143.2,-12.0],[143.5,-13.1],[143.8,-14.3],[144.9,-14.7],[145.
   });
 })();
 </script>
+<script src="compte.js" defer></script>
 </body>
 </html>

@@ -173,6 +173,15 @@ async function traiteStripe(req: Request): Promise<Response> {
   }
 
   const evenement = JSON.parse(corps);
+
+  // Les evenements d'essai envoyes depuis le tableau de bord portent
+  // livemode: false. On les accueille poliment sans rien ecrire dans
+  // les adhesions : cela permet d'essayer la chaine sans salir les
+  // comptes de l'association.
+  if (evenement.livemode === false) {
+    return reponse(200, { essai: true, message: "chaine complete, rien ecrit" });
+  }
+
   if (evenement.type !== "checkout.session.completed") {
     return reponse(200, { ignore: evenement.type });
   }

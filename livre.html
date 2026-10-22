@@ -830,37 +830,37 @@ h2.titre2{font-family:var(--titre);font-size:clamp(1.8rem,3.4vw,2.8rem);margin:0
         <span class="rom">I</span>
         <b data-i18n="z008">Le commencement</b>
         <p data-i18n="z009">Comment avez-vous découvert Omar ? Une vidéo, une chanson, un épisode, une amie qui insiste…</p>
-        <button class="btn btn--fin" data-i18n="z010">Lire ce chapitre</button>
+        <button class="btn btn--fin" data-chap="0" data-i18n="z010">Lire ce chapitre</button>
       </article>
       <article class="chapitre">
         <span class="rom">II</span>
         <b data-i18n="z011">La musique</b>
         <p data-i18n="z012">La chanson qui vous a marquée, celle que vous mettez en boucle, celle qui vous fait pleurer.</p>
-        <button class="btn btn--fin" data-i18n="z010">Lire ce chapitre</button>
+        <button class="btn btn--fin" data-chap="1" data-i18n="z010">Lire ce chapitre</button>
       </article>
       <article class="chapitre">
         <span class="rom">III</span>
         <b data-i18n="z013">Les moments</b>
         <p data-i18n="z014">Un concert, une rencontre, un voyage, un message reçu un soir difficile.</p>
-        <button class="btn btn--fin" data-i18n="z010">Lire ce chapitre</button>
+        <button class="btn btn--fin" data-chap="2" data-i18n="z010">Lire ce chapitre</button>
       </article>
       <article class="chapitre">
         <span class="rom">IV</span>
         <b>L'impact</b>
         <p data-i18n="z015">Ce que sa musique et son parcours ont changé chez vous, ce qu'ils vous ont donné.</p>
-        <button class="btn btn--fin" data-i18n="z010">Lire ce chapitre</button>
+        <button class="btn btn--fin" data-chap="3" data-i18n="z010">Lire ce chapitre</button>
       </article>
       <article class="chapitre">
         <span class="rom">V</span>
         <b data-i18n="z016">La communauté</b>
         <p data-i18n="z017">Les amitiés nées grâce à lui, aux quatre coins du monde.</p>
-        <button class="btn btn--fin" data-i18n="z010">Lire ce chapitre</button>
+        <button class="btn btn--fin" data-chap="4" data-i18n="z010">Lire ce chapitre</button>
       </article>
       <article class="chapitre">
         <span class="rom">VI</span>
         <b data-i18n="z018">Les concerts</b>
         <p data-i18n="z019">Votre premier concert, la salle, la foule, le moment où sa voix a rempli l'espace. Ce que vous avez ressenti, et ce que vous en gardez.</p>
-        <button class="btn btn--fin" data-i18n="z010">Lire ce chapitre</button>
+        <button class="btn btn--fin" data-chap="5" data-i18n="z010">Lire ce chapitre</button>
       </article>
     </div>
   </div>
@@ -937,7 +937,7 @@ h2.titre2{font-family:var(--titre);font-size:clamp(1.8rem,3.4vw,2.8rem);margin:0
 
       <div class="barre-boutons">
         <button class="btn" id="h-envoyer">Envoyer mon histoire</button>
-        <button class="btn btn--fin" data-i18n="z034">Enregistrer un brouillon</button>
+        <button class="btn btn--fin" id="h-brouillon" data-i18n="z034">Enregistrer un brouillon</button>
       </div>
       <p class="mention" id="h-message" style="margin-top:.8rem"></p>
       <p class="mention demo" data-i18n="z035">Chaque histoire est relue avant publication. Les textes blessants ou hors sujet ne sont pas publiés.</p>
@@ -1007,7 +1007,6 @@ h2.titre2{font-family:var(--titre);font-size:clamp(1.8rem,3.4vw,2.8rem);margin:0
           <li><a href="conditions.html" data-i18n="f.conditions"></a></li>
           <li><a href="conditions.html#commandes" data-i18n="f.politiqueboutique"></a></li>
           <li><a href="conditions.html#commandes" data-i18n="f.paiements"></a></li>
-          <li><a href="https://d11cc9-16.myshopify.com" target="_blank" rel="noopener" data-i18n="f.boutiqueomar"></a></li>
         </ul>
       </div>
       <div>
@@ -1644,7 +1643,7 @@ const CONTINENTS=[[[143.2,-12.0],[143.5,-13.1],[143.8,-14.3],[144.9,-14.7],[145.
 </script>
 
 
-<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<script src="supabase.js"></script>
 <script src="config.js"></script>
 <script>
 /* =====================================================================
@@ -1766,6 +1765,321 @@ const CONTINENTS=[[[143.2,-12.0],[143.5,-13.1],[143.8,-14.3],[144.9,-14.7],[145.
   }
 
   function lancer(){ brancher(); charger(); }
+  if(document.readyState === "loading")
+    document.addEventListener("DOMContentLoaded", lancer);
+  else lancer();
+})();
+</script>
+<script src="compte.js" defer></script>
+
+<script>
+/* ===== Les boutons des chapitres mènent aux histoires ==============
+   « Lire ce chapitre » n'était relié à rien. Il emmène maintenant
+   jusqu'à la bibliothèque, avec le bon chapitre déjà sélectionné.  */
+(function(){
+  "use strict";
+  var VIDE = {
+    fr:"Aucune histoire dans ce chapitre pour l'instant. La vôtre peut être la première.",
+    en:"No story in this chapter yet. Yours could be the first.",
+    es:"Todavía no hay ninguna historia en este capítulo. La tuya puede ser la primera.",
+    sv:"Ingen berättelse i det här kapitlet än. Din kan bli den första.",
+    de:"Noch keine Geschichte in diesem Kapitel. Eure könnte die erste sein.",
+    pt:"Ainda não há nenhuma história neste capítulo. A sua pode ser a primeira."
+  };
+
+  function langue(){
+    var l = null;
+    try{ l = localStorage.getItem("orw-langue"); }catch(e){}
+    if(!l) l = (document.documentElement.lang || "fr").slice(0,2);
+    return VIDE[l] ? l : "fr";
+  }
+
+  function motVide(){
+    var grille = document.getElementById("histoires-grille");
+    if(!grille) return;
+    var p = document.getElementById("livre-vide");
+    var visible = Array.prototype.slice.call(grille.querySelectorAll(".histoire"))
+      .some(function(c){ return c.style.display !== "none"; });
+    if(visible){ if(p) p.remove(); return; }
+    if(!p){
+      p = document.createElement("p");
+      p.id = "livre-vide";
+      p.className = "mention";
+      p.style.gridColumn = "1 / -1";
+      p.style.textAlign = "center";
+      p.style.padding = "2rem 0";
+      grille.appendChild(p);
+    }
+    p.textContent = VIDE[langue()];
+  }
+
+  document.addEventListener("click", function(e){
+    var b = e.target && e.target.closest ? e.target.closest(".chapitre button[data-chap]") : null;
+    if(!b) return;
+    var i = parseInt(b.getAttribute("data-chap"), 10);
+    var filtres = document.querySelectorAll("#filtres-histoires .filtre");
+    if(filtres[i + 1]) filtres[i + 1].click();
+    var cible = document.getElementById("bibliotheque");
+    if(cible) cible.scrollIntoView({ behavior: "smooth", block: "start" });
+    setTimeout(motVide, 60);
+  });
+
+  /* le message s'efface dès qu'on change de filtre */
+  document.addEventListener("click", function(e){
+    if(e.target && e.target.closest && e.target.closest("#filtres-histoires")){
+      setTimeout(motVide, 60);
+    }
+  });
+})();
+</script>
+
+<script>
+/* ===== Le brouillon d'une page du livre ============================
+   Enregistre sur le compte de la personne, donc retrouvable depuis
+   n'importe quel appareil. Tant qu'elle n'a pas de compte, le texte
+   est garde sur place pour ne rien perdre, et remonte tout seul des
+   qu'elle se connecte.                                              */
+(function(){
+  "use strict";
+  var CLE = "orw-livre-brouillon";
+
+  var MOTS = {
+    fr:{garde:"Brouillon enregistré sur votre compte. Vous pourrez le reprendre depuis n'importe quel appareil.",
+        gardeIci:"Brouillon gardé sur cet appareil seulement. ",
+        creer:"Créez votre compte pour le retrouver partout.",
+        rien:"Il n'y a rien à enregistrer pour l'instant.",
+        souci:"Le brouillon n'a pas pu être enregistré. Réessayez dans un instant.",
+        repris:"Brouillon repris. ",
+        effacer:"Effacer le brouillon",
+        efface:"Brouillon effacé.",
+        aideOui:"Votre brouillon est enregistré sur votre compte : vous pouvez fermer la page et le reprendre depuis un autre téléphone ou un autre ordinateur.",
+        aideNon:"Créez votre compte pour enregistrer un brouillon et le retrouver depuis n'importe quel appareil."},
+    en:{garde:"Draft saved to your account. You can pick it up again from any device.",
+        gardeIci:"Draft saved on this device only. ",
+        creer:"Create your account to find it everywhere.",
+        rien:"There is nothing to save yet.",
+        souci:"The draft could not be saved. Please try again in a moment.",
+        repris:"Draft restored. ",
+        effacer:"Delete the draft",
+        efface:"Draft deleted.",
+        aideOui:"Your draft is saved to your account: you can close the page and pick it up from another phone or computer.",
+        aideNon:"Create your account to save a draft and find it again from any device."},
+    es:{garde:"Borrador guardado en tu cuenta. Podrás retomarlo desde cualquier dispositivo.",
+        gardeIci:"Borrador guardado solo en este dispositivo. ",
+        creer:"Crea tu cuenta para encontrarlo en todas partes.",
+        rien:"Todavía no hay nada que guardar.",
+        souci:"El borrador no se ha podido guardar. Inténtalo de nuevo dentro de un momento.",
+        repris:"Borrador recuperado. ",
+        effacer:"Borrar el borrador",
+        efface:"Borrador borrado.",
+        aideOui:"Tu borrador está guardado en tu cuenta: puedes cerrar la página y retomarlo desde otro teléfono u ordenador.",
+        aideNon:"Crea tu cuenta para guardar un borrador y encontrarlo desde cualquier dispositivo."},
+    sv:{garde:"Utkastet sparat på ditt konto. Du kan fortsätta från vilken enhet som helst.",
+        gardeIci:"Utkastet sparat endast på den här enheten. ",
+        creer:"Skapa ditt konto för att hitta det överallt.",
+        rien:"Det finns inget att spara än.",
+        souci:"Utkastet kunde inte sparas. Försök igen om en stund.",
+        repris:"Utkastet återställt. ",
+        effacer:"Radera utkastet",
+        efface:"Utkastet raderat.",
+        aideOui:"Ditt utkast sparas på ditt konto: du kan stänga sidan och fortsätta från en annan telefon eller dator.",
+        aideNon:"Skapa ditt konto för att spara ett utkast och hitta det från vilken enhet som helst."},
+    de:{garde:"Entwurf in eurem Konto gespeichert. Ihr könnt ihn von jedem Gerät aus fortsetzen.",
+        gardeIci:"Entwurf nur auf diesem Gerät gespeichert. ",
+        creer:"Legt euer Konto an, um ihn überall wiederzufinden.",
+        rien:"Es gibt noch nichts zu speichern.",
+        souci:"Der Entwurf konnte nicht gespeichert werden. Versucht es gleich noch einmal.",
+        repris:"Entwurf wiederhergestellt. ",
+        effacer:"Entwurf löschen",
+        efface:"Entwurf gelöscht.",
+        aideOui:"Euer Entwurf liegt in eurem Konto: ihr könnt die Seite schließen und von einem anderen Handy oder Rechner weiterschreiben.",
+        aideNon:"Legt euer Konto an, um einen Entwurf zu speichern und ihn von jedem Gerät aus wiederzufinden."},
+    pt:{garde:"Rascunho guardado na sua conta. Poderá retomá-lo a partir de qualquer aparelho.",
+        gardeIci:"Rascunho guardado apenas neste aparelho. ",
+        creer:"Crie a sua conta para o encontrar em todo o lado.",
+        rien:"Ainda não há nada para guardar.",
+        souci:"Não foi possível guardar o rascunho. Tente novamente daqui a pouco.",
+        repris:"Rascunho recuperado. ",
+        effacer:"Apagar o rascunho",
+        efface:"Rascunho apagado.",
+        aideOui:"O seu rascunho fica guardado na sua conta: pode fechar a página e retomá-lo noutro telemóvel ou computador.",
+        aideNon:"Crie a sua conta para guardar um rascunho e encontrá-lo a partir de qualquer aparelho."}
+  };
+
+  function mots(){
+    var l = null;
+    try{ l = localStorage.getItem("orw-langue"); }catch(e){}
+    if(!l) l = (document.documentElement.lang || "fr").slice(0,2);
+    return MOTS[l] || MOTS.fr;
+  }
+  function el(i){ return document.getElementById(i); }
+  function zone(){ return el("h-message"); }
+  function dire(t, bon){
+    var m = zone();
+    if(!m) return;
+    m.textContent = t;
+    m.style.color = bon ? "var(--cyan, #67e8f9)" : "var(--rose, #f0a4c8)";
+  }
+
+  var MOI = null;
+
+  async function qui(){
+    if(!window.db) return null;
+    try{ var u = await db.auth.getUser(); return u.data ? u.data.user : null; }
+    catch(e){ return null; }
+  }
+
+  function lis(){
+    return {
+      pseudo: (el("h-nom")||{}).value || "",
+      pays: (el("h-pays")||{}).value || "",
+      chapitre: el("h-chapitre") ? el("h-chapitre").selectedIndex : 0,
+      texte: (el("h-texte")||{}).value || "",
+      publication: !!(el("h-publication")||{}).checked,
+      relecture: !!(el("h-relecture")||{}).checked,
+      mineur: !!(el("h-mineur")||{}).checked
+    };
+  }
+
+  function pose(d){
+    if(!d) return;
+    if(el("h-nom"))   el("h-nom").value   = d.pseudo || "";
+    if(el("h-pays"))  el("h-pays").value  = d.pays || "";
+    if(el("h-texte")) el("h-texte").value = d.texte || "";
+    if(el("h-chapitre") && typeof d.chapitre === "number")
+      el("h-chapitre").selectedIndex = d.chapitre;
+    if(el("h-publication")) el("h-publication").checked = !!d.publication;
+    if(el("h-relecture"))   el("h-relecture").checked   = !!d.relecture;
+    if(el("h-mineur"))      el("h-mineur").checked      = !!d.mineur;
+    var cs = el("compteur-signes");
+    if(cs && el("h-texte")) cs.textContent = el("h-texte").value.length + " signes";
+  }
+
+  function localLis(){
+    try{ return JSON.parse(localStorage.getItem(CLE) || "null"); }catch(e){ return null; }
+  }
+  function localEcris(d){ try{ localStorage.setItem(CLE, JSON.stringify(d)); }catch(e){} }
+  function localEfface(){ try{ localStorage.removeItem(CLE); }catch(e){} }
+
+  async function efface(){
+    localEfface();
+    var n = el("note-brouillon"); if(n) n.remove();
+    if(MOI && window.db){
+      try{ await db.from("asso_brouillons").delete().eq("membre", MOI.id); }catch(e){}
+    }
+  }
+
+  async function garde(){
+    var d = lis();
+    if(!d.pseudo && !d.pays && !d.texte){ dire(mots().rien, false); return; }
+
+    if(!MOI){
+      localEcris(d);
+      var m = zone();
+      if(m){
+        m.style.color = "var(--cyan, #67e8f9)";
+        m.textContent = mots().gardeIci;
+        var a = document.createElement("a");
+        a.href = "connexion.html?retour=livre.html";
+        a.textContent = mots().creer;
+        a.style.textDecoration = "underline";
+        m.appendChild(a);
+      }
+      return;
+    }
+
+    try{
+      d.membre = MOI.id;
+      d.modifie_le = new Date().toISOString();
+      var r = await db.from("asso_brouillons").upsert(d, { onConflict: "membre" });
+      if(r.error){ dire(mots().souci, false); return; }
+      localEfface();
+      dire(mots().garde, true);
+    }catch(e){ dire(mots().souci, false); }
+  }
+
+  function noteReprise(){
+    var m = zone();
+    if(!m || el("note-brouillon")) return;
+    m.textContent = "";
+    m.style.color = "var(--cyan, #67e8f9)";
+    var p = document.createElement("span");
+    p.id = "note-brouillon";
+    p.textContent = mots().repris;
+    var a = document.createElement("a");
+    a.href = "#";
+    a.textContent = mots().effacer;
+    a.style.textDecoration = "underline";
+    a.addEventListener("click", async function(e){
+      e.preventDefault();
+      ["h-nom","h-pays","h-texte"].forEach(function(i){ if(el(i)) el(i).value = ""; });
+      ["h-publication","h-relecture","h-mineur"].forEach(function(i){ if(el(i)) el(i).checked = false; });
+      var cs = el("compteur-signes"); if(cs) cs.textContent = "0 signe";
+      await efface();
+      dire(mots().efface, true);
+    });
+    p.appendChild(a);
+    m.appendChild(p);
+  }
+
+  async function reprend(){
+    if(MOI && window.db){
+      var d = null;
+      try{
+        var r = await db.from("asso_brouillons").select("*").eq("membre", MOI.id).maybeSingle();
+        d = r.data || null;
+      }catch(e){}
+
+      /* un brouillon commence avant la creation du compte remonte tout seul */
+      if(!d){
+        var local = localLis();
+        if(local){
+          local.membre = MOI.id;
+          try{ await db.from("asso_brouillons").upsert(local, { onConflict: "membre" }); }catch(e){}
+          localEfface();
+          d = local;
+        }
+      }
+      if(d){ pose(d); noteReprise(); }
+      return;
+    }
+    var seul = localLis();
+    if(seul){ pose(seul); noteReprise(); }
+  }
+
+  function explique(){
+    var b = el("h-brouillon");
+    if(!b) return;
+    var p = el("note-appareil");
+    if(!p){
+      p = document.createElement("p");
+      p.id = "note-appareil";
+      p.className = "mention";
+      p.style.margin = ".7rem 0 0";
+      var barre = b.parentNode;
+      if(barre && barre.parentNode) barre.parentNode.insertBefore(p, barre.nextSibling);
+    }
+    p.textContent = MOI ? mots().aideOui : mots().aideNon;
+  }
+
+  async function lancer(){
+    MOI = await qui();
+
+    var b = el("h-brouillon");
+    if(b) b.addEventListener("click", function(e){ e.preventDefault(); garde(); });
+
+    var env = el("h-envoyer");
+    if(env) env.addEventListener("click", function(){
+      setTimeout(function(){
+        var t = el("h-texte");
+        if(t && t.value === "") efface();
+      }, 2500);
+    });
+
+    explique();
+    await reprend();
+  }
+
   if(document.readyState === "loading")
     document.addEventListener("DOMContentLoaded", lancer);
   else lancer();
