@@ -17,11 +17,28 @@
     var ETOILE = reglages.forme === "etoile";
     var x = toile.getContext("2d");
     var L = 0, H = 0, dpr = 1, points = [], max = 1, anim = null, survol = -1;
+    /* Le rectangle ou la carte est reellement dessinee. Il garde
+       toujours les memes proportions : 360 degres de longitude pour
+       136 de latitude. Le reste de la toile demeure en ciel de nuit.
+       Sans cela, un ecran etroit ecrase les continents. */
+    var MX = 0, MY = 0, ML = 0, MH = 0, ech = 1;
+    var RATIO = 360 / (LAT_HAUT - LAT_BAS);
+
+    function cadre() {
+      if (L / H > RATIO) { MH = H; ML = H * RATIO; }
+      else { ML = L; MH = L / RATIO; }
+      MX = (L - ML) / 2;
+      MY = (H - MH) / 2;
+      /* Sur un petit ecran, des astres a la taille du grand ecran
+         mangeraient la carte : ils retrecissent avec elle. */
+      ech = Math.max(.55, Math.min(1, ML / 820));
+    }
+
 
     function projette(la, lo) {
       return [
-        (lo + 180) / 360 * L,
-        (LAT_HAUT - la) / (LAT_HAUT - LAT_BAS) * H
+        MX + (lo + 180) / 360 * ML,
+        MY + (LAT_HAUT - la) / (LAT_HAUT - LAT_BAS) * MH
       ];
     }
 
@@ -32,6 +49,8 @@
       toile.width = L * dpr;
       toile.height = H * dpr;
       x.setTransform(dpr, 0, 0, dpr, 0, 0);
+      cadre();
+      trace = null;
       place();
     }
 
@@ -48,7 +67,7 @@
           code: pays[k].pays,
           vues: pays[k].vues,
           x: p[0], y: p[1],
-          r: (ETOILE ? 5.2 : 2.6) + (ETOILE ? 9 : 13) * Math.sqrt(pays[k].vues / max),
+          r: ((ETOILE ? 5.2 : 2.6) + (ETOILE ? 9 : 13) * Math.sqrt(pays[k].vues / max)) * ech,
           c: COUL[k % COUL.length],
           ph: (k * 1.7) % 6.28
         });
@@ -159,6 +178,8 @@
     }
 
     toile.addEventListener("mousemove", vise);
+    /* Sur telephone il n'y a pas de survol : une tape montre l'infobulle. */
+    toile.addEventListener("click", vise);
     toile.addEventListener("mouseleave", function () {
       survol = -1;
       toile.style.cursor = "default";
