@@ -359,13 +359,13 @@ body.fm-bloque{overflow:hidden}
 .fm-chanson b{font-weight:500;font-size:.94rem;letter-spacing:.02em;flex:1;min-width:0}
 .fm-chanson .fm-nb{flex:0 0 auto;font-size:.74rem;color:var(--gris)}
 .fm-chanson .fm-nb i{font-style:normal;font-weight:600;color:var(--violet-clair)}
-.fm-chanson:hover:not(:disabled){border-color:rgba(103,232,249,.55);transform:translateY(-2px)}
+@media (hover:hover){.fm-chanson:hover:not(:disabled){border-color:rgba(103,232,249,.55);transform:translateY(-2px)}}
 .fm-chanson:disabled{cursor:default;opacity:.75}
 .fm-chanson.choisie{border-color:var(--rose);background:rgba(232,121,249,.14);box-shadow:0 0 22px rgba(232,121,249,.25)}
-.fm-chanson.choisie b{color:#fff}
+.fm-chanson.choisie b{color:#fff}.fm-chanson.choisie b::before{content:"\2713\00a0";color:var(--rose);font-weight:700}
 .fm-chanson.choisie .fm-nb i{color:var(--rose)}
 /* les quatre chansons en tete du vote */
-.fm-chanson.tete{border-color:rgba(103,232,249,.5);box-shadow:0 0 18px rgba(103,232,249,.16)}
+.fm-chanson.tete .fm-nb::before{content:"\2605\00a0";color:#67e8f9}
 .fm-chanson.tete .fm-nb i{color:#67e8f9}
 .fm-vote-etat{min-height:1.2rem;font-size:.92rem;color:var(--cyan)}
 .fm-vote-etat a{color:var(--rose);text-decoration:underline}
@@ -2142,6 +2142,7 @@ if(SCENE){
 
   async function cliqueChanson(b){
     var e = document.getElementById("fmVoteEtat");
+    var souci = null;
     var c = b.getAttribute("data-c");
     if(!VOTE_OUVERT) return;
     if(!MOI){
@@ -2158,12 +2159,14 @@ if(SCENE){
             .eq("user_id", MOI.id).eq("chanson", c).eq("jour", jourDuVote())
         : await db.from("asso_votes_chansons")
             .insert({ user_id: MOI.id, chanson: c, jour: jourDuVote() });
-      if(r.error){ if(e) e.textContent = T("f2.v.err"); }
+      if(r.error){ souci = T("f2.v.err") + (r.error.message ? " (" + r.error.message + ")" : ""); }
       else { if(pris) MES_VOTES.splice(MES_VOTES.indexOf(c),1); else MES_VOTES.push(c); }
-    }catch(x){ if(e) e.textContent = T("f2.v.err"); }
+    }catch(x){ souci = T("f2.v.err") + (x && x.message ? " (" + x.message + ")" : ""); }
     b.disabled = false;
     majVote();
     totaux();
+    /* majVote vient de reecrire la ligne : on y remet l'erreur, sinon elle disparait avant d'avoir ete lue. */
+    if(souci && e) e.textContent = souci;
   }
 
   /* ================================================================
