@@ -1,7 +1,11 @@
 /* Extraits de paroles — fichier produit par outil-paroles.html */
-/* 52 chansons · 08/10/2026 */
+/* 56 chansons · 07/11/2026 */
 
 window.PAROLES = {
+  "Mirage": "Why don't you take me away?\nI'd do whatever for you love\nAm I delusional or is it mutual?\nOh, I swear you're looking too good to be true\nMirage",
+  "Slow Dancer": "Slow dancer, take my hand and guide me step by step\nLet's go easy now, don't hold your breath\nSlow dancer, pull me close and hold me by the waist\nLead the way\nlead the way",
+  "Could've Been Love": "Saw you with somebody\nNo point telling me you're sorry\nYou don't mind playing me like another hobby\nI think it's finally time that we pack it up",
+  "Pop My Adrenaline": "I'm a wrapped-up present\nin your presence, every night\nlike I'm a birthday boy",
   "Careless": "Omar, please don't do it, don't be careless\nWhen I make out with my friends they call\nme careless\nThey say, \"Honey, there's no reason to be jealous\nI don't care if they care that I don't care\nI only care about you, you",
   "Siren (feat. Felix Jaehn)": "First i'm lost in your eyes\nAnd that ain't safe for me\nI try to run, try to hide\nBut that ain't meant to be\n​\nTemps me, you tease me\nSo selfish\nTrap me, release me\nAs you wish\nGot me sweating, got me begging\nOn my knees for it\n'Cause you poison is toying with my mind",
   "A World Like This": "I was born in Venezuela, I was a happy kid\nBut then my mother and I moved to another country\nShe got a man, she did it all for me\nSo I helped my mother write her emails in Swedish",
