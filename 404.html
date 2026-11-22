@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Page introuvable · O.R. World Association</title>
+<!-- version : 404-001 -->
+<meta name="robots" content="noindex, follow">
+<link rel="icon" href="icone-32.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:opsz,wght@6..96,400;6..96,500&family=Jost:wght@200;300;400&display=swap" rel="stylesheet">
+<style>
+:root{
+  --noir:#050a24; --violet:#7c3aed; --violet-clair:#a78bfa; --rose:#e879f9;
+  --bleu:#5b8dff; --blanc:#f4efff; --gris:#a9a2c6; --bord:rgba(140,150,235,.20);
+}
+*{box-sizing:border-box}
+html,body{height:100%}
+body{margin:0;background:
+    radial-gradient(55% 40% at 50% 6%, rgba(70,120,240,.26), transparent 74%),
+    radial-gradient(48% 36% at 84% 22%, rgba(110,55,215,.20), transparent 74%),
+    linear-gradient(180deg,#0d1a4a,#0a1338 46%,#070f2c 74%,var(--noir));
+  color:var(--blanc);font-family:"Jost",system-ui,sans-serif;font-weight:300;
+  display:flex;align-items:center;justify-content:center;padding:2rem}
+.boite{max-width:560px;text-align:center}
+.boite img{height:64px;width:auto;margin-bottom:1.8rem;
+  filter:drop-shadow(0 0 12px rgba(167,139,250,.75))}
+h1{font-family:"Bodoni Moda",Georgia,serif;font-weight:400;
+  font-size:clamp(1.7rem,5vw,2.4rem);margin:0 0 .8rem}
+p{color:var(--gris);line-height:1.65;margin:0 0 1.6rem}
+.btn{display:inline-flex;align-items:center;gap:.5rem;padding:.78rem 1.7rem;
+  border:1px solid rgba(167,139,250,.6);border-radius:999px;
+  background:linear-gradient(120deg,rgba(91,141,255,.45),rgba(232,121,249,.4));
+  color:#fff;font-size:.9rem;letter-spacing:.04em;text-decoration:none;
+  transition:box-shadow .3s,transform .3s}
+.btn:hover{box-shadow:0 0 30px rgba(140,160,255,.6);transform:translateY(-2px)}
+.liens{margin-top:1.8rem;font-size:.85rem}
+.liens a{color:var(--violet-clair);text-decoration:none;margin:0 .5rem}
+.liens a:hover{text-decoration:underline}
+</style>
+</head>
+<body>
+
+<div class="boite">
+  <img src="logo-or-world-lumineux.png" alt="O.R. World Association">
+  <h1 id="t">Cette page a déménagé</h1>
+  <p id="s">Le site a été entièrement refait. La page que vous cherchiez n'existe plus sous cette adresse, mais tout le contenu est toujours là.</p>
+  <a class="btn" href="index.html" id="b">Aller à l'accueil</a>
+  <p class="liens">
+    <a href="dance.html">Flashmob</a><a href="radio-day.html">Radio Day</a><a href="musique.html">Musique</a><a href="association.html">L'association</a><a href="contact.html">Contact</a>
+  </p>
+</div>
+
+<script>
+/* ---------------------------------------------------------------------
+   L'ancien site vivait sur les memes adresses mais avec d'autres noms de
+   pages. Google en garde encore la liste, et il y envoie des visiteurs.
+   Plutot que de les laisser devant une page vide, on les conduit a la
+   page qui a pris la suite.
+   --------------------------------------------------------------------- */
+var SUITE = {
+  "all-songs":"musique.html",     "event":"evenements.html",
+  "events":"evenements.html",     "faq":"faq.html",
+  "journal":"journal.html",       "blog":"journal.html",
+  "legal-notice":"mentions-legales.html",
+  "payment":"adhesion.html",      "membership":"adhesion.html",
+  "shoot-2024":"presse.html",     "press":"presse.html",
+  "shop":"boutique.html",         "store":"boutique.html",
+  "store-policy":"conditions.html","terms":"conditions.html",
+  "privacy":"confidentialite.html","cookies":"cookies.html",
+  "about":"association.html",     "association":"association.html",
+  "contact":"contact.html",       "members":"membres.html",
+  "member":"membres.html",        "community":"communaute.html",
+  "music":"musique.html",         "songs":"musique.html",
+  "concerts":"concerts.html",     "tour":"concerts.html",
+  "book":"livre.html",            "dance":"dance.html",
+  "flashmob":"dance.html",        "radio":"radio-day.html",
+  "radio-day":"radio-day.html",   "login":"connexion.html",
+  "account":"espace.html",        "home":"index.html"
+};
+
+(function(){
+  var chemin = location.pathname.replace(/^\/+|\/+$/g,"").toLowerCase();
+  var cle = chemin.split("/").pop().replace(/\.html?$/,"");
+  if (SUITE[cle]) { location.replace(SUITE[cle]); return; }
+
+  /* Pas de correspondance : on explique, dans la langue du visiteur. */
+  var MOTS = {
+    fr:["Cette page a déménagé","Le site a été entièrement refait. La page que vous cherchiez n'existe plus sous cette adresse, mais tout le contenu est toujours là.","Aller à l'accueil"],
+    en:["This page has moved","The site has been completely rebuilt. The page you were looking for no longer exists at this address, but everything is still here.","Go to the home page"],
+    es:["Esta página se ha mudado","El sitio se ha rehecho por completo. La página que buscaba ya no existe en esta dirección, pero todo el contenido sigue aquí.","Ir al inicio"],
+    sv:["Den här sidan har flyttat","Webbplatsen är helt ombyggd. Sidan du sökte finns inte längre på den här adressen, men allt innehåll finns kvar.","Gå till startsidan"],
+    de:["Diese Seite ist umgezogen","Die Website wurde vollständig neu gebaut. Die gesuchte Seite gibt es unter dieser Adresse nicht mehr, aber alle Inhalte sind weiterhin da.","Zur Startseite"],
+    pt:["Esta página mudou","O site foi totalmente refeito. A página que procurava já não existe neste endereço, mas todo o conteúdo continua aqui.","Ir para a página inicial"]
+  };
+  var c = "fr";
+  try { c = localStorage.getItem("orw-langue") || (navigator.language||"fr").slice(0,2); } catch(e){}
+  var m = MOTS[c] || MOTS.en;
+  document.documentElement.lang = MOTS[c] ? c : "en";
+  document.getElementById("t").textContent = m[0];
+  document.getElementById("s").textContent = m[1];
+  document.getElementById("b").textContent = m[2];
+})();
+</script>
+
+</body>
+</html>
